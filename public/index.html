@@ -138,6 +138,25 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .page-btn:disabled{opacity:0.25;cursor:default}
 .page-info{font-size:12px;color:#666}
 
+/* ── 卡片点击展开面板 ── */
+.card{cursor:pointer;-webkit-user-select:none;user-select:none}
+.card:active{opacity:0.8}
+.expand-hint{font-size:11px;color:#3a3a50;text-align:right;margin-top:6px;transition:color 0.2s}
+.card:hover .expand-hint{color:#555}
+.card[aria-expanded="true"] .expand-hint{color:#6366f1}
+.expand-hint-arrow{display:inline-block;transition:transform 0.25s}
+.card[aria-expanded="true"] .expand-hint-arrow{transform:rotate(180deg)}
+
+.card-detail{overflow:hidden;max-height:0;transition:max-height 0.35s ease}
+.card-detail.open{max-height:700px}
+.detail-inner{padding:0 14px 14px;border-top:1px solid rgba(255,255,255,0.06);padding-top:12px}
+.detail-row{margin-bottom:11px}
+.detail-label{font-size:10px;font-weight:700;color:#888;letter-spacing:0.5px;margin-bottom:3px;text-transform:uppercase}
+.detail-content{font-size:13px;color:#c4c4d0;line-height:1.55}
+.detail-placeholder{font-size:12px;color:#555;padding:4px 0 8px}
+.detail-link{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:12px;color:#818cf8;text-decoration:none;padding:7px 16px;border:1px solid rgba(99,102,241,0.25);border-radius:10px;background:rgba(99,102,241,0.07);transition:background 0.15s}
+.detail-link:hover{background:rgba(99,102,241,0.15)}
+
 .footer{text-align:center;font-size:11px;color:#2a2a38;padding:20px 16px calc(16px + env(safe-area-inset-bottom,0px))}
 .bottom-space{height:calc(20px + env(safe-area-inset-bottom,0px))}
 </style>
@@ -467,10 +486,12 @@ function renderCard(item) {
   const cardTitle = escHtml(problem);
   // 当 problem 是「产品名」兜底格式时，eng-title 重复展示产品名，无意义 → 隐藏
   const showEngTitle = !problem.startsWith('「');
+  const eid = escHtml(item.id);
   return `
-  <div class="card-wrap ${scoreClass(sc)}${isRead?' is-read':''}" data-cid="${escHtml(item.id)}">
-    <a class="card" href="${escHtml(safeUrl(item.url))}" target="_blank" rel="noopener"
-       aria-label="${cardTitle}，来源 ${escHtml(item.sourceLabel||'')}，点击查看原文">
+  <div class="card-wrap ${scoreClass(sc)}${isRead?' is-read':''}" data-cid="${eid}">
+    <div class="card" role="button" tabindex="0" aria-expanded="false"
+         onclick="toggleExpand('${eid}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleExpand('${eid}')}"
+         aria-label="${cardTitle}，来源 ${escHtml(item.sourceLabel||'')}，点击展开深度分析">
       <div class="card-top">
         <div class="source-row">
           <div class="dot ${dotClass(item.source, item.sourceLabel)}" aria-hidden="true"></div>
@@ -493,16 +514,50 @@ function renderCard(item) {
           <span class="sig-desc">${escHtml(soloReason)}</span>
         </div>
       </div>
-    </a>
+      <div class="expand-hint">深度拆解 <span class="expand-hint-arrow">↓</span></div>
+    </div>
+    <div class="card-detail" id="detail-${eid}">
+      <div class="detail-inner">${renderDetail(item)}</div>
+    </div>
     <div class="card-actions">
-      <button class="action-btn action-bk${isBk?' starred':''}" data-bk="${escHtml(item.id)}"
+      <button class="action-btn action-bk${isBk?' starred':''}" data-bk="${eid}"
         aria-label="${isBk?'取消收藏':'收藏这条创意'}"
-        onclick="toggleBookmark('${escHtml(item.id)}',event)">${isBk?'★ 已收藏':'☆ 收藏'}</button>
+        onclick="toggleBookmark('${eid}',event)">${isBk?'★ 已收藏':'☆ 收藏'}</button>
       <button class="action-btn action-rd sep${isRead?' done':''}"
         aria-label="${isRead?'标记为未读':'标记为已读'}"
-        onclick="toggleRead('${escHtml(item.id)}',event)">${isRead?'✓ 已读':'○ 标为已读'}</button>
+        onclick="toggleRead('${eid}',event)">${isRead?'✓ 已读':'○ 标为已读'}</button>
     </div>
   </div>`;
+}
+
+function detailRow(label, content) {
+  if (!content) return '';
+  return `<div class="detail-row"><div class="detail-label">${label}</div><div class="detail-content">${escHtml(content)}</div></div>`;
+}
+
+function renderDetail(item) {
+  const url = escHtml(safeUrl(item.url));
+  const src = escHtml(item.sourceLabel || '原文');
+  if (!item.targetUsers) {
+    // 旧数据（无 AI 分析）：展示原有信号 + 原文链接
+    return `<div class="detail-placeholder">AI 深度分析将在下次更新后生成</div>
+      <a href="${url}" target="_blank" rel="noopener" class="detail-link">查看 ${src} 原文 →</a>`;
+  }
+  return detailRow('🎯 目标用户', item.targetUsers)
+    + detailRow('🥊 竞品痛点', item.competitors)
+    + detailRow('🇨🇳 中国空缺', item.chinaGap)
+    + detailRow('🛠 最小 MVP', item.mvp)
+    + detailRow('🚀 冷启动路径', item.coldStart)
+    + `<a href="${url}" target="_blank" rel="noopener" class="detail-link">查看 ${src} 原文 →</a>`;
+}
+
+function toggleExpand(id) {
+  const detail = document.getElementById('detail-' + id);
+  if (!detail) return;
+  const card = detail.previousElementSibling;
+  const isOpen = detail.classList.contains('open');
+  detail.classList.toggle('open', !isOpen);
+  if (card) card.setAttribute('aria-expanded', String(!isOpen));
 }
 
 function renderBookmarks() {

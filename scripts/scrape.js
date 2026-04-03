@@ -254,6 +254,55 @@ function analyzeProduct(title, desc, mrr) {
   return { problem, chinaFit, chinaReason, soloFit, soloReason };
 }
 
+// ─── Claude AI 深度拆解（每条新数据调用一次）─────────────────────────────
+async function analyzeWithClaude(title, desc, mrr) {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) return null;
+
+  const prompt = `分析这个海外SaaS/工具产品，判断其在中国市场的复制机会。全部用中文简洁回答。
+
+产品名：${title}
+描述：${desc || '无详细描述'}
+${mrr ? `月收入：${mrr}` : ''}
+
+只返回 JSON，不要其他内容：
+{
+  "problem": "一句话说清解决了谁的什么问题（20字内，具体不泛指）",
+  "targetUsers": "目标用户群（2-3类，逗号分隔）",
+  "competitors": "国内外主要竞品及其弱点（30字内）",
+  "chinaGap": "国内市场具体空缺在哪（25字内）",
+  "mvp": "最小可验证产品方案（25字内）",
+  "coldStart": "第一批用户从哪来（25字内）",
+  "chinaFit": "high、mid 或 low 之一",
+  "chinaReason": "中国可行性一句话（15字内）",
+  "soloFit": "yes、maybe 或 hard 之一",
+  "soloReason": "一人可行性一句话（15字内）"
+}`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 450,
+        messages: [{ role: 'user', content: prompt }],
+      }),
+    });
+    if (!res.ok) { console.error('[Claude] API error:', res.status); return null; }
+    const data = await res.json();
+    const text = data.content?.[0]?.text || '';
+    const match = text.match(/\{[\s\S]*\}/);
+    if (!match) return null;
+    const json = JSON.parse(match[0]);
+    return json.problem ? json : null;
+  } catch (e) { console.error('[Claude] error:', e.message); return null; }
+}
+
 // ─── Product Hunt RSS (Atom) ──────────────────────────────────────────────
 async function fetchProductHunt() {
   try {
@@ -284,6 +333,7 @@ async function fetchProductHunt() {
         id: `ph-${Buffer.from(url).toString('base64').slice(0,16)}`,
         title: fixTitle(title), score, scoreReason: reason,
         ...analysis,
+        desc: desc.slice(0, 300),
         url, source: 'producthunt', sourceLabel: 'Product Hunt',
         category: detectCategory(title + ' ' + desc),
         fetchedAt: new Date().toISOString(), dateKey,
@@ -328,6 +378,7 @@ async function fetchTrustMRR() {
         id: `tmrr-${Buffer.from(p).toString('base64').slice(0,16)}`,
         title, score, scoreReason: reason,
         ...analysis,
+        desc: mrr ? `verified mrr ${mrr}` : '',
         url: `https://trustmrr.com${p}`,
         source: 'trustmrr', sourceLabel: 'TrustMRR',
         mrr, category: detectCategory(title),
@@ -395,6 +446,7 @@ async function fetchReddit() {
           id: `reddit-${post.id}`,
           title, score, scoreReason: reason,
           ...analysis,
+          desc: desc.slice(0, 300),
           mrr: mrrStr,
           url, source: 'reddit', sourceLabel: `r/${sub}`,
           redditScore: post.score,
@@ -443,6 +495,7 @@ async function fetchHackerNews() {
         id: `hn-${item.id}`,
         title, score, scoreReason: reason,
         ...analysis,
+        desc: desc.slice(0, 300),
         url: item.url, source: 'hackernews', sourceLabel: 'Hacker News',
         hnScore: item.score,
         category: detectCategory(title + ' ' + desc),
@@ -465,6 +518,22 @@ async function fetchHackerNews() {
 
   let existing = [];
   try { existing = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8')); } catch (_) {}
+
+  // 只对全新条目做 Claude 深度分析，避免重复消耗 API
+  const existingIds = new Set(existing.map(i => i.id));
+  const brandNew = newItems.filter(i => !existingIds.has(i.id));
+  const hasApiKey = !!process.env.ANTHROPIC_API_KEY;
+  console.log(`需 Claude 分析: ${brandNew.length} 条${hasApiKey ? '' : '（无 API Key，跳过）'}`);
+
+  if (hasApiKey) {
+    for (const item of brandNew) {
+      const ai = await analyzeWithClaude(item.title, item.desc || '', item.mrr);
+      if (ai) Object.assign(item, ai);
+      process.stdout.write('.');
+      await new Promise(r => setTimeout(r, 500)); // 避免触发速率限制
+    }
+    console.log(`\nClaude 分析完成`);
+  }
 
   const newIds = new Set(newItems.map(i => i.id));
   const merged = [...newItems, ...existing.filter(i => !newIds.has(i.id))].slice(0, 1000);

@@ -3,12 +3,13 @@ import { NextResponse } from "next/server";
 import type { IdeaItem } from "../../../netlify/functions/scrape-daily.mts";
 
 export const runtime = "edge";
-export const revalidate = 3600; // 1 hour cache
+export const revalidate = 1800;
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const source = searchParams.get("source"); // filter by source
-  const q = searchParams.get("q")?.toLowerCase(); // search query
+  const source = searchParams.get("source");
+  const q = searchParams.get("q")?.toLowerCase();
+  const minScore = parseInt(searchParams.get("minScore") ?? "0");
   const page = parseInt(searchParams.get("page") ?? "1");
   const pageSize = 30;
 
@@ -17,21 +18,26 @@ export async function GET(request: Request) {
     const raw = await store.get("all-ideas", { type: "json" }) as IdeaItem[] | null;
     let items: IdeaItem[] = Array.isArray(raw) ? raw : [];
 
-    // 过滤
     if (source) items = items.filter((i) => i.source === source);
+    if (minScore > 0) items = items.filter((i) => i.score >= minScore);
     if (q) items = items.filter((i) =>
       i.title.toLowerCase().includes(q) ||
-      i.description.toLowerCase().includes(q) ||
+      i.summary?.toLowerCase().includes(q) ||
+      i.opportunity?.toLowerCase().includes(q) ||
+      i.category?.toLowerCase().includes(q) ||
       i.tags.some((t) => t.toLowerCase().includes(q))
     );
 
-    // 按日期排序（最新在前）
-    items.sort((a, b) => b.dateKey.localeCompare(a.dateKey));
+    // 按日期排序，同日期内按评分排序
+    items.sort((a, b) => {
+      const dateDiff = b.dateKey.localeCompare(a.dateKey);
+      if (dateDiff !== 0) return dateDiff;
+      return b.score - a.score;
+    });
 
     const total = items.length;
     const paginated = items.slice((page - 1) * pageSize, page * pageSize);
 
-    // 按 dateKey 分组
     const grouped: Record<string, IdeaItem[]> = {};
     for (const item of paginated) {
       if (!grouped[item.dateKey]) grouped[item.dateKey] = [];

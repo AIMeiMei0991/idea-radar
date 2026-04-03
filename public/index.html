@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>创意雷达 · 每日工具创意</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{font-size:16px}
+  body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif;min-height:100vh}
+
+  /* 顶栏 */
+  .topbar{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06)}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 8px}
+  .logo{font-size:17px;font-weight:700;color:#fff;letter-spacing:-0.3px}
+  .logo span{color:#ff6b35;margin-right:4px}
+  .sub{font-size:11px;color:#555;margin-top:1px}
+  .refresh-btn{font-size:12px;padding:6px 12px;border-radius:20px;background:#1e1e28;border:1px solid rgba(255,255,255,0.1);color:#aaa;cursor:pointer;white-space:nowrap}
+  .refresh-btn:active{background:#2a2a38}
+
+  /* 搜索 */
+  .search-wrap{padding:8px 16px}
+  .search-input{width:100%;background:#141420;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:10px 14px;font-size:14px;color:#e2e2e2;outline:none}
+  .search-input::placeholder{color:#444}
+  .search-input:focus{border-color:rgba(255,255,255,0.2)}
+
+  /* 筛选标签 */
+  .filters{display:flex;gap:8px;padding:4px 16px 10px;overflow-x:auto;scrollbar-width:none}
+  .filters::-webkit-scrollbar{display:none}
+  .filter-btn{flex-shrink:0;font-size:12px;padding:6px 12px;border-radius:20px;background:#141420;border:1px solid transparent;color:#666;cursor:pointer;transition:all 0.15s;white-space:nowrap}
+  .filter-btn.active{background:#fff;color:#0a0a0f;font-weight:600}
+  .divider-dot{width:1px;background:rgba(255,255,255,0.08);flex-shrink:0;margin:0 2px}
+
+  /* 日期分组 */
+  .date-header{display:flex;align-items:center;gap:8px;padding:16px 16px 10px;position:sticky;top:98px;z-index:10;background:rgba(10,10,15,0.9);backdrop-filter:blur(8px)}
+  .date-label{font-size:13px;font-weight:600;color:#aaa}
+  .date-count{font-size:11px;color:#444}
+  .date-line{flex:1;height:1px;background:rgba(255,255,255,0.06)}
+
+  /* 卡片 */
+  .cards{padding:0 12px;display:flex;flex-direction:column;gap:10px}
+  .card{border-radius:16px;padding:14px;border:1px solid;transition:transform 0.1s;text-decoration:none;display:block}
+  .card:active{transform:scale(0.98)}
+  .card.score-5,.card.score-4{background:rgba(255,107,53,0.07);border-color:rgba(255,107,53,0.2)}
+  .card.score-3{background:rgba(251,191,36,0.05);border-color:rgba(251,191,36,0.15)}
+  .card.score-2,.card.score-1{background:rgba(255,255,255,0.02);border-color:rgba(255,255,255,0.06)}
+
+  .card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+  .source-row{display:flex;align-items:center;gap:6px}
+  .source-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+  .dot-ph{background:#ff6154}
+  .dot-tmrr{background:#22c55e}
+  .dot-ih{background:#818cf8}
+  .source-name{font-size:11px;color:#555}
+  .category-tag{font-size:11px;color:#444;background:rgba(255,255,255,0.05);padding:2px 8px;border-radius:6px}
+  .score-dots{display:flex;gap:3px}
+  .dot{width:5px;height:5px;border-radius:50%}
+  .dot.on{background:#ff6b35}
+  .dot.off{background:#2a2a38}
+
+  .card-title{font-size:15px;font-weight:600;color:#f0f0f0;line-height:1.3;margin-bottom:6px}
+  .mrr-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(34,197,94,0.12);color:#4ade80;font-size:11px;font-weight:700;padding:3px 8px;border-radius:20px;margin-bottom:8px}
+
+  .summary{font-size:13px;color:#b0b0b8;line-height:1.6;margin-bottom:8px}
+
+  .opportunity{display:flex;gap:8px;background:rgba(99,102,241,0.08);border-radius:10px;padding:10px 12px}
+  .opp-icon{font-size:13px;flex-shrink:0;margin-top:1px}
+  .opp-text{font-size:12px;color:#a5b4fc;line-height:1.5}
+
+  .score-reason{font-size:11px;color:#3a3a4a;margin-top:8px}
+
+  /* 统计栏 */
+  .stats{padding:4px 16px 0;font-size:12px;color:#444}
+  .stats span{color:#666}
+
+  /* 加载 / 空状态 */
+  .loading,.empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:50vh;gap:12px;color:#444;font-size:14px}
+  .spinner{width:28px;height:28px;border:2px solid #1e1e28;border-top-color:#ff6b35;border-radius:50%;animation:spin 0.8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* 底部 */
+  .footer{text-align:center;font-size:11px;color:#2a2a38;padding:24px 16px 40px}
+  .pb{height:20px}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div>
+      <div class="logo"><span>📡</span>创意雷达</div>
+      <div class="sub">每天 08:00 自动更新</div>
+    </div>
+    <button class="refresh-btn" onclick="loadData(true)" id="refreshBtn">刷新</button>
+  </div>
+  <div class="search-wrap">
+    <input class="search-input" type="search" id="searchInput" placeholder="搜索创意，如：AI视频、小红书、SaaS…" oninput="filterAndRender()">
+  </div>
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-source="" onclick="setFilter(this,'')">全部</button>
+    <button class="filter-btn" data-source="producthunt" onclick="setFilter(this,'producthunt')">PH 新品</button>
+    <button class="filter-btn" data-source="trustmrr" onclick="setFilter(this,'trustmrr')">验证收入</button>
+    <button class="filter-btn" data-source="indiehackers" onclick="setFilter(this,'indiehackers')">独立创业</button>
+    <div class="divider-dot"></div>
+    <button class="filter-btn" data-score="4" onclick="setScoreFilter(this,4)">🔥 高价值</button>
+    <button class="filter-btn" data-score="3" onclick="setScoreFilter(this,3)">⭐ 潜力</button>
+  </div>
+</div>
+
+<div id="app"></div>
+
+<script>
+let allData = [];
+let activeSource = '';
+let activeMinScore = 0;
+
+async function loadData(forceRefresh = false) {
+  const btn = document.getElementById('refreshBtn');
+  btn.textContent = '加载中…';
+  btn.disabled = true;
+
+  try {
+    const url = './data/ideas.json?' + (forceRefresh ? Date.now() : '');
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('加载失败');
+    allData = await res.json();
+    filterAndRender();
+  } catch(e) {
+    document.getElementById('app').innerHTML = `
+      <div class="empty">
+        <div style="font-size:32px">📡</div>
+        <div>暂无数据</div>
+        <div style="font-size:12px;color:#333">数据将在下次 Actions 运行后更新</div>
+      </div>`;
+  } finally {
+    btn.textContent = '刷新';
+    btn.disabled = false;
+  }
+}
+
+function setFilter(el, source) {
+  activeSource = source;
+  document.querySelectorAll('[data-source]').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  filterAndRender();
+}
+
+function setScoreFilter(el, score) {
+  if (activeMinScore === score) {
+    activeMinScore = 0;
+    el.classList.remove('active');
+  } else {
+    activeMinScore = score;
+    document.querySelectorAll('[data-score]').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+  }
+  filterAndRender();
+}
+
+function filterAndRender() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  let items = [...allData];
+
+  if (activeSource) items = items.filter(i => i.source === activeSource);
+  if (activeMinScore > 0) items = items.filter(i => i.score >= activeMinScore);
+  if (q) items = items.filter(i =>
+    (i.title||'').toLowerCase().includes(q) ||
+    (i.summary||'').toLowerCase().includes(q) ||
+    (i.opportunity||'').toLowerCase().includes(q) ||
+    (i.category||'').toLowerCase().includes(q)
+  );
+
+  // 按日期排序，同日期内按评分排序
+  items.sort((a,b) => {
+    const d = b.dateKey.localeCompare(a.dateKey);
+    return d !== 0 ? d : b.score - a.score;
+  });
+
+  renderItems(items, q);
+}
+
+function renderItems(items, q) {
+  const app = document.getElementById('app');
+  if (!items.length) {
+    app.innerHTML = `<div class="empty"><div style="font-size:32px">🔍</div><div>没有找到相关内容</div></div>`;
+    return;
+  }
+
+  // 按日期分组
+  const grouped = {};
+  for (const item of items) {
+    if (!grouped[item.dateKey]) grouped[item.dateKey] = [];
+    grouped[item.dateKey].push(item);
+  }
+
+  const dates = Object.keys(grouped).sort((a,b) => b.localeCompare(a));
+  let html = `<div class="stats">共 <span>${items.length}</span> 条${q ? ` · 搜索「${q}」` : ''}</div>`;
+
+  for (const date of dates) {
+    const d = new Date(date + 'T12:00:00');
+    const label = d.toLocaleDateString('zh-CN', {month:'long',day:'numeric',weekday:'short'});
+    html += `
+      <div class="date-header">
+        <span class="date-label">${label}</span>
+        <span class="date-count">· ${grouped[date].length} 条</span>
+        <div class="date-line"></div>
+      </div>
+      <div class="cards">`;
+
+    for (const item of grouped[date]) {
+      const dotClass = item.source === 'producthunt' ? 'dot-ph' : item.source === 'trustmrr' ? 'dot-tmrr' : 'dot-ih';
+      const scoreDots = [1,2,3,4,5].map(i =>
+        `<div class="dot ${i <= item.score ? 'on' : 'off'}"></div>`
+      ).join('');
+
+      html += `
+        <a class="card score-${item.score}" href="${item.url}" target="_blank" rel="noopener">
+          <div class="card-top">
+            <div class="source-row">
+              <div class="source-dot ${dotClass}"></div>
+              <span class="source-name">${item.sourceLabel}</span>
+              <span class="category-tag">${item.category || '数字工具'}</span>
+            </div>
+            <div class="score-dots">${scoreDots}</div>
+          </div>
+          <div class="card-title">${item.title}</div>
+          ${item.mrr ? `<div class="mrr-badge">💰 ${item.mrr}</div>` : ''}
+          <div class="summary">${item.summary || ''}</div>
+          ${item.opportunity ? `
+          <div class="opportunity">
+            <span class="opp-icon">🇨🇳</span>
+            <span class="opp-text">${item.opportunity}</span>
+          </div>` : ''}
+          ${item.scoreReason ? `<div class="score-reason">${item.scoreReason}</div>` : ''}
+        </a>`;
+    }
+    html += `</div>`;
+  }
+
+  html += '<div class="pb"></div><div class="footer">Product Hunt · TrustMRR · IndieHackers<br>每天 08:00 CST 自动抓取更新</div>';
+  app.innerHTML = html;
+}
+
+// 初始化
+document.getElementById('app').innerHTML = '<div class="loading"><div class="spinner"></div><div>加载中…</div></div>';
+loadData();
+</script>
+</body>
+</html>

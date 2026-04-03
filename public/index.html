@@ -90,6 +90,15 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .bookmark-btn.bookmarked{color:#fbbf24}
 .bookmark-btn:active{transform:scale(1.3)}
 
+/* 已读按钮和已读状态 */
+.read-btn{position:absolute;bottom:10px;right:10px;background:none;border:none;cursor:pointer;font-size:10px;color:#2a2a3a;padding:3px 7px;border-radius:6px;border:1px solid #1e1e28;transition:all 0.15s;z-index:5;font-weight:500;letter-spacing:0.2px}
+.read-btn:hover,.read-btn:active{color:#555;border-color:#333}
+.card-wrap.is-read .card{opacity:0.32;pointer-events:none}
+.card-wrap.is-read .bookmark-btn{opacity:0.32}
+.card-wrap.is-read .read-btn{color:#4ade80;border-color:rgba(74,222,128,0.2);opacity:0.7}
+.read-toggle{font-size:11px;color:#444;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);padding:3px 9px;border-radius:8px;cursor:pointer;white-space:nowrap;flex-shrink:0}
+.read-toggle.hiding{color:#6366f1;border-color:rgba(99,102,241,0.25);background:rgba(99,102,241,0.06)}
+
 /* 收藏空状态 */
 .bookmark-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:50vh;gap:12px;color:#444;font-size:14px;text-align:center;padding:20px}
 .bookmark-empty-icon{font-size:40px;margin-bottom:4px}
@@ -137,7 +146,10 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
       <div class="logo"><span class="logo-icon">📡</span>创意雷达</div>
       <div class="update-time" id="updateTime">每天 08:00 自动更新</div>
     </div>
-    <span class="bookmark-count" id="bookmarkCount" style="display:none"></span>
+    <div style="display:flex;align-items:center;gap:8px">
+      <button class="read-toggle" id="readToggle" onclick="toggleHideRead()">隐藏已读</button>
+      <span class="bookmark-count" id="bookmarkCount" style="display:none"></span>
+    </div>
   </div>
   <div class="search-wrap" id="searchWrap">
     <input class="search-input" type="search" id="searchInput"
@@ -162,12 +174,14 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 <script>
 // ── 状态 ───────────────────────────────────────────────
 let allData = [];
-let activeTab = 'feed'; // feed=高价值精选, all=全部, ph/tmrr/ih/hn=来源, bookmarks=收藏
+let activeTab = 'feed'; // feed=高价值精选, all=全部, ph/tmrr/reddit/hn=来源, bookmarks=收藏
 let searchQ = '';
 let currentPage = 1;
 const PAGE_SIZE = 30;
 let searchTimer = null;
 let bookmarks = new Set();
+let readItems = new Set();
+let hideRead = false;
 
 // ── 本地收藏（localStorage）──────────────────────────
 function loadBookmarks() {
@@ -202,6 +216,71 @@ function toggleBookmark(id, event) {
   }
   // 如果当前在收藏tab，重新渲染
   if (activeTab === 'bookmarks') filterAndRender();
+}
+
+// ── 已读（localStorage）──────────────────────────────
+function loadReadItems() {
+  try {
+    const raw = localStorage.getItem('idea-radar-read');
+    if (raw) readItems = new Set(JSON.parse(raw));
+  } catch(_) {}
+}
+
+function saveReadItems() {
+  try {
+    // 只保留最近 500 条，防止 localStorage 过大
+    const arr = [...readItems].slice(-500);
+    localStorage.setItem('idea-radar-read', JSON.stringify(arr));
+  } catch(_) {}
+}
+
+function toggleRead(id, event) {
+  event.preventDefault();
+  event.stopPropagation();
+  if (readItems.has(id)) {
+    readItems.delete(id);
+  } else {
+    readItems.add(id);
+  }
+  saveReadItems();
+  // 更新单张卡片 UI
+  const wrap = document.querySelector(`[data-card-id="${CSS.escape(id)}"]`);
+  if (wrap) {
+    const isRead = readItems.has(id);
+    wrap.classList.toggle('is-read', isRead);
+    const btn = wrap.querySelector('.read-btn');
+    if (btn) btn.textContent = isRead ? '✓ 已读' : '标为已读';
+    // 如果隐藏已读模式，淡出后移除
+    if (hideRead && isRead) {
+      wrap.style.transition = 'opacity 0.3s, max-height 0.4s';
+      wrap.style.opacity = '0';
+      setTimeout(() => { wrap.style.maxHeight = '0'; wrap.style.overflow = 'hidden'; wrap.style.marginBottom = '0'; }, 300);
+    }
+  }
+}
+
+function markReadOnOpen(id) {
+  if (readItems.has(id)) return;
+  readItems.add(id);
+  saveReadItems();
+  // 更新按钮状态（不重渲染）
+  setTimeout(() => {
+    const wrap = document.querySelector(`[data-card-id="${CSS.escape(id)}"]`);
+    if (wrap) {
+      wrap.classList.add('is-read');
+      const btn = wrap.querySelector('.read-btn');
+      if (btn) btn.textContent = '✓ 已读';
+    }
+  }, 100);
+}
+
+function toggleHideRead() {
+  hideRead = !hideRead;
+  const btn = document.getElementById('readToggle');
+  btn.textContent = hideRead ? '显示全部' : '隐藏已读';
+  btn.classList.toggle('hiding', hideRead);
+  currentPage = 1;
+  filterAndRender();
 }
 
 function updateBookmarkUI() {
@@ -308,6 +387,9 @@ function filterAndRender() {
   // 精选：默认显示 score ≥ 3
   if (activeTab === 'feed') items = items.filter(i => (i.score||0) >= 3);
 
+  // 隐藏已读
+  if (hideRead) items = items.filter(i => !readItems.has(i.id));
+
   // 搜索
   if (searchQ) {
     const q = searchQ.toLowerCase();
@@ -369,9 +451,11 @@ function renderCard(item) {
   const title = fixTitle(item.title || '');
   const sc = item.score || 2;
   const isBk = bookmarks.has(item.id);
+  const isRead = readItems.has(item.id);
   return `
-    <div class="card-wrap">
-      <a class="card ${scoreClass(sc)}" href="${escHtml(item.url||'#')}" target="_blank" rel="noopener" aria-label="${escHtml(title)}">
+    <div class="card-wrap${isRead ? ' is-read' : ''}" data-card-id="${escHtml(item.id)}">
+      <a class="card ${scoreClass(sc)}" href="${escHtml(item.url||'#')}" target="_blank" rel="noopener" aria-label="${escHtml(title)}"
+         onclick="markReadOnOpen('${escHtml(item.id)}')">
         <div class="card-top">
           <div class="source-row">
             <div class="dot ${dotClass(item.source)}"></div>
@@ -396,6 +480,9 @@ function renderCard(item) {
         data-bk-id="${escHtml(item.id)}"
         onclick="toggleBookmark('${escHtml(item.id)}', event)"
         aria-label="${isBk ? '取消收藏' : '收藏'}">${isBk ? '🔖' : '🏷️'}</button>
+      <button class="read-btn"
+        onclick="toggleRead('${escHtml(item.id)}', event)"
+        aria-label="${isRead ? '标为未读' : '标为已读'}">${isRead ? '✓ 已读' : '标为已读'}</button>
     </div>`;
 }
 
@@ -497,6 +584,7 @@ document.getElementById('searchInput').addEventListener('input', function() {
 
 // ── 启动 ──────────────────────────────────────────────
 loadBookmarks();
+loadReadItems();
 updateBookmarkUI();
 loadData();
 </script>

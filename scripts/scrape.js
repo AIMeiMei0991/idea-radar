@@ -51,53 +51,153 @@ function scoreItem(title, desc, mrr, baseScore = 2) {
 // 返回 { problem, chinaFit, chinaReason, soloFit, soloReason }
 function analyzeProduct(title, desc, mrr) {
   const text = (title + ' ' + (desc || '')).toLowerCase();
+  const t = title; // 保留原始大小写，用于兜底展示
 
-  // ── 1. 核心问题（这个产品解决了什么） ──────────────────────────────────
+  // ── 1. 核心问题：按精确度从高到低匹配 ─────────────────────────────────
   let problem;
-  if (text.includes('ai') && text.includes('video'))
-    problem = '创作者批量生成视频，解决产量低的效率瓶颈';
-  else if (text.includes('ai') && (text.includes('write') || text.includes('copy') || text.includes('content')))
-    problem = '降低内容创作成本，一个人输出10人的产量';
+  // —— 内容 & 写作 ——
+  if (text.includes('humaniz'))
+    problem = 'AI 写的文字一眼就被检测出来，用此工具改写为人类风格绕过检测';
+  else if (text.includes('paraphras') || text.includes('rewrite'))
+    problem = '一键改写/降重，让 AI 生成内容通过查重和 AI 检测';
+  else if (text.includes('transcri') && (text.includes('audio') || text.includes('video') || text.includes('podcast') || text.includes('meeting')))
+    problem = '音视频/会议自动转文字，省去人工逐字听写的时间';
+  else if (text.includes('subtitle') || text.includes('caption'))
+    problem = '视频字幕自动生成，多语言版本一键导出';
+  else if (text.includes('voic') && (text.includes('clone') || text.includes('synth') || text.includes('over')))
+    problem = 'AI 克隆声音或合成配音，内容创作者无需专业录音棚';
+  else if (text.includes('text to speech') || text.includes('tts'))
+    problem = '文字转语音，批量生成有声内容';
+  else if ((text.includes('ai') || text.includes('auto')) && text.includes('translat'))
+    problem = 'AI 翻译工具，降低内容出海/多语言运营成本';
+  else if (text.includes('ai') && text.includes('video'))
+    problem = '创作者批量生成视频，解决内容产量低的效率瓶颈';
+  else if (text.includes('video') && (text.includes('edit') || text.includes('clip') || text.includes('short')))
+    problem = '长视频自动剪辑成短视频，一条内容变多条';
   else if (text.includes('ai') && text.includes('seo'))
-    problem = 'AI 生成 SEO 文章，解决内容获客成本高的问题';
-  else if (text.includes('ai') && (text.includes('resume') || text.includes('job')))
-    problem = 'AI 优化简历和求职材料，提升面试邀请率';
+    problem = 'AI 批量生成 SEO 文章，解决内容获客成本高的问题';
+  else if (text.includes('ai') && (text.includes('write') || text.includes('copywrite') || text.includes('copy')))
+    problem = 'AI 代写营销文案，降低内容创作成本';
+  else if (text.includes('ai') && text.includes('blog'))
+    problem = 'AI 生成博客/文章，支撑内容营销不缺货';
+  else if (text.includes('newsletter'))
+    problem = '邮件 Newsletter 自动化发布，创作者建立私域流量';
+  // —— 销售 & 邮件 ——
+  else if (text.includes('cold email') || (text.includes('email') && text.includes('outreach')))
+    problem = '冷邮件自动化外联，B2B 销售每天触达数百潜在客户';
+  else if (text.includes('lead') && (text.includes('gen') || text.includes('find') || text.includes('scrap')))
+    problem = '自动挖掘精准销售线索，减少手动找客户的时间';
   else if (text.includes('ai') && text.includes('email'))
-    problem = 'AI 起草个性化邮件，B2B 销售触达效率翻倍';
-  else if (text.includes('ai') && text.includes('customer'))
-    problem = 'AI 客服自动处理高频问题，降低人工成本';
-  else if (text.includes('ai'))
-    problem = 'AI 替代某类重复劳动，降低专业门槛和人力成本';
-  else if (text.includes('schedule') || text.includes('social media'))
-    problem = '多平台内容自动排期发布，运营人员从重复劳动解放';
-  else if (text.includes('email') && text.includes('outreach'))
-    problem = '冷邮件获客自动化，解决 B2B 销售触达效率低问题';
+    problem = 'AI 起草个性化邮件，销售效率提升数倍';
+  else if (text.includes('email') && (text.includes('campaign') || text.includes('marketing') || text.includes('automat')))
+    problem = '邮件营销自动化，用精准触达提升付费转化';
   else if (text.includes('email'))
-    problem = '邮件营销精准触达，用自动化提升付费转化率';
-  else if (text.includes('analytics') || text.includes('attribution'))
-    problem = '广告数据归因透明化，让每一分投放花得值';
-  else if (text.includes('invoice') || text.includes('accounting') || text.includes('finance'))
-    problem = '自动化记账报税，中小企业/自由职业者省时 80%';
-  else if (text.includes('agent') || text.includes('automation'))
-    problem = 'AI Agent 接管重复工作流，释放人力做高价值事';
-  else if (text.includes('design') || text.includes('template'))
-    problem = '降低设计门槛，非设计师也能产出专业级图文';
-  else if (text.includes('ecommerce') || text.includes('shopify') || text.includes('amazon'))
-    problem = '跨境电商运营提效，降低选品和投流决策成本';
-  else if (text.includes('creator') || text.includes('monetiz'))
-    problem = '帮创作者建立独立变现渠道，摆脱平台高抽成';
-  else if (text.includes('crm') || text.includes('customer'))
-    problem = '客户线索统一管理，防止销售跟进遗漏丢单';
-  else if (text.includes('health') || text.includes('sleep') || text.includes('wellness'))
-    problem = '健康数据追踪 + AI 建议，改善日常生活质量';
-  else if (text.includes('developer') || text.includes('api') || text.includes('devops'))
-    problem = '开发工具提效，减少工程师重复搭建基础设施';
-  else if (text.includes('hire') || text.includes('recruit'))
-    problem = '招聘流程自动化，减少 HR 在筛简历上的时间';
+    problem = '邮件工具，自动化沟通流程减少重复操作';
+  // —— 社交媒体 & 运营 ——
+  else if (text.includes('schedule') && (text.includes('post') || text.includes('social') || text.includes('content')))
+    problem = '多平台内容自动排期发布，运营从重复劳动中解放';
+  else if (text.includes('social media') && text.includes('manag'))
+    problem = '社交媒体多账号统一管理，团队协作效率翻倍';
+  else if (text.includes('influencer'))
+    problem = 'KOL/网红营销管理平台，帮品牌找到匹配的创作者合作';
+  else if (text.includes('ugc') || (text.includes('user') && text.includes('generat')))
+    problem = '用户生成内容（UGC）自动收集整理，做社交证明降低获客成本';
+  // —— 电商 ——
+  else if (text.includes('shopify') || text.includes('woocommerce'))
+    problem = 'Shopify/电商店铺运营提效工具，降低卖家日常操作成本';
+  else if (text.includes('amazon') || text.includes('fba'))
+    problem = '亚马逊/跨境电商运营提效，降低选品和投流决策成本';
+  else if (text.includes('dropshipping') || text.includes('print on demand'))
+    problem = '无货源电商一件代发，零库存启动在线销售';
+  else if (text.includes('ecommerce') || text.includes('e-commerce'))
+    problem = '电商运营自动化，降低 GMV 提升的人力成本';
+  // —— 开发者工具 ——
+  else if (text.includes('nocode') || text.includes('no-code') || text.includes('no code') || text.includes('lowcode'))
+    problem = '无代码/低代码建站，非技术人员也能独立上线产品';
+  else if (text.includes('deploy') || text.includes('hosting') || text.includes('serverless'))
+    problem = '应用部署/托管自动化，开发者一条命令上线省去运维';
+  else if (text.includes('monitor') && (text.includes('uptime') || text.includes('server') || text.includes('website')))
+    problem = '网站/服务器宕机实时报警，故障第一时间被发现';
+  else if (text.includes('api') && (text.includes('gateway') || text.includes('manag') || text.includes('mock')))
+    problem = 'API 管理/测试工具，减少前后端联调的沟通成本';
+  else if (text.includes('git') || text.includes('code review') || text.includes('pull request'))
+    problem = '代码审查自动化，AI 发现低级错误减轻 Code Review 负担';
+  else if (text.includes('developer') || text.includes('devops') || text.includes('ci/cd'))
+    problem = '开发基础设施工具，减少工程师重复搭建和维护的时间';
+  // —— AI 助手类 ——
+  else if (text.includes('ai') && (text.includes('chatbot') || text.includes('chat bot') || text.includes('assistant')))
+    problem = 'AI 智能问答助手，自动处理客户高频咨询问题';
+  else if (text.includes('ai') && text.includes('customer') && (text.includes('support') || text.includes('service')))
+    problem = 'AI 客服代替人工处理重复工单，7×24 小时响应';
+  else if (text.includes('ai') && (text.includes('resume') || text.includes('cv') || text.includes('job')))
+    problem = 'AI 优化简历，提升投递通过率和面试邀请率';
+  else if (text.includes('ai') && (text.includes('legal') || text.includes('contract') || text.includes('law')))
+    problem = 'AI 审阅合同条款，中小企业省去动辄数千的律师费';
+  else if (text.includes('ai') && text.includes('coach'))
+    problem = 'AI 私人教练/顾问，低成本获得专业级指导';
+  else if (text.includes('ai') && (text.includes('data') || text.includes('insight') || text.includes('report')))
+    problem = 'AI 自动分析数据并生成报告，省去分析师数小时的手工整理';
+  else if (text.includes('ai') && (text.includes('image') || text.includes('photo') || text.includes('design')))
+    problem = 'AI 生成/编辑图像，非设计师也能产出专业视觉内容';
+  else if (text.includes('ai') && text.includes('agent'))
+    problem = 'AI Agent 自动执行多步骤任务，释放人力做高价值工作';
+  else if (text.includes('ai') && text.includes('automat'))
+    problem = 'AI 驱动工作流自动化，减少重复操作节省大量时间';
+  else if (text.includes('ai') && text.includes('search'))
+    problem = 'AI 驱动的智能搜索，让用户快速找到真正有用的信息';
+  else if (text.includes('ai') && text.includes('summar'))
+    problem = 'AI 一键总结长文档/视频，快速提取核心信息';
+  else if (text.includes('ai') && text.includes('interview'))
+    problem = 'AI 模拟面试，求职者提前练习提升真实面试通过率';
+  // —— 效率 & 协作 ——
+  else if (text.includes('schedule') || text.includes('booking') || text.includes('appointment'))
+    problem = '在线预约排班工具，减少来回沟通确认时间';
+  else if (text.includes('invoice') || text.includes('billing') || text.includes('payment'))
+    problem = '自动开票和收款管理，自由职业者/小企业省时 80%';
+  else if (text.includes('accounting') || text.includes('bookkeep') || text.includes('finance'))
+    problem = '自动化记账报税，降低财务合规成本';
+  else if (text.includes('analytics') || text.includes('attribution') || text.includes('tracking'))
+    problem = '数据追踪与归因，让每一分广告预算花得清楚';
+  else if (text.includes('crm') || (text.includes('customer') && text.includes('manag')))
+    problem = '客户关系管理，防止销售线索遗漏和跟进断档';
+  else if (text.includes('project') && (text.includes('manag') || text.includes('track')))
+    problem = '项目进度追踪，团队协作透明减少对齐成本';
+  else if (text.includes('hr') || text.includes('payroll') || text.includes('onboard'))
+    problem = 'HR 流程自动化，从入职到发薪减少人工操作';
+  else if (text.includes('hire') || text.includes('recruit') || text.includes('talent'))
+    problem = '招聘流程自动化，筛简历到约面试全程省时';
+  else if (text.includes('feedback') || text.includes('survey') || text.includes('form'))
+    problem = '用户反馈/问卷收集工具，快速获取产品改进信号';
+  else if (text.includes('notif') || text.includes('alert') || text.includes('webhook'))
+    problem = '实时通知/告警工具，关键事件第一时间触达负责人';
+  else if (text.includes('password') || text.includes('auth') || text.includes('login') || text.includes('sso'))
+    problem = '身份认证/密码管理，提升账号安全并减少登录摩擦';
+  // —— 学习 & 健康 ——
+  else if (text.includes('learn') || text.includes('course') || text.includes('tutor'))
+    problem = '在线学习/辅导工具，降低获取专业技能的时间成本';
+  else if (text.includes('health') || text.includes('fitness') || text.includes('workout'))
+    problem = '健身/健康追踪工具，帮用户坚持良好生活习惯';
+  else if (text.includes('sleep') || text.includes('wellness') || text.includes('meditat'))
+    problem = '睡眠/冥想/健康管理，改善高压人群的日常状态';
+  else if (text.includes('mental') || text.includes('therapy') || text.includes('anxiety'))
+    problem = '心理健康工具，低成本获得情绪支持和压力管理';
+  // —— 创作者 & 变现 ——
+  else if (text.includes('creator') && text.includes('monetiz'))
+    problem = '帮创作者建立付费变现渠道，摆脱平台高抽成';
+  else if (text.includes('podcast'))
+    problem = '播客制作/分发工具，降低音频内容生产和传播成本';
+  else if (text.includes('substack') || text.includes('membership') || text.includes('paid') && text.includes('community'))
+    problem = '付费会员/社区工具，帮创作者建立稳定的订阅收入';
+  // —— 设计 ——
+  else if (text.includes('design') && (text.includes('logo') || text.includes('brand')))
+    problem = 'AI 生成 Logo/品牌视觉，初创公司省去设计外包费用';
+  else if (text.includes('template') || text.includes('design'))
+    problem = '设计模板工具，非设计师也能快速产出专业级图文';
+  // —— 最终兜底：带产品名，拒绝空泛 ——
   else if (mrr)
-    problem = '已有用户愿意付费的 SaaS 产品，具体方向见原链接';
+    problem = `「${t}」— 已有真实付费用户，具体场景见原链接`;
   else
-    problem = '垂直领域效率工具，有明确用户群的付费需求';
+    problem = `「${t}」— 工具类产品，具体解决的问题见原链接`;
 
   // ── 2. 中国市场可复制性 ──────────────────────────────────────────────────
   const HIGH_CHINA = ['video','creator','content','social','marketing','ecommerce',

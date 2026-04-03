@@ -1,5 +1,113 @@
 [
   {
+    "id": "reddit-1satv9o",
+    "title": "I've been fixing vibe-coded SaaS products for 6 months. Same 4 things are broken every single time",
+    "summary": "降低设计门槛，让非设计师也能快速出图",
+    "opportunity": "电商/自媒体/教育行业对设计工具需求大，国内 Canva 类产品未完全覆盖",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.reddit.com/r/SaaS/comments/1satv9o/ive_been_fixing_vibecoded_saas_products_for_6/",
+    "source": "reddit",
+    "sourceLabel": "r/SaaS",
+    "redditScore": 361,
+    "category": "SaaS工具",
+    "tags": [
+      "Reddit精选"
+    ],
+    "fetchedAt": "2026-04-03T10:18:58.715Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "reddit-1sai8o6",
+    "title": "my saas hit $9k/month. if i had to start over, here's how i'd find the best saas ideas in 2026",
+    "summary": "just crossed $9k in monthly revenue with around 700 paying users. took about 12…",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.reddit.com/r/SaaS/comments/1sai8o6/my_saas_hit_9kmonth_if_i_had_to_start_over_heres/",
+    "source": "reddit",
+    "sourceLabel": "r/SaaS",
+    "redditScore": 71,
+    "category": "SaaS工具",
+    "tags": [
+      "Reddit精选"
+    ],
+    "fetchedAt": "2026-04-03T10:18:58.716Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "reddit-1saj8t4",
+    "title": "Someone signed up for my waitlist and emailed me \"when is this launching?\", I almost cried...",
+    "summary": "AI辅助内容生产，降低文案和图文创作成本",
+    "opportunity": "品牌自媒体运营需求旺盛，国内工具缺少垂直行业版本",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.reddit.com/r/SaaS/comments/1saj8t4/someone_signed_up_for_my_waitlist_and_emailed_me/",
+    "source": "reddit",
+    "sourceLabel": "r/SaaS",
+    "redditScore": 38,
+    "category": "AI工具",
+    "tags": [
+      "Reddit精选"
+    ],
+    "fetchedAt": "2026-04-03T10:18:58.716Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "reddit-1sadn5e",
+    "title": "a customer asked me to sign an NDA about how they're using my product. should i be worried?",
+    "summary": "邮件营销自动化，通过精准触达提升转化率",
+    "opportunity": "跨境独立站卖家和 SaaS 企业的高频需求，ROI 可量化",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.reddit.com/r/SaaS/comments/1sadn5e/a_customer_asked_me_to_sign_an_nda_about_how/",
+    "source": "reddit",
+    "sourceLabel": "r/SaaS",
+    "redditScore": 32,
+    "category": "AI工具",
+    "tags": [
+      "Reddit精选"
+    ],
+    "fetchedAt": "2026-04-03T10:18:58.716Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "reddit-1sadikp",
+    "title": "Track when ChatGPT, Perplexity, Gemini mention your brand. AI citation tracking built into my SEO tool.",
+    "summary": "AI 驱动的 SEO 内容优化，自动提升搜索排名",
+    "opportunity": "百度 SEO + 小红书 SEO 工具市场，国内独立工具落后海外约 2 年",
+    "score": 4,
+    "scoreReason": "热门赛道 · 适配中国市场",
+    "url": "https://www.reddit.com/r/SaaS/comments/1sadikp/track_when_chatgpt_perplexity_gemini_mention_your/",
+    "source": "reddit",
+    "sourceLabel": "r/SaaS",
+    "redditScore": 25,
+    "category": "AI工具",
+    "tags": [
+      "Reddit精选"
+    ],
+    "fetchedAt": "2026-04-03T10:18:58.716Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "reddit-1sadk88",
+    "title": "which ai assistant works best for solopreneur?",
+    "summary": "AI辅助内容生产，降低文案和图文创作成本",
+    "opportunity": "品牌自媒体运营需求旺盛，国内工具缺少垂直行业版本",
+    "score": 4,
+    "scoreReason": "热门赛道 · 适配中国市场",
+    "url": "https://www.reddit.com/r/Entrepreneur/comments/1sadk88/which_ai_assistant_works_best_for_solopreneur/",
+    "source": "reddit",
+    "sourceLabel": "r/entrepreneur",
+    "redditScore": 21,
+    "category": "AI工具",
+    "tags": [
+      "Reddit精选"
+    ],
+    "fetchedAt": "2026-04-03T10:19:00.031Z",
+    "dateKey": "2026-04-02"
+  },
+  {
     "id": "hn-47562455",
     "title": "The True Shape of IO's Steeple Mountain",
     "summary": "新兴数字工具，聚焦垂直领域效率提升",

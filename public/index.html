@@ -65,6 +65,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .dot-tmrr{background:#22c55e}
 .dot-ih{background:#818cf8}
 .dot-hn{background:#ff6600}
+.dot-reddit{background:#ff4500}
 .src-name{font-size:11px;color:#555}
 .cat-tag{font-size:11px;color:#444;background:rgba(255,255,255,0.05);padding:2px 7px;border-radius:6px}
 
@@ -149,7 +150,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
     <button class="tab-btn" data-tab="all" onclick="setTab(this,'all')">全部</button>
     <button class="tab-btn" data-tab="ph" onclick="setTab(this,'ph')">PH 新品</button>
     <button class="tab-btn" data-tab="tmrr" onclick="setTab(this,'tmrr')">验证收入</button>
-    <button class="tab-btn" data-tab="ih" onclick="setTab(this,'ih')">独立创业</button>
+    <button class="tab-btn" data-tab="reddit" onclick="setTab(this,'reddit')">Reddit</button>
     <button class="tab-btn" data-tab="hn" onclick="setTab(this,'hn')">HN 精选</button>
     <button class="tab-btn" data-tab="bookmarks" onclick="setTab(this,'bookmarks')">🔖 收藏 <span class="badge" id="bkBadge" style="display:none">0</span></button>
   </div>
@@ -254,6 +255,7 @@ function dotClass(src) {
   if (src === 'producthunt') return 'dot-ph';
   if (src === 'trustmrr') return 'dot-tmrr';
   if (src === 'hackernews') return 'dot-hn';
+  if (src === 'reddit') return 'dot-reddit';
   return 'dot-ih';
 }
 
@@ -300,7 +302,7 @@ function filterAndRender() {
   let items = [...allData];
 
   // 来源筛选
-  const srcMap = {ph:'producthunt', tmrr:'trustmrr', ih:'indiehackers', hn:'hackernews'};
+  const srcMap = {ph:'producthunt', tmrr:'trustmrr', reddit:'reddit', hn:'hackernews'};
   if (srcMap[activeTab]) items = items.filter(i => i.source === srcMap[activeTab]);
 
   // 精选：默认显示 score ≥ 3
@@ -375,6 +377,7 @@ function renderCard(item) {
             <div class="dot ${dotClass(item.source)}"></div>
             <span class="src-name">${escHtml(item.sourceLabel||'')}</span>
             ${item.hnScore ? `<span class="hn-score">▲${item.hnScore}</span>` : ''}
+            ${item.redditScore ? `<span class="hn-score">▲${item.redditScore}</span>` : ''}
             ${item.category ? `<span class="cat-tag">${escHtml(item.category)}</span>` : ''}
           </div>
           <div class="score-bar" role="img" aria-label="评分 ${sc}/5">${scoreDots(sc)}</div>
@@ -453,7 +456,7 @@ function renderView(grouped, total, totalPages) {
   }
 
   html += '<div class="bottom-space"></div>';
-  html += '<div class="footer">Product Hunt · TrustMRR · IndieHackers · Hacker News<br>每天 08:00 CST 由 GitHub Actions 自动抓取</div>';
+  html += '<div class="footer">Product Hunt · TrustMRR · Reddit · Hacker News<br>每天 08:00 CST 由 GitHub Actions 自动抓取</div>';
   app.innerHTML = html;
 }
 

@@ -181,43 +181,58 @@ async function fetchTrustMRR() {
   } catch (e) { console.error('TMRR error:', e.message); return []; }
 }
 
-// ─── IndieHackers ──────────────────────────────────────────────────────────
-async function fetchIndieHackers() {
-  try {
-    const res = await fetch('https://www.indiehackers.com/products?sorting=newest', {
-      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; IdeaRadar/1.0)' }
-    });
-    if (!res.ok) return [];
-    const html = await res.text();
-    const today = new Date().toISOString().slice(0, 10);
-    const results = [];
-    const seen = new Set();
-    const regex = /href="(\/product\/[^"?#]+)"/g;
-    let m;
+// ─── Reddit (r/SaaS + r/startups + r/entrepreneur) ────────────────────────
+async function fetchReddit() {
+  const SUBS = ['SaaS', 'startups', 'entrepreneur'];
+  const KEEP = ['saas','tool','ai','launch','revenue','mrr','startup','product','automation','api','indie','maker','software','app','platform','build','ship','idea'];
+  const results = [];
+  const seen = new Set();
 
-    while ((m = regex.exec(html)) !== null) {
-      const p = m[1];
-      if (seen.has(p)) continue;
-      seen.add(p);
-
-      const slug = p.replace('/product/', '');
-      const rawTitle = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-      const title = fixTitle(rawTitle);
-      const { score, reason } = scoreItem(title, '');
-      const { summary, opportunity } = generateInsight(title, '');
-
-      results.push({
-        id: `ih-${Buffer.from(p).toString('base64').slice(0,16)}`,
-        title, summary, opportunity, score, scoreReason: reason,
-        url: `https://www.indiehackers.com${p}`,
-        source: 'indiehackers', sourceLabel: 'IndieHackers',
-        category: detectCategory(title),
-        tags: ['独立开发者'], fetchedAt: new Date().toISOString(), dateKey: today,
+  for (const sub of SUBS) {
+    try {
+      const res = await fetch(`https://www.reddit.com/r/${sub}/top.json?t=day&limit=25`, {
+        headers: { 'User-Agent': 'IdeaRadar/1.0 (personal aggregator)' }
       });
-    }
-    console.log(`[IH] ${results.length} 条`);
-    return results.slice(0, 25);
-  } catch (e) { console.error('IH error:', e.message); return []; }
+      if (!res.ok) continue;
+      const json = await res.json();
+      const posts = json?.data?.children || [];
+
+      for (const { data: post } of posts) {
+        if (!post.title || !post.url) continue;
+        if ((post.score || 0) < 20) continue; // 至少 20 分
+        if (seen.has(post.id)) continue;
+        seen.add(post.id);
+
+        const t = post.title.toLowerCase();
+        if (!KEEP.some(k => t.includes(k))) continue;
+
+        const title = fixTitle(post.title.trim());
+        const desc = post.selftext ? post.selftext.replace(/\s+/g, ' ').trim().slice(0, 200) : '';
+        const { score, reason } = scoreItem(title, desc);
+        const { summary, opportunity } = generateInsight(title, desc);
+        const dateKey = post.created_utc
+          ? new Date(post.created_utc * 1000).toISOString().slice(0, 10)
+          : new Date().toISOString().slice(0, 10);
+
+        // 优先用 post 的外链，若是自帖则用 reddit 链接
+        const url = post.is_self
+          ? `https://www.reddit.com${post.permalink}`
+          : (post.url.startsWith('http') ? post.url : `https://www.reddit.com${post.permalink}`);
+
+        results.push({
+          id: `reddit-${post.id}`,
+          title, summary, opportunity, score, scoreReason: reason,
+          url,
+          source: 'reddit', sourceLabel: `r/${sub}`,
+          redditScore: post.score,
+          category: detectCategory(title + ' ' + desc),
+          tags: ['Reddit精选'], fetchedAt: new Date().toISOString(), dateKey,
+        });
+      }
+    } catch (e) { console.error(`Reddit r/${sub} error:`, e.message); }
+  }
+  console.log(`[Reddit] ${results.length} 条`);
+  return results.slice(0, 30);
 }
 
 // ─── Hacker News (官方 API，过滤创业/工具相关) ────────────────────────────
@@ -276,8 +291,8 @@ async function fetchHackerNews() {
 // ─── Main ──────────────────────────────────────────────────────────────────
 (async () => {
   console.log('开始抓取:', new Date().toISOString());
-  const [ph, tmrr, ih, hn] = await Promise.all([fetchProductHunt(), fetchTrustMRR(), fetchIndieHackers(), fetchHackerNews()]);
-  const newItems = [...ph, ...tmrr, ...ih, ...hn];
+  const [ph, tmrr, reddit, hn] = await Promise.all([fetchProductHunt(), fetchTrustMRR(), fetchReddit(), fetchHackerNews()]);
+  const newItems = [...ph, ...tmrr, ...reddit, ...hn];
   console.log(`新抓取: ${newItems.length} 条`);
 
   let existing = [];

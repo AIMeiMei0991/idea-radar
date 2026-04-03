@@ -519,24 +519,28 @@ async function fetchHackerNews() {
   let existing = [];
   try { existing = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8')); } catch (_) {}
 
-  // 只对全新条目做 Claude 深度分析，避免重复消耗 API
-  const existingIds = new Set(existing.map(i => i.id));
-  const brandNew = newItems.filter(i => !existingIds.has(i.id));
   const hasApiKey = !!process.env.ANTHROPIC_API_KEY;
-  console.log(`需 Claude 分析: ${brandNew.length} 条${hasApiKey ? '' : '（无 API Key，跳过）'}`);
 
+  // 先合并数据
+  const newIds = new Set(newItems.map(i => i.id));
+  const merged = [...newItems, ...existing.filter(i => !newIds.has(i.id))].slice(0, 1000);
+
+  // 分析所有缺少 AI 深度分析的条目（每次最多 60 条，避免超时）
   if (hasApiKey) {
-    for (const item of brandNew) {
+    const needAnalysis = merged.filter(i => !i.targetUsers).slice(0, 60);
+    console.log(`需 Claude 分析: ${needAnalysis.length} 条`);
+    let done = 0;
+    for (const item of needAnalysis) {
       const ai = await analyzeWithClaude(item.title, item.desc || '', item.mrr);
       if (ai) Object.assign(item, ai);
       process.stdout.write('.');
-      await new Promise(r => setTimeout(r, 500)); // 避免触发速率限制
+      done++;
+      await new Promise(r => setTimeout(r, 400));
     }
-    console.log(`\nClaude 分析完成`);
+    console.log(`\nClaude 分析完成 (${done} 条)`);
+  } else {
+    console.log('无 API Key，跳过 Claude 分析');
   }
-
-  const newIds = new Set(newItems.map(i => i.id));
-  const merged = [...newItems, ...existing.filter(i => !newIds.has(i.id))].slice(0, 1000);
   fs.writeFileSync(DATA_FILE, JSON.stringify(merged, null, 2));
   console.log(`保存完成: 共 ${merged.length} 条`);
 })();

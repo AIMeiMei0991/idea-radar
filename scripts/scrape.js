@@ -35,9 +35,9 @@ function detectCategory(text) {
   return '数字工具';
 }
 
-function scoreItem(title, desc, mrr) {
+function scoreItem(title, desc, mrr, baseScore = 2) {
   const text = (title + ' ' + (desc || '')).toLowerCase();
-  let score = 2;
+  let score = baseScore;
   const reasons = [];
   if (mrr) { score += 2; reasons.push(`已验证收入 ${mrr}`); }
   if (HIGH_KEYWORDS.some(k => text.includes(k))) { score += 1; reasons.push('热门赛道'); }
@@ -92,6 +92,19 @@ function generateInsight(title, desc) {
 
   if (text.includes('ecommerce') || text.includes('shopify') || text.includes('amazon'))
     return { summary: `跨境电商卖家的运营效率工具，降低选品和投放成本`, opportunity: '中国有全球最大跨境电商卖家群体，工具需求持续扩大' };
+
+  if ((text.includes('$') || text.includes('mrr') || text.includes('revenue') || text.includes('月')) &&
+      (text.includes('k/month') || text.includes('k mrr') || /\$[\d]+k/.test(text)))
+    return { summary: `已验证收入的 SaaS 创业案例，提供成长路径参考`, opportunity: '同类产品在国内市场的信息差和先发机会值得关注' };
+
+  if (text.includes('waitlist') || text.includes('launched') || text.includes('just launched') || text.includes('show hn'))
+    return { summary: `新产品发布或上线，创始人分享冷启动经验`, opportunity: '参考产品定位和获客方式，评估国内复制可行性' };
+
+  if (text.includes('mistake') || text.includes('lesson') || text.includes('failed') || text.includes('broke') || text.includes('fixed'))
+    return { summary: `创业者分享实战经验和踩坑教训`, opportunity: '同类型产品在国内的常见陷阱和差异化机会' };
+
+  if (text.includes('how i') || text.includes('how we') || text.includes('what i learned'))
+    return { summary: `创始人亲历分享，涵盖产品打磨和增长心法`, opportunity: '可提取可复用的方法论，用于国内同类产品' };
 
   if (desc && desc.length > 20)
     return { summary: desc.slice(0, 80).trim() + (desc.length > 80 ? '…' : ''), opportunity: '关注此赛道在中国的本土化机会' };
@@ -164,7 +177,8 @@ async function fetchTrustMRR() {
       const idx = html.indexOf(`"${p}"`);
       const nearby = html.slice(Math.max(0, idx-500), idx+500);
       const mrr = nearby.match(/\$[\d,]+(\.\d+)?[KkMm]?\s*(?:MRR|mrr)/)?.[0]?.trim();
-      const { score, reason } = scoreItem(title, '', mrr);
+      // TMRR base=3：TrustMRR 上的产品都是有真实收入的业务
+      const { score, reason } = scoreItem(title, '', mrr, 3);
       const { summary, opportunity } = generateInsight(title, mrr ? `月收入 ${mrr}` : '');
 
       results.push({
@@ -208,7 +222,9 @@ async function fetchReddit() {
 
         const title = fixTitle(post.title.trim());
         const desc = post.selftext ? post.selftext.replace(/\s+/g, ' ').trim().slice(0, 200) : '';
-        const { score, reason } = scoreItem(title, desc);
+        // Reddit 高分帖基础分提升
+        const redditBase = post.score >= 200 ? 3 : 2;
+        const { score, reason } = scoreItem(title, desc, null, redditBase);
         const { summary, opportunity } = generateInsight(title, desc);
         const dateKey = post.created_utc
           ? new Date(post.created_utc * 1000).toISOString().slice(0, 10)
@@ -298,8 +314,9 @@ async function fetchHackerNews() {
   let existing = [];
   try { existing = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8')); } catch (_) {}
 
-  const existingIds = new Set(existing.map(i => i.id));
-  const merged = [...newItems.filter(i => !existingIds.has(i.id)), ...existing].slice(0, 1000);
+  // 新抓取的数据优先（用最新评分和摘要覆盖旧数据），旧数据补充剩余历史
+  const newItemIds = new Set(newItems.map(i => i.id));
+  const merged = [...newItems, ...existing.filter(i => !newItemIds.has(i.id))].slice(0, 1000);
   fs.writeFileSync(DATA_FILE, JSON.stringify(merged, null, 2));
   console.log(`保存完成: 共 ${merged.length} 条`);
 })();

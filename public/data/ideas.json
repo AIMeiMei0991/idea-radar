@@ -13,7 +13,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.500Z",
     "dateKey": "2026-02-04"
   },
   {
@@ -30,7 +30,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.501Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -47,7 +47,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.501Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -64,7 +64,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.501Z",
     "dateKey": "2026-01-26"
   },
   {
@@ -81,7 +81,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.501Z",
     "dateKey": "2026-03-27"
   },
   {
@@ -98,7 +98,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.501Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -115,7 +115,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.501Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -132,7 +132,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.501Z",
     "dateKey": "2026-03-03"
   },
   {
@@ -149,7 +149,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.501Z",
     "dateKey": "2026-04-01"
   },
   {
@@ -166,7 +166,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.501Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -183,7 +183,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.501Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -200,7 +200,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.501Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -217,7 +217,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.501Z",
     "dateKey": "2026-03-31"
   },
   {
@@ -234,7 +234,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.501Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -251,7 +251,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.502Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -268,7 +268,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.502Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -285,24 +285,24 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.502Z",
     "dateKey": "2026-03-28"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Qwen3.6-Plus",
-    "summary": "AI Agent 自动接管重复性工作流，解放人力",
-    "opportunity": "企业降本增效需求迫切，AI 替代白领工作是未来 3 年最大红利",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/qwen3",
+    "title": "Package Mate",
+    "summary": "Master your macOS dev environment from the terminal Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/package-mate-open-source-cli-for-macos",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
-    "category": "AI工具",
+    "category": "数字工具",
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.502Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -319,7 +319,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.552Z",
+    "fetchedAt": "2026-04-03T10:23:54.502Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -336,7 +336,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.553Z",
+    "fetchedAt": "2026-04-03T10:23:54.502Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -353,41 +353,58 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.553Z",
+    "fetchedAt": "2026-04-03T10:23:54.502Z",
     "dateKey": "2026-04-02"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Package Mate",
-    "summary": "Master your macOS dev environment from the terminal Discussion | Link",
+    "title": "SlapWindows",
+    "summary": "Slap your Windows, it screams back Discussion | Link",
     "opportunity": "关注此赛道在中国的本土化机会",
     "score": 2,
     "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/package-mate-open-source-cli-for-macos",
+    "url": "https://www.producthunt.com/products/slapwindows",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.553Z",
+    "fetchedAt": "2026-04-03T10:23:54.502Z",
     "dateKey": "2026-04-02"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Otto by Audos.com",
-    "summary": "降低设计门槛，让非设计师也能快速出图",
-    "opportunity": "电商/自媒体/教育行业对设计工具需求大，国内 Canva 类产品未完全覆盖",
+    "title": "Google Vids 2.0",
+    "summary": "AI自动生成视频内容，解决创作者批量产出的效率瓶颈",
+    "opportunity": "抖音/小红书投流素材需求爆发，国内无成熟 AI 视频素材工具",
     "score": 3,
     "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/socap",
+    "url": "https://www.producthunt.com/products/google",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "AI工具",
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.553Z",
+    "fetchedAt": "2026-04-03T10:23:54.502Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "EmDash CMS",
+    "summary": "EmDash is a new open-source CMS from Cloudflare Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/emdash-cms",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T10:23:54.502Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -404,24 +421,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:23:27.553Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Google Gemma 4",
-    "summary": "Google's most intelligent open models to date Discussion | Link",
-    "opportunity": "关注此赛道在中国的本土化机会",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/google-gemma",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T10:23:27.553Z",
+    "fetchedAt": "2026-04-03T10:23:54.502Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -438,7 +438,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.548Z",
+    "fetchedAt": "2026-04-03T10:23:54.790Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -455,7 +455,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.548Z",
+    "fetchedAt": "2026-04-03T10:23:54.790Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -472,7 +472,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.548Z",
+    "fetchedAt": "2026-04-03T10:23:54.790Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -489,7 +489,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.548Z",
+    "fetchedAt": "2026-04-03T10:23:54.790Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -506,7 +506,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.548Z",
+    "fetchedAt": "2026-04-03T10:23:54.790Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -523,7 +523,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.548Z",
+    "fetchedAt": "2026-04-03T10:23:54.790Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -540,7 +540,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.548Z",
+    "fetchedAt": "2026-04-03T10:23:54.790Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -557,7 +557,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.548Z",
+    "fetchedAt": "2026-04-03T10:23:54.790Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -574,7 +574,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.548Z",
+    "fetchedAt": "2026-04-03T10:23:54.790Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -591,7 +591,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.548Z",
+    "fetchedAt": "2026-04-03T10:23:54.790Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -608,7 +608,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.548Z",
+    "fetchedAt": "2026-04-03T10:23:54.790Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -625,7 +625,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.548Z",
+    "fetchedAt": "2026-04-03T10:23:54.790Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -642,7 +642,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.549Z",
+    "fetchedAt": "2026-04-03T10:23:54.790Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -659,7 +659,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.549Z",
+    "fetchedAt": "2026-04-03T10:23:54.791Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -676,7 +676,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.549Z",
+    "fetchedAt": "2026-04-03T10:23:54.791Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -693,7 +693,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.549Z",
+    "fetchedAt": "2026-04-03T10:23:54.791Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -710,7 +710,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.549Z",
+    "fetchedAt": "2026-04-03T10:23:54.791Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -727,7 +727,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.549Z",
+    "fetchedAt": "2026-04-03T10:23:54.791Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -744,7 +744,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.549Z",
+    "fetchedAt": "2026-04-03T10:23:54.791Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -761,7 +761,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.549Z",
+    "fetchedAt": "2026-04-03T10:23:54.791Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -778,7 +778,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.549Z",
+    "fetchedAt": "2026-04-03T10:23:54.791Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -795,7 +795,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.549Z",
+    "fetchedAt": "2026-04-03T10:23:54.791Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -812,7 +812,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.549Z",
+    "fetchedAt": "2026-04-03T10:23:54.791Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -829,7 +829,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.549Z",
+    "fetchedAt": "2026-04-03T10:23:54.791Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -846,8 +846,188 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:23:26.549Z",
+    "fetchedAt": "2026-04-03T10:23:54.791Z",
     "dateKey": "2026-04-03"
+  },
+  {
+    "id": "hn-47562455",
+    "title": "The True Shape of IO's Steeple Mountain",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.weareinquisitive.com/news/hidden-in-the-shadow",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 52,
+    "category": "AI工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:23:54.774Z",
+    "dateKey": "2026-03-29"
+  },
+  {
+    "id": "hn-47618189",
+    "title": "Tailscale's new macOS home",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://tailscale.com/blog/macos-notch-escape",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 465,
+    "category": "AI工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:23:54.774Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "hn-47617415",
+    "title": "Good ideas do not need lots of lies in order to gain public acceptance (2008)",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://blog.danieldavies.com/2004/05/d-squared-digest-one-minute-mba.html",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 259,
+    "category": "AI工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:23:54.774Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "hn-47560959",
+    "title": "Show HN: Home Maker: Declare Your Dev Tools in a Makefile",
+    "summary": "新产品发布或上线，创始人分享冷启动经验",
+    "opportunity": "参考产品定位和获客方式，评估国内复制可行性",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://thottingal.in/blog/2026/03/29/home-maker/",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 58,
+    "category": "开发者工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:23:54.775Z",
+    "dateKey": "2026-03-29"
+  },
+  {
+    "id": "hn-47617376",
+    "title": "OpenAI Acquires TBPN",
+    "summary": "降低设计门槛，让非设计师也能快速出图",
+    "opportunity": "电商/自媒体/教育行业对设计工具需求大，国内 Canva 类产品未完全覆盖",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://openai.com/index/openai-acquires-tbpn/",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 213,
+    "category": "AI工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:23:54.775Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "hn-47621438",
+    "title": "Show HN: Made a little Artemis II tracker",
+    "summary": "新产品发布或上线，创始人分享冷启动经验",
+    "opportunity": "参考产品定位和获客方式，评估国内复制可行性",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://artemis-ii-tracker.com/",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 112,
+    "category": "数字工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:23:54.775Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "hn-47603657",
+    "title": "Artemis II Launch Day Updates",
+    "summary": "https:&#x2F;&#x2F;www.youtube.com&#x2F;live&#x2F;Tf_UjBMIzNo",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.nasa.gov/blogs/missions/2026/04/01/live-artemis-ii-launch-day-updates/",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 1080,
+    "category": "数字工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:23:54.775Z",
+    "dateKey": "2026-04-01"
+  },
+  {
+    "id": "hn-47621792",
+    "title": "Post Mortem: axios NPM supply chain compromise",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://github.com/axios/axios/issues/10636",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 95,
+    "category": "AI工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:23:54.775Z",
+    "dateKey": "2026-04-03"
+  },
+  {
+    "id": "hn-47615434",
+    "title": "Delve allegedly forked an open-source tool and sold it as its own",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://techcrunch.com/2026/04/01/the-reputation-of-troubled-yc-startup-delve-has-gotten-even-worse/",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 282,
+    "category": "数字工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:23:54.775Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "hn-47611921",
+    "title": "Significant raise of reports",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://lwn.net/Articles/1065620/",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 295,
+    "category": "AI工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:23:54.775Z",
+    "dateKey": "2026-04-02"
   },
   {
     "id": "reddit-1satv9o",
@@ -937,186 +1117,6 @@
       "Reddit精选"
     ],
     "fetchedAt": "2026-04-03T10:23:27.932Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "hn-47562455",
-    "title": "The True Shape of IO's Steeple Mountain",
-    "summary": "新兴数字工具，聚焦垂直领域效率提升",
-    "opportunity": "可评估国内同类需求规模和信息差空间",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://www.weareinquisitive.com/news/hidden-in-the-shadow",
-    "source": "hackernews",
-    "sourceLabel": "Hacker News",
-    "hnScore": 52,
-    "category": "AI工具",
-    "tags": [
-      "HN精选"
-    ],
-    "fetchedAt": "2026-04-03T10:23:27.045Z",
-    "dateKey": "2026-03-29"
-  },
-  {
-    "id": "hn-47618189",
-    "title": "Tailscale's new macOS home",
-    "summary": "新兴数字工具，聚焦垂直领域效率提升",
-    "opportunity": "可评估国内同类需求规模和信息差空间",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://tailscale.com/blog/macos-notch-escape",
-    "source": "hackernews",
-    "sourceLabel": "Hacker News",
-    "hnScore": 465,
-    "category": "AI工具",
-    "tags": [
-      "HN精选"
-    ],
-    "fetchedAt": "2026-04-03T10:23:27.045Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "hn-47617415",
-    "title": "Good ideas do not need lots of lies in order to gain public acceptance (2008)",
-    "summary": "新兴数字工具，聚焦垂直领域效率提升",
-    "opportunity": "可评估国内同类需求规模和信息差空间",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://blog.danieldavies.com/2004/05/d-squared-digest-one-minute-mba.html",
-    "source": "hackernews",
-    "sourceLabel": "Hacker News",
-    "hnScore": 259,
-    "category": "AI工具",
-    "tags": [
-      "HN精选"
-    ],
-    "fetchedAt": "2026-04-03T10:23:27.045Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "hn-47560959",
-    "title": "Show HN: Home Maker: Declare Your Dev Tools in a Makefile",
-    "summary": "新产品发布或上线，创始人分享冷启动经验",
-    "opportunity": "参考产品定位和获客方式，评估国内复制可行性",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://thottingal.in/blog/2026/03/29/home-maker/",
-    "source": "hackernews",
-    "sourceLabel": "Hacker News",
-    "hnScore": 58,
-    "category": "开发者工具",
-    "tags": [
-      "HN精选"
-    ],
-    "fetchedAt": "2026-04-03T10:23:27.045Z",
-    "dateKey": "2026-03-29"
-  },
-  {
-    "id": "hn-47617376",
-    "title": "OpenAI Acquires TBPN",
-    "summary": "降低设计门槛，让非设计师也能快速出图",
-    "opportunity": "电商/自媒体/教育行业对设计工具需求大，国内 Canva 类产品未完全覆盖",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://openai.com/index/openai-acquires-tbpn/",
-    "source": "hackernews",
-    "sourceLabel": "Hacker News",
-    "hnScore": 213,
-    "category": "AI工具",
-    "tags": [
-      "HN精选"
-    ],
-    "fetchedAt": "2026-04-03T10:23:27.046Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "hn-47621438",
-    "title": "Show HN: Made a little Artemis II tracker",
-    "summary": "新产品发布或上线，创始人分享冷启动经验",
-    "opportunity": "参考产品定位和获客方式，评估国内复制可行性",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://artemis-ii-tracker.com/",
-    "source": "hackernews",
-    "sourceLabel": "Hacker News",
-    "hnScore": 111,
-    "category": "数字工具",
-    "tags": [
-      "HN精选"
-    ],
-    "fetchedAt": "2026-04-03T10:23:27.046Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "hn-47603657",
-    "title": "Artemis II Launch Day Updates",
-    "summary": "https:&#x2F;&#x2F;www.youtube.com&#x2F;live&#x2F;Tf_UjBMIzNo",
-    "opportunity": "关注此赛道在中国的本土化机会",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://www.nasa.gov/blogs/missions/2026/04/01/live-artemis-ii-launch-day-updates/",
-    "source": "hackernews",
-    "sourceLabel": "Hacker News",
-    "hnScore": 1080,
-    "category": "数字工具",
-    "tags": [
-      "HN精选"
-    ],
-    "fetchedAt": "2026-04-03T10:23:27.046Z",
-    "dateKey": "2026-04-01"
-  },
-  {
-    "id": "hn-47621792",
-    "title": "Post Mortem: axios NPM supply chain compromise",
-    "summary": "新兴数字工具，聚焦垂直领域效率提升",
-    "opportunity": "可评估国内同类需求规模和信息差空间",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://github.com/axios/axios/issues/10636",
-    "source": "hackernews",
-    "sourceLabel": "Hacker News",
-    "hnScore": 95,
-    "category": "AI工具",
-    "tags": [
-      "HN精选"
-    ],
-    "fetchedAt": "2026-04-03T10:23:27.046Z",
-    "dateKey": "2026-04-03"
-  },
-  {
-    "id": "hn-47615434",
-    "title": "Delve allegedly forked an open-source tool and sold it as its own",
-    "summary": "新兴数字工具，聚焦垂直领域效率提升",
-    "opportunity": "可评估国内同类需求规模和信息差空间",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://techcrunch.com/2026/04/01/the-reputation-of-troubled-yc-startup-delve-has-gotten-even-worse/",
-    "source": "hackernews",
-    "sourceLabel": "Hacker News",
-    "hnScore": 282,
-    "category": "数字工具",
-    "tags": [
-      "HN精选"
-    ],
-    "fetchedAt": "2026-04-03T10:23:27.046Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "hn-47611921",
-    "title": "Significant raise of reports",
-    "summary": "新兴数字工具，聚焦垂直领域效率提升",
-    "opportunity": "可评估国内同类需求规模和信息差空间",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://lwn.net/Articles/1065620/",
-    "source": "hackernews",
-    "sourceLabel": "Hacker News",
-    "hnScore": 295,
-    "category": "AI工具",
-    "tags": [
-      "HN精选"
-    ],
-    "fetchedAt": "2026-04-03T10:23:27.046Z",
     "dateKey": "2026-04-02"
   },
   {

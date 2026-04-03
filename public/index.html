@@ -46,7 +46,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .card-wrap.s4{background:rgba(255,107,53,0.07);border-color:rgba(255,107,53,0.18)}
 .card-wrap.s3{background:rgba(251,191,36,0.04);border-color:rgba(251,191,36,0.15)}
 .card-wrap.s2,.card-wrap.s1{background:rgba(255,255,255,0.015);border-color:rgba(255,255,255,0.06)}
-.card-wrap.is-read{opacity:0.28}
+.card-wrap.is-read{opacity:0.5}
 
 /* 卡片链接 */
 .card{text-decoration:none;display:block;padding:14px 14px 12px}
@@ -135,7 +135,10 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
       <div class="logo"><span class="logo-icon">📡</span>创意雷达</div>
       <div class="update-time" id="updateTime">每天 08:00 自动更新</div>
     </div>
-    <button class="read-toggle" id="readToggle" onclick="toggleHideRead()">隐藏已读</button>
+    <div style="display:flex;gap:6px;align-items:center">
+      <button class="read-toggle" id="clearReadBtn" onclick="clearAllRead()" style="color:#666">清空已读</button>
+      <button class="read-toggle" id="readToggle" onclick="toggleHideRead()">隐藏已读</button>
+    </div>
   </div>
   <div class="search-wrap" id="searchWrap">
     <input class="search-input" type="search" id="searchInput"
@@ -204,6 +207,13 @@ function fadeOut(wrap) {
   wrap.style.transition = 'opacity 0.25s, max-height 0.35s, margin 0.35s';
   wrap.style.opacity = '0';
   setTimeout(() => { wrap.style.maxHeight='0'; wrap.style.overflow='hidden'; wrap.style.marginBottom='-10px'; }, 230);
+}
+
+function clearAllRead() {
+  readItems.clear(); saveRead();
+  document.querySelectorAll('.card-wrap.is-read').forEach(w => w.classList.remove('is-read'));
+  if (hideRead) { currentPage = 1; filterAndRender(); }
+  showToast('已清空全部已读记录');
 }
 
 function toggleHideRead() {

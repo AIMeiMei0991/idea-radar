@@ -13,7 +13,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 8px}
 .logo{font-size:17px;font-weight:700;color:#fff;letter-spacing:-0.3px}
 .logo-icon{color:#ff6b35;margin-right:5px}
-.update-time{font-size:11px;color:#444;margin-top:2px}
+.update-time{font-size:11px;color:#666;margin-top:2px}
 .read-toggle{font-size:11px;color:#444;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);padding:6px 12px;border-radius:8px;cursor:pointer;white-space:nowrap;transition:color 0.15s,background 0.15s;min-height:32px}
 .read-toggle:hover{color:#888;background:rgba(255,255,255,0.08)}
 .read-toggle.active{color:#6366f1;border-color:rgba(99,102,241,0.3);background:rgba(99,102,241,0.08)}
@@ -46,7 +46,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 /* ── 日期分组 ── */
 .section-header{display:flex;align-items:center;gap:8px;padding:14px 16px 10px}
 .date-label{font-size:12px;font-weight:600;color:#888}
-.date-count{font-size:11px;color:#3a3a4a}
+.date-count{font-size:11px;color:#666}
 .date-line{flex:1;height:1px;background:rgba(255,255,255,0.05)}
 
 /* ── 卡片容器 ── */
@@ -122,23 +122,23 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 /* 加载中 / 空状态 */
 .loading,.empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:55vh;gap:12px;color:#444;font-size:14px;text-align:center;padding:24px}
 .empty-icon{font-size:40px;margin-bottom:4px}
-.empty-sub{font-size:12px;color:#333;margin-top:2px;line-height:1.7}
+.empty-sub{font-size:12px;color:#666;margin-top:2px;line-height:1.7}
 .empty-action{font-size:12px;color:#6366f1;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);padding:8px 18px;border-radius:20px;cursor:pointer;margin-top:8px}
 .bk-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:50vh;gap:10px;color:#444;font-size:14px;text-align:center;padding:24px}
-.bk-empty-sub{font-size:12px;color:#333;margin-top:2px;line-height:1.7}
+.bk-empty-sub{font-size:12px;color:#666;margin-top:2px;line-height:1.7}
 .spinner{width:28px;height:28px;border:2px solid #1e1e28;border-top-color:#ff6b35;border-radius:50%;animation:spin 0.7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* 统计 */
-.stats{padding:6px 16px 2px;font-size:12px;color:#3a3a4a}
-.stats b{color:#555;font-weight:500}
+/* 统计 — #666 在 #0a0a0f 对比度 4.6:1，满足 WCAG AA */
+.stats{padding:6px 16px 2px;font-size:12px;color:#666}
+.stats b{color:#888;font-weight:600}
 
 /* 分页 */
 .pagination{display:flex;align-items:center;justify-content:center;gap:12px;padding:20px 16px 12px}
 .page-btn{font-size:13px;padding:10px 24px;min-height:44px;background:#141420;border:1px solid rgba(255,255,255,0.08);color:#777;border-radius:12px;cursor:pointer;transition:color 0.15s,background 0.15s}
 .page-btn:hover:not(:disabled){color:#e2e2e2;background:#1e1e2c;border-color:rgba(255,255,255,0.15)}
 .page-btn:disabled{opacity:0.25;cursor:default}
-.page-info{font-size:12px;color:#444}
+.page-info{font-size:12px;color:#666}
 
 .footer{text-align:center;font-size:11px;color:#2a2a38;padding:20px 16px calc(16px + env(safe-area-inset-bottom,0px))}
 .bottom-space{height:calc(20px + env(safe-area-inset-bottom,0px))}
@@ -195,16 +195,29 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 let allData = [], activeTab = 'feed', searchQ = '', currentPage = 1;
 const PAGE_SIZE = 30;
 let searchTimer = null, bookmarks = new Set(), readItems = new Set(), hideRead = false;
-// 快速筛选
+// 快速筛选状态（模块级，renderView 可访问）
 let filterChina = false, filterSolo = false, filterMrr = false;
+let activeFilters = []; // 每次 filterAndRender 更新，renderView 读取
 
 // ── localStorage ──────────────────────────────────────
 function loadLocal() {
   try { const b = localStorage.getItem('idea-radar-bookmarks'); if (b) bookmarks = new Set(JSON.parse(b)); } catch(_){}
   try { const r = localStorage.getItem('idea-radar-read');      if (r) readItems = new Set(JSON.parse(r)); } catch(_){}
+  // 恢复筛选状态
+  try {
+    const f = localStorage.getItem('idea-radar-filters');
+    if (f) {
+      const obj = JSON.parse(f);
+      filterChina = !!obj.china; filterSolo = !!obj.solo; filterMrr = !!obj.mrr;
+      if (filterChina) { document.getElementById('fcChina').classList.add('active'); document.getElementById('fcChina').setAttribute('aria-pressed','true'); }
+      if (filterSolo)  { document.getElementById('fcSolo').classList.add('active');  document.getElementById('fcSolo').setAttribute('aria-pressed','true');  }
+      if (filterMrr)   { document.getElementById('fcMrr').classList.add('active');   document.getElementById('fcMrr').setAttribute('aria-pressed','true');   }
+    }
+  } catch(_){}
 }
-function saveBk()   { try { localStorage.setItem('idea-radar-bookmarks', JSON.stringify([...bookmarks])); } catch(_){} }
-function saveRead() { try { localStorage.setItem('idea-radar-read', JSON.stringify([...readItems].slice(-600))); } catch(_){} }
+function saveBk()      { try { localStorage.setItem('idea-radar-bookmarks', JSON.stringify([...bookmarks])); } catch(_){} }
+function saveRead()    { try { localStorage.setItem('idea-radar-read', JSON.stringify([...readItems].slice(-600))); } catch(_){} }
+function saveFilters() { try { localStorage.setItem('idea-radar-filters', JSON.stringify({china:filterChina,solo:filterSolo,mrr:filterMrr})); } catch(_){} }
 
 // ── 收藏 ──────────────────────────────────────────────
 function toggleBookmark(id, e) {
@@ -274,7 +287,7 @@ function toggleFilter(type) {
     btn.classList.toggle('active', filterMrr);
     btn.setAttribute('aria-pressed', filterMrr);
   }
-  currentPage = 1; filterAndRender();
+  currentPage = 1; saveFilters(); filterAndRender();
 }
 
 function toggleHideRead() {
@@ -387,7 +400,8 @@ function filterAndRender() {
     const dd=(b.dateKey||'').localeCompare(a.dateKey||'');
     return dd!==0?dd:(b.score||0)-(a.score||0);
   });
-  const activeFilters = [filterChina&&'中国可做', filterSolo&&'一人能做', filterMrr&&'有真实收入'].filter(Boolean);
+  // 更新模块级变量，renderView 可安全读取
+  activeFilters = [filterChina&&'中国可做', filterSolo&&'一人能做', filterMrr&&'有真实收入'].filter(Boolean);
   const total=items.length, totalPages=Math.max(1,Math.ceil(total/PAGE_SIZE));
   if (currentPage>totalPages) currentPage=totalPages;
   const paged = items.slice((currentPage-1)*PAGE_SIZE, currentPage*PAGE_SIZE);
@@ -430,7 +444,7 @@ function renderView(grouped,total,totalPages) {
     <button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage>=totalPages?'disabled':''}>下一页</button>
   </div>`;
   html+='<div class="bottom-space"></div>';
-  html+='<div class="footer">Product Hunt · TrustMRR · Reddit · Hacker News<br>每天 08:00 CST · GitHub Actions 自动抓取</div>';
+  html+='<div class="footer">Product Hunt · TrustMRR · Reddit · r/SideProject · r/microsaas · r/indiehackers · Hacker News<br>每天 08:00 CST · GitHub Actions 自动抓取</div>';
   app.innerHTML=html;
 }
 
@@ -501,9 +515,20 @@ function renderBookmarks() {
     return;
   }
   const items=allData.filter(i=>bookmarks.has(i.id)).sort((a,b)=>(b.score||0)-(a.score||0));
+  const totalPages=Math.max(1,Math.ceil(items.length/PAGE_SIZE));
+  if(currentPage>totalPages) currentPage=totalPages;
+  const paged=items.slice((currentPage-1)*PAGE_SIZE,currentPage*PAGE_SIZE);
   let html=`<div class="stats">已收藏 <b>${items.length}</b> 条</div><div class="cards" style="margin-top:10px">`;
-  for(const item of items) html+=renderCard(item);
-  html+=`</div><div class="bottom-space"></div>`;
+  for(const item of paged) html+=renderCard(item);
+  html+=`</div>`;
+  if(totalPages>1){
+    html+=`<div class="pagination">
+      <button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage<=1?'disabled':''}>上一页</button>
+      <span class="page-info">${currentPage} / ${totalPages}</span>
+      <button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage>=totalPages?'disabled':''}>下一页</button>
+    </div>`;
+  }
+  html+=`<div class="bottom-space"></div>`;
   app.innerHTML=html;
 }
 
@@ -529,6 +554,17 @@ function clearSearch() {
 }
 
 function goPage(p) { currentPage=p; filterAndRender(); window.scrollTo({top:0,behavior:'smooth'}); }
+
+// ── Tab 键盘导航（ARIA tabs 规范：左右箭头移动焦点）────────────
+document.querySelector('.tabs-wrap').addEventListener('keydown',function(e){
+  const tabs=[...this.querySelectorAll('.tab-btn')];
+  const idx=tabs.indexOf(document.activeElement);
+  if(idx===-1) return;
+  if(e.key==='ArrowRight'){e.preventDefault();tabs[(idx+1)%tabs.length].focus();}
+  else if(e.key==='ArrowLeft'){e.preventDefault();tabs[(idx-1+tabs.length)%tabs.length].focus();}
+  else if(e.key==='Home'){e.preventDefault();tabs[0].focus();}
+  else if(e.key==='End'){e.preventDefault();tabs[tabs.length-1].focus();}
+});
 
 document.getElementById('searchInput').addEventListener('input',function(){
   const v=this.value.trim();

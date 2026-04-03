@@ -13,177 +13,7 @@
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:21.931Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Otto by Audos.com",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "problem": "AI 替代某类重复劳动，降低专业门槛和人力成本",
-    "chinaFit": "mid",
-    "chinaReason": "AI/SaaS 赛道在国内有增量，需本土化",
-    "soloFit": "yes",
-    "soloReason": "SaaS/AI 工具，无代码或小成本可验证",
-    "url": "https://www.producthunt.com/products/socap",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "AI工具",
-    "fetchedAt": "2026-04-03T11:20:21.931Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "ChatGPT on CarPlay",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "problem": "AI 替代某类重复劳动，降低专业门槛和人力成本",
-    "chinaFit": "mid",
-    "chinaReason": "AI/SaaS 赛道在国内有增量，需本土化",
-    "soloFit": "yes",
-    "soloReason": "SaaS/AI 工具，无代码或小成本可验证",
-    "url": "https://www.producthunt.com/products/openai",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "AI工具",
-    "fetchedAt": "2026-04-03T11:20:21.931Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "VoiceOS",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "problem": "垂直领域效率工具，有明确用户群的付费需求",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "url": "https://www.producthunt.com/products/voiceos",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:21.931Z",
-    "dateKey": "2026-04-01"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Qwen3.6-Plus",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "problem": "AI 替代某类重复劳动，降低专业门槛和人力成本",
-    "chinaFit": "mid",
-    "chinaReason": "AI/SaaS 赛道在国内有增量，需本土化",
-    "soloFit": "yes",
-    "soloReason": "SaaS/AI 工具，无代码或小成本可验证",
-    "url": "https://www.producthunt.com/products/qwen3",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "AI工具",
-    "fetchedAt": "2026-04-03T11:20:21.931Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Gerri",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "problem": "垂直领域效率工具，有明确用户群的付费需求",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "url": "https://www.producthunt.com/products/gerri",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:21.932Z",
-    "dateKey": "2026-03-27"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Slide2Video",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "problem": "垂直领域效率工具，有明确用户群的付费需求",
-    "chinaFit": "high",
-    "chinaReason": "对应国内真实需求，有本土化空间",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "url": "https://www.producthunt.com/products/slide2video-2",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "视频创作",
-    "fetchedAt": "2026-04-03T11:20:21.932Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "NotebookLM Custom Infographic Styles",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "problem": "垂直领域效率工具，有明确用户群的付费需求",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "url": "https://www.producthunt.com/products/notebooklm-custom-infographic-styles",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:21.932Z",
-    "dateKey": "2026-03-03"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Google Vids 2.0",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "problem": "创作者批量生成视频，解决产量低的效率瓶颈",
-    "chinaFit": "high",
-    "chinaReason": "对应国内真实需求，有本土化空间",
-    "soloFit": "yes",
-    "soloReason": "SaaS/AI 工具，无代码或小成本可验证",
-    "url": "https://www.producthunt.com/products/google",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "AI工具",
-    "fetchedAt": "2026-04-03T11:20:21.932Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Side Reminder",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "problem": "垂直领域效率工具，有明确用户群的付费需求",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "url": "https://www.producthunt.com/products/side-reminder",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:21.932Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Google Gemma 4",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "problem": "垂直领域效率工具，有明确用户群的付费需求",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "url": "https://www.producthunt.com/products/google-gemma",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:21.932Z",
+    "fetchedAt": "2026-04-03T11:43:00.696Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -200,12 +30,12 @@
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T11:20:21.932Z",
+    "fetchedAt": "2026-04-03T11:43:00.696Z",
     "dateKey": "2026-03-28"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "SlapWindows",
+    "title": "Google Gemma 4",
     "score": 2,
     "scoreReason": "基础工具",
     "problem": "垂直领域效率工具，有明确用户群的付费需求",
@@ -213,33 +43,33 @@
     "chinaReason": "通用工具，需评估国内实际市场规模",
     "soloFit": "maybe",
     "soloReason": "需结合具体功能范围评估开发量",
-    "url": "https://www.producthunt.com/products/slapwindows",
+    "url": "https://www.producthunt.com/products/google-gemma",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:21.932Z",
+    "fetchedAt": "2026-04-03T11:43:00.697Z",
     "dateKey": "2026-04-02"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Vxero Neo",
+    "title": "GeneratePPT",
     "score": 2,
     "scoreReason": "基础工具",
-    "problem": "垂直领域效率工具，有明确用户群的付费需求",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
+    "problem": "降低设计门槛，非设计师也能产出专业级图文",
+    "chinaFit": "high",
+    "chinaReason": "对应国内真实需求，有本土化空间",
     "soloFit": "maybe",
     "soloReason": "需结合具体功能范围评估开发量",
-    "url": "https://www.producthunt.com/products/vxero-neo",
+    "url": "https://www.producthunt.com/products/generateppt",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:21.932Z",
-    "dateKey": "2026-03-31"
+    "category": "设计工具",
+    "fetchedAt": "2026-04-03T11:43:00.697Z",
+    "dateKey": "2026-01-26"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Turn It Gen Z",
+    "title": "NotebookLM Custom Infographic Styles",
     "score": 2,
     "scoreReason": "基础工具",
     "problem": "垂直领域效率工具，有明确用户群的付费需求",
@@ -247,16 +77,118 @@
     "chinaReason": "通用工具，需评估国内实际市场规模",
     "soloFit": "maybe",
     "soloReason": "需结合具体功能范围评估开发量",
-    "url": "https://www.producthunt.com/products/turn-it-gen-z",
+    "url": "https://www.producthunt.com/products/notebooklm-custom-infographic-styles",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:21.932Z",
+    "fetchedAt": "2026-04-03T11:43:00.697Z",
+    "dateKey": "2026-03-03"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Google Vids 2.0",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "problem": "创作者批量生成视频，解决产量低的效率瓶颈",
+    "chinaFit": "high",
+    "chinaReason": "对应国内真实需求，有本土化空间",
+    "soloFit": "yes",
+    "soloReason": "SaaS/AI 工具，无代码或小成本可验证",
+    "url": "https://www.producthunt.com/products/google",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "AI工具",
+    "fetchedAt": "2026-04-03T11:43:00.697Z",
     "dateKey": "2026-04-02"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "MAI-Transcribe-1",
+    "title": "Side Reminder",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "problem": "垂直领域效率工具，有明确用户群的付费需求",
+    "chinaFit": "mid",
+    "chinaReason": "通用工具，需评估国内实际市场规模",
+    "soloFit": "maybe",
+    "soloReason": "需结合具体功能范围评估开发量",
+    "url": "https://www.producthunt.com/products/side-reminder",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "fetchedAt": "2026-04-03T11:43:00.697Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Cursor 3",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "problem": "AI Agent 接管重复工作流，释放人力做高价值事",
+    "chinaFit": "mid",
+    "chinaReason": "通用工具，需评估国内实际市场规模",
+    "soloFit": "maybe",
+    "soloReason": "需结合具体功能范围评估开发量",
+    "url": "https://www.producthunt.com/products/cursor-3",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "fetchedAt": "2026-04-03T11:43:00.697Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "VoiceOS",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "problem": "垂直领域效率工具，有明确用户群的付费需求",
+    "chinaFit": "mid",
+    "chinaReason": "通用工具，需评估国内实际市场规模",
+    "soloFit": "maybe",
+    "soloReason": "需结合具体功能范围评估开发量",
+    "url": "https://www.producthunt.com/products/voiceos",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "fetchedAt": "2026-04-03T11:43:00.697Z",
+    "dateKey": "2026-04-01"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Gerri",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "problem": "垂直领域效率工具，有明确用户群的付费需求",
+    "chinaFit": "mid",
+    "chinaReason": "通用工具，需评估国内实际市场规模",
+    "soloFit": "maybe",
+    "soloReason": "需结合具体功能范围评估开发量",
+    "url": "https://www.producthunt.com/products/gerri",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "fetchedAt": "2026-04-03T11:43:00.697Z",
+    "dateKey": "2026-03-27"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "EmDash CMS",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "problem": "垂直领域效率工具，有明确用户群的付费需求",
+    "chinaFit": "mid",
+    "chinaReason": "通用工具，需评估国内实际市场规模",
+    "soloFit": "maybe",
+    "soloReason": "需结合具体功能范围评估开发量",
+    "url": "https://www.producthunt.com/products/emdash-cms",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "fetchedAt": "2026-04-03T11:43:00.697Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Otto by Audos.com",
     "score": 3,
     "scoreReason": "热门赛道",
     "problem": "AI 替代某类重复劳动，降低专业门槛和人力成本",
@@ -264,28 +196,11 @@
     "chinaReason": "AI/SaaS 赛道在国内有增量，需本土化",
     "soloFit": "yes",
     "soloReason": "SaaS/AI 工具，无代码或小成本可验证",
-    "url": "https://www.producthunt.com/products/mai-image-2-3",
+    "url": "https://www.producthunt.com/products/socap",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T11:20:21.932Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Package Mate",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "problem": "垂直领域效率工具，有明确用户群的付费需求",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "url": "https://www.producthunt.com/products/package-mate-open-source-cli-for-macos",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:21.932Z",
+    "fetchedAt": "2026-04-03T11:43:00.697Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -302,12 +217,12 @@
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:21.932Z",
+    "fetchedAt": "2026-04-03T11:43:00.697Z",
     "dateKey": "2026-04-02"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Codictate",
+    "title": "Vxero Neo",
     "score": 2,
     "scoreReason": "基础工具",
     "problem": "垂直领域效率工具，有明确用户群的付费需求",
@@ -315,12 +230,12 @@
     "chinaReason": "通用工具，需评估国内实际市场规模",
     "soloFit": "maybe",
     "soloReason": "需结合具体功能范围评估开发量",
-    "url": "https://www.producthunt.com/products/codictate",
+    "url": "https://www.producthunt.com/products/vxero-neo",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:21.932Z",
-    "dateKey": "2026-04-02"
+    "fetchedAt": "2026-04-03T11:43:00.697Z",
+    "dateKey": "2026-03-31"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -336,58 +251,24 @@
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:21.933Z",
+    "fetchedAt": "2026-04-03T11:43:00.698Z",
     "dateKey": "2026-04-01"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "EmDash CMS",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "problem": "垂直领域效率工具，有明确用户群的付费需求",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "url": "https://www.producthunt.com/products/emdash-cms",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:21.933Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Sublime",
+    "title": "FindThem",
     "score": 3,
     "scoreReason": "热门赛道",
-    "problem": "AI 替代某类重复劳动，降低专业门槛和人力成本",
-    "chinaFit": "mid",
-    "chinaReason": "AI/SaaS 赛道在国内有增量，需本土化",
+    "problem": "AI 起草个性化邮件，B2B 销售触达效率翻倍",
+    "chinaFit": "high",
+    "chinaReason": "对应国内真实需求，有本土化空间",
     "soloFit": "yes",
     "soloReason": "SaaS/AI 工具，无代码或小成本可验证",
-    "url": "https://www.producthunt.com/products/sublime-4",
+    "url": "https://www.producthunt.com/products/findthem",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T11:20:21.933Z",
-    "dateKey": "2026-02-04"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "StampCut",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "problem": "垂直领域效率工具，有明确用户群的付费需求",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "url": "https://www.producthunt.com/products/stampcut",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:21.933Z",
+    "fetchedAt": "2026-04-03T11:43:00.698Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -404,12 +285,12 @@
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:21.933Z",
+    "fetchedAt": "2026-04-03T11:43:00.698Z",
     "dateKey": "2026-04-02"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Mesh LLM",
+    "title": "Package Mate",
     "score": 2,
     "scoreReason": "基础工具",
     "problem": "垂直领域效率工具，有明确用户群的付费需求",
@@ -417,12 +298,131 @@
     "chinaReason": "通用工具，需评估国内实际市场规模",
     "soloFit": "maybe",
     "soloReason": "需结合具体功能范围评估开发量",
-    "url": "https://www.producthunt.com/products/mesh-llm",
+    "url": "https://www.producthunt.com/products/package-mate-open-source-cli-for-macos",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:21.933Z",
-    "dateKey": "2026-04-03"
+    "fetchedAt": "2026-04-03T11:43:00.698Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "ChatGPT on CarPlay",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "problem": "AI 替代某类重复劳动，降低专业门槛和人力成本",
+    "chinaFit": "mid",
+    "chinaReason": "AI/SaaS 赛道在国内有增量，需本土化",
+    "soloFit": "yes",
+    "soloReason": "SaaS/AI 工具，无代码或小成本可验证",
+    "url": "https://www.producthunt.com/products/openai",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "AI工具",
+    "fetchedAt": "2026-04-03T11:43:00.698Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Slide2Video",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "problem": "垂直领域效率工具，有明确用户群的付费需求",
+    "chinaFit": "high",
+    "chinaReason": "对应国内真实需求，有本土化空间",
+    "soloFit": "maybe",
+    "soloReason": "需结合具体功能范围评估开发量",
+    "url": "https://www.producthunt.com/products/slide2video-2",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "视频创作",
+    "fetchedAt": "2026-04-03T11:43:00.698Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Sublime",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "problem": "AI 替代某类重复劳动，降低专业门槛和人力成本",
+    "chinaFit": "mid",
+    "chinaReason": "AI/SaaS 赛道在国内有增量，需本土化",
+    "soloFit": "yes",
+    "soloReason": "SaaS/AI 工具，无代码或小成本可验证",
+    "url": "https://www.producthunt.com/products/sublime-4",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "AI工具",
+    "fetchedAt": "2026-04-03T11:43:00.698Z",
+    "dateKey": "2026-02-04"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Turn It Gen Z",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "problem": "垂直领域效率工具，有明确用户群的付费需求",
+    "chinaFit": "mid",
+    "chinaReason": "通用工具，需评估国内实际市场规模",
+    "soloFit": "maybe",
+    "soloReason": "需结合具体功能范围评估开发量",
+    "url": "https://www.producthunt.com/products/turn-it-gen-z",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "fetchedAt": "2026-04-03T11:43:00.698Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "MAI-Transcribe-1",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "problem": "AI 替代某类重复劳动，降低专业门槛和人力成本",
+    "chinaFit": "mid",
+    "chinaReason": "AI/SaaS 赛道在国内有增量，需本土化",
+    "soloFit": "yes",
+    "soloReason": "SaaS/AI 工具，无代码或小成本可验证",
+    "url": "https://www.producthunt.com/products/mai-image-2-3",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "AI工具",
+    "fetchedAt": "2026-04-03T11:43:00.698Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "SlapWindows",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "problem": "垂直领域效率工具，有明确用户群的付费需求",
+    "chinaFit": "mid",
+    "chinaReason": "通用工具，需评估国内实际市场规模",
+    "soloFit": "maybe",
+    "soloReason": "需结合具体功能范围评估开发量",
+    "url": "https://www.producthunt.com/products/slapwindows",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "fetchedAt": "2026-04-03T11:43:00.698Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Qwen3.6-Plus",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "problem": "AI 替代某类重复劳动，降低专业门槛和人力成本",
+    "chinaFit": "mid",
+    "chinaReason": "AI/SaaS 赛道在国内有增量，需本土化",
+    "soloFit": "yes",
+    "soloReason": "SaaS/AI 工具，无代码或小成本可验证",
+    "url": "https://www.producthunt.com/products/qwen3",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "AI工具",
+    "fetchedAt": "2026-04-03T11:43:00.698Z",
+    "dateKey": "2026-04-02"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvZ3Vl",
@@ -438,7 +438,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.128Z",
+    "fetchedAt": "2026-04-03T11:43:00.782Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -455,7 +455,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.128Z",
+    "fetchedAt": "2026-04-03T11:43:00.782Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -472,7 +472,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.128Z",
+    "fetchedAt": "2026-04-03T11:43:00.782Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -489,7 +489,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.128Z",
+    "fetchedAt": "2026-04-03T11:43:00.782Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -506,7 +506,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T11:20:22.128Z",
+    "fetchedAt": "2026-04-03T11:43:00.782Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -523,7 +523,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.128Z",
+    "fetchedAt": "2026-04-03T11:43:00.782Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -540,7 +540,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.128Z",
+    "fetchedAt": "2026-04-03T11:43:00.782Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -557,7 +557,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T11:20:22.129Z",
+    "fetchedAt": "2026-04-03T11:43:00.782Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -574,7 +574,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.129Z",
+    "fetchedAt": "2026-04-03T11:43:00.782Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -591,7 +591,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T11:20:22.129Z",
+    "fetchedAt": "2026-04-03T11:43:00.782Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -608,7 +608,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.129Z",
+    "fetchedAt": "2026-04-03T11:43:00.782Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -625,7 +625,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.129Z",
+    "fetchedAt": "2026-04-03T11:43:00.782Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -642,7 +642,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T11:20:22.129Z",
+    "fetchedAt": "2026-04-03T11:43:00.782Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -659,7 +659,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.129Z",
+    "fetchedAt": "2026-04-03T11:43:00.782Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -676,7 +676,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.129Z",
+    "fetchedAt": "2026-04-03T11:43:00.783Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -693,7 +693,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.129Z",
+    "fetchedAt": "2026-04-03T11:43:00.783Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -710,7 +710,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.129Z",
+    "fetchedAt": "2026-04-03T11:43:00.783Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -727,7 +727,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.129Z",
+    "fetchedAt": "2026-04-03T11:43:00.783Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -744,7 +744,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.129Z",
+    "fetchedAt": "2026-04-03T11:43:00.783Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -761,7 +761,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.129Z",
+    "fetchedAt": "2026-04-03T11:43:00.783Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -778,7 +778,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.129Z",
+    "fetchedAt": "2026-04-03T11:43:00.783Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -795,7 +795,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.129Z",
+    "fetchedAt": "2026-04-03T11:43:00.783Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -812,7 +812,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.129Z",
+    "fetchedAt": "2026-04-03T11:43:00.783Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -829,7 +829,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.129Z",
+    "fetchedAt": "2026-04-03T11:43:00.783Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -846,7 +846,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.129Z",
+    "fetchedAt": "2026-04-03T11:43:00.783Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -862,9 +862,9 @@
     "url": "https://only-eu.eu/en/",
     "source": "hackernews",
     "sourceLabel": "Hacker News",
-    "hnScore": 173,
+    "hnScore": 223,
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.212Z",
+    "fetchedAt": "2026-04-03T11:43:00.973Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -880,9 +880,9 @@
     "url": "https://apfel.franzai.com",
     "source": "hackernews",
     "sourceLabel": "Hacker News",
-    "hnScore": 81,
+    "hnScore": 112,
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T11:20:22.212Z",
+    "fetchedAt": "2026-04-03T11:43:00.973Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -898,9 +898,9 @@
     "url": "https://www.weareinquisitive.com/news/hidden-in-the-shadow",
     "source": "hackernews",
     "sourceLabel": "Hacker News",
-    "hnScore": 59,
+    "hnScore": 62,
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T11:20:22.212Z",
+    "fetchedAt": "2026-04-03T11:43:00.973Z",
     "dateKey": "2026-03-29"
   },
   {
@@ -916,9 +916,9 @@
     "url": "https://tailscale.com/blog/macos-notch-escape",
     "source": "hackernews",
     "sourceLabel": "Hacker News",
-    "hnScore": 474,
+    "hnScore": 476,
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T11:20:22.212Z",
+    "fetchedAt": "2026-04-03T11:43:00.973Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -934,9 +934,9 @@
     "url": "https://blog.danieldavies.com/2004/05/d-squared-digest-one-minute-mba.html",
     "source": "hackernews",
     "sourceLabel": "Hacker News",
-    "hnScore": 269,
+    "hnScore": 272,
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T11:20:22.212Z",
+    "fetchedAt": "2026-04-03T11:43:00.973Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -952,9 +952,9 @@
     "url": "https://thottingal.in/blog/2026/03/29/home-maker/",
     "source": "hackernews",
     "sourceLabel": "Hacker News",
-    "hnScore": 60,
+    "hnScore": 64,
     "category": "开发者工具",
-    "fetchedAt": "2026-04-03T11:20:22.212Z",
+    "fetchedAt": "2026-04-03T11:43:00.973Z",
     "dateKey": "2026-03-29"
   },
   {
@@ -970,9 +970,9 @@
     "url": "https://openai.com/index/openai-acquires-tbpn/",
     "source": "hackernews",
     "sourceLabel": "Hacker News",
-    "hnScore": 214,
+    "hnScore": 215,
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T11:20:22.212Z",
+    "fetchedAt": "2026-04-03T11:43:00.973Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -990,7 +990,7 @@
     "sourceLabel": "Hacker News",
     "hnScore": 115,
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.212Z",
+    "fetchedAt": "2026-04-03T11:43:00.973Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -1008,7 +1008,7 @@
     "sourceLabel": "Hacker News",
     "hnScore": 1080,
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.212Z",
+    "fetchedAt": "2026-04-03T11:43:00.973Z",
     "dateKey": "2026-04-01"
   },
   {
@@ -1024,9 +1024,9 @@
     "url": "https://techcrunch.com/2026/04/01/the-reputation-of-troubled-yc-startup-delve-has-gotten-even-worse/",
     "source": "hackernews",
     "sourceLabel": "Hacker News",
-    "hnScore": 283,
+    "hnScore": 284,
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T11:20:22.212Z",
+    "fetchedAt": "2026-04-03T11:43:00.974Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -1044,7 +1044,7 @@
     "sourceLabel": "Hacker News",
     "hnScore": 295,
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T11:20:22.212Z",
+    "fetchedAt": "2026-04-03T11:43:00.974Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -1060,9 +1060,9 @@
     "url": "https://github.com/axios/axios/issues/10636",
     "source": "hackernews",
     "sourceLabel": "Hacker News",
-    "hnScore": 96,
+    "hnScore": 97,
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T11:20:22.212Z",
+    "fetchedAt": "2026-04-03T11:43:00.974Z",
     "dateKey": "2026-04-03"
   },
   {

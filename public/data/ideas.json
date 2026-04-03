@@ -1,23 +1,6 @@
 [
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Sublime",
-    "summary": "AI that makes real-world commitments for you Discussion | Link",
-    "opportunity": "关注此赛道在中国的本土化机会",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/sublime-4",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "AI工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T10:26:37.727Z",
-    "dateKey": "2026-02-04"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
     "title": "Codictate",
     "summary": "Free dictation for Any language and any application Discussion | Link",
     "opportunity": "关注此赛道在中国的本土化机会",
@@ -30,42 +13,8 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.728Z",
+    "fetchedAt": "2026-04-03T10:39:00.781Z",
     "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "GeneratePPT",
-    "summary": "降低设计门槛，让非设计师也能快速出图",
-    "opportunity": "电商/自媒体/教育行业对设计工具需求大，国内 Canva 类产品未完全覆盖",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/generateppt",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "设计工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T10:26:37.728Z",
-    "dateKey": "2026-01-26"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Gerri",
-    "summary": "Put your contract redlines on autopilot Discussion | Link",
-    "opportunity": "关注此赛道在中国的本土化机会",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/gerri",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T10:26:37.728Z",
-    "dateKey": "2026-03-27"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -81,24 +30,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.728Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "MAI-Transcribe-1",
-    "summary": "Production ASR for noisy multilingual audio Discussion | Link",
-    "opportunity": "关注此赛道在中国的本土化机会",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/mai-image-2-3",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "AI工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T10:26:37.728Z",
+    "fetchedAt": "2026-04-03T10:39:00.782Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -115,59 +47,42 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.728Z",
+    "fetchedAt": "2026-04-03T10:39:00.782Z",
     "dateKey": "2026-04-02"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Vxero Neo",
-    "summary": "SSH-native CLI that manage servers, apps, infrastructure Discussion | Link",
+    "title": "Gerri",
+    "summary": "Put your contract redlines on autopilot Discussion | Link",
     "opportunity": "关注此赛道在中国的本土化机会",
     "score": 2,
     "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/vxero-neo",
+    "url": "https://www.producthunt.com/products/gerri",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.728Z",
-    "dateKey": "2026-03-31"
+    "fetchedAt": "2026-04-03T10:39:00.782Z",
+    "dateKey": "2026-03-27"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Quip Network",
-    "summary": "降低设计门槛，让非设计师也能快速出图",
-    "opportunity": "电商/自媒体/教育行业对设计工具需求大，国内 Canva 类产品未完全覆盖",
+    "title": "NotebookLM Custom Infographic Styles",
+    "summary": "Turn any source into a styled infographic Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
     "score": 2,
     "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/quip-network",
+    "url": "https://www.producthunt.com/products/notebooklm-custom-infographic-styles",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.729Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Otto by Audos.com",
-    "summary": "降低设计门槛，让非设计师也能快速出图",
-    "opportunity": "电商/自媒体/教育行业对设计工具需求大，国内 Canva 类产品未完全覆盖",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/socap",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "AI工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T10:26:37.729Z",
-    "dateKey": "2026-04-02"
+    "fetchedAt": "2026-04-03T10:39:00.782Z",
+    "dateKey": "2026-03-03"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -183,160 +98,7 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.729Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "VoiceOS",
-    "summary": "Say it and it's done. Work 10x faster with your voice. Discussion | Link",
-    "opportunity": "关注此赛道在中国的本土化机会",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/voiceos",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T10:26:37.729Z",
-    "dateKey": "2026-04-01"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Package Mate",
-    "summary": "Master your macOS dev environment from the terminal Discussion | Link",
-    "opportunity": "关注此赛道在中国的本土化机会",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/package-mate-open-source-cli-for-macos",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T10:26:37.729Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Trinity-Large-Thinking by Arcee",
-    "summary": "The first open model as performant as Opus 4.6, 96% cheaper Discussion | Link",
-    "opportunity": "关注此赛道在中国的本土化机会",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/trinity-large-thinking-by-arcee-ai",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T10:26:37.729Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Side Reminder",
-    "summary": "Access Apple Reminders from your screen edge instanly Discussion | Link",
-    "opportunity": "关注此赛道在中国的本土化机会",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/side-reminder",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T10:26:37.730Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Qwen3.6-Plus",
-    "summary": "AI Agent 自动接管重复性工作流，解放人力",
-    "opportunity": "企业降本增效需求迫切，AI 替代白领工作是未来 3 年最大红利",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/qwen3",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "AI工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T10:26:37.730Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Slide2Video",
-    "summary": "Turn slides into narrated videos Discussion | Link",
-    "opportunity": "关注此赛道在中国的本土化机会",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/slide2video-2",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "视频创作",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T10:26:37.730Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Duck, Duck, Duck! by IDEO",
-    "summary": "An opinionated robot rubber duck for Claude code Discussion | Link",
-    "opportunity": "关注此赛道在中国的本土化机会",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/duck-duck-duck-by-ideo",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T10:26:37.730Z",
-    "dateKey": "2026-04-01"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "HoloTutor by VictoryXR",
-    "summary": "The immersive AI tutor Discussion | Link",
-    "opportunity": "关注此赛道在中国的本土化机会",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/holotutor-by-victoryxr",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "AI工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T10:26:37.730Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "EmDash CMS",
-    "summary": "EmDash is a new open-source CMS from Cloudflare Discussion | Link",
-    "opportunity": "关注此赛道在中国的本土化机会",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/emdash-cms",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T10:26:37.730Z",
+    "fetchedAt": "2026-04-03T10:39:00.782Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -353,7 +115,109 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.730Z",
+    "fetchedAt": "2026-04-03T10:39:00.782Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Sublime",
+    "summary": "AI that makes real-world commitments for you Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.producthunt.com/products/sublime-4",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "AI工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T10:39:00.782Z",
+    "dateKey": "2026-02-04"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "ZooClaw",
+    "summary": "Your proactive team of AI specialists in one place Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.producthunt.com/products/zooclaw",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "AI工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T10:39:00.782Z",
+    "dateKey": "2026-03-28"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Side Reminder",
+    "summary": "Access Apple Reminders from your screen edge instanly Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/side-reminder",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T10:39:00.783Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Quip Network",
+    "summary": "降低设计门槛，让非设计师也能快速出图",
+    "opportunity": "电商/自媒体/教育行业对设计工具需求大，国内 Canva 类产品未完全覆盖",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/quip-network",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T10:39:00.783Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Otto by Audos.com",
+    "summary": "降低设计门槛，让非设计师也能快速出图",
+    "opportunity": "电商/自媒体/教育行业对设计工具需求大，国内 Canva 类产品未完全覆盖",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.producthunt.com/products/socap",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "AI工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T10:39:00.783Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Slide2Video",
+    "summary": "Turn slides into narrated videos Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.producthunt.com/products/slide2video-2",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "视频创作",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T10:39:00.783Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -370,25 +234,25 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.730Z",
+    "fetchedAt": "2026-04-03T10:39:00.783Z",
     "dateKey": "2026-04-02"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "NotebookLM Custom Infographic Styles",
-    "summary": "Turn any source into a styled infographic Discussion | Link",
+    "title": "MAI-Transcribe-1",
+    "summary": "Production ASR for noisy multilingual audio Discussion | Link",
     "opportunity": "关注此赛道在中国的本土化机会",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/notebooklm-custom-infographic-styles",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.producthunt.com/products/mai-image-2-3",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
-    "category": "数字工具",
+    "category": "AI工具",
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.730Z",
-    "dateKey": "2026-03-03"
+    "fetchedAt": "2026-04-03T10:39:00.783Z",
+    "dateKey": "2026-04-02"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -404,8 +268,76 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.730Z",
+    "fetchedAt": "2026-04-03T10:39:00.783Z",
     "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Package Mate",
+    "summary": "Master your macOS dev environment from the terminal Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/package-mate-open-source-cli-for-macos",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T10:39:00.783Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "EmDash CMS",
+    "summary": "EmDash is a new open-source CMS from Cloudflare Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/emdash-cms",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T10:39:00.783Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "GeneratePPT",
+    "summary": "降低设计门槛，让非设计师也能快速出图",
+    "opportunity": "电商/自媒体/教育行业对设计工具需求大，国内 Canva 类产品未完全覆盖",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/generateppt",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "设计工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T10:39:00.783Z",
+    "dateKey": "2026-01-26"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Duck, Duck, Duck! by IDEO",
+    "summary": "An opinionated robot rubber duck for Claude code Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/duck-duck-duck-by-ideo",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T10:39:00.783Z",
+    "dateKey": "2026-04-01"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -421,8 +353,76 @@
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.730Z",
+    "fetchedAt": "2026-04-03T10:39:00.784Z",
     "dateKey": "2026-04-03"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "VoiceOS",
+    "summary": "Say it and it's done. Work 10x faster with your voice. Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/voiceos",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T10:39:00.784Z",
+    "dateKey": "2026-04-01"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Qwen3.6-Plus",
+    "summary": "AI Agent 自动接管重复性工作流，解放人力",
+    "opportunity": "企业降本增效需求迫切，AI 替代白领工作是未来 3 年最大红利",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.producthunt.com/products/qwen3",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "AI工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T10:39:00.784Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Vxero Neo",
+    "summary": "SSH-native CLI that manage servers, apps, infrastructure Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/vxero-neo",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T10:39:00.784Z",
+    "dateKey": "2026-03-31"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "HoloTutor by VictoryXR",
+    "summary": "The immersive AI tutor Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.producthunt.com/products/holotutor-by-victoryxr",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "AI工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T10:39:00.784Z",
+    "dateKey": "2026-04-02"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvZ3Vl",
@@ -438,7 +438,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.807Z",
+    "fetchedAt": "2026-04-03T10:39:00.989Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -455,7 +455,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.807Z",
+    "fetchedAt": "2026-04-03T10:39:00.989Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -472,7 +472,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.807Z",
+    "fetchedAt": "2026-04-03T10:39:00.989Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -489,7 +489,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.807Z",
+    "fetchedAt": "2026-04-03T10:39:00.989Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -506,7 +506,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.807Z",
+    "fetchedAt": "2026-04-03T10:39:00.989Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -523,7 +523,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.807Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -540,7 +540,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.807Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -557,7 +557,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.807Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -574,7 +574,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.807Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -591,7 +591,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.807Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -608,7 +608,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.807Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -625,7 +625,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.807Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -642,7 +642,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.807Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -659,7 +659,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.807Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -676,7 +676,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.807Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -693,7 +693,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.808Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -710,7 +710,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.808Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -727,7 +727,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.808Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -744,7 +744,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.808Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -761,7 +761,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.808Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -778,7 +778,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.808Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -795,7 +795,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.808Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -812,7 +812,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.808Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -829,7 +829,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.808Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -846,7 +846,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T10:26:37.808Z",
+    "fetchedAt": "2026-04-03T10:39:00.990Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -859,12 +859,12 @@
     "url": "https://only-eu.eu/en/",
     "source": "hackernews",
     "sourceLabel": "Hacker News",
-    "hnScore": 53,
+    "hnScore": 83,
     "category": "数字工具",
     "tags": [
       "HN精选"
     ],
-    "fetchedAt": "2026-04-03T10:26:38.013Z",
+    "fetchedAt": "2026-04-03T10:39:00.973Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -877,12 +877,12 @@
     "url": "https://www.weareinquisitive.com/news/hidden-in-the-shadow",
     "source": "hackernews",
     "sourceLabel": "Hacker News",
-    "hnScore": 52,
+    "hnScore": 55,
     "category": "AI工具",
     "tags": [
       "HN精选"
     ],
-    "fetchedAt": "2026-04-03T10:26:38.013Z",
+    "fetchedAt": "2026-04-03T10:39:00.973Z",
     "dateKey": "2026-03-29"
   },
   {
@@ -900,7 +900,7 @@
     "tags": [
       "HN精选"
     ],
-    "fetchedAt": "2026-04-03T10:26:38.013Z",
+    "fetchedAt": "2026-04-03T10:39:00.973Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -913,12 +913,12 @@
     "url": "https://blog.danieldavies.com/2004/05/d-squared-digest-one-minute-mba.html",
     "source": "hackernews",
     "sourceLabel": "Hacker News",
-    "hnScore": 259,
+    "hnScore": 263,
     "category": "AI工具",
     "tags": [
       "HN精选"
     ],
-    "fetchedAt": "2026-04-03T10:26:38.013Z",
+    "fetchedAt": "2026-04-03T10:39:00.973Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -936,7 +936,7 @@
     "tags": [
       "HN精选"
     ],
-    "fetchedAt": "2026-04-03T10:26:38.013Z",
+    "fetchedAt": "2026-04-03T10:39:00.973Z",
     "dateKey": "2026-03-29"
   },
   {
@@ -954,7 +954,7 @@
     "tags": [
       "HN精选"
     ],
-    "fetchedAt": "2026-04-03T10:26:38.013Z",
+    "fetchedAt": "2026-04-03T10:39:00.973Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -972,7 +972,7 @@
     "tags": [
       "HN精选"
     ],
-    "fetchedAt": "2026-04-03T10:26:38.013Z",
+    "fetchedAt": "2026-04-03T10:39:00.973Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -990,26 +990,8 @@
     "tags": [
       "HN精选"
     ],
-    "fetchedAt": "2026-04-03T10:26:38.013Z",
+    "fetchedAt": "2026-04-03T10:39:00.973Z",
     "dateKey": "2026-04-01"
-  },
-  {
-    "id": "hn-47621792",
-    "title": "Post Mortem: axios NPM supply chain compromise",
-    "summary": "新兴数字工具，聚焦垂直领域效率提升",
-    "opportunity": "可评估国内同类需求规模和信息差空间",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://github.com/axios/axios/issues/10636",
-    "source": "hackernews",
-    "sourceLabel": "Hacker News",
-    "hnScore": 95,
-    "category": "AI工具",
-    "tags": [
-      "HN精选"
-    ],
-    "fetchedAt": "2026-04-03T10:26:38.013Z",
-    "dateKey": "2026-04-03"
   },
   {
     "id": "hn-47615434",
@@ -1026,8 +1008,26 @@
     "tags": [
       "HN精选"
     ],
-    "fetchedAt": "2026-04-03T10:26:38.013Z",
+    "fetchedAt": "2026-04-03T10:39:00.973Z",
     "dateKey": "2026-04-02"
+  },
+  {
+    "id": "hn-47621792",
+    "title": "Post Mortem: axios NPM supply chain compromise",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://github.com/axios/axios/issues/10636",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 95,
+    "category": "AI工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:39:00.973Z",
+    "dateKey": "2026-04-03"
   },
   {
     "id": "hn-47611921",
@@ -1044,7 +1044,7 @@
     "tags": [
       "HN精选"
     ],
-    "fetchedAt": "2026-04-03T10:26:38.013Z",
+    "fetchedAt": "2026-04-03T10:39:00.973Z",
     "dateKey": "2026-04-02"
   },
   {

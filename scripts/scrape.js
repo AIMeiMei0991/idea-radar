@@ -279,8 +279,11 @@ ${mrr ? `月收入：${mrr}` : ''}
   "soloReason": "一人可行性一句话（15字内）"
 }`;
 
+  const baseUrl = (process.env.ANTHROPIC_BASE_URL || 'https://api.anthropic.com').replace(/\/$/, '');
+  const model = process.env.ANTHROPIC_DEFAULT_HAIKU_MODEL || 'claude-haiku-4-5-20251001';
+
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
+    const res = await fetch(`${baseUrl}/v1/messages`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -288,7 +291,7 @@ ${mrr ? `月收入：${mrr}` : ''}
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',
+        model,
         max_tokens: 450,
         messages: [{ role: 'user', content: prompt }],
       }),

@@ -1,20 +1,74 @@
 [
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "MAI-Transcribe-1",
+    "title": "Dashla",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "problem": "「Dashla」— 工具类产品，具体解决的问题见原链接",
+    "chinaFit": "mid",
+    "chinaReason": "通用工具，需评估国内实际市场规模",
+    "soloFit": "maybe",
+    "soloReason": "需结合具体功能范围评估开发量",
+    "desc": "Tesla vehicle status, navigation, map + more in a dashboard Discussion | Link",
+    "url": "https://www.producthunt.com/products/dashla-dashboard-for-tesla",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "fetchedAt": "2026-04-03T15:50:02.002Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "ZooClaw",
     "score": 3,
     "scoreReason": "热门赛道",
-    "problem": "音视频/会议自动转文字，省去人工逐字听写的时间",
+    "problem": "AI 审阅合同条款，中小企业省去动辄数千的律师费",
     "chinaFit": "mid",
     "chinaReason": "AI/SaaS 赛道在国内有增量，需本土化",
     "soloFit": "yes",
     "soloReason": "SaaS/AI 工具，无代码或小成本可验证",
-    "desc": "Production ASR for noisy multilingual audio Discussion | Link",
-    "url": "https://www.producthunt.com/products/mai-image-2-3",
+    "desc": "Your proactive team of AI specialists in one place Discussion | Link",
+    "url": "https://www.producthunt.com/products/zooclaw",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T15:44:20.370Z",
+    "fetchedAt": "2026-04-03T15:50:02.002Z",
+    "dateKey": "2026-03-28"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "VoiceOS",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "problem": "「VoiceOS」— 工具类产品，具体解决的问题见原链接",
+    "chinaFit": "mid",
+    "chinaReason": "通用工具，需评估国内实际市场规模",
+    "soloFit": "maybe",
+    "soloReason": "需结合具体功能范围评估开发量",
+    "desc": "Say it and it's done. Work 10x faster with your voice. Discussion | Link",
+    "url": "https://www.producthunt.com/products/voiceos",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "fetchedAt": "2026-04-03T15:50:02.002Z",
+    "dateKey": "2026-04-01"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Google Gemma 4",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "problem": "「Google Gemma 4」— 工具类产品，具体解决的问题见原链接",
+    "chinaFit": "mid",
+    "chinaReason": "通用工具，需评估国内实际市场规模",
+    "soloFit": "maybe",
+    "soloReason": "需结合具体功能范围评估开发量",
+    "desc": "Google's most intelligent open models to date Discussion | Link",
+    "url": "https://www.producthunt.com/products/google-gemma",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "fetchedAt": "2026-04-03T15:50:02.002Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -32,169 +86,7 @@
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.370Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "VoiceOS",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "problem": "「VoiceOS」— 工具类产品，具体解决的问题见原链接",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "desc": "Say it and it's done. Work 10x faster with your voice. Discussion | Link",
-    "url": "https://www.producthunt.com/products/voiceos",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.371Z",
-    "dateKey": "2026-04-01"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Duck, Duck, Duck! by IDEO",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "problem": "「Duck, Duck, Duck! by IDEO」— 工具类产品，具体解决的问题见原链接",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "desc": "An opinionated robot rubber duck for Claude code Discussion | Link",
-    "url": "https://www.producthunt.com/products/duck-duck-duck-by-ideo",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.371Z",
-    "dateKey": "2026-04-01"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "ZooClaw",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "problem": "AI 审阅合同条款，中小企业省去动辄数千的律师费",
-    "chinaFit": "mid",
-    "chinaReason": "AI/SaaS 赛道在国内有增量，需本土化",
-    "soloFit": "yes",
-    "soloReason": "SaaS/AI 工具，无代码或小成本可验证",
-    "desc": "Your proactive team of AI specialists in one place Discussion | Link",
-    "url": "https://www.producthunt.com/products/zooclaw",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "AI工具",
-    "fetchedAt": "2026-04-03T15:44:20.371Z",
-    "dateKey": "2026-03-28"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Straude",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "problem": "「Straude」— 工具类产品，具体解决的问题见原链接",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "desc": "Strava for Claude Code / Global Tokenmaxxing Leaderboard Discussion | Link",
-    "url": "https://www.producthunt.com/products/straude",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.371Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Slide2Video",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "problem": "「Slide2Video」— 工具类产品，具体解决的问题见原链接",
-    "chinaFit": "high",
-    "chinaReason": "对应国内真实需求，有本土化空间",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "desc": "Turn slides into narrated videos Discussion | Link",
-    "url": "https://www.producthunt.com/products/slide2video-2",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "视频创作",
-    "fetchedAt": "2026-04-03T15:44:20.371Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Cursor 3",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "problem": "「Cursor 3」— 工具类产品，具体解决的问题见原链接",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "desc": "Unified workspace for parallel local/cloud agents and MCPs Discussion | Link",
-    "url": "https://www.producthunt.com/products/cursor-3",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.371Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Google Gemma 4",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "problem": "「Google Gemma 4」— 工具类产品，具体解决的问题见原链接",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "desc": "Google's most intelligent open models to date Discussion | Link",
-    "url": "https://www.producthunt.com/products/google-gemma",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.371Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "SlapWindows",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "problem": "「SlapWindows」— 工具类产品，具体解决的问题见原链接",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "desc": "Slap your Windows, it screams back Discussion | Link",
-    "url": "https://www.producthunt.com/products/slapwindows",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.371Z",
-    "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "ChatGPT on CarPlay",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "problem": "「ChatGPT on CarPlay」— 工具类产品，具体解决的问题见原链接",
-    "chinaFit": "mid",
-    "chinaReason": "AI/SaaS 赛道在国内有增量，需本土化",
-    "soloFit": "yes",
-    "soloReason": "SaaS/AI 工具，无代码或小成本可验证",
-    "desc": "ChatGPT voice in CarPlay for hands-free driving AI on the go Discussion | Link",
-    "url": "https://www.producthunt.com/products/openai",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "AI工具",
-    "fetchedAt": "2026-04-03T15:44:20.371Z",
+    "fetchedAt": "2026-04-03T15:50:02.002Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -212,26 +104,8 @@
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T15:44:20.371Z",
+    "fetchedAt": "2026-04-03T15:50:02.002Z",
     "dateKey": "2026-04-02"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Gerri",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "problem": "「Gerri」— 工具类产品，具体解决的问题见原链接",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "desc": "Put your contract redlines on autopilot Discussion | Link",
-    "url": "https://www.producthunt.com/products/gerri",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.372Z",
-    "dateKey": "2026-03-27"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -248,7 +122,7 @@
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.372Z",
+    "fetchedAt": "2026-04-03T15:50:02.002Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -266,7 +140,43 @@
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.372Z",
+    "fetchedAt": "2026-04-03T15:50:02.003Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Gerri",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "problem": "「Gerri」— 工具类产品，具体解决的问题见原链接",
+    "chinaFit": "mid",
+    "chinaReason": "通用工具，需评估国内实际市场规模",
+    "soloFit": "maybe",
+    "soloReason": "需结合具体功能范围评估开发量",
+    "desc": "Put your contract redlines on autopilot Discussion | Link",
+    "url": "https://www.producthunt.com/products/gerri",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "fetchedAt": "2026-04-03T15:50:02.003Z",
+    "dateKey": "2026-03-27"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Slide2Video",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "problem": "「Slide2Video」— 工具类产品，具体解决的问题见原链接",
+    "chinaFit": "high",
+    "chinaReason": "对应国内真实需求，有本土化空间",
+    "soloFit": "maybe",
+    "soloReason": "需结合具体功能范围评估开发量",
+    "desc": "Turn slides into narrated videos Discussion | Link",
+    "url": "https://www.producthunt.com/products/slide2video-2",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "视频创作",
+    "fetchedAt": "2026-04-03T15:50:02.003Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -284,7 +194,115 @@
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T15:44:20.372Z",
+    "fetchedAt": "2026-04-03T15:50:02.003Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Duck, Duck, Duck! by IDEO",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "problem": "「Duck, Duck, Duck! by IDEO」— 工具类产品，具体解决的问题见原链接",
+    "chinaFit": "mid",
+    "chinaReason": "通用工具，需评估国内实际市场规模",
+    "soloFit": "maybe",
+    "soloReason": "需结合具体功能范围评估开发量",
+    "desc": "An opinionated robot rubber duck for Claude code Discussion | Link",
+    "url": "https://www.producthunt.com/products/duck-duck-duck-by-ideo",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "fetchedAt": "2026-04-03T15:50:02.003Z",
+    "dateKey": "2026-04-01"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "SlapWindows",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "problem": "「SlapWindows」— 工具类产品，具体解决的问题见原链接",
+    "chinaFit": "mid",
+    "chinaReason": "通用工具，需评估国内实际市场规模",
+    "soloFit": "maybe",
+    "soloReason": "需结合具体功能范围评估开发量",
+    "desc": "Slap your Windows, it screams back Discussion | Link",
+    "url": "https://www.producthunt.com/products/slapwindows",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "fetchedAt": "2026-04-03T15:50:02.003Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "MAI-Transcribe-1",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "problem": "音视频/会议自动转文字，省去人工逐字听写的时间",
+    "chinaFit": "mid",
+    "chinaReason": "AI/SaaS 赛道在国内有增量，需本土化",
+    "soloFit": "yes",
+    "soloReason": "SaaS/AI 工具，无代码或小成本可验证",
+    "desc": "Production ASR for noisy multilingual audio Discussion | Link",
+    "url": "https://www.producthunt.com/products/mai-image-2-3",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "AI工具",
+    "fetchedAt": "2026-04-03T15:50:02.003Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Straude",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "problem": "「Straude」— 工具类产品，具体解决的问题见原链接",
+    "chinaFit": "mid",
+    "chinaReason": "通用工具，需评估国内实际市场规模",
+    "soloFit": "maybe",
+    "soloReason": "需结合具体功能范围评估开发量",
+    "desc": "Strava for Claude Code / Global Tokenmaxxing Leaderboard Discussion | Link",
+    "url": "https://www.producthunt.com/products/straude",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "fetchedAt": "2026-04-03T15:50:02.003Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Cursor 3",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "problem": "「Cursor 3」— 工具类产品，具体解决的问题见原链接",
+    "chinaFit": "mid",
+    "chinaReason": "通用工具，需评估国内实际市场规模",
+    "soloFit": "maybe",
+    "soloReason": "需结合具体功能范围评估开发量",
+    "desc": "Unified workspace for parallel local/cloud agents and MCPs Discussion | Link",
+    "url": "https://www.producthunt.com/products/cursor-3",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "fetchedAt": "2026-04-03T15:50:02.004Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "ChatGPT on CarPlay",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "problem": "「ChatGPT on CarPlay」— 工具类产品，具体解决的问题见原链接",
+    "chinaFit": "mid",
+    "chinaReason": "AI/SaaS 赛道在国内有增量，需本土化",
+    "soloFit": "yes",
+    "soloReason": "SaaS/AI 工具，无代码或小成本可验证",
+    "desc": "ChatGPT voice in CarPlay for hands-free driving AI on the go Discussion | Link",
+    "url": "https://www.producthunt.com/products/openai",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "AI工具",
+    "fetchedAt": "2026-04-03T15:50:02.004Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -302,26 +320,8 @@
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "设计工具",
-    "fetchedAt": "2026-04-03T15:44:20.372Z",
+    "fetchedAt": "2026-04-03T15:50:02.004Z",
     "dateKey": "2026-01-26"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Dashla",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "problem": "「Dashla」— 工具类产品，具体解决的问题见原链接",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "desc": "Tesla vehicle status, navigation, map + more in a dashboard Discussion | Link",
-    "url": "https://www.producthunt.com/products/dashla-dashboard-for-tesla",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.372Z",
-    "dateKey": "2026-04-02"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -338,7 +338,7 @@
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T15:44:20.372Z",
+    "fetchedAt": "2026-04-03T15:50:02.004Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -356,7 +356,7 @@
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T15:44:20.372Z",
+    "fetchedAt": "2026-04-03T15:50:02.004Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -374,7 +374,7 @@
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.373Z",
+    "fetchedAt": "2026-04-03T15:50:02.004Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -392,7 +392,7 @@
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.373Z",
+    "fetchedAt": "2026-04-03T15:50:02.004Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -410,7 +410,7 @@
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.373Z",
+    "fetchedAt": "2026-04-03T15:50:02.004Z",
     "dateKey": "2026-03-31"
   },
   {
@@ -428,7 +428,7 @@
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.373Z",
+    "fetchedAt": "2026-04-03T15:50:02.004Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -446,7 +446,7 @@
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.373Z",
+    "fetchedAt": "2026-04-03T15:50:02.004Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -464,7 +464,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.472Z",
+    "fetchedAt": "2026-04-03T15:50:02.121Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -482,7 +482,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.472Z",
+    "fetchedAt": "2026-04-03T15:50:02.121Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -500,7 +500,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.473Z",
+    "fetchedAt": "2026-04-03T15:50:02.121Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -518,7 +518,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.473Z",
+    "fetchedAt": "2026-04-03T15:50:02.121Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -536,7 +536,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T15:44:20.473Z",
+    "fetchedAt": "2026-04-03T15:50:02.121Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -554,7 +554,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.473Z",
+    "fetchedAt": "2026-04-03T15:50:02.121Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -572,7 +572,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.473Z",
+    "fetchedAt": "2026-04-03T15:50:02.121Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -590,7 +590,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T15:44:20.473Z",
+    "fetchedAt": "2026-04-03T15:50:02.121Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -608,7 +608,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.473Z",
+    "fetchedAt": "2026-04-03T15:50:02.121Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -626,7 +626,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T15:44:20.473Z",
+    "fetchedAt": "2026-04-03T15:50:02.121Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -644,7 +644,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.473Z",
+    "fetchedAt": "2026-04-03T15:50:02.121Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -662,7 +662,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.473Z",
+    "fetchedAt": "2026-04-03T15:50:02.121Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -680,25 +680,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T15:44:20.473Z",
-    "dateKey": "2026-04-03"
-  },
-  {
-    "id": "tmrr-L3N0YXJ0dXAvZnJl",
-    "title": "Freel Canada",
-    "score": 3,
-    "scoreReason": "基础工具",
-    "problem": "「Freel Canada」— 工具类产品，具体解决的问题见原链接",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "需结合具体功能范围评估开发量",
-    "desc": "",
-    "url": "https://trustmrr.com/startup/freel-canada",
-    "source": "trustmrr",
-    "sourceLabel": "TrustMRR",
-    "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.473Z",
+    "fetchedAt": "2026-04-03T15:50:02.122Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -716,7 +698,25 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.473Z",
+    "fetchedAt": "2026-04-03T15:50:02.122Z",
+    "dateKey": "2026-04-03"
+  },
+  {
+    "id": "tmrr-L3N0YXJ0dXAvZnJl",
+    "title": "Freel Canada",
+    "score": 3,
+    "scoreReason": "基础工具",
+    "problem": "「Freel Canada」— 工具类产品，具体解决的问题见原链接",
+    "chinaFit": "mid",
+    "chinaReason": "通用工具，需评估国内实际市场规模",
+    "soloFit": "maybe",
+    "soloReason": "需结合具体功能范围评估开发量",
+    "desc": "",
+    "url": "https://trustmrr.com/startup/freel-canada",
+    "source": "trustmrr",
+    "sourceLabel": "TrustMRR",
+    "category": "数字工具",
+    "fetchedAt": "2026-04-03T15:50:02.122Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -734,7 +734,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.473Z",
+    "fetchedAt": "2026-04-03T15:50:02.122Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -752,7 +752,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.473Z",
+    "fetchedAt": "2026-04-03T15:50:02.122Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -770,7 +770,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.473Z",
+    "fetchedAt": "2026-04-03T15:50:02.122Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -788,7 +788,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.473Z",
+    "fetchedAt": "2026-04-03T15:50:02.122Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -806,7 +806,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.474Z",
+    "fetchedAt": "2026-04-03T15:50:02.122Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -824,7 +824,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.474Z",
+    "fetchedAt": "2026-04-03T15:50:02.122Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -842,7 +842,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.474Z",
+    "fetchedAt": "2026-04-03T15:50:02.122Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -860,7 +860,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.474Z",
+    "fetchedAt": "2026-04-03T15:50:02.122Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -878,7 +878,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.474Z",
+    "fetchedAt": "2026-04-03T15:50:02.122Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -896,7 +896,7 @@
     "source": "trustmrr",
     "sourceLabel": "TrustMRR",
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.474Z",
+    "fetchedAt": "2026-04-03T15:50:02.122Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -913,9 +913,9 @@
     "url": "https://text.blogosphere.app/",
     "source": "hackernews",
     "sourceLabel": "Hacker News",
-    "hnScore": 240,
+    "hnScore": 247,
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T15:44:20.445Z",
+    "fetchedAt": "2026-04-03T15:50:02.334Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -932,9 +932,9 @@
     "url": "https://apfel.franzai.com",
     "source": "hackernews",
     "sourceLabel": "Hacker News",
-    "hnScore": 436,
+    "hnScore": 438,
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T15:44:20.445Z",
+    "fetchedAt": "2026-04-03T15:50:02.335Z",
     "dateKey": "2026-04-03"
   },
   {
@@ -953,7 +953,7 @@
     "sourceLabel": "Hacker News",
     "hnScore": 53,
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.445Z",
+    "fetchedAt": "2026-04-03T15:50:02.335Z",
     "dateKey": "2026-03-30"
   },
   {
@@ -972,7 +972,7 @@
     "sourceLabel": "Hacker News",
     "hnScore": 516,
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T15:44:20.445Z",
+    "fetchedAt": "2026-04-03T15:50:02.335Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -991,7 +991,7 @@
     "sourceLabel": "Hacker News",
     "hnScore": 91,
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T15:44:20.445Z",
+    "fetchedAt": "2026-04-03T15:50:02.335Z",
     "dateKey": "2026-03-29"
   },
   {
@@ -1008,9 +1008,9 @@
     "url": "https://blog.danieldavies.com/2004/05/d-squared-digest-one-minute-mba.html",
     "source": "hackernews",
     "sourceLabel": "Hacker News",
-    "hnScore": 321,
+    "hnScore": 322,
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T15:44:20.445Z",
+    "fetchedAt": "2026-04-03T15:50:02.335Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -1029,7 +1029,7 @@
     "sourceLabel": "Hacker News",
     "hnScore": 226,
     "category": "AI工具",
-    "fetchedAt": "2026-04-03T15:44:20.445Z",
+    "fetchedAt": "2026-04-03T15:50:02.335Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -1048,7 +1048,7 @@
     "sourceLabel": "Hacker News",
     "hnScore": 130,
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.445Z",
+    "fetchedAt": "2026-04-03T15:50:02.335Z",
     "dateKey": "2026-04-02"
   },
   {
@@ -1067,7 +1067,7 @@
     "sourceLabel": "Hacker News",
     "hnScore": 83,
     "category": "开发者工具",
-    "fetchedAt": "2026-04-03T15:44:20.445Z",
+    "fetchedAt": "2026-04-03T15:50:02.335Z",
     "dateKey": "2026-03-29"
   },
   {
@@ -1086,7 +1086,7 @@
     "sourceLabel": "Hacker News",
     "hnScore": 1082,
     "category": "数字工具",
-    "fetchedAt": "2026-04-03T15:44:20.445Z",
+    "fetchedAt": "2026-04-03T15:50:02.335Z",
     "dateKey": "2026-04-01"
   },
   {

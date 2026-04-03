@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="每天自动抓取全球最新数字工具创意，筛选中国市场机会">
-<title>创意雷达 · 每日工具创意</title>
+<title>创意雷达 · 金点子日报</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif;min-height:100vh}
@@ -15,6 +14,8 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .logo{font-size:17px;font-weight:700;color:#fff;letter-spacing:-0.3px}
 .logo-icon{color:#ff6b35;margin-right:5px}
 .update-time{font-size:11px;color:#444;margin-top:2px}
+.read-toggle{font-size:11px;color:#444;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);padding:4px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.read-toggle.active{color:#6366f1;border-color:rgba(99,102,241,0.3);background:rgba(99,102,241,0.08)}
 
 /* 搜索 */
 .search-wrap{padding:0 12px 8px;position:relative}
@@ -25,103 +26,107 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .search-clear.visible{display:block}
 
 /* 标签页 */
-.tabs-wrap{display:flex;gap:0;padding:0 12px 10px;overflow-x:auto;scrollbar-width:none}
+.tabs-wrap{display:flex;padding:0 12px 10px;overflow-x:auto;scrollbar-width:none}
 .tabs-wrap::-webkit-scrollbar{display:none}
-.tab-btn{flex-shrink:0;font-size:13px;font-weight:500;padding:7px 14px;border-radius:10px;background:none;border:none;color:#555;cursor:pointer;transition:all 0.15s;white-space:nowrap;position:relative}
+.tab-btn{flex-shrink:0;font-size:13px;font-weight:500;padding:7px 13px;border-radius:10px;background:none;border:none;color:#555;cursor:pointer;transition:all 0.15s;white-space:nowrap;position:relative}
 .tab-btn.active{background:#1c1c28;color:#e2e2e2;font-weight:600}
-.tab-btn .badge{position:absolute;top:3px;right:4px;background:#6366f1;color:#fff;font-size:9px;font-weight:700;padding:1px 4px;border-radius:6px;min-width:14px;text-align:center;line-height:1.4}
-
-/* 隐藏已读按钮 */
-.read-toggle{font-size:11px;color:#444;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);padding:4px 10px;border-radius:8px;cursor:pointer;white-space:nowrap;flex-shrink:0;line-height:1.4}
-.read-toggle.active{color:#6366f1;border-color:rgba(99,102,241,0.3);background:rgba(99,102,241,0.08)}
+.tab-btn .badge{position:absolute;top:3px;right:3px;background:#6366f1;color:#fff;font-size:9px;font-weight:700;padding:1px 4px;border-radius:6px;min-width:14px;text-align:center;line-height:1.4}
 
 /* ── 날짜 섹션 ── */
 .section-header{display:flex;align-items:center;gap:8px;padding:14px 16px 10px}
-.date-label{font-size:12px;font-weight:600;color:#888;letter-spacing:0.2px}
+.date-label{font-size:12px;font-weight:600;color:#888}
 .date-count{font-size:11px;color:#3a3a4a}
 .date-line{flex:1;height:1px;background:rgba(255,255,255,0.05)}
 
 /* ── 카드 ── */
 .cards{padding:0 12px;display:flex;flex-direction:column;gap:10px}
 
-/* card-wrap 承载评分颜色和圆角，不再是 .card */
-.card-wrap{border-radius:16px;border:1px solid;overflow:hidden;transition:opacity 0.3s}
-.card-wrap.s5{background:linear-gradient(135deg,rgba(255,107,53,0.1),rgba(255,107,53,0.04));border-color:rgba(255,107,53,0.28)}
-.card-wrap.s4{background:rgba(255,107,53,0.06);border-color:rgba(255,107,53,0.16)}
-.card-wrap.s3{background:rgba(251,191,36,0.04);border-color:rgba(251,191,36,0.14)}
+.card-wrap{border-radius:16px;border:1px solid;overflow:hidden;transition:opacity 0.3s,max-height 0.35s}
+.card-wrap.s5{background:linear-gradient(135deg,rgba(255,107,53,0.12),rgba(255,107,53,0.04));border-color:rgba(255,107,53,0.3)}
+.card-wrap.s4{background:rgba(255,107,53,0.07);border-color:rgba(255,107,53,0.18)}
+.card-wrap.s3{background:rgba(251,191,36,0.04);border-color:rgba(251,191,36,0.15)}
 .card-wrap.s2,.card-wrap.s1{background:rgba(255,255,255,0.015);border-color:rgba(255,255,255,0.06)}
-.card-wrap.is-read{opacity:0.3}
+.card-wrap.is-read{opacity:0.28}
 
-/* card 是链接本身 */
-.card{text-decoration:none;display:block;padding:14px 14px 10px;transition:opacity 0.08s}
+/* 卡片链接 */
+.card{text-decoration:none;display:block;padding:14px 14px 12px}
 .card:active{opacity:0.75}
 
-.card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+.card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
 .source-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
 .dot-ph{background:#ff6154}
 .dot-tmrr{background:#22c55e}
 .dot-hn{background:#ff6600}
 .dot-reddit{background:#ff4500}
-.dot-ih{background:#818cf8}
+.dot-other{background:#818cf8}
 .src-name{font-size:11px;color:#555}
-.cat-tag{font-size:11px;color:#444;background:rgba(255,255,255,0.05);padding:2px 7px;border-radius:6px}
-.ext-score{font-size:10px;color:#666;margin-left:2px}
+.ext-score{font-size:10px;color:#555;margin-left:1px}
+.cat-tag{font-size:11px;color:#3a3a4a;background:rgba(255,255,255,0.04);padding:2px 7px;border-radius:5px}
 
-.score-bar{display:flex;gap:3px;align-items:center}
+.score-bar{display:flex;gap:3px;align-items:center;flex-shrink:0}
 .sdot{width:5px;height:5px;border-radius:50%}
-.sdot.on-5{background:#ff6b35}
-.sdot.on-4{background:#fb923c}
-.sdot.on-3{background:#fbbf24}
-.sdot.on-2,.sdot.on-1{background:#6366f1}
+.sdot.on-5{background:#ff6b35}.sdot.on-4{background:#fb923c}
+.sdot.on-3{background:#fbbf24}.sdot.on-2,.sdot.on-1{background:#6366f1}
 .sdot.off{background:#1e1e2a}
 
-.card-title{font-size:15px;font-weight:600;color:#f0f0f4;line-height:1.35;margin-bottom:6px}
-.mrr{display:inline-flex;align-items:center;gap:4px;background:rgba(34,197,94,0.12);color:#4ade80;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;margin-bottom:8px;letter-spacing:0.2px}
-.summary{font-size:13px;color:#9090a0;line-height:1.65;margin-bottom:8px}
-.opp-box{display:flex;gap:8px;background:rgba(99,102,241,0.08);border-radius:10px;padding:10px 12px}
-.opp-icon{font-size:12px;flex-shrink:0;margin-top:2px}
-.opp-text{font-size:12px;color:#a5b4fc;line-height:1.55}
-.score-reason{font-size:11px;color:#3a3a4a;margin-top:8px;letter-spacing:0.1px}
+.card-title{font-size:15px;font-weight:600;color:#f0f0f4;line-height:1.35;margin-bottom:10px}
 
-/* 卡片底部操作栏 — 独立于链接，touch target 足够大 */
+.mrr-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(34,197,94,0.14);color:#4ade80;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px}
+
+/* 核心问题 */
+.problem{display:flex;gap:7px;align-items:flex-start;margin-bottom:10px}
+.problem-icon{font-size:13px;flex-shrink:0;line-height:1.5}
+.problem-text{font-size:13px;color:#c8c8d8;line-height:1.55;font-weight:500}
+
+/* 三维决策信号 */
+.signals{display:flex;flex-direction:column;gap:5px;border-top:1px solid rgba(255,255,255,0.05);padding-top:10px}
+.signal{display:flex;align-items:baseline;gap:8px}
+.sig-tag{flex-shrink:0;font-size:10px;font-weight:700;padding:2px 8px;border-radius:5px;letter-spacing:0.3px;line-height:1.5}
+.sig-desc{font-size:12px;color:#555;line-height:1.45}
+
+/* 中国适配颜色 */
+.china-high{background:rgba(34,197,94,0.14);color:#4ade80}
+.china-mid {background:rgba(251,191,36,0.12);color:#fbbf24}
+.china-low {background:rgba(239,68,68,0.12);color:#f87171}
+/* 一人可行颜色 */
+.solo-yes  {background:rgba(99,102,241,0.15);color:#a5b4fc}
+.solo-maybe{background:rgba(251,191,36,0.10);color:#fbbf24}
+.solo-hard {background:rgba(239,68,68,0.10);color:#f87171}
+
+/* 卡片操作栏 */
 .card-actions{display:flex;border-top:1px solid rgba(255,255,255,0.05)}
-.action-btn{flex:1;padding:10px 8px;font-size:12px;background:none;border:none;color:#3a3a4a;cursor:pointer;font-weight:500;text-align:center;transition:color 0.15s, background 0.1s;letter-spacing:0.1px}
+.action-btn{flex:1;padding:10px 8px;font-size:12px;background:none;border:none;color:#3a3a4a;cursor:pointer;font-weight:500;text-align:center;transition:color 0.15s,background 0.1s}
 .action-btn:active{background:rgba(255,255,255,0.04)}
 .action-btn.sep{border-left:1px solid rgba(255,255,255,0.05)}
 .action-bk.starred{color:#fbbf24}
 .action-rd.done{color:#4ade80}
 
-/* ── 토스트 ── */
+/* 토스트 */
 .toast{position:fixed;bottom:calc(60px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%) translateY(20px);background:#1e1e2c;border:1px solid rgba(255,255,255,0.1);color:#e2e2e2;font-size:13px;padding:10px 20px;border-radius:24px;opacity:0;transition:all 0.25s;pointer-events:none;z-index:200;white-space:nowrap}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .toast.ok{background:#0f2a1a;border-color:rgba(34,197,94,0.3);color:#86efac}
 
-/* ── 상태 ── */
-.loading,.empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:55vh;gap:12px;color:#444;font-size:14px;text-align:center;padding:20px}
+/* 상태 */
+.loading,.empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:55vh;gap:12px;color:#444;font-size:14px;text-align:center;padding:24px}
 .empty-icon{font-size:40px;margin-bottom:4px}
 .empty-sub{font-size:12px;color:#333;margin-top:2px;line-height:1.7}
 .empty-action{font-size:12px;color:#6366f1;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);padding:8px 18px;border-radius:20px;cursor:pointer;margin-top:8px}
-
-/* 收藏空状态 */
 .bk-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:50vh;gap:10px;color:#444;font-size:14px;text-align:center;padding:24px}
-.bk-empty-icon{font-size:44px;margin-bottom:4px}
 .bk-empty-sub{font-size:12px;color:#333;margin-top:2px;line-height:1.7}
-
 .spinner{width:28px;height:28px;border:2px solid #1e1e28;border-top-color:#ff6b35;border-radius:50%;animation:spin 0.7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* ── 통계 ── */
+/* 统计 */
 .stats{padding:6px 16px 2px;font-size:12px;color:#3a3a4a}
 .stats b{color:#555;font-weight:500}
 
-/* ── 페이지네이션 ── */
+/* 分页 */
 .pagination{display:flex;align-items:center;justify-content:center;gap:12px;padding:20px 16px 12px}
 .page-btn{font-size:13px;padding:8px 20px;background:#141420;border:1px solid rgba(255,255,255,0.08);color:#777;border-radius:12px;cursor:pointer}
 .page-btn:disabled{opacity:0.25;cursor:default}
 .page-info{font-size:12px;color:#444}
 
-/* ── 푸터 ── */
 .footer{text-align:center;font-size:11px;color:#2a2a38;padding:20px 16px calc(16px + env(safe-area-inset-bottom,0px))}
 .bottom-space{height:calc(20px + env(safe-area-inset-bottom,0px))}
 </style>
@@ -138,17 +143,17 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
   </div>
   <div class="search-wrap" id="searchWrap">
     <input class="search-input" type="search" id="searchInput"
-      placeholder="搜索，如：AI视频、营销、SaaS…"
+      placeholder="搜索，如：AI视频、营销、邮件…"
       autocomplete="off" autocorrect="off" spellcheck="false">
-    <button class="search-clear" id="searchClear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
+    <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
   </div>
   <div class="tabs-wrap">
     <button class="tab-btn active" data-tab="feed" onclick="setTab(this,'feed')">📰 精选</button>
-    <button class="tab-btn" data-tab="all" onclick="setTab(this,'all')">全部</button>
-    <button class="tab-btn" data-tab="ph" onclick="setTab(this,'ph')">PH 新品</button>
+    <button class="tab-btn" data-tab="all"  onclick="setTab(this,'all')">全部</button>
+    <button class="tab-btn" data-tab="ph"   onclick="setTab(this,'ph')">PH 新品</button>
     <button class="tab-btn" data-tab="tmrr" onclick="setTab(this,'tmrr')">验证收入</button>
     <button class="tab-btn" data-tab="reddit" onclick="setTab(this,'reddit')">Reddit</button>
-    <button class="tab-btn" data-tab="hn" onclick="setTab(this,'hn')">HN</button>
+    <button class="tab-btn" data-tab="hn"   onclick="setTab(this,'hn')">HN</button>
     <button class="tab-btn" data-tab="bookmarks" onclick="setTab(this,'bookmarks')">
       ★ 收藏<span class="badge" id="bkBadge" style="display:none">0</span>
     </button>
@@ -160,106 +165,48 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 
 <script>
 // ── 状态 ──────────────────────────────────────────────
-let allData = [];
-let activeTab = 'feed';
-let searchQ = '';
-let currentPage = 1;
+let allData = [], activeTab = 'feed', searchQ = '', currentPage = 1;
 const PAGE_SIZE = 30;
-let searchTimer = null;
-let bookmarks = new Set();
-let readItems = new Set();
-let hideRead = false;
+let searchTimer = null, bookmarks = new Set(), readItems = new Set(), hideRead = false;
 
 // ── localStorage ──────────────────────────────────────
 function loadLocal() {
-  try {
-    const bk = localStorage.getItem('idea-radar-bookmarks');
-    if (bk) bookmarks = new Set(JSON.parse(bk));
-  } catch(_) {}
-  try {
-    const rd = localStorage.getItem('idea-radar-read');
-    if (rd) readItems = new Set(JSON.parse(rd));
-  } catch(_) {}
+  try { const b = localStorage.getItem('idea-radar-bookmarks'); if (b) bookmarks = new Set(JSON.parse(b)); } catch(_){}
+  try { const r = localStorage.getItem('idea-radar-read');      if (r) readItems = new Set(JSON.parse(r)); } catch(_){}
 }
+function saveBk()   { try { localStorage.setItem('idea-radar-bookmarks', JSON.stringify([...bookmarks])); } catch(_){} }
+function saveRead() { try { localStorage.setItem('idea-radar-read', JSON.stringify([...readItems].slice(-600))); } catch(_){} }
 
-function saveBookmarks() {
-  try { localStorage.setItem('idea-radar-bookmarks', JSON.stringify([...bookmarks])); } catch(_) {}
-}
-
-function saveRead() {
-  try {
-    const arr = [...readItems].slice(-600);
-    localStorage.setItem('idea-radar-read', JSON.stringify(arr));
-  } catch(_) {}
-}
-
-// ── 收藏操作 ──────────────────────────────────────────
-function toggleBookmark(id, event) {
-  event.preventDefault();
-  event.stopPropagation();
-  const adding = !bookmarks.has(id);
-  if (adding) { bookmarks.add(id); showToast('已收藏 ★', 'ok'); }
-  else { bookmarks.delete(id); showToast('已取消收藏'); }
-  saveBookmarks();
-  updateBadge();
+// ── 收藏 ──────────────────────────────────────────────
+function toggleBookmark(id, e) {
+  e.preventDefault(); e.stopPropagation();
+  const add = !bookmarks.has(id);
+  add ? bookmarks.add(id) : bookmarks.delete(id);
+  saveBk(); updateBadge();
+  showToast(add ? '已收藏 ★' : '已取消收藏', add ? 'ok' : '');
   const btn = document.querySelector(`[data-bk="${CSS.escape(id)}"]`);
-  if (btn) {
-    btn.textContent = bookmarks.has(id) ? '★ 已收藏' : '☆ 收藏';
-    btn.classList.toggle('starred', bookmarks.has(id));
-  }
+  if (btn) { btn.textContent = bookmarks.has(id) ? '★ 已收藏' : '☆ 收藏'; btn.classList.toggle('starred', bookmarks.has(id)); }
   if (activeTab === 'bookmarks') filterAndRender();
 }
 
-// ── 已读操作 ──────────────────────────────────────────
-function toggleRead(id, event) {
-  event.preventDefault();
-  event.stopPropagation();
-  const wasRead = readItems.has(id);
-  if (wasRead) { readItems.delete(id); } else { readItems.add(id); }
+// ── 已读 ──────────────────────────────────────────────
+function toggleRead(id, e) {
+  e.preventDefault(); e.stopPropagation();
+  readItems.has(id) ? readItems.delete(id) : readItems.add(id);
   saveRead();
   const wrap = document.querySelector(`[data-cid="${CSS.escape(id)}"]`);
   if (!wrap) return;
-  const isNowRead = readItems.has(id);
-  wrap.classList.toggle('is-read', isNowRead);
-  const rdBtn = wrap.querySelector('.action-rd');
-  if (rdBtn) {
-    rdBtn.textContent = isNowRead ? '✓ 已读' : '○ 未读';
-    rdBtn.classList.toggle('done', isNowRead);
-  }
-  // hideRead 模式下，标为已读时淡出消失
-  if (hideRead && isNowRead) {
-    wrap.style.transition = 'opacity 0.25s, max-height 0.35s, margin 0.35s';
-    wrap.style.opacity = '0';
-    setTimeout(() => {
-      wrap.style.maxHeight = '0';
-      wrap.style.overflow = 'hidden';
-      wrap.style.marginBottom = '-10px';
-    }, 240);
-  }
+  const isRead = readItems.has(id);
+  wrap.classList.toggle('is-read', isRead);
+  const btn = wrap.querySelector('.action-rd');
+  if (btn) { btn.textContent = isRead ? '✓ 已读' : '○ 标为已读'; btn.classList.toggle('done', isRead); }
+  if (hideRead && isRead) fadeOut(wrap);
 }
 
-// 点击卡片链接时自动标为已读
-function markRead(id) {
-  if (readItems.has(id)) return;
-  readItems.add(id);
-  saveRead();
-  setTimeout(() => {
-    const wrap = document.querySelector(`[data-cid="${CSS.escape(id)}"]`);
-    if (!wrap) return;
-    wrap.classList.add('is-read');
-    const rdBtn = wrap.querySelector('.action-rd');
-    if (rdBtn) { rdBtn.textContent = '✓ 已读'; rdBtn.classList.add('done'); }
-    // hideRead 时也淡出
-    if (hideRead) {
-      wrap.style.transition = 'opacity 0.25s, max-height 0.35s, margin 0.35s';
-      wrap.style.opacity = '0';
-      setTimeout(() => {
-        wrap.style.maxHeight = '0';
-        wrap.style.overflow = 'hidden';
-        wrap.style.marginBottom = '-10px';
-      }, 240);
-    }
-  }, 80);
+function fadeOut(wrap) {
+  wrap.style.transition = 'opacity 0.25s, max-height 0.35s, margin 0.35s';
+  wrap.style.opacity = '0';
+  setTimeout(() => { wrap.style.maxHeight='0'; wrap.style.overflow='hidden'; wrap.style.marginBottom='-10px'; }, 230);
 }
 
 function toggleHideRead() {
@@ -267,58 +214,44 @@ function toggleHideRead() {
   const btn = document.getElementById('readToggle');
   btn.textContent = hideRead ? '显示已读' : '隐藏已读';
   btn.classList.toggle('active', hideRead);
-  currentPage = 1;
-  filterAndRender();
+  currentPage = 1; filterAndRender();
 }
 
 function updateBadge() {
-  const n = bookmarks.size;
-  const badge = document.getElementById('bkBadge');
-  badge.textContent = n;
-  badge.style.display = n > 0 ? '' : 'none';
+  const n = bookmarks.size, badge = document.getElementById('bkBadge');
+  badge.textContent = n; badge.style.display = n > 0 ? '' : 'none';
 }
 
-// ── 工具函数 ──────────────────────────────────────────
+// ── 工具 ──────────────────────────────────────────────
 function showToast(msg, type='') {
   const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'toast show' + (type ? ' ' + type : '');
-  clearTimeout(t._t);
-  t._t = setTimeout(() => { t.className = 'toast'; }, 2000);
+  t.textContent = msg; t.className = 'toast show' + (type ? ' '+type : '');
+  clearTimeout(t._t); t._t = setTimeout(() => { t.className='toast'; }, 2000);
 }
 
-function fmtDate(dateKey) {
-  const d = new Date(dateKey + 'T12:00:00');
-  const today = new Date().toISOString().slice(0, 10);
-  const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-  if (dateKey === today) return '今天 · ' + d.toLocaleDateString('zh-CN', {weekday:'short'});
-  if (dateKey === yesterday) return '昨天 · ' + d.toLocaleDateString('zh-CN', {weekday:'short'});
-  return d.toLocaleDateString('zh-CN', {month:'long', day:'numeric', weekday:'short'});
+function fmtDate(dk) {
+  const d = new Date(dk + 'T12:00:00');
+  const today = new Date().toISOString().slice(0,10);
+  const yest  = new Date(Date.now()-86400000).toISOString().slice(0,10);
+  if (dk === today) return '今天 ' + d.toLocaleDateString('zh-CN',{weekday:'short'});
+  if (dk === yest)  return '昨天 ' + d.toLocaleDateString('zh-CN',{weekday:'short'});
+  return d.toLocaleDateString('zh-CN',{month:'long',day:'numeric',weekday:'short'});
 }
 
 function fixTitle(t) {
-  return t
-    .replace(/\bAi\b/g,'AI').replace(/\bSaas\b/g,'SaaS').replace(/\bMrr\b/g,'MRR')
+  return t.replace(/\bAi\b/g,'AI').replace(/\bSaas\b/g,'SaaS').replace(/\bMrr\b/g,'MRR')
     .replace(/\bArr\b/g,'ARR').replace(/\bSeo\b/g,'SEO').replace(/\bApi\b/g,'API')
     .replace(/\bCrm\b/g,'CRM').replace(/\bUgc\b/g,'UGC').replace(/\bB2b\b/g,'B2B')
-    .replace(/\bB2c\b/g,'B2C').replace(/\bErp\b/g,'ERP').replace(/\bUi\b/g,'UI')
-    .replace(/\bUx\b/g,'UX');
+    .replace(/\bB2c\b/g,'B2C').replace(/\bUi\b/g,'UI').replace(/\bUx\b/g,'UX');
 }
 
-function scoreClass(s) { return 's' + Math.max(1, Math.min(5, s)); }
-
-function scoreDots(score, max=5) {
-  return Array.from({length:max}, (_,i) => {
-    const cls = i < score ? 'on-' + score : 'off';
-    return `<div class="sdot ${cls}"></div>`;
-  }).join('');
+function scoreClass(s) { return 's'+Math.max(1,Math.min(5,s)); }
+function scoreDots(s,max=5) {
+  return Array.from({length:max},(_,i)=>`<div class="sdot ${i<s?'on-'+s:'off'}"></div>`).join('');
 }
-
 function dotClass(src) {
-  const m = {producthunt:'dot-ph', trustmrr:'dot-tmrr', hackernews:'dot-hn', reddit:'dot-reddit'};
-  return m[src] || 'dot-ih';
+  return {producthunt:'dot-ph',trustmrr:'dot-tmrr',hackernews:'dot-hn',reddit:'dot-reddit'}[src]||'dot-other';
 }
-
 function escHtml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
@@ -327,209 +260,183 @@ function escHtml(s) {
 async function loadData() {
   document.getElementById('app').innerHTML = '<div class="loading"><div class="spinner"></div><p>加载中…</p></div>';
   try {
-    const res = await fetch('./data/ideas.json?' + Date.now());
-    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const res = await fetch('./data/ideas.json?'+Date.now());
+    if (!res.ok) throw new Error('HTTP '+res.status);
     allData = await res.json();
     if (!Array.isArray(allData)) throw new Error('数据格式错误');
-    if (allData.length > 0) {
-      const latest = allData.reduce((a,b) => a.fetchedAt > b.fetchedAt ? a : b);
+    if (allData.length) {
+      const latest = allData.reduce((a,b)=>a.fetchedAt>b.fetchedAt?a:b);
       const d = new Date(latest.fetchedAt);
       document.getElementById('updateTime').textContent =
-        '最后更新：' + d.toLocaleDateString('zh-CN',{month:'short',day:'numeric'}) + ' ' +
+        '最后更新：'+d.toLocaleDateString('zh-CN',{month:'short',day:'numeric'})+' '+
         d.toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'});
     }
     filterAndRender();
   } catch(e) {
     document.getElementById('app').innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">⚠️</div>
-        <p>加载失败</p>
-        <p class="empty-sub">${e.message}</p>
-        <button class="empty-action" onclick="loadData()">重新加载</button>
-      </div>`;
+      <div class="empty"><div class="empty-icon">⚠️</div><p>加载失败</p>
+      <p class="empty-sub">${e.message}</p>
+      <button class="empty-action" onclick="loadData()">重新加载</button></div>`;
   }
 }
 
 // ── 筛选 & 渲染 ──────────────────────────────────────
 function filterAndRender() {
   if (activeTab === 'bookmarks') { renderBookmarks(); return; }
-
   let items = [...allData];
-  const srcMap = {ph:'producthunt', tmrr:'trustmrr', reddit:'reddit', hn:'hackernews'};
-  if (srcMap[activeTab]) items = items.filter(i => i.source === srcMap[activeTab]);
-  if (activeTab === 'feed') items = items.filter(i => (i.score||0) >= 3);
-  if (hideRead) items = items.filter(i => !readItems.has(i.id));
+  const srcMap = {ph:'producthunt',tmrr:'trustmrr',reddit:'reddit',hn:'hackernews'};
+  if (srcMap[activeTab]) items = items.filter(i=>i.source===srcMap[activeTab]);
+  if (activeTab === 'feed') items = items.filter(i=>(i.score||0)>=3);
+  if (hideRead) items = items.filter(i=>!readItems.has(i.id));
   if (searchQ) {
     const q = searchQ.toLowerCase();
-    items = items.filter(i =>
+    items = items.filter(i=>
       fixTitle(i.title||'').toLowerCase().includes(q) ||
-      (i.summary||'').toLowerCase().includes(q) ||
-      (i.opportunity||'').toLowerCase().includes(q) ||
+      (i.problem||'').toLowerCase().includes(q) ||
+      (i.chinaReason||'').toLowerCase().includes(q) ||
       (i.category||'').toLowerCase().includes(q)
     );
   }
-
-  items.sort((a,b) => {
-    const dd = (b.dateKey||'').localeCompare(a.dateKey||'');
-    return dd !== 0 ? dd : (b.score||0) - (a.score||0);
+  items.sort((a,b)=>{
+    const dd=(b.dateKey||'').localeCompare(a.dateKey||'');
+    return dd!==0?dd:(b.score||0)-(a.score||0);
   });
-
-  const total = items.length;
-  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
-  if (currentPage > totalPages) currentPage = totalPages;
+  const total=items.length, totalPages=Math.max(1,Math.ceil(total/PAGE_SIZE));
+  if (currentPage>totalPages) currentPage=totalPages;
   const paged = items.slice((currentPage-1)*PAGE_SIZE, currentPage*PAGE_SIZE);
-
-  const grouped = {};
-  for (const item of paged) {
-    const k = item.dateKey || '未知日期';
-    if (!grouped[k]) grouped[k] = [];
-    grouped[k].push(item);
-  }
-  renderView(grouped, total, totalPages);
+  const grouped={};
+  for(const item of paged){ const k=item.dateKey||'未知日期'; if(!grouped[k]) grouped[k]=[]; grouped[k].push(item); }
+  renderView(grouped,total,totalPages);
 }
 
-function renderView(grouped, total, totalPages) {
-  const app = document.getElementById('app');
-  const dates = Object.keys(grouped).sort((a,b) => b.localeCompare(a));
-
-  if (dates.length === 0) {
-    // 空状态：区分"读完了"和"无数据"
-    const allReadOut = hideRead && activeTab === 'feed';
-    app.innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">${allReadOut ? '🎉' : searchQ ? '🔍' : '📡'}</div>
-        <p>${allReadOut ? '今天的精选都看完了' : searchQ ? '没有匹配结果' : '暂无数据'}</p>
-        <p class="empty-sub">${allReadOut ? '明天 08:00 自动更新新内容' : searchQ ? '' : '数据将在下次 GitHub Actions 运行后更新'}</p>
-        ${searchQ ? `<button class="empty-action" onclick="clearSearch()">清除搜索</button>` : ''}
-        ${allReadOut ? `<button class="empty-action" onclick="toggleHideRead()">显示已读内容</button>` : ''}
-      </div>`;
+function renderView(grouped,total,totalPages) {
+  const app=document.getElementById('app');
+  const dates=Object.keys(grouped).sort((a,b)=>b.localeCompare(a));
+  if (!dates.length) {
+    const allDone = hideRead && activeTab==='feed';
+    app.innerHTML=`<div class="empty">
+      <div class="empty-icon">${allDone?'🎉':searchQ?'🔍':'📡'}</div>
+      <p>${allDone?'今天的精选都看完了':searchQ?'没有匹配结果':'暂无数据'}</p>
+      <p class="empty-sub">${allDone?'明天 08:00 自动更新新内容':''}</p>
+      ${searchQ?`<button class="empty-action" onclick="clearSearch()">清除搜索</button>`:''}
+      ${allDone?`<button class="empty-action" onclick="toggleHideRead()">显示已读内容</button>`:''}
+    </div>`;
     return;
   }
-
-  const tH = document.getElementById('topbar').offsetHeight;
-  let html = `<div class="stats">共 <b>${total}</b> 条${searchQ ? ` · 「${escHtml(searchQ)}」` : ''}${activeTab==='feed' ? ' · 精选' : ''}${hideRead ? ' · 未读' : ''}</div>`;
-
+  const tH=document.getElementById('topbar').offsetHeight;
+  let html=`<div class="stats">共 <b>${total}</b> 条${searchQ?` · 「${escHtml(searchQ)}」`:''}${activeTab==='feed'?' · 精选':''}${hideRead?' · 未读':''}</div>`;
   for (const date of dates) {
-    const dayItems = grouped[date];
-    html += `
-      <div class="section-header" style="top:${tH}px;position:sticky;z-index:10;background:rgba(10,10,15,0.92);backdrop-filter:blur(8px)">
-        <span class="date-label">${fmtDate(date)}</span>
-        <span class="date-count">· ${dayItems.length} 条</span>
-        <div class="date-line"></div>
-      </div>
-      <div class="cards">`;
-    for (const item of dayItems) html += renderCard(item);
-    html += `</div>`;
+    const dayItems=grouped[date];
+    html+=`<div class="section-header" style="top:${tH}px;position:sticky;z-index:10;background:rgba(10,10,15,0.92);backdrop-filter:blur(8px)">
+      <span class="date-label">${fmtDate(date)}</span>
+      <span class="date-count">· ${dayItems.length} 条</span>
+      <div class="date-line"></div>
+    </div><div class="cards">`;
+    for (const item of dayItems) html+=renderCard(item);
+    html+=`</div>`;
   }
-
-  if (totalPages > 1) {
-    html += `
-      <div class="pagination">
-        <button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage<=1?'disabled':''}>上一页</button>
-        <span class="page-info">${currentPage} / ${totalPages}</span>
-        <button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage>=totalPages?'disabled':''}>下一页</button>
-      </div>`;
-  }
-
-  html += '<div class="bottom-space"></div>';
-  html += '<div class="footer">Product Hunt · TrustMRR · Reddit · Hacker News<br>每天 08:00 CST 由 GitHub Actions 自动抓取</div>';
-  app.innerHTML = html;
+  if (totalPages>1) html+=`<div class="pagination">
+    <button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage<=1?'disabled':''}>上一页</button>
+    <span class="page-info">${currentPage} / ${totalPages}</span>
+    <button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage>=totalPages?'disabled':''}>下一页</button>
+  </div>`;
+  html+='<div class="bottom-space"></div>';
+  html+='<div class="footer">Product Hunt · TrustMRR · Reddit · Hacker News<br>每天 08:00 CST · GitHub Actions 自动抓取</div>';
+  app.innerHTML=html;
 }
 
 function renderCard(item) {
-  const title = fixTitle(item.title || '');
-  const sc = item.score || 2;
+  const title = fixTitle(item.title||'');
+  const sc = item.score||2;
   const isBk = bookmarks.has(item.id);
   const isRead = readItems.has(item.id);
-  const extScore = item.hnScore || item.redditScore;
+  const extScore = item.hnScore||item.redditScore;
+
+  // 中国适配标签
+  const chinaLabel = {high:'🇨🇳 高匹配', mid:'🇨🇳 中匹配', low:'🇨🇳 受限'}[item.chinaFit||'mid'] || '🇨🇳 评估中';
+  const chinaClass = {high:'china-high', mid:'china-mid', low:'china-low'}[item.chinaFit||'mid'] || 'china-mid';
+  const chinaReason = item.chinaReason || '需结合具体赛道评估';
+
+  // 一人可行标签
+  const soloLabel = {yes:'👤 一人可行', maybe:'👤 需评估', hard:'👤 需团队'}[item.soloFit||'maybe'] || '👤 需评估';
+  const soloClass = {yes:'solo-yes', maybe:'solo-maybe', hard:'solo-hard'}[item.soloFit||'maybe'] || 'solo-maybe';
+  const soloReason = item.soloReason || '需结合具体开发复杂度判断';
+
   return `
-    <div class="card-wrap ${scoreClass(sc)}${isRead ? ' is-read' : ''}" data-cid="${escHtml(item.id)}">
-      <a class="card" href="${escHtml(item.url||'#')}" target="_blank" rel="noopener"
-         onclick="markRead('${escHtml(item.id)}')">
-        <div class="card-top">
-          <div class="source-row">
-            <div class="dot ${dotClass(item.source)}"></div>
-            <span class="src-name">${escHtml(item.sourceLabel||'')}</span>
-            ${extScore ? `<span class="ext-score">▲${extScore}</span>` : ''}
-            ${item.category ? `<span class="cat-tag">${escHtml(item.category)}</span>` : ''}
-          </div>
-          <div class="score-bar" aria-label="评分 ${sc}/5">${scoreDots(sc)}</div>
+  <div class="card-wrap ${scoreClass(sc)}${isRead?' is-read':''}" data-cid="${escHtml(item.id)}">
+    <a class="card" href="${escHtml(item.url||'#')}" target="_blank" rel="noopener">
+      <div class="card-top">
+        <div class="source-row">
+          <div class="dot ${dotClass(item.source)}"></div>
+          <span class="src-name">${escHtml(item.sourceLabel||'')}</span>
+          ${extScore?`<span class="ext-score">▲${extScore}</span>`:''}
+          ${item.category?`<span class="cat-tag">${escHtml(item.category)}</span>`:''}
         </div>
-        <div class="card-title">${escHtml(title)}</div>
-        ${item.mrr ? `<div class="mrr">💰 ${escHtml(item.mrr)}</div>` : ''}
-        ${item.summary ? `<p class="summary">${escHtml(item.summary)}</p>` : ''}
-        ${item.opportunity ? `
-          <div class="opp-box">
-            <span class="opp-icon">🇨🇳</span>
-            <span class="opp-text">${escHtml(item.opportunity)}</span>
-          </div>` : ''}
-        ${item.scoreReason ? `<p class="score-reason">${escHtml(item.scoreReason)}</p>` : ''}
-      </a>
-      <div class="card-actions">
-        <button class="action-btn action-bk${isBk ? ' starred' : ''}"
-          data-bk="${escHtml(item.id)}"
-          onclick="toggleBookmark('${escHtml(item.id)}', event)">${isBk ? '★ 已收藏' : '☆ 收藏'}</button>
-        <button class="action-btn action-rd sep${isRead ? ' done' : ''}"
-          onclick="toggleRead('${escHtml(item.id)}', event)">${isRead ? '✓ 已读' : '○ 标为已读'}</button>
+        <div class="score-bar">${scoreDots(sc)}</div>
       </div>
-    </div>`;
+      <div class="card-title">${escHtml(title)}</div>
+      ${item.mrr?`<div class="mrr-badge">💰 ${escHtml(item.mrr)}</div>`:''}
+      ${item.problem?`<div class="problem"><span class="problem-icon">💡</span><span class="problem-text">${escHtml(item.problem)}</span></div>`:''}
+      <div class="signals">
+        <div class="signal">
+          <span class="sig-tag ${chinaClass}">${chinaLabel}</span>
+          <span class="sig-desc">${escHtml(chinaReason)}</span>
+        </div>
+        <div class="signal">
+          <span class="sig-tag ${soloClass}">${soloLabel}</span>
+          <span class="sig-desc">${escHtml(soloReason)}</span>
+        </div>
+      </div>
+    </a>
+    <div class="card-actions">
+      <button class="action-btn action-bk${isBk?' starred':''}" data-bk="${escHtml(item.id)}"
+        onclick="toggleBookmark('${escHtml(item.id)}',event)">${isBk?'★ 已收藏':'☆ 收藏'}</button>
+      <button class="action-btn action-rd sep${isRead?' done':''}"
+        onclick="toggleRead('${escHtml(item.id)}',event)">${isRead?'✓ 已读':'○ 标为已读'}</button>
+    </div>
+  </div>`;
 }
 
 function renderBookmarks() {
-  const app = document.getElementById('app');
-  if (bookmarks.size === 0) {
-    app.innerHTML = `
-      <div class="bk-empty">
-        <div class="bk-empty-icon">☆</div>
-        <p>还没有收藏</p>
-        <p class="bk-empty-sub">在任意卡片底部点「☆ 收藏」<br>随时回来查看感兴趣的创意</p>
-      </div>`;
+  const app=document.getElementById('app');
+  if (!bookmarks.size) {
+    app.innerHTML=`<div class="bk-empty"><div style="font-size:40px;margin-bottom:8px">☆</div>
+      <p>还没有收藏</p><p class="bk-empty-sub">在任意卡片底部点「☆ 收藏」<br>回来随时查看感兴趣的创意</p></div>`;
     return;
   }
-  const items = allData.filter(i => bookmarks.has(i.id))
-    .sort((a,b) => (b.score||0) - (a.score||0));
-  let html = `<div class="stats">已收藏 <b>${items.length}</b> 条</div>`;
-  html += `<div class="cards" style="margin-top:10px">`;
-  for (const item of items) html += renderCard(item);
-  html += `</div><div class="bottom-space"></div>`;
-  app.innerHTML = html;
+  const items=allData.filter(i=>bookmarks.has(i.id)).sort((a,b)=>(b.score||0)-(a.score||0));
+  let html=`<div class="stats">已收藏 <b>${items.length}</b> 条</div><div class="cards" style="margin-top:10px">`;
+  for(const item of items) html+=renderCard(item);
+  html+=`</div><div class="bottom-space"></div>`;
+  app.innerHTML=html;
 }
 
 // ── 标签页 ────────────────────────────────────────────
-function setTab(el, tab) {
-  activeTab = tab;
-  currentPage = 1;
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+function setTab(el,tab) {
+  activeTab=tab; currentPage=1;
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   el.classList.add('active');
-  document.getElementById('searchWrap').style.display = tab === 'bookmarks' ? 'none' : '';
+  document.getElementById('searchWrap').style.display = tab==='bookmarks'?'none':'';
   filterAndRender();
 }
 
-// ── 交互 ─────────────────────────────────────────────
 function clearSearch() {
-  document.getElementById('searchInput').value = '';
+  document.getElementById('searchInput').value='';
   document.getElementById('searchClear').classList.remove('visible');
-  searchQ = ''; currentPage = 1;
-  filterAndRender();
+  searchQ=''; currentPage=1; filterAndRender();
 }
 
-function goPage(p) {
-  currentPage = p;
-  filterAndRender();
-  window.scrollTo({top:0, behavior:'smooth'});
-}
+function goPage(p) { currentPage=p; filterAndRender(); window.scrollTo({top:0,behavior:'smooth'}); }
 
-document.getElementById('searchInput').addEventListener('input', function() {
-  const v = this.value.trim();
-  document.getElementById('searchClear').classList.toggle('visible', v.length > 0);
+document.getElementById('searchInput').addEventListener('input',function(){
+  const v=this.value.trim();
+  document.getElementById('searchClear').classList.toggle('visible',v.length>0);
   clearTimeout(searchTimer);
-  searchTimer = setTimeout(() => { searchQ = v; currentPage = 1; filterAndRender(); }, 300);
+  searchTimer=setTimeout(()=>{searchQ=v;currentPage=1;filterAndRender();},300);
 });
 
 // ── 启动 ─────────────────────────────────────────────
-loadLocal();
-updateBadge();
-loadData();
+loadLocal(); updateBadge(); loadData();
 </script>
 </body>
 </html>

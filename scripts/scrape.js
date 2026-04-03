@@ -14,11 +14,7 @@ function fixTitle(t) {
     .replace(/\bIo\b/g,'IO').replace(/\bPdf\b/g,'PDF').replace(/\bCsv\b/g,'CSV');
 }
 
-// ─── 评分系统 ──────────────────────────────────────────────────────────────
-const HIGH_KEYWORDS = ['ai', 'automation', 'saas', 'creator', 'marketing', 'analytics', 'video', 'schedule', 'content', 'agent', 'tool'];
-const CHINA_KEYWORDS = ['creator', 'video', 'content', 'social', 'marketing', 'ecommerce', 'schedule', 'seo', 'analytics', 'email'];
-const LOW_KEYWORDS = ['game', 'dating', 'nft', 'crypto', 'gambling', 'blockchain'];
-
+// ─── 分类检测 ──────────────────────────────────────────────────────────────
 const CATEGORIES = {
   'ai': 'AI工具', 'video': '视频创作', 'marketing': '营销增长',
   'saas': 'SaaS工具', 'content': '内容创作', 'analytics': '数据分析',
@@ -35,81 +31,127 @@ function detectCategory(text) {
   return '数字工具';
 }
 
+// ─── 评分 ──────────────────────────────────────────────────────────────────
+const HIGH_KEYWORDS = ['ai','automation','saas','creator','marketing','analytics','video','schedule','content','agent','tool'];
+const LOW_KEYWORDS  = ['game','dating','nft','crypto','gambling','blockchain'];
+const CHINA_KEYWORDS = ['creator','video','content','social','marketing','ecommerce','schedule','seo','analytics','email'];
+
 function scoreItem(title, desc, mrr, baseScore = 2) {
   const text = (title + ' ' + (desc || '')).toLowerCase();
   let score = baseScore;
   const reasons = [];
   if (mrr) { score += 2; reasons.push(`已验证收入 ${mrr}`); }
   if (HIGH_KEYWORDS.some(k => text.includes(k))) { score += 1; reasons.push('热门赛道'); }
-  if (LOW_KEYWORDS.some(k => text.includes(k))) { score -= 2; reasons.push('中国受限'); }
+  if (LOW_KEYWORDS.some(k => text.includes(k)))  { score -= 2; reasons.push('中国受限'); }
   if (CHINA_KEYWORDS.filter(k => text.includes(k)).length >= 2) { score += 1; reasons.push('适配中国市场'); }
   return { score: Math.max(1, Math.min(5, score)), reason: reasons.join(' · ') || '基础工具' };
 }
 
-// ─── 中文摘要生成（修复运算符优先级 + 增加多样性）──────────────────────────
-function generateInsight(title, desc) {
+// ─── 核心分析：金点子三维评估 ─────────────────────────────────────────────
+// 返回 { problem, chinaFit, chinaReason, soloFit, soloReason }
+function analyzeProduct(title, desc, mrr) {
   const text = (title + ' ' + (desc || '')).toLowerCase();
 
-  // 注意：用括号明确优先级，避免 || 和 && 的混淆
+  // ── 1. 核心问题（这个产品解决了什么） ──────────────────────────────────
+  let problem;
   if (text.includes('ai') && text.includes('video'))
-    return { summary: `AI自动生成视频内容，解决创作者批量产出的效率瓶颈`, opportunity: '抖音/小红书投流素材需求爆发，国内无成熟 AI 视频素材工具' };
+    problem = '创作者批量生成视频，解决产量低的效率瓶颈';
+  else if (text.includes('ai') && (text.includes('write') || text.includes('copy') || text.includes('content')))
+    problem = '降低内容创作成本，一个人输出10人的产量';
+  else if (text.includes('ai') && text.includes('seo'))
+    problem = 'AI 生成 SEO 文章，解决内容获客成本高的问题';
+  else if (text.includes('ai') && (text.includes('resume') || text.includes('job')))
+    problem = 'AI 优化简历和求职材料，提升面试邀请率';
+  else if (text.includes('ai') && text.includes('email'))
+    problem = 'AI 起草个性化邮件，B2B 销售触达效率翻倍';
+  else if (text.includes('ai') && text.includes('customer'))
+    problem = 'AI 客服自动处理高频问题，降低人工成本';
+  else if (text.includes('ai'))
+    problem = 'AI 替代某类重复劳动，降低专业门槛和人力成本';
+  else if (text.includes('schedule') || text.includes('social media'))
+    problem = '多平台内容自动排期发布，运营人员从重复劳动解放';
+  else if (text.includes('email') && text.includes('outreach'))
+    problem = '冷邮件获客自动化，解决 B2B 销售触达效率低问题';
+  else if (text.includes('email'))
+    problem = '邮件营销精准触达，用自动化提升付费转化率';
+  else if (text.includes('analytics') || text.includes('attribution'))
+    problem = '广告数据归因透明化，让每一分投放花得值';
+  else if (text.includes('invoice') || text.includes('accounting') || text.includes('finance'))
+    problem = '自动化记账报税，中小企业/自由职业者省时 80%';
+  else if (text.includes('agent') || text.includes('automation'))
+    problem = 'AI Agent 接管重复工作流，释放人力做高价值事';
+  else if (text.includes('design') || text.includes('template'))
+    problem = '降低设计门槛，非设计师也能产出专业级图文';
+  else if (text.includes('ecommerce') || text.includes('shopify') || text.includes('amazon'))
+    problem = '跨境电商运营提效，降低选品和投流决策成本';
+  else if (text.includes('creator') || text.includes('monetiz'))
+    problem = '帮创作者建立独立变现渠道，摆脱平台高抽成';
+  else if (text.includes('crm') || text.includes('customer'))
+    problem = '客户线索统一管理，防止销售跟进遗漏丢单';
+  else if (text.includes('health') || text.includes('sleep') || text.includes('wellness'))
+    problem = '健康数据追踪 + AI 建议，改善日常生活质量';
+  else if (text.includes('developer') || text.includes('api') || text.includes('devops'))
+    problem = '开发工具提效，减少工程师重复搭建基础设施';
+  else if (text.includes('hire') || text.includes('recruit'))
+    problem = '招聘流程自动化，减少 HR 在筛简历上的时间';
+  else if (mrr)
+    problem = '已有用户愿意付费的 SaaS 产品，具体方向见原链接';
+  else
+    problem = '垂直领域效率工具，有明确用户群的付费需求';
 
-  if (text.includes('ai') && (text.includes('content') || text.includes('write') || text.includes('copy')))
-    return { summary: `AI辅助内容生产，降低文案和图文创作成本`, opportunity: '品牌自媒体运营需求旺盛，国内工具缺少垂直行业版本' };
+  // ── 2. 中国市场可复制性 ──────────────────────────────────────────────────
+  const HIGH_CHINA = ['video','creator','content','social','marketing','ecommerce',
+                      'schedule','seo','design','analytics','template','email','crm','短视频'];
+  const LOW_CHINA  = ['crypto','nft','blockchain','gambling','dating','compliance',
+                      'gdpr','hipaa','medicare','insurance','gun','weapon'];
 
-  if (text.includes('ai') && text.includes('seo'))
-    return { summary: `AI 驱动的 SEO 内容优化，自动提升搜索排名`, opportunity: '百度 SEO + 小红书 SEO 工具市场，国内独立工具落后海外约 2 年' };
+  let chinaFit, chinaReason;
+  if (LOW_CHINA.some(k => text.includes(k))) {
+    chinaFit = 'low';
+    chinaReason = '涉及受限领域，直接复制风险高';
+  } else if (HIGH_CHINA.filter(k => text.includes(k)).length >= 2) {
+    chinaFit = 'high';
+    chinaReason = '国内同类需求旺盛，工具信息差大';
+  } else if (HIGH_CHINA.some(k => text.includes(k))) {
+    chinaFit = 'high';
+    chinaReason = '对应国内真实需求，有本土化空间';
+  } else if (text.includes('ai') || text.includes('saas')) {
+    chinaFit = 'mid';
+    chinaReason = 'AI/SaaS 赛道在国内有增量，需本土化';
+  } else if (text.includes('developer') || text.includes('api') || text.includes('enterprise')) {
+    chinaFit = 'mid';
+    chinaReason = 'B2D/企业服务，付费意愿需单独验证';
+  } else {
+    chinaFit = 'mid';
+    chinaReason = '通用工具，需评估国内实际市场规模';
+  }
 
-  if (text.includes('schedule') || text.includes('social media'))
-    return { summary: `社交媒体内容排期与自动发布，降低运营重复劳动`, opportunity: '小红书/抖音/微信多平台运营工具几乎空白，MCN 机构强需求' };
+  // ── 3. 一人公司可行性 ────────────────────────────────────────────────────
+  const SOLO_YES  = ['tool','widget','chrome','plugin','extension','api','webhook',
+                     'notification','alert','tracker','monitor','generator','converter',
+                     'calculator','summarizer','transcriber','scheduler','scraper'];
+  const SOLO_HARD = ['marketplace','social network','community platform','hiring platform',
+                     'freelance marketplace','two-sided','peer-to-peer','p2p network'];
 
-  if (text.includes('email') && text.includes('outreach'))
-    return { summary: `冷邮件自动化外联，提升 B2B 销售触达效率`, opportunity: '中国出海企业开拓海外市场的核心痛点，工具信息差显著' };
+  let soloFit, soloReason;
+  if (SOLO_HARD.some(k => text.includes(k))) {
+    soloFit = 'hard';
+    soloReason = '双边/社区产品，冷启动需要团队资源';
+  } else if (SOLO_YES.some(k => text.includes(k))) {
+    soloFit = 'yes';
+    soloReason = '工具型产品，技术+运营一人可驱动';
+  } else if (text.includes('saas') || text.includes('automation') || text.includes('ai')) {
+    soloFit = 'yes';
+    soloReason = 'SaaS/AI 工具，无代码或小成本可验证';
+  } else if (text.includes('content') || text.includes('newsletter') || text.includes('education')) {
+    soloFit = 'yes';
+    soloReason = '内容型业务，个人品牌驱动，一人起步';
+  } else {
+    soloFit = 'maybe';
+    soloReason = '需结合具体功能范围评估开发量';
+  }
 
-  if (text.includes('email'))
-    return { summary: `邮件营销自动化，通过精准触达提升转化率`, opportunity: '跨境独立站卖家和 SaaS 企业的高频需求，ROI 可量化' };
-
-  if (text.includes('analytics') || text.includes('attribution'))
-    return { summary: `广告归因和数据可视化，精准衡量每一分投放的效果`, opportunity: '国内投流市场规模庞大，独立第三方归因工具稀缺' };
-
-  if (text.includes('creator') || text.includes('monetiz'))
-    return { summary: `帮助创作者独立变现，减少对平台抽成的依赖`, opportunity: '中国创作者经济规模超 5000 亿，独立变现工具生态待建' };
-
-  if (text.includes('agent') || text.includes('automation'))
-    return { summary: `AI Agent 自动接管重复性工作流，解放人力`, opportunity: '企业降本增效需求迫切，AI 替代白领工作是未来 3 年最大红利' };
-
-  if (text.includes('resume') || text.includes('job') || text.includes('hiring'))
-    return { summary: `AI 简历优化和招聘匹配，提升求职/招聘效率`, opportunity: '国内招聘市场竞争激烈，AI 简历工具付费意愿强' };
-
-  if (text.includes('health') || text.includes('sleep') || text.includes('wellness'))
-    return { summary: `通过数据追踪和 AI 建议改善个人健康状态`, opportunity: '中国健康管理 APP 市场规模千亿，但 AI 个性化能力弱' };
-
-  if (text.includes('finance') || text.includes('invoice') || text.includes('accounting'))
-    return { summary: `自动化财务管理，帮助中小企业和自由职业者省时省力`, opportunity: '国内个体工商户和自由职业者财税工具市场增速迅猛' };
-
-  if (text.includes('design') || text.includes('ui') || text.includes('template'))
-    return { summary: `降低设计门槛，让非设计师也能快速出图`, opportunity: '电商/自媒体/教育行业对设计工具需求大，国内 Canva 类产品未完全覆盖' };
-
-  if (text.includes('ecommerce') || text.includes('shopify') || text.includes('amazon'))
-    return { summary: `跨境电商卖家的运营效率工具，降低选品和投放成本`, opportunity: '中国有全球最大跨境电商卖家群体，工具需求持续扩大' };
-
-  if ((text.includes('$') || text.includes('mrr') || text.includes('revenue') || text.includes('月')) &&
-      (text.includes('k/month') || text.includes('k mrr') || /\$[\d]+k/.test(text)))
-    return { summary: `已验证收入的 SaaS 创业案例，提供成长路径参考`, opportunity: '同类产品在国内市场的信息差和先发机会值得关注' };
-
-  if (text.includes('waitlist') || text.includes('launched') || text.includes('just launched') || text.includes('show hn'))
-    return { summary: `新产品发布或上线，创始人分享冷启动经验`, opportunity: '参考产品定位和获客方式，评估国内复制可行性' };
-
-  if (text.includes('mistake') || text.includes('lesson') || text.includes('failed') || text.includes('broke') || text.includes('fixed'))
-    return { summary: `创业者分享实战经验和踩坑教训`, opportunity: '同类型产品在国内的常见陷阱和差异化机会' };
-
-  if (text.includes('how i') || text.includes('how we') || text.includes('what i learned'))
-    return { summary: `创始人亲历分享，涵盖产品打磨和增长心法`, opportunity: '可提取可复用的方法论，用于国内同类产品' };
-
-  if (desc && desc.length > 20)
-    return { summary: desc.slice(0, 80).trim() + (desc.length > 80 ? '…' : ''), opportunity: '关注此赛道在中国的本土化机会' };
-
-  return { summary: '新兴数字工具，聚焦垂直领域效率提升', opportunity: '可评估国内同类需求规模和信息差空间' };
+  return { problem, chinaFit, chinaReason, soloFit, soloReason };
 }
 
 // ─── Product Hunt RSS (Atom) ──────────────────────────────────────────────
@@ -136,14 +178,15 @@ async function fetchProductHunt() {
       const pubDate = entry.match(/<published>([\s\S]*?)<\/published>/)?.[1]?.trim() || '';
       const dateKey = pubDate ? new Date(pubDate).toISOString().slice(0,10) : new Date().toISOString().slice(0,10);
       const { score, reason } = scoreItem(title, desc);
-      const { summary, opportunity } = generateInsight(title, desc);
+      const analysis = analyzeProduct(title, desc, null);
 
       results.push({
         id: `ph-${Buffer.from(url).toString('base64').slice(0,16)}`,
-        title: fixTitle(title), summary, opportunity, score, scoreReason: reason,
+        title: fixTitle(title), score, scoreReason: reason,
+        ...analysis,
         url, source: 'producthunt', sourceLabel: 'Product Hunt',
         category: detectCategory(title + ' ' + desc),
-        tags: ['新产品'], fetchedAt: new Date().toISOString(), dateKey,
+        fetchedAt: new Date().toISOString(), dateKey,
       });
     }
     console.log(`[PH] ${results.length} 条`);
@@ -177,17 +220,18 @@ async function fetchTrustMRR() {
       const idx = html.indexOf(`"${p}"`);
       const nearby = html.slice(Math.max(0, idx-500), idx+500);
       const mrr = nearby.match(/\$[\d,]+(\.\d+)?[KkMm]?\s*(?:MRR|mrr)/)?.[0]?.trim();
-      // TMRR base=3：TrustMRR 上的产品都是有真实收入的业务
+      // TMRR 基础分 3：上面的都是有真实收入的产品
       const { score, reason } = scoreItem(title, '', mrr, 3);
-      const { summary, opportunity } = generateInsight(title, mrr ? `月收入 ${mrr}` : '');
+      const analysis = analyzeProduct(title, mrr ? `verified mrr ${mrr}` : '', mrr);
 
       results.push({
         id: `tmrr-${Buffer.from(p).toString('base64').slice(0,16)}`,
-        title, summary, opportunity, score, scoreReason: reason,
+        title, score, scoreReason: reason,
+        ...analysis,
         url: `https://trustmrr.com${p}`,
         source: 'trustmrr', sourceLabel: 'TrustMRR',
         mrr, category: detectCategory(title),
-        tags: ['已验证收入'], fetchedAt: new Date().toISOString(), dateKey: today,
+        fetchedAt: new Date().toISOString(), dateKey: today,
       });
     }
     console.log(`[TMRR] ${results.length} 条`);
@@ -198,7 +242,8 @@ async function fetchTrustMRR() {
 // ─── Reddit (r/SaaS + r/startups + r/entrepreneur) ────────────────────────
 async function fetchReddit() {
   const SUBS = ['SaaS', 'startups', 'entrepreneur'];
-  const KEEP = ['saas','tool','ai','launch','revenue','mrr','startup','product','automation','api','indie','maker','software','app','platform','build','ship','idea'];
+  const KEEP = ['saas','tool','ai','launch','revenue','mrr','startup','product','automation',
+                'api','indie','maker','software','app','platform','build','ship','idea'];
   const results = [];
   const seen = new Set();
 
@@ -213,7 +258,7 @@ async function fetchReddit() {
 
       for (const { data: post } of posts) {
         if (!post.title || !post.url) continue;
-        if ((post.score || 0) < 20) continue; // 至少 20 分
+        if ((post.score || 0) < 20) continue;
         if (seen.has(post.id)) continue;
         seen.add(post.id);
 
@@ -222,27 +267,24 @@ async function fetchReddit() {
 
         const title = fixTitle(post.title.trim());
         const desc = post.selftext ? post.selftext.replace(/\s+/g, ' ').trim().slice(0, 200) : '';
-        // Reddit 高分帖基础分提升
         const redditBase = post.score >= 200 ? 3 : 2;
         const { score, reason } = scoreItem(title, desc, null, redditBase);
-        const { summary, opportunity } = generateInsight(title, desc);
+        const analysis = analyzeProduct(title, desc, null);
         const dateKey = post.created_utc
           ? new Date(post.created_utc * 1000).toISOString().slice(0, 10)
           : new Date().toISOString().slice(0, 10);
-
-        // 优先用 post 的外链，若是自帖则用 reddit 链接
         const url = post.is_self
           ? `https://www.reddit.com${post.permalink}`
           : (post.url.startsWith('http') ? post.url : `https://www.reddit.com${post.permalink}`);
 
         results.push({
           id: `reddit-${post.id}`,
-          title, summary, opportunity, score, scoreReason: reason,
-          url,
-          source: 'reddit', sourceLabel: `r/${sub}`,
+          title, score, scoreReason: reason,
+          ...analysis,
+          url, source: 'reddit', sourceLabel: `r/${sub}`,
           redditScore: post.score,
           category: detectCategory(title + ' ' + desc),
-          tags: ['Reddit精选'], fetchedAt: new Date().toISOString(), dateKey,
+          fetchedAt: new Date().toISOString(), dateKey,
         });
       }
     } catch (e) { console.error(`Reddit r/${sub} error:`, e.message); }
@@ -251,23 +293,19 @@ async function fetchReddit() {
   return results.slice(0, 30);
 }
 
-// ─── Hacker News (官方 API，过滤创业/工具相关) ────────────────────────────
+// ─── Hacker News ─────────────────────────────────────────────────────────
 async function fetchHackerNews() {
   try {
-    // 抓 Show HN + Ask HN 精选，用官方 Firebase API
     const res = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json');
     if (!res.ok) return [];
     const ids = await res.json();
     const today = new Date().toISOString().slice(0, 10);
-
-    // 关键词：只保留与创业/工具/SaaS/AI 相关的
-    const KEEP = ['show hn','ask hn','saas','tool','startup','ai','launch','maker','revenue','mrr','indie','product','automation','api'];
+    const KEEP = ['show hn','ask hn','saas','tool','startup','ai','launch','maker',
+                  'revenue','mrr','indie','product','automation','api'];
     const results = [];
 
-    // 并行抓前 60 条，然后过滤
-    const batch = ids.slice(0, 60);
     const items = await Promise.all(
-      batch.map(id =>
+      ids.slice(0, 60).map(id =>
         fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
           .then(r => r.json()).catch(() => null)
       )
@@ -275,28 +313,25 @@ async function fetchHackerNews() {
 
     for (const item of items) {
       if (!item || item.type !== 'story' || !item.title || !item.url) continue;
-      if ((item.score || 0) < 50) continue; // 至少 50 分才算优质
+      if ((item.score || 0) < 50) continue;
       const t = item.title.toLowerCase();
       if (!KEEP.some(k => t.includes(k))) continue;
 
       const title = fixTitle(item.title);
       const desc = item.text ? item.text.replace(/<[^>]+>/g,' ').slice(0,200) : '';
       const { score, reason } = scoreItem(title, desc);
-      const { summary, opportunity } = generateInsight(title, desc);
-
-      // HN 日期
+      const analysis = analyzeProduct(title, desc, null);
       const dateKey = item.time
-        ? new Date(item.time * 1000).toISOString().slice(0, 10)
-        : today;
+        ? new Date(item.time * 1000).toISOString().slice(0, 10) : today;
 
       results.push({
         id: `hn-${item.id}`,
-        title, summary, opportunity, score, scoreReason: reason,
-        url: item.url,
-        source: 'hackernews', sourceLabel: 'Hacker News',
+        title, score, scoreReason: reason,
+        ...analysis,
+        url: item.url, source: 'hackernews', sourceLabel: 'Hacker News',
         hnScore: item.score,
         category: detectCategory(title + ' ' + desc),
-        tags: ['HN精选'], fetchedAt: new Date().toISOString(), dateKey,
+        fetchedAt: new Date().toISOString(), dateKey,
       });
     }
     console.log(`[HN] ${results.length} 条`);
@@ -307,16 +342,17 @@ async function fetchHackerNews() {
 // ─── Main ──────────────────────────────────────────────────────────────────
 (async () => {
   console.log('开始抓取:', new Date().toISOString());
-  const [ph, tmrr, reddit, hn] = await Promise.all([fetchProductHunt(), fetchTrustMRR(), fetchReddit(), fetchHackerNews()]);
+  const [ph, tmrr, reddit, hn] = await Promise.all([
+    fetchProductHunt(), fetchTrustMRR(), fetchReddit(), fetchHackerNews()
+  ]);
   const newItems = [...ph, ...tmrr, ...reddit, ...hn];
   console.log(`新抓取: ${newItems.length} 条`);
 
   let existing = [];
   try { existing = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8')); } catch (_) {}
 
-  // 新抓取的数据优先（用最新评分和摘要覆盖旧数据），旧数据补充剩余历史
-  const newItemIds = new Set(newItems.map(i => i.id));
-  const merged = [...newItems, ...existing.filter(i => !newItemIds.has(i.id))].slice(0, 1000);
+  const newIds = new Set(newItems.map(i => i.id));
+  const merged = [...newItems, ...existing.filter(i => !newIds.has(i.id))].slice(0, 1000);
   fs.writeFileSync(DATA_FILE, JSON.stringify(merged, null, 2));
   console.log(`保存完成: 共 ${merged.length} 条`);
 })();

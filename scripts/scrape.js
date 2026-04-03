@@ -4,16 +4,27 @@ const path = require('path');
 
 const DATA_FILE = path.join(__dirname, '../public/data/ideas.json');
 
+// ─── 标题修正 ──────────────────────────────────────────────────────────────
+function fixTitle(t) {
+  return t
+    .replace(/\bAi\b/g,'AI').replace(/\bSaas\b/g,'SaaS').replace(/\bMrr\b/g,'MRR')
+    .replace(/\bArr\b/g,'ARR').replace(/\bSeo\b/g,'SEO').replace(/\bApi\b/g,'API')
+    .replace(/\bCrm\b/g,'CRM').replace(/\bUgc\b/g,'UGC').replace(/\bB2b\b/g,'B2B')
+    .replace(/\bB2c\b/g,'B2C').replace(/\bUi\b/g,'UI').replace(/\bUx\b/g,'UX')
+    .replace(/\bIo\b/g,'IO').replace(/\bPdf\b/g,'PDF').replace(/\bCsv\b/g,'CSV');
+}
+
 // ─── 评分系统 ──────────────────────────────────────────────────────────────
-const HIGH_KEYWORDS = ['ai', 'automation', 'saas', 'creator', 'marketing', 'analytics', 'video', 'schedule', 'content', 'agent'];
-const CHINA_KEYWORDS = ['creator', 'video', 'content', 'social', 'marketing', 'ecommerce', 'schedule', 'seo', 'analytics'];
-const LOW_KEYWORDS = ['game', 'dating', 'nft', 'crypto', 'gambling'];
+const HIGH_KEYWORDS = ['ai', 'automation', 'saas', 'creator', 'marketing', 'analytics', 'video', 'schedule', 'content', 'agent', 'tool'];
+const CHINA_KEYWORDS = ['creator', 'video', 'content', 'social', 'marketing', 'ecommerce', 'schedule', 'seo', 'analytics', 'email'];
+const LOW_KEYWORDS = ['game', 'dating', 'nft', 'crypto', 'gambling', 'blockchain'];
 
 const CATEGORIES = {
   'ai': 'AI工具', 'video': '视频创作', 'marketing': '营销增长',
   'saas': 'SaaS工具', 'content': '内容创作', 'analytics': '数据分析',
   'ecommerce': '电商工具', 'productivity': '效率工具', 'education': '教育学习',
-  'health': '健康生活', 'finance': '财务工具',
+  'health': '健康生活', 'finance': '财务工具', 'developer': '开发者工具',
+  'design': '设计工具', 'hr': 'HR工具', 'crm': '客户管理',
 };
 
 function detectCategory(text) {
@@ -31,21 +42,61 @@ function scoreItem(title, desc, mrr) {
   if (mrr) { score += 2; reasons.push(`已验证收入 ${mrr}`); }
   if (HIGH_KEYWORDS.some(k => text.includes(k))) { score += 1; reasons.push('热门赛道'); }
   if (LOW_KEYWORDS.some(k => text.includes(k))) { score -= 2; reasons.push('中国受限'); }
-  if (CHINA_KEYWORDS.filter(k => text.includes(k)).length >= 2) { score += 1; reasons.push('适配中国'); }
+  if (CHINA_KEYWORDS.filter(k => text.includes(k)).length >= 2) { score += 1; reasons.push('适配中国市场'); }
   return { score: Math.max(1, Math.min(5, score)), reason: reasons.join(' · ') || '基础工具' };
 }
 
+// ─── 中文摘要生成（修复运算符优先级 + 增加多样性）──────────────────────────
 function generateInsight(title, desc) {
   const text = (title + ' ' + (desc || '')).toLowerCase();
-  if (text.includes('ai') && text.includes('video')) return { summary: 'AI自动生成视频，解决批量产出难题', opportunity: '抖音/小红书投流素材强需求，国内无成熟竞品' };
-  if (text.includes('schedule') || text.includes('social media')) return { summary: '社交媒体排期与自动发布，节省运营时间', opportunity: '小红书/抖音运营者强需求，本土化工具几乎空白' };
-  if (text.includes('seo')) return { summary: 'AI辅助内容创作和SEO优化，降低获客成本', opportunity: '百度SEO+小红书SEO，国内工具落后2年' };
-  if (text.includes('email') || text.includes('outreach')) return { summary: '自动化外联工具，提升B2B销售效率', opportunity: '跨境出海企业获客痛点，信息差大' };
-  if (text.includes('analytics') || text.includes('attribution')) return { summary: '广告归因和数据分析，精准优化ROI', opportunity: '国内投流市场缺乏独立归因工具' };
-  if (text.includes('creator') || text.includes('monetiz')) return { summary: '创作者变现工具，降低平台依赖', opportunity: '中国创作者经济爆发，独立变现工具稀缺' };
-  if (text.includes('resume')) return { summary: 'AI简历优化，提升求职成功率', opportunity: '国内已有竞品但AI能力弱，差异化空间大' };
-  if (text.includes('agent')) return { summary: 'AI Agent自动化工作流，替代重复性任务', opportunity: '国内企业数字化升级需求爆发' };
-  return { summary: desc ? desc.slice(0, 80) : '新兴数字工具，解决垂直领域需求', opportunity: '评估中国市场适配性' };
+
+  // 注意：用括号明确优先级，避免 || 和 && 的混淆
+  if (text.includes('ai') && text.includes('video'))
+    return { summary: `AI自动生成视频内容，解决创作者批量产出的效率瓶颈`, opportunity: '抖音/小红书投流素材需求爆发，国内无成熟 AI 视频素材工具' };
+
+  if (text.includes('ai') && (text.includes('content') || text.includes('write') || text.includes('copy')))
+    return { summary: `AI辅助内容生产，降低文案和图文创作成本`, opportunity: '品牌自媒体运营需求旺盛，国内工具缺少垂直行业版本' };
+
+  if (text.includes('ai') && text.includes('seo'))
+    return { summary: `AI 驱动的 SEO 内容优化，自动提升搜索排名`, opportunity: '百度 SEO + 小红书 SEO 工具市场，国内独立工具落后海外约 2 年' };
+
+  if (text.includes('schedule') || text.includes('social media'))
+    return { summary: `社交媒体内容排期与自动发布，降低运营重复劳动`, opportunity: '小红书/抖音/微信多平台运营工具几乎空白，MCN 机构强需求' };
+
+  if (text.includes('email') && text.includes('outreach'))
+    return { summary: `冷邮件自动化外联，提升 B2B 销售触达效率`, opportunity: '中国出海企业开拓海外市场的核心痛点，工具信息差显著' };
+
+  if (text.includes('email'))
+    return { summary: `邮件营销自动化，通过精准触达提升转化率`, opportunity: '跨境独立站卖家和 SaaS 企业的高频需求，ROI 可量化' };
+
+  if (text.includes('analytics') || text.includes('attribution'))
+    return { summary: `广告归因和数据可视化，精准衡量每一分投放的效果`, opportunity: '国内投流市场规模庞大，独立第三方归因工具稀缺' };
+
+  if (text.includes('creator') || text.includes('monetiz'))
+    return { summary: `帮助创作者独立变现，减少对平台抽成的依赖`, opportunity: '中国创作者经济规模超 5000 亿，独立变现工具生态待建' };
+
+  if (text.includes('agent') || text.includes('automation'))
+    return { summary: `AI Agent 自动接管重复性工作流，解放人力`, opportunity: '企业降本增效需求迫切，AI 替代白领工作是未来 3 年最大红利' };
+
+  if (text.includes('resume') || text.includes('job') || text.includes('hiring'))
+    return { summary: `AI 简历优化和招聘匹配，提升求职/招聘效率`, opportunity: '国内招聘市场竞争激烈，AI 简历工具付费意愿强' };
+
+  if (text.includes('health') || text.includes('sleep') || text.includes('wellness'))
+    return { summary: `通过数据追踪和 AI 建议改善个人健康状态`, opportunity: '中国健康管理 APP 市场规模千亿，但 AI 个性化能力弱' };
+
+  if (text.includes('finance') || text.includes('invoice') || text.includes('accounting'))
+    return { summary: `自动化财务管理，帮助中小企业和自由职业者省时省力`, opportunity: '国内个体工商户和自由职业者财税工具市场增速迅猛' };
+
+  if (text.includes('design') || text.includes('ui') || text.includes('template'))
+    return { summary: `降低设计门槛，让非设计师也能快速出图`, opportunity: '电商/自媒体/教育行业对设计工具需求大，国内 Canva 类产品未完全覆盖' };
+
+  if (text.includes('ecommerce') || text.includes('shopify') || text.includes('amazon'))
+    return { summary: `跨境电商卖家的运营效率工具，降低选品和投放成本`, opportunity: '中国有全球最大跨境电商卖家群体，工具需求持续扩大' };
+
+  if (desc && desc.length > 20)
+    return { summary: desc.slice(0, 80).trim() + (desc.length > 80 ? '…' : ''), opportunity: '关注此赛道在中国的本土化机会' };
+
+  return { summary: '新兴数字工具，聚焦垂直领域效率提升', opportunity: '可评估国内同类需求规模和信息差空间' };
 }
 
 // ─── Product Hunt RSS (Atom) ──────────────────────────────────────────────
@@ -71,13 +122,12 @@ async function fetchProductHunt() {
 
       const pubDate = entry.match(/<published>([\s\S]*?)<\/published>/)?.[1]?.trim() || '';
       const dateKey = pubDate ? new Date(pubDate).toISOString().slice(0,10) : new Date().toISOString().slice(0,10);
-
       const { score, reason } = scoreItem(title, desc);
       const { summary, opportunity } = generateInsight(title, desc);
-      const id = Buffer.from(url).toString('base64').slice(0, 16);
 
       results.push({
-        id: `ph-${id}`, title, summary, opportunity, score, scoreReason: reason,
+        id: `ph-${Buffer.from(url).toString('base64').slice(0,16)}`,
+        title: fixTitle(title), summary, opportunity, score, scoreReason: reason,
         url, source: 'producthunt', sourceLabel: 'Product Hunt',
         category: detectCategory(title + ' ' + desc),
         tags: ['新产品'], fetchedAt: new Date().toISOString(), dateKey,
@@ -103,24 +153,24 @@ async function fetchTrustMRR() {
     let m;
 
     while ((m = regex.exec(html)) !== null) {
-      const path = m[1];
-      if (seen.has(path)) continue;
-      seen.add(path);
+      const p = m[1];
+      if (seen.has(p)) continue;
+      seen.add(p);
 
-      const slug = path.replace('/startup/', '');
-      const title = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+      const slug = p.replace('/startup/', '');
+      const rawTitle = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+      const title = fixTitle(rawTitle);
 
-      const idx = html.indexOf(`"${path}"`);
-      const nearby = html.slice(Math.max(0, idx - 500), idx + 500);
+      const idx = html.indexOf(`"${p}"`);
+      const nearby = html.slice(Math.max(0, idx-500), idx+500);
       const mrr = nearby.match(/\$[\d,]+(\.\d+)?[KkMm]?\s*(?:MRR|mrr)/)?.[0]?.trim();
-
       const { score, reason } = scoreItem(title, '', mrr);
       const { summary, opportunity } = generateInsight(title, mrr ? `月收入 ${mrr}` : '');
 
       results.push({
-        id: `tmrr-${Buffer.from(path).toString('base64').slice(0,16)}`,
+        id: `tmrr-${Buffer.from(p).toString('base64').slice(0,16)}`,
         title, summary, opportunity, score, scoreReason: reason,
-        url: `https://trustmrr.com${path}`,
+        url: `https://trustmrr.com${p}`,
         source: 'trustmrr', sourceLabel: 'TrustMRR',
         mrr, category: detectCategory(title),
         tags: ['已验证收入'], fetchedAt: new Date().toISOString(), dateKey: today,
@@ -146,19 +196,20 @@ async function fetchIndieHackers() {
     let m;
 
     while ((m = regex.exec(html)) !== null) {
-      const path = m[1];
-      if (seen.has(path)) continue;
-      seen.add(path);
+      const p = m[1];
+      if (seen.has(p)) continue;
+      seen.add(p);
 
-      const slug = path.replace('/product/', '');
-      const title = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+      const slug = p.replace('/product/', '');
+      const rawTitle = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+      const title = fixTitle(rawTitle);
       const { score, reason } = scoreItem(title, '');
       const { summary, opportunity } = generateInsight(title, '');
 
       results.push({
-        id: `ih-${Buffer.from(path).toString('base64').slice(0,16)}`,
+        id: `ih-${Buffer.from(p).toString('base64').slice(0,16)}`,
         title, summary, opportunity, score, scoreReason: reason,
-        url: `https://www.indiehackers.com${path}`,
+        url: `https://www.indiehackers.com${p}`,
         source: 'indiehackers', sourceLabel: 'IndieHackers',
         category: detectCategory(title),
         tags: ['独立开发者'], fetchedAt: new Date().toISOString(), dateKey: today,
@@ -176,14 +227,11 @@ async function fetchIndieHackers() {
   const newItems = [...ph, ...tmrr, ...ih];
   console.log(`新抓取: ${newItems.length} 条`);
 
-  // 读取已有数据
   let existing = [];
   try { existing = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8')); } catch (_) {}
 
-  // 去重合并，最多保留 1000 条
   const existingIds = new Set(existing.map(i => i.id));
   const merged = [...newItems.filter(i => !existingIds.has(i.id)), ...existing].slice(0, 1000);
-
   fs.writeFileSync(DATA_FILE, JSON.stringify(merged, null, 2));
   console.log(`保存完成: 共 ${merged.length} 条`);
 })();

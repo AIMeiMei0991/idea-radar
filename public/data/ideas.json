@@ -1,434 +1,451 @@
 [
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Protocol: Survival",
-    "summary": "Know your gaps. Close them. Before it matters. Discussion | Link",
-    "opportunity": "评估中国市场适配性",
+    "title": "SlapWindows",
+    "summary": "Slap your Windows, it screams back Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
     "score": 2,
     "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/protocol-survival",
+    "url": "https://www.producthunt.com/products/slapwindows",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.381Z",
-    "dateKey": "2026-04-01"
+    "fetchedAt": "2026-04-03T09:52:59.380Z",
+    "dateKey": "2026-04-02"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Flowith Canvas",
-    "summary": "A new way to interact with AI beyond traditional chats Discussion | Link",
-    "opportunity": "评估中国市场适配性",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/flowith",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "AI工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T06:58:07.381Z",
-    "dateKey": "2026-03-31"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Create Mappins",
-    "summary": "Create custom map pins and embed anywhere Discussion | Link",
-    "opportunity": "评估中国市场适配性",
+    "title": "Quip Network",
+    "summary": "降低设计门槛，让非设计师也能快速出图",
+    "opportunity": "电商/自媒体/教育行业对设计工具需求大，国内 Canva 类产品未完全覆盖",
     "score": 2,
     "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/create-mappins",
+    "url": "https://www.producthunt.com/products/quip-network",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.381Z",
+    "fetchedAt": "2026-04-03T09:52:59.380Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "EmDash CMS",
+    "summary": "EmDash is a new open-source CMS from Cloudflare Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/emdash-cms",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T09:52:59.380Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "NotebookLM Custom Infographic Styles",
+    "summary": "Turn any source into a styled infographic Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/notebooklm-custom-infographic-styles",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T09:52:59.380Z",
+    "dateKey": "2026-03-03"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Otto by Audos.com",
+    "summary": "降低设计门槛，让非设计师也能快速出图",
+    "opportunity": "电商/自媒体/教育行业对设计工具需求大，国内 Canva 类产品未完全覆盖",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.producthunt.com/products/socap",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "AI工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T09:52:59.380Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Duck, Duck, Duck! by IDEO",
+    "summary": "An opinionated robot rubber duck for Claude code Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/duck-duck-duck-by-ideo",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T09:52:59.380Z",
     "dateKey": "2026-04-01"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Cushion",
-    "summary": "Opensource AI note taking app Discussion | Link",
-    "opportunity": "评估中国市场适配性",
+    "title": "Sublime",
+    "summary": "AI that makes real-world commitments for you Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
     "score": 3,
     "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/cushion-5",
+    "url": "https://www.producthunt.com/products/sublime-4",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "AI工具",
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.381Z",
-    "dateKey": "2026-04-02"
+    "fetchedAt": "2026-04-03T09:52:59.380Z",
+    "dateKey": "2026-02-04"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "WP Copilot",
-    "summary": "AI Agent自动化工作流，替代重复性任务",
-    "opportunity": "国内企业数字化升级需求爆发",
+    "title": "Google Vids 2.0",
+    "summary": "AI自动生成视频内容，解决创作者批量产出的效率瓶颈",
+    "opportunity": "抖音/小红书投流素材需求爆发，国内无成熟 AI 视频素材工具",
     "score": 3,
     "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/wp-copilot",
+    "url": "https://www.producthunt.com/products/google",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "AI工具",
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.381Z",
+    "fetchedAt": "2026-04-03T09:52:59.380Z",
     "dateKey": "2026-04-02"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Gyuni Player",
-    "summary": "A more refined video player for Mac Discussion | Link",
-    "opportunity": "评估中国市场适配性",
+    "title": "Gerri",
+    "summary": "Put your contract redlines on autopilot Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/gerri",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T09:52:59.380Z",
+    "dateKey": "2026-03-27"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "ChatGPT on CarPlay",
+    "summary": "ChatGPT voice in CarPlay for hands-free driving AI on the go Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
     "score": 3,
     "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/gyuni-player",
+    "url": "https://www.producthunt.com/products/openai",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "AI工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T09:52:59.380Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Qwen3.6-Plus",
+    "summary": "AI Agent 自动接管重复性工作流，解放人力",
+    "opportunity": "企业降本增效需求迫切，AI 替代白领工作是未来 3 年最大红利",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.producthunt.com/products/qwen3",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "AI工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T09:52:59.380Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "ZooClaw",
+    "summary": "Your proactive team of AI specialists in one place Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.producthunt.com/products/zooclaw",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "AI工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T09:52:59.380Z",
+    "dateKey": "2026-03-28"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Trinity-Large-Thinking by Arcee",
+    "summary": "The first open model as performant as Opus 4.6, 96% cheaper Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/trinity-large-thinking-by-arcee-ai",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T09:52:59.380Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "VoiceOS",
+    "summary": "Say it and it's done. Work 10x faster with your voice. Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/voiceos",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T09:52:59.380Z",
+    "dateKey": "2026-04-01"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "FindThem",
+    "summary": "邮件营销自动化，通过精准触达提升转化率",
+    "opportunity": "跨境独立站卖家和 SaaS 企业的高频需求，ROI 可量化",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.producthunt.com/products/findthem",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "AI工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T09:52:59.380Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "GeneratePPT",
+    "summary": "降低设计门槛，让非设计师也能快速出图",
+    "opportunity": "电商/自媒体/教育行业对设计工具需求大，国内 Canva 类产品未完全覆盖",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/generateppt",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "设计工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T09:52:59.380Z",
+    "dateKey": "2026-01-26"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "MAI-Transcribe-1",
+    "summary": "Production ASR for noisy multilingual audio Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.producthunt.com/products/mai-image-2-3",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "AI工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T09:52:59.380Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Side Reminder",
+    "summary": "Access Apple Reminders from your screen edge instanly Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/side-reminder",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T09:52:59.380Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Package Mate",
+    "summary": "Master your macOS dev environment from the terminal Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/package-mate-open-source-cli-for-macos",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T09:52:59.381Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Codictate",
+    "summary": "Free dictation for Any language and any application Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/codictate",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T09:52:59.381Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Dashla",
+    "summary": "Tesla vehicle status, navigation, map + more in a dashboard Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.producthunt.com/products/dashla-dashboard-for-tesla",
+    "source": "producthunt",
+    "sourceLabel": "Product Hunt",
+    "category": "数字工具",
+    "tags": [
+      "新产品"
+    ],
+    "fetchedAt": "2026-04-03T09:52:59.381Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "ph-aHR0cHM6Ly93d3cu",
+    "title": "Slide2Video",
+    "summary": "Turn slides into narrated videos Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.producthunt.com/products/slide2video-2",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "视频创作",
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.381Z",
-    "dateKey": "2026-04-01"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "tama96",
-    "summary": "AI Agent自动化工作流，替代重复性任务",
-    "opportunity": "国内企业数字化升级需求爆发",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/tama96-desktop-terminal-ai-pet",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "AI工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T06:58:07.381Z",
-    "dateKey": "2026-04-01"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "SampleStack",
-    "summary": "The native macOS sample manager built for every instrument Discussion | Link",
-    "opportunity": "评估中国市场适配性",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/samplestack",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T06:58:07.381Z",
+    "fetchedAt": "2026-04-03T09:52:59.381Z",
     "dateKey": "2026-04-02"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Denovo",
-    "summary": "Build and run your business while you sleep. Discussion | Link",
-    "opportunity": "评估中国市场适配性",
+    "title": "Google Gemma 4",
+    "summary": "Google's most intelligent open models to date Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
     "score": 2,
     "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/denovo",
+    "url": "https://www.producthunt.com/products/google-gemma",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.381Z",
-    "dateKey": "2026-03-20"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Jetson",
-    "summary": "Automatically turn support messages into product updates Discussion | Link",
-    "opportunity": "评估中国市场适配性",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/jetson-3",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T06:58:07.381Z",
-    "dateKey": "2026-03-04"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "CAPTCHA Royale",
-    "summary": "Race to solve CAPTCHAs, last player standing wins Discussion | Link",
-    "opportunity": "评估中国市场适配性",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/captcha-royale",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T06:58:07.381Z",
+    "fetchedAt": "2026-04-03T09:52:59.381Z",
     "dateKey": "2026-04-02"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Chunk",
-    "summary": "An essential macos productivity app Discussion | Link",
-    "opportunity": "评估中国市场适配性",
+    "title": "StampCut",
+    "summary": "Stamp the world around you! Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
     "score": 2,
     "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/chunk-2",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "效率工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T06:58:07.381Z",
-    "dateKey": "2026-03-27"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "GitCity",
-    "summary": "Your GitHub contributions as 3D city you can drive through Discussion | Link",
-    "opportunity": "评估中国市场适配性",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/gitcity",
+    "url": "https://www.producthunt.com/products/stampcut",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.381Z",
-    "dateKey": "2026-04-01"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Mode AI",
-    "summary": "AI Assistant in your pocket Discussion | Link",
-    "opportunity": "评估中国市场适配性",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/mode-ai-2",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "AI工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T06:58:07.381Z",
-    "dateKey": "2026-03-27"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Roger AI",
-    "summary": "Your friendly screen guide for any task! Discussion | Link",
-    "opportunity": "评估中国市场适配性",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/roger-ai-2",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "AI工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T06:58:07.381Z",
-    "dateKey": "2026-03-31"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Syncly Social",
-    "summary": "创作者变现工具，降低平台依赖",
-    "opportunity": "中国创作者经济爆发，独立变现工具稀缺",
-    "score": 4,
-    "scoreReason": "热门赛道 · 适配中国",
-    "url": "https://www.producthunt.com/products/syncly",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "内容创作",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T06:58:07.382Z",
-    "dateKey": "2026-03-26"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Claude Code Voice Mode",
-    "summary": "Speak your prompts into Claude Code Discussion | Link",
-    "opportunity": "评估中国市场适配性",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/claude-code-voice-mode",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T06:58:07.382Z",
-    "dateKey": "2026-03-03"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Mngr",
-    "summary": "AI Agent自动化工作流，替代重复性任务",
-    "opportunity": "国内企业数字化升级需求爆发",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/imbue-7",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T06:58:07.382Z",
-    "dateKey": "2026-04-01"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Lightning V3",
-    "summary": "AI Agent自动化工作流，替代重复性任务",
-    "opportunity": "国内企业数字化升级需求爆发",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/smallest-ai",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T06:58:07.382Z",
-    "dateKey": "2026-03-09"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Mac Pet",
-    "summary": "A pixel pet for your menu bar or MacBook notch w/ Pomodoro Discussion | Link",
-    "opportunity": "评估中国市场适配性",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/mac-pet",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T06:58:07.382Z",
-    "dateKey": "2026-04-01"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Cosyra",
-    "summary": "AI Agent自动化工作流，替代重复性任务",
-    "opportunity": "国内企业数字化升级需求爆发",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/cosyra",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "AI工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T06:58:07.382Z",
-    "dateKey": "2026-03-19"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "GLM-5V-Turbo",
-    "summary": "Vision-to-code foundation model for real GUI automation Discussion | Link",
-    "opportunity": "评估中国市场适配性",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/z-ai",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "数字工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T06:58:07.382Z",
+    "fetchedAt": "2026-04-03T09:52:59.381Z",
     "dateKey": "2026-04-02"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Wan 2.7-Image",
-    "summary": "Interactive pixel-level editing and consistent storyboards Discussion | Link",
-    "opportunity": "评估中国市场适配性",
+    "title": "Straude",
+    "summary": "Strava for Claude Code / Global Tokenmaxxing Leaderboard Discussion | Link",
+    "opportunity": "关注此赛道在中国的本土化机会",
     "score": 2,
     "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/wan-2-2",
+    "url": "https://www.producthunt.com/products/straude",
     "source": "producthunt",
     "sourceLabel": "Product Hunt",
     "category": "数字工具",
     "tags": [
       "新产品"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.382Z",
-    "dateKey": "2026-04-01"
+    "fetchedAt": "2026-04-03T09:52:59.381Z",
+    "dateKey": "2026-04-02"
   },
   {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "DemoVeil",
-    "summary": "Prepare your Mac screen for calls, demos, and captures Discussion | Link",
-    "opportunity": "评估中国市场适配性",
+    "id": "tmrr-L3N0YXJ0dXAvZ3Vl",
+    "title": "Guestreel",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
-    "url": "https://www.producthunt.com/products/demoveil",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
+    "url": "https://trustmrr.com/startup/guestreel",
+    "source": "trustmrr",
+    "sourceLabel": "TrustMRR",
     "category": "数字工具",
     "tags": [
-      "新产品"
+      "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.382Z",
-    "dateKey": "2026-04-01"
-  },
-  {
-    "id": "ph-aHR0cHM6Ly93d3cu",
-    "title": "Nitro by Rocketlane",
-    "summary": "AI Agent自动化工作流，替代重复性任务",
-    "opportunity": "国内企业数字化升级需求爆发",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://www.producthunt.com/products/rocketlane",
-    "source": "producthunt",
-    "sourceLabel": "Product Hunt",
-    "category": "AI工具",
-    "tags": [
-      "新产品"
-    ],
-    "fetchedAt": "2026-04-03T06:58:07.382Z",
-    "dateKey": "2026-04-01"
+    "fetchedAt": "2026-04-03T09:52:59.085Z",
+    "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvY29u",
     "title": "Confidential Startup 19",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/confidential-startup-19",
@@ -438,14 +455,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.431Z",
+    "fetchedAt": "2026-04-03T09:52:59.085Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvYm9v",
     "title": "Bookbuds Read With Friends",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/bookbuds-read-with-friends",
@@ -455,14 +472,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.431Z",
+    "fetchedAt": "2026-04-03T09:52:59.085Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvc2Nl",
     "title": "Sceneroll",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/sceneroll",
@@ -472,14 +489,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.431Z",
+    "fetchedAt": "2026-04-03T09:52:59.085Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvc3Vt",
-    "title": "Summary Ai Note Taker Sumato",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "title": "Summary AI Note Taker Sumato",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 3,
     "scoreReason": "热门赛道",
     "url": "https://trustmrr.com/startup/summary-ai-note-taker-sumato",
@@ -489,14 +506,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.431Z",
+    "fetchedAt": "2026-04-03T09:52:59.085Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvbGlu",
     "title": "Linkero",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/linkero",
@@ -506,14 +523,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.431Z",
+    "fetchedAt": "2026-04-03T09:52:59.085Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvdmVy",
     "title": "Versionwatcher",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/versionwatcher",
@@ -523,14 +540,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.431Z",
+    "fetchedAt": "2026-04-03T09:52:59.085Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvc25v",
-    "title": "Snore Ai",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "title": "Snore AI",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 3,
     "scoreReason": "热门赛道",
     "url": "https://trustmrr.com/startup/snore-ai",
@@ -540,14 +557,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.431Z",
+    "fetchedAt": "2026-04-03T09:52:59.085Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvZ2xv",
     "title": "Globalseo",
-    "summary": "AI辅助内容创作和SEO优化，降低获客成本",
-    "opportunity": "百度SEO+小红书SEO，国内工具落后2年",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/globalseo",
@@ -557,14 +574,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.431Z",
+    "fetchedAt": "2026-04-03T09:52:59.085Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvYWkt",
-    "title": "Ai Text Humanizer",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "title": "AI Text Humanizer",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 3,
     "scoreReason": "热门赛道",
     "url": "https://trustmrr.com/startup/ai-text-humanizer",
@@ -574,31 +591,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.431Z",
-    "dateKey": "2026-04-03"
-  },
-  {
-    "id": "tmrr-L3N0YXJ0dXAvYnJh",
-    "title": "Brainrot Mov",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
-    "score": 3,
-    "scoreReason": "热门赛道",
-    "url": "https://trustmrr.com/startup/brainrot-mov",
-    "source": "trustmrr",
-    "sourceLabel": "TrustMRR",
-    "category": "AI工具",
-    "tags": [
-      "已验证收入"
-    ],
-    "fetchedAt": "2026-04-03T06:58:07.431Z",
+    "fetchedAt": "2026-04-03T09:52:59.085Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvY2hh",
     "title": "Chatwith",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/chatwith",
@@ -608,14 +608,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.431Z",
+    "fetchedAt": "2026-04-03T09:52:59.086Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvY29u",
     "title": "Confidential Startup 15",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/confidential-startup-15",
@@ -625,14 +625,31 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.431Z",
+    "fetchedAt": "2026-04-03T09:52:59.086Z",
+    "dateKey": "2026-04-03"
+  },
+  {
+    "id": "tmrr-L3N0YXJ0dXAvYnJh",
+    "title": "Brainrot Mov",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://trustmrr.com/startup/brainrot-mov",
+    "source": "trustmrr",
+    "sourceLabel": "TrustMRR",
+    "category": "AI工具",
+    "tags": [
+      "已验证收入"
+    ],
+    "fetchedAt": "2026-04-03T09:52:59.086Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvZnJl",
     "title": "Freel Canada",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/freel-canada",
@@ -642,14 +659,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.431Z",
+    "fetchedAt": "2026-04-03T09:52:59.086Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvbGl2",
     "title": "Livesober",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/livesober",
@@ -659,14 +676,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.431Z",
+    "fetchedAt": "2026-04-03T09:52:59.086Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvbm9j",
     "title": "Nocodable Components",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/nocodable-components",
@@ -676,31 +693,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.431Z",
-    "dateKey": "2026-04-03"
-  },
-  {
-    "id": "tmrr-L3N0YXJ0dXAvaW5k",
-    "title": "Indiepilot",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
-    "score": 2,
-    "scoreReason": "基础工具",
-    "url": "https://trustmrr.com/startup/indiepilot",
-    "source": "trustmrr",
-    "sourceLabel": "TrustMRR",
-    "category": "数字工具",
-    "tags": [
-      "已验证收入"
-    ],
-    "fetchedAt": "2026-04-03T06:58:07.431Z",
+    "fetchedAt": "2026-04-03T09:52:59.086Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvc3Rh",
     "title": "Stan",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/stan",
@@ -710,14 +710,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.431Z",
+    "fetchedAt": "2026-04-03T09:52:59.086Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvdW5u",
     "title": "Unnamed Company",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/unnamed-company",
@@ -727,14 +727,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.431Z",
+    "fetchedAt": "2026-04-03T09:52:59.086Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvdHJp",
     "title": "Trimrx",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/trimrx",
@@ -744,14 +744,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.432Z",
+    "fetchedAt": "2026-04-03T09:52:59.086Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvcmV6",
     "title": "Rezi",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/rezi",
@@ -761,14 +761,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.432Z",
+    "fetchedAt": "2026-04-03T09:52:59.086Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAva2li",
     "title": "Kibu",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/kibu",
@@ -778,14 +778,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.432Z",
+    "fetchedAt": "2026-04-03T09:52:59.086Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvdm9p",
     "title": "Voicedrop",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/voicedrop",
@@ -795,14 +795,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.432Z",
+    "fetchedAt": "2026-04-03T09:52:59.086Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvY29t",
     "title": "Cometly",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/cometly",
@@ -812,14 +812,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.432Z",
+    "fetchedAt": "2026-04-03T09:52:59.086Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvYnJh",
     "title": "Brand On Demand Inc",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/brand-on-demand-inc",
@@ -829,14 +829,14 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.432Z",
+    "fetchedAt": "2026-04-03T09:52:59.086Z",
     "dateKey": "2026-04-03"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvZG0t",
     "title": "Dm Champ",
-    "summary": "新兴数字工具，解决垂直领域需求",
-    "opportunity": "评估中国市场适配性",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
     "score": 2,
     "scoreReason": "基础工具",
     "url": "https://trustmrr.com/startup/dm-champ",
@@ -846,7 +846,7 @@
     "tags": [
       "已验证收入"
     ],
-    "fetchedAt": "2026-04-03T06:58:07.432Z",
+    "fetchedAt": "2026-04-03T09:52:59.086Z",
     "dateKey": "2026-04-03"
   }
 ]

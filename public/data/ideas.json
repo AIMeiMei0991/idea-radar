@@ -1,5 +1,185 @@
 [
   {
+    "id": "hn-47562455",
+    "title": "The True Shape of IO's Steeple Mountain",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://www.weareinquisitive.com/news/hidden-in-the-shadow",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 50,
+    "category": "AI工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:13:57.200Z",
+    "dateKey": "2026-03-29"
+  },
+  {
+    "id": "hn-47618189",
+    "title": "Tailscale's new macOS home",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://tailscale.com/blog/macos-notch-escape",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 463,
+    "category": "AI工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:13:57.200Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "hn-47617415",
+    "title": "Good ideas do not need lots of lies in order to gain public acceptance (2008)",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://blog.danieldavies.com/2004/05/d-squared-digest-one-minute-mba.html",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 259,
+    "category": "AI工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:13:57.200Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "hn-47560959",
+    "title": "Show HN: Home Maker: Declare Your Dev Tools in a Makefile",
+    "summary": "A developer&#x27;s machine accumulates tools fast. A Rust CLI you compiled last…",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://thottingal.in/blog/2026/03/29/home-maker/",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 58,
+    "category": "开发者工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:13:57.201Z",
+    "dateKey": "2026-03-29"
+  },
+  {
+    "id": "hn-47617376",
+    "title": "OpenAI Acquires TBPN",
+    "summary": "降低设计门槛，让非设计师也能快速出图",
+    "opportunity": "电商/自媒体/教育行业对设计工具需求大，国内 Canva 类产品未完全覆盖",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://openai.com/index/openai-acquires-tbpn/",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 213,
+    "category": "AI工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:13:57.201Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "hn-47621438",
+    "title": "Show HN: Made a little Artemis II tracker",
+    "summary": "Made a little Artemis II tracker for anyone else who is unnecessarily invested i…",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://artemis-ii-tracker.com/",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 109,
+    "category": "数字工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:13:57.201Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "hn-47603657",
+    "title": "Artemis II Launch Day Updates",
+    "summary": "https:&#x2F;&#x2F;www.youtube.com&#x2F;live&#x2F;Tf_UjBMIzNo",
+    "opportunity": "关注此赛道在中国的本土化机会",
+    "score": 2,
+    "scoreReason": "基础工具",
+    "url": "https://www.nasa.gov/blogs/missions/2026/04/01/live-artemis-ii-launch-day-updates/",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 1080,
+    "category": "数字工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:13:57.201Z",
+    "dateKey": "2026-04-01"
+  },
+  {
+    "id": "hn-47621792",
+    "title": "Post Mortem: axios NPM supply chain compromise",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://github.com/axios/axios/issues/10636",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 95,
+    "category": "AI工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:13:57.201Z",
+    "dateKey": "2026-04-03"
+  },
+  {
+    "id": "hn-47615434",
+    "title": "Delve allegedly forked an open-source tool and sold it as its own",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://techcrunch.com/2026/04/01/the-reputation-of-troubled-yc-startup-delve-has-gotten-even-worse/",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 282,
+    "category": "数字工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:13:57.201Z",
+    "dateKey": "2026-04-02"
+  },
+  {
+    "id": "hn-47611921",
+    "title": "Significant raise of reports",
+    "summary": "新兴数字工具，聚焦垂直领域效率提升",
+    "opportunity": "可评估国内同类需求规模和信息差空间",
+    "score": 3,
+    "scoreReason": "热门赛道",
+    "url": "https://lwn.net/Articles/1065620/",
+    "source": "hackernews",
+    "sourceLabel": "Hacker News",
+    "hnScore": 295,
+    "category": "AI工具",
+    "tags": [
+      "HN精选"
+    ],
+    "fetchedAt": "2026-04-03T10:13:57.201Z",
+    "dateKey": "2026-04-02"
+  },
+  {
     "id": "ph-aHR0cHM6Ly93d3cu",
     "title": "SlapWindows",
     "summary": "Slap your Windows, it screams back Discussion | Link",

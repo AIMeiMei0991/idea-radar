@@ -220,11 +220,64 @@ async function fetchIndieHackers() {
   } catch (e) { console.error('IH error:', e.message); return []; }
 }
 
+// ─── Hacker News (官方 API，过滤创业/工具相关) ────────────────────────────
+async function fetchHackerNews() {
+  try {
+    // 抓 Show HN + Ask HN 精选，用官方 Firebase API
+    const res = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json');
+    if (!res.ok) return [];
+    const ids = await res.json();
+    const today = new Date().toISOString().slice(0, 10);
+
+    // 关键词：只保留与创业/工具/SaaS/AI 相关的
+    const KEEP = ['show hn','ask hn','saas','tool','startup','ai','launch','maker','revenue','mrr','indie','product','automation','api'];
+    const results = [];
+
+    // 并行抓前 60 条，然后过滤
+    const batch = ids.slice(0, 60);
+    const items = await Promise.all(
+      batch.map(id =>
+        fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
+          .then(r => r.json()).catch(() => null)
+      )
+    );
+
+    for (const item of items) {
+      if (!item || item.type !== 'story' || !item.title || !item.url) continue;
+      if ((item.score || 0) < 50) continue; // 至少 50 分才算优质
+      const t = item.title.toLowerCase();
+      if (!KEEP.some(k => t.includes(k))) continue;
+
+      const title = fixTitle(item.title);
+      const desc = item.text ? item.text.replace(/<[^>]+>/g,' ').slice(0,200) : '';
+      const { score, reason } = scoreItem(title, desc);
+      const { summary, opportunity } = generateInsight(title, desc);
+
+      // HN 日期
+      const dateKey = item.time
+        ? new Date(item.time * 1000).toISOString().slice(0, 10)
+        : today;
+
+      results.push({
+        id: `hn-${item.id}`,
+        title, summary, opportunity, score, scoreReason: reason,
+        url: item.url,
+        source: 'hackernews', sourceLabel: 'Hacker News',
+        hnScore: item.score,
+        category: detectCategory(title + ' ' + desc),
+        tags: ['HN精选'], fetchedAt: new Date().toISOString(), dateKey,
+      });
+    }
+    console.log(`[HN] ${results.length} 条`);
+    return results;
+  } catch (e) { console.error('HN error:', e.message); return []; }
+}
+
 // ─── Main ──────────────────────────────────────────────────────────────────
 (async () => {
   console.log('开始抓取:', new Date().toISOString());
-  const [ph, tmrr, ih] = await Promise.all([fetchProductHunt(), fetchTrustMRR(), fetchIndieHackers()]);
-  const newItems = [...ph, ...tmrr, ...ih];
+  const [ph, tmrr, ih, hn] = await Promise.all([fetchProductHunt(), fetchTrustMRR(), fetchIndieHackers(), fetchHackerNews()]);
+  const newItems = [...ph, ...tmrr, ...ih, ...hn];
   console.log(`新抓取: ${newItems.length} 条`);
 
   let existing = [];

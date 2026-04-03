@@ -15,6 +15,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .logo{font-size:17px;font-weight:700;color:#fff;letter-spacing:-0.3px}
 .logo-icon{color:#ff6b35;margin-right:5px}
 .update-time{font-size:11px;color:#444;margin-top:2px}
+.bookmark-count{font-size:11px;color:#6366f1;background:rgba(99,102,241,0.12);padding:2px 8px;border-radius:10px;font-weight:600}
 
 /* 搜索 */
 .search-wrap{padding:0 12px 8px;position:relative}
@@ -24,8 +25,16 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .search-clear{position:absolute;right:24px;top:50%;transform:translateY(-50%);background:none;border:none;color:#555;font-size:16px;cursor:pointer;padding:4px;display:none}
 .search-clear.visible{display:block}
 
+/* 标签页 */
+.tabs-wrap{display:flex;gap:0;padding:0 12px 10px;overflow-x:auto;scrollbar-width:none}
+.tabs-wrap::-webkit-scrollbar{display:none}
+.tab-btn{flex-shrink:0;font-size:13px;font-weight:500;padding:7px 14px;border-radius:10px;background:none;border:none;color:#555;cursor:pointer;transition:all 0.15s;white-space:nowrap;position:relative}
+.tab-btn.active{background:#1c1c28;color:#e2e2e2;font-weight:600}
+.tab-btn .badge{position:absolute;top:4px;right:6px;background:#6366f1;color:#fff;font-size:9px;font-weight:700;padding:1px 4px;border-radius:6px;min-width:14px;text-align:center;line-height:1.4}
+
 /* 筛选标签 */
-.filters-wrap{position:relative}
+.filters-wrap{position:relative;display:none}
+.filters-wrap.visible{display:block}
 .filters{display:flex;gap:7px;padding:0 12px 10px;overflow-x:auto;scrollbar-width:none}
 .filters::-webkit-scrollbar{display:none}
 .filters-fade{position:absolute;right:0;top:0;bottom:10px;width:40px;background:linear-gradient(to right,transparent,rgba(10,10,15,0.97));pointer-events:none}
@@ -41,6 +50,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 
 /* ── 카드 ── */
 .cards{padding:0 12px;display:flex;flex-direction:column;gap:10px}
+.card-wrap{position:relative}
 .card{border-radius:16px;padding:14px 14px 12px;border:1px solid;text-decoration:none;display:block;transition:transform 0.1s,opacity 0.1s}
 .card:active{transform:scale(0.985);opacity:0.9}
 .card.s5{background:linear-gradient(135deg,rgba(255,107,53,0.1),rgba(255,107,53,0.04));border-color:rgba(255,107,53,0.28)}
@@ -54,6 +64,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .dot-ph{background:#ff6154}
 .dot-tmrr{background:#22c55e}
 .dot-ih{background:#818cf8}
+.dot-hn{background:#ff6600}
 .src-name{font-size:11px;color:#555}
 .cat-tag{font-size:11px;color:#444;background:rgba(255,255,255,0.05);padding:2px 7px;border-radius:6px}
 
@@ -65,7 +76,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .sdot.on-2,.sdot.on-1{background:#6366f1}
 .sdot.off{background:#1e1e2a}
 
-.card-title{font-size:15px;font-weight:600;color:#f0f0f4;line-height:1.35;margin-bottom:6px}
+.card-title{font-size:15px;font-weight:600;color:#f0f0f4;line-height:1.35;margin-bottom:6px;padding-right:32px}
 .mrr{display:inline-flex;align-items:center;gap:4px;background:rgba(34,197,94,0.12);color:#4ade80;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;margin-bottom:8px;letter-spacing:0.2px}
 .summary{font-size:13px;color:#9090a0;line-height:1.65;margin-bottom:8px}
 .opp-box{display:flex;gap:8px;background:rgba(99,102,241,0.08);border-radius:10px;padding:10px 12px;margin-bottom:0}
@@ -73,10 +84,21 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .opp-text{font-size:12px;color:#a5b4fc;line-height:1.55}
 .score-reason{font-size:11px;color:#3a3a4a;margin-top:8px;letter-spacing:0.1px}
 
+/* 收藏按钮 */
+.bookmark-btn{position:absolute;top:12px;right:12px;background:none;border:none;cursor:pointer;font-size:17px;line-height:1;padding:4px;color:#333;transition:all 0.15s;z-index:5}
+.bookmark-btn.bookmarked{color:#fbbf24}
+.bookmark-btn:active{transform:scale(1.3)}
+
+/* 收藏空状态 */
+.bookmark-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:50vh;gap:12px;color:#444;font-size:14px;text-align:center;padding:20px}
+.bookmark-empty-icon{font-size:40px;margin-bottom:4px}
+.bookmark-empty-sub{font-size:12px;color:#333;margin-top:2px;line-height:1.6}
+
 /* ── 토스트 ── */
 .toast{position:fixed;bottom:calc(64px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%) translateY(20px);background:#1e1e2c;border:1px solid rgba(255,255,255,0.1);color:#e2e2e2;font-size:13px;padding:10px 20px;border-radius:24px;opacity:0;transition:all 0.25s;pointer-events:none;z-index:200;white-space:nowrap}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .toast.error{background:#2a1010;border-color:rgba(239,68,68,0.3);color:#fca5a5}
+.toast.success{background:#0f2a1a;border-color:rgba(34,197,94,0.3);color:#86efac}
 
 /* ── 상태 ── */
 .loading,.empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:55vh;gap:12px;color:#444;font-size:14px;text-align:center;padding:20px}
@@ -101,6 +123,9 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 
 /* ── 바텀 오프셋 ── */
 .bottom-space{height:calc(20px + env(safe-area-inset-bottom,0px))}
+
+/* HN分数徽章 */
+.hn-score{display:inline-flex;align-items:center;gap:3px;font-size:10px;color:#888;margin-left:4px}
 </style>
 </head>
 <body>
@@ -111,24 +136,22 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
       <div class="logo"><span class="logo-icon">📡</span>创意雷达</div>
       <div class="update-time" id="updateTime">每天 08:00 自动更新</div>
     </div>
+    <span class="bookmark-count" id="bookmarkCount" style="display:none"></span>
   </div>
-  <div class="search-wrap">
+  <div class="search-wrap" id="searchWrap">
     <input class="search-input" type="search" id="searchInput"
       placeholder="搜索，如：AI视频、营销、SaaS…"
       autocomplete="off" autocorrect="off" spellcheck="false">
     <button class="search-clear" id="searchClear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
   </div>
-  <div class="filters-wrap">
-    <div class="filters" id="filters">
-      <button class="filter-btn active" data-source="" onclick="setSource(this,'')">全部</button>
-      <button class="filter-btn" data-source="producthunt" onclick="setSource(this,'producthunt')">PH 新品</button>
-      <button class="filter-btn" data-source="trustmrr" onclick="setSource(this,'trustmrr')">验证收入</button>
-      <button class="filter-btn" data-source="indiehackers" onclick="setSource(this,'indiehackers')">独立创业</button>
-      <div class="filter-sep"></div>
-      <button class="filter-btn" data-score="4" onclick="toggleScore(this,4)">🔥 高价值</button>
-      <button class="filter-btn" data-score="3" onclick="toggleScore(this,3)">⭐ 潜力</button>
-    </div>
-    <div class="filters-fade"></div>
+  <div class="tabs-wrap" id="tabsWrap">
+    <button class="tab-btn active" data-tab="feed" onclick="setTab(this,'feed')">📰 今日精选</button>
+    <button class="tab-btn" data-tab="all" onclick="setTab(this,'all')">全部</button>
+    <button class="tab-btn" data-tab="ph" onclick="setTab(this,'ph')">PH 新品</button>
+    <button class="tab-btn" data-tab="tmrr" onclick="setTab(this,'tmrr')">验证收入</button>
+    <button class="tab-btn" data-tab="ih" onclick="setTab(this,'ih')">独立创业</button>
+    <button class="tab-btn" data-tab="hn" onclick="setTab(this,'hn')">HN 精选</button>
+    <button class="tab-btn" data-tab="bookmarks" onclick="setTab(this,'bookmarks')">🔖 收藏 <span class="badge" id="bkBadge" style="display:none">0</span></button>
   </div>
 </div>
 
@@ -138,13 +161,62 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 <script>
 // ── 状态 ───────────────────────────────────────────────
 let allData = [];
-let activeSource = '';
-let activeMinScore = 0;
+let activeTab = 'feed'; // feed=高价值精选, all=全部, ph/tmrr/ih/hn=来源, bookmarks=收藏
 let searchQ = '';
 let currentPage = 1;
 const PAGE_SIZE = 30;
 let searchTimer = null;
-let topbarH = 0;
+let bookmarks = new Set();
+
+// ── 本地收藏（localStorage）──────────────────────────
+function loadBookmarks() {
+  try {
+    const raw = localStorage.getItem('idea-radar-bookmarks');
+    if (raw) bookmarks = new Set(JSON.parse(raw));
+  } catch(_) {}
+}
+
+function saveBookmarks() {
+  try { localStorage.setItem('idea-radar-bookmarks', JSON.stringify([...bookmarks])); } catch(_) {}
+}
+
+function toggleBookmark(id, event) {
+  event.preventDefault();
+  event.stopPropagation();
+  if (bookmarks.has(id)) {
+    bookmarks.delete(id);
+    showToast('已取消收藏', '');
+  } else {
+    bookmarks.add(id);
+    showToast('已收藏 🔖', 'success');
+  }
+  saveBookmarks();
+  updateBookmarkUI();
+  // 只更新这一张卡片的按钮状态，不重新渲染整页
+  const btn = document.querySelector(`[data-bk-id="${CSS.escape(id)}"]`);
+  if (btn) {
+    btn.textContent = bookmarks.has(id) ? '🔖' : '🏷️';
+    btn.classList.toggle('bookmarked', bookmarks.has(id));
+    btn.setAttribute('aria-label', bookmarks.has(id) ? '取消收藏' : '收藏');
+  }
+  // 如果当前在收藏tab，重新渲染
+  if (activeTab === 'bookmarks') filterAndRender();
+}
+
+function updateBookmarkUI() {
+  const count = bookmarks.size;
+  const countEl = document.getElementById('bookmarkCount');
+  const badge = document.getElementById('bkBadge');
+  if (count > 0) {
+    countEl.textContent = `${count} 收藏`;
+    countEl.style.display = '';
+    badge.textContent = count;
+    badge.style.display = '';
+  } else {
+    countEl.style.display = 'none';
+    badge.style.display = 'none';
+  }
+}
 
 // ── 工具函数 ──────────────────────────────────────────
 function showToast(msg, type='') {
@@ -152,7 +224,7 @@ function showToast(msg, type='') {
   t.textContent = msg;
   t.className = 'toast show' + (type ? ' ' + type : '');
   clearTimeout(t._timer);
-  t._timer = setTimeout(() => { t.className = 'toast'; }, 2800);
+  t._timer = setTimeout(() => { t.className = 'toast'; }, 2200);
 }
 
 function fmtDate(dateKey) {
@@ -161,7 +233,6 @@ function fmtDate(dateKey) {
 }
 
 function fixTitle(t) {
-  // 修复 slug→title 中的常见错误大写
   return t
     .replace(/\bAi\b/g,'AI').replace(/\bSaas\b/g,'SaaS').replace(/\bMrr\b/g,'MRR')
     .replace(/\bArr\b/g,'ARR').replace(/\bSeo\b/g,'SEO').replace(/\bApi\b/g,'API')
@@ -170,9 +241,7 @@ function fixTitle(t) {
     .replace(/\bUx\b/g,'UX');
 }
 
-function scoreClass(s) {
-  return 's' + Math.max(1, Math.min(5, s));
-}
+function scoreClass(s) { return 's' + Math.max(1, Math.min(5, s)); }
 
 function scoreDots(score, max=5) {
   return Array.from({length:max}, (_,i) => {
@@ -182,7 +251,14 @@ function scoreDots(score, max=5) {
 }
 
 function dotClass(src) {
-  return src === 'producthunt' ? 'dot-ph' : src === 'trustmrr' ? 'dot-tmrr' : 'dot-ih';
+  if (src === 'producthunt') return 'dot-ph';
+  if (src === 'trustmrr') return 'dot-tmrr';
+  if (src === 'hackernews') return 'dot-hn';
+  return 'dot-ih';
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
 // ── 加载数据 ───────────────────────────────────────────
@@ -194,7 +270,6 @@ async function loadData() {
     allData = await res.json();
     if (!Array.isArray(allData)) throw new Error('数据格式错误');
 
-    // 显示最后更新时间
     if (allData.length > 0) {
       const latest = allData.reduce((a,b) => a.fetchedAt > b.fetchedAt ? a : b);
       const d = new Date(latest.fetchedAt);
@@ -216,11 +291,22 @@ async function loadData() {
 
 // ── 筛选 & 渲染 ────────────────────────────────────────
 function filterAndRender() {
-  let items = [...allData];
-  const hasFilter = activeSource || activeMinScore > 0 || searchQ;
+  // 收藏标签页
+  if (activeTab === 'bookmarks') {
+    renderBookmarks();
+    return;
+  }
 
-  if (activeSource) items = items.filter(i => i.source === activeSource);
-  if (activeMinScore > 0) items = items.filter(i => (i.score||0) >= activeMinScore);
+  let items = [...allData];
+
+  // 来源筛选
+  const srcMap = {ph:'producthunt', tmrr:'trustmrr', ih:'indiehackers', hn:'hackernews'};
+  if (srcMap[activeTab]) items = items.filter(i => i.source === srcMap[activeTab]);
+
+  // 精选：默认显示 score ≥ 3
+  if (activeTab === 'feed') items = items.filter(i => (i.score||0) >= 3);
+
+  // 搜索
   if (searchQ) {
     const q = searchQ.toLowerCase();
     items = items.filter(i =>
@@ -239,11 +325,9 @@ function filterAndRender() {
 
   const total = items.length;
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
-  // 防止页码越界
   if (currentPage > totalPages) currentPage = totalPages;
   const paged = items.slice((currentPage-1)*PAGE_SIZE, currentPage*PAGE_SIZE);
 
-  // 分组
   const grouped = {};
   for (const item of paged) {
     const k = item.dateKey || '未知日期';
@@ -251,12 +335,73 @@ function filterAndRender() {
     grouped[k].push(item);
   }
 
-  renderView(grouped, total, totalPages, hasFilter);
+  renderView(grouped, total, totalPages);
 }
 
-function renderView(grouped, total, totalPages, hasFilter) {
+function renderBookmarks() {
+  const app = document.getElementById('app');
+  if (bookmarks.size === 0) {
+    app.innerHTML = `
+      <div class="bookmark-empty">
+        <div class="bookmark-empty-icon">🔖</div>
+        <p>还没有收藏</p>
+        <p class="bookmark-empty-sub">浏览创意时点击卡片上的 🏷️<br>就能收藏，随时回来看</p>
+      </div>`;
+    return;
+  }
+
+  const items = allData.filter(i => bookmarks.has(i.id));
+  items.sort((a,b) => (b.score||0) - (a.score||0));
+
+  let html = `<div class="stats">收藏了 <b>${items.length}</b> 条创意</div>`;
+  html += `<div class="cards" style="margin-top:10px">`;
+  for (const item of items) {
+    html += renderCard(item);
+  }
+  html += `</div>`;
+  html += '<div class="bottom-space"></div>';
+  app.innerHTML = html;
+}
+
+function renderCard(item) {
+  const title = fixTitle(item.title || '');
+  const sc = item.score || 2;
+  const isBk = bookmarks.has(item.id);
+  return `
+    <div class="card-wrap">
+      <a class="card ${scoreClass(sc)}" href="${escHtml(item.url||'#')}" target="_blank" rel="noopener" aria-label="${escHtml(title)}">
+        <div class="card-top">
+          <div class="source-row">
+            <div class="dot ${dotClass(item.source)}"></div>
+            <span class="src-name">${escHtml(item.sourceLabel||'')}</span>
+            ${item.hnScore ? `<span class="hn-score">▲${item.hnScore}</span>` : ''}
+            ${item.category ? `<span class="cat-tag">${escHtml(item.category)}</span>` : ''}
+          </div>
+          <div class="score-bar" role="img" aria-label="评分 ${sc}/5">${scoreDots(sc)}</div>
+        </div>
+        <div class="card-title">${escHtml(title)}</div>
+        ${item.mrr ? `<div class="mrr">💰 ${escHtml(item.mrr)}</div>` : ''}
+        ${item.summary ? `<p class="summary">${escHtml(item.summary)}</p>` : ''}
+        ${item.opportunity ? `
+          <div class="opp-box">
+            <span class="opp-icon">🇨🇳</span>
+            <span class="opp-text">${escHtml(item.opportunity)}</span>
+          </div>` : ''}
+        ${item.scoreReason ? `<p class="score-reason">${escHtml(item.scoreReason)}</p>` : ''}
+      </a>
+      <button class="bookmark-btn ${isBk ? 'bookmarked' : ''}"
+        data-bk-id="${escHtml(item.id)}"
+        onclick="toggleBookmark('${escHtml(item.id)}', event)"
+        aria-label="${isBk ? '取消收藏' : '收藏'}">${isBk ? '🔖' : '🏷️'}</button>
+    </div>`;
+}
+
+function renderView(grouped, total, totalPages) {
   const app = document.getElementById('app');
   const dates = Object.keys(grouped).sort((a,b) => b.localeCompare(a));
+
+  const tabLabels = {feed:'精选（评分≥3）', all:'全部', ph:'PH 新品', tmrr:'验证收入', ih:'独立创业', hn:'HN 精选'};
+  const hasFilter = searchQ || activeTab !== 'all';
 
   if (dates.length === 0) {
     if (hasFilter) {
@@ -264,7 +409,7 @@ function renderView(grouped, total, totalPages, hasFilter) {
         <div class="empty">
           <div class="empty-icon">🔍</div>
           <p>没有符合条件的创意</p>
-          <button class="empty-action" onclick="clearAllFilters()">清除所有筛选</button>
+          ${searchQ ? `<button class="empty-action" onclick="clearSearch()">清除搜索</button>` : ''}
         </div>`;
     } else {
       app.innerHTML = `
@@ -277,11 +422,10 @@ function renderView(grouped, total, totalPages, hasFilter) {
     return;
   }
 
-  // 计算动态 top 偏移给 section-header
   const tH = document.getElementById('topbar').offsetHeight;
   const stickyTop = tH + 'px';
 
-  let html = `<div class="stats">共 <b>${total}</b> 条${searchQ ? ` · 搜索「${escHtml(searchQ)}」` : ''}</div>`;
+  let html = `<div class="stats">共 <b>${total}</b> 条${searchQ ? ` · 搜索「${escHtml(searchQ)}」` : ''}${activeTab==='feed' ? ' · 高价值精选' : ''}</div>`;
 
   for (const date of dates) {
     const items = grouped[date];
@@ -294,33 +438,11 @@ function renderView(grouped, total, totalPages, hasFilter) {
       <div class="cards">`;
 
     for (const item of items) {
-      const title = fixTitle(item.title || '');
-      const sc = item.score || 2;
-      html += `
-        <a class="card ${scoreClass(sc)}" href="${escHtml(item.url||'#')}" target="_blank" rel="noopener" aria-label="${escHtml(title)}">
-          <div class="card-top">
-            <div class="source-row">
-              <div class="dot ${dotClass(item.source)}"></div>
-              <span class="src-name">${escHtml(item.sourceLabel||'')}</span>
-              ${item.category ? `<span class="cat-tag">${escHtml(item.category)}</span>` : ''}
-            </div>
-            <div class="score-bar" role="img" aria-label="评分 ${sc}/5">${scoreDots(sc)}</div>
-          </div>
-          <div class="card-title">${escHtml(title)}</div>
-          ${item.mrr ? `<div class="mrr">💰 ${escHtml(item.mrr)}</div>` : ''}
-          ${item.summary ? `<p class="summary">${escHtml(item.summary)}</p>` : ''}
-          ${item.opportunity ? `
-            <div class="opp-box">
-              <span class="opp-icon">🇨🇳</span>
-              <span class="opp-text">${escHtml(item.opportunity)}</span>
-            </div>` : ''}
-          ${item.scoreReason ? `<p class="score-reason">${escHtml(item.scoreReason)}</p>` : ''}
-        </a>`;
+      html += renderCard(item);
     }
     html += `</div>`;
   }
 
-  // 分页
   if (totalPages > 1) {
     html += `
       <div class="pagination">
@@ -331,46 +453,22 @@ function renderView(grouped, total, totalPages, hasFilter) {
   }
 
   html += '<div class="bottom-space"></div>';
-  html += '<div class="footer">Product Hunt · TrustMRR · IndieHackers<br>每天 08:00 CST 由 GitHub Actions 自动抓取</div>';
+  html += '<div class="footer">Product Hunt · TrustMRR · IndieHackers · Hacker News<br>每天 08:00 CST 由 GitHub Actions 自动抓取</div>';
   app.innerHTML = html;
 }
 
-function escHtml(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+// ── 标签页切换 ──────────────────────────────────────────
+function setTab(el, tab) {
+  activeTab = tab;
+  currentPage = 1;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  // 搜索框仅在非收藏页显示
+  document.getElementById('searchWrap').style.display = tab === 'bookmarks' ? 'none' : '';
+  filterAndRender();
 }
 
 // ── 交互 ──────────────────────────────────────────────
-function setSource(el, source) {
-  activeSource = source;
-  currentPage = 1;
-  document.querySelectorAll('[data-source]').forEach(b => b.classList.remove('active'));
-  el.classList.add('active');
-  filterAndRender();
-}
-
-function toggleScore(el, score) {
-  if (activeMinScore === score) {
-    activeMinScore = 0;
-    el.classList.remove('active');
-  } else {
-    activeMinScore = score;
-    document.querySelectorAll('[data-score]').forEach(b => b.classList.remove('active'));
-    el.classList.add('active');
-  }
-  currentPage = 1;
-  filterAndRender();
-}
-
-function clearAllFilters() {
-  activeSource = ''; activeMinScore = 0; searchQ = ''; currentPage = 1;
-  document.querySelectorAll('[data-source]').forEach(b => b.classList.remove('active'));
-  document.querySelector('[data-source=""]').classList.add('active');
-  document.querySelectorAll('[data-score]').forEach(b => b.classList.remove('active'));
-  document.getElementById('searchInput').value = '';
-  document.getElementById('searchClear').classList.remove('visible');
-  filterAndRender();
-}
-
 function clearSearch() {
   document.getElementById('searchInput').value = '';
   document.getElementById('searchClear').classList.remove('visible');
@@ -384,7 +482,6 @@ function goPage(p) {
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
-// 实时搜索（300ms 防抖）
 document.getElementById('searchInput').addEventListener('input', function() {
   const v = this.value.trim();
   document.getElementById('searchClear').classList.toggle('visible', v.length > 0);
@@ -396,6 +493,8 @@ document.getElementById('searchInput').addEventListener('input', function() {
 });
 
 // ── 启动 ──────────────────────────────────────────────
+loadBookmarks();
+updateBookmarkUI();
 loadData();
 </script>
 </body>

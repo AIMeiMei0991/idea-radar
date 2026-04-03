@@ -239,15 +239,25 @@ async function fetchTrustMRR() {
   } catch (e) { console.error('TMRR error:', e.message); return []; }
 }
 
-// ─── Reddit (r/SaaS + r/startups + r/entrepreneur) ────────────────────────
+// ─── Reddit ───────────────────────────────────────────────────────────────
+// 大社区（高热度门槛）+ 独立创客社区（低门槛，build-in-public 内容）
 async function fetchReddit() {
-  const SUBS = ['SaaS', 'startups', 'entrepreneur'];
+  // minScore: 大社区需要高分才有信号价值；创客社区本来就小，低分也有价值
+  const SUBS = [
+    { name: 'SaaS',          minScore: 20 },
+    { name: 'startups',      minScore: 20 },
+    { name: 'entrepreneur',  minScore: 20 },
+    { name: 'SideProject',   minScore: 5  },   // indie maker launches
+    { name: 'microsaas',     minScore: 5  },   // micro-SaaS 专区
+    { name: 'indiehackers',  minScore: 5  },   // build-in-public
+  ];
   const KEEP = ['saas','tool','ai','launch','revenue','mrr','startup','product','automation',
-                'api','indie','maker','software','app','platform','build','ship','idea'];
+                'api','indie','maker','software','app','platform','build','ship','idea',
+                'just','month','hit','reached','$','k/mo','k mrr','k arr'];
   const results = [];
   const seen = new Set();
 
-  for (const sub of SUBS) {
+  for (const { name: sub, minScore } of SUBS) {
     try {
       const res = await fetch(`https://www.reddit.com/r/${sub}/top.json?t=day&limit=25`, {
         headers: { 'User-Agent': 'IdeaRadar/1.0 (personal aggregator)' }
@@ -258,18 +268,22 @@ async function fetchReddit() {
 
       for (const { data: post } of posts) {
         if (!post.title || !post.url) continue;
-        if ((post.score || 0) < 20) continue;
+        if ((post.score || 0) < minScore) continue;
         if (seen.has(post.id)) continue;
         seen.add(post.id);
 
         const t = post.title.toLowerCase();
-        if (!KEEP.some(k => t.includes(k))) continue;
+        // 创客社区：所有帖子都保留（本来就是创业内容）；大社区：关键词过滤
+        if (minScore >= 20 && !KEEP.some(k => t.includes(k))) continue;
 
         const title = fixTitle(post.title.trim());
         const desc = post.selftext ? post.selftext.replace(/\s+/g, ' ').trim().slice(0, 200) : '';
-        const redditBase = post.score >= 200 ? 3 : 2;
-        const { score, reason } = scoreItem(title, desc, null, redditBase);
-        const analysis = analyzeProduct(title, desc, null);
+        // MRR 里程碑帖评分更高
+        const hasMrr = /\$[\d,]+[km]?\s*(mrr|arr|\/mo)/i.test(post.title + ' ' + (post.selftext || ''));
+        const mrrStr = hasMrr ? (post.title + ' ' + (post.selftext || '')).match(/\$[\d,]+[km]?/i)?.[0] : null;
+        const redditBase = post.score >= 200 ? 3 : (hasMrr ? 3 : 2);
+        const { score, reason } = scoreItem(title, desc, mrrStr, redditBase);
+        const analysis = analyzeProduct(title, desc, mrrStr);
         const dateKey = post.created_utc
           ? new Date(post.created_utc * 1000).toISOString().slice(0, 10)
           : new Date().toISOString().slice(0, 10);
@@ -281,6 +295,7 @@ async function fetchReddit() {
           id: `reddit-${post.id}`,
           title, score, scoreReason: reason,
           ...analysis,
+          mrr: mrrStr,
           url, source: 'reddit', sourceLabel: `r/${sub}`,
           redditScore: post.score,
           category: detectCategory(title + ' ' + desc),
@@ -290,7 +305,7 @@ async function fetchReddit() {
     } catch (e) { console.error(`Reddit r/${sub} error:`, e.message); }
   }
   console.log(`[Reddit] ${results.length} 条`);
-  return results.slice(0, 30);
+  return results.slice(0, 40);
 }
 
 // ─── Hacker News ─────────────────────────────────────────────────────────

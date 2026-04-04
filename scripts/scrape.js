@@ -254,9 +254,9 @@ function analyzeProduct(title, desc, mrr) {
   return { problem, chinaFit, chinaReason, soloFit, soloReason };
 }
 
-// ─── Claude AI 深度拆解（每条新数据调用一次）─────────────────────────────
+// ─── AI 深度拆解（通义千问 Qwen，OpenAI 兼容格式）────────────────────────
 async function analyzeWithClaude(title, desc, mrr) {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
+  const apiKey = process.env.QWEN_API_KEY;
   if (!apiKey) return null;
 
   const prompt = `分析这个海外SaaS/工具产品，判断其在中国市场的复制机会。全部用中文简洁回答。
@@ -279,31 +279,28 @@ ${mrr ? `月收入：${mrr}` : ''}
   "soloReason": "一人可行性一句话（15字内）"
 }`;
 
-  const baseUrl = (process.env.ANTHROPIC_BASE_URL || 'https://api.anthropic.com').replace(/\/$/, '');
-  const model = process.env.ANTHROPIC_DEFAULT_HAIKU_MODEL || 'claude-haiku-4-5-20251001';
-
   try {
-    const res = await fetch(`${baseUrl}/v1/messages`, {
+    const res = await fetch('https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
+        'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model,
-        max_tokens: 450,
+        model: 'qwen-turbo',
+        max_tokens: 500,
         messages: [{ role: 'user', content: prompt }],
+        enable_thinking: false,
       }),
     });
-    if (!res.ok) { console.error('[Claude] API error:', res.status); return null; }
+    if (!res.ok) { console.error('[Qwen] API error:', res.status, await res.text()); return null; }
     const data = await res.json();
-    const text = data.content?.[0]?.text || '';
+    const text = data.choices?.[0]?.message?.content || '';
     const match = text.match(/\{[\s\S]*\}/);
     if (!match) return null;
     const json = JSON.parse(match[0]);
     return json.problem ? json : null;
-  } catch (e) { console.error('[Claude] error:', e.message); return null; }
+  } catch (e) { console.error('[Qwen] error:', e.message); return null; }
 }
 
 // ─── Product Hunt RSS (Atom) ──────────────────────────────────────────────
@@ -522,7 +519,7 @@ async function fetchHackerNews() {
   let existing = [];
   try { existing = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8')); } catch (_) {}
 
-  const hasApiKey = !!process.env.ANTHROPIC_API_KEY;
+  const hasApiKey = !!process.env.QWEN_API_KEY;
 
   // 先合并数据
   const newIds = new Set(newItems.map(i => i.id));

@@ -23,7 +23,7 @@ jobs:
 
       - name: 运行抓取脚本
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
         run: node scripts/scrape.js
 
       - name: 提交数据更新

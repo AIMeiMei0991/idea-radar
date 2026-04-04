@@ -205,6 +205,15 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .fc-pt-cost.active  {background:rgba(34,197,94,0.14);color:#4ade80;border-color:rgba(34,197,94,0.35)}
 .fc-pt-exp.active   {background:rgba(251,191,36,0.12);color:#fbbf24;border-color:rgba(251,191,36,0.35)}
 
+/* soloFit 三档 chip */
+.fc-solo-maybe.active{background:rgba(251,191,36,0.12);color:#fbbf24;border-color:rgba(251,191,36,0.35)}
+.fc-solo-hard.active {background:rgba(239,68,68,0.12);color:#f87171;border-color:rgba(239,68,68,0.35)}
+
+/* devTimeline 筛选 chip */
+.fc-dev-short.active{background:rgba(34,197,94,0.14);color:#4ade80;border-color:rgba(34,197,94,0.35)}
+.fc-dev-mid.active  {background:rgba(251,191,36,0.12);color:#fbbf24;border-color:rgba(251,191,36,0.35)}
+.fc-dev-long.active {background:rgba(239,68,68,0.12);color:#f87171;border-color:rgba(239,68,68,0.35)}
+
 /* 资源需求 pill（详情内） */
 .res-pill{font-size:11px;background:rgba(255,255,255,0.06);color:#9999bb;padding:2px 8px;border-radius:5px;display:inline-block;margin:2px 3px 2px 0}
 </style>
@@ -247,14 +256,24 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
   <div class="filter-wrap" id="filterWrap">
     <button class="filter-chip fc-china" id="fcChina" onclick="toggleFilter('china')"
       aria-pressed="false" aria-label="只看中国市场高匹配的创意">🇨🇳 中国可做</button>
-    <button class="filter-chip fc-solo" id="fcSolo" onclick="toggleFilter('solo')"
-      aria-pressed="false" aria-label="只看一人公司可行的创意">👤 一人能做</button>
+    <button class="filter-chip fc-solo" id="fcSolo" onclick="toggleFilter('solo_yes')"
+      aria-pressed="false" aria-label="只看一人可行的创意">👤 一人可行</button>
+    <button class="filter-chip fc-solo-maybe" id="fcSoloMaybe" onclick="toggleFilter('solo_maybe')"
+      aria-pressed="false" aria-label="只看可能可行的创意">👤 可能可行</button>
+    <button class="filter-chip fc-solo-hard" id="fcSoloHard" onclick="toggleFilter('solo_hard')"
+      aria-pressed="false" aria-label="只看需要团队的创意">👤 需团队</button>
     <button class="filter-chip fc-mrr" id="fcMrr" onclick="toggleFilter('mrr')"
       aria-pressed="false" aria-label="只看有真实验证收入的产品">💰 有真实收入</button>
     <button class="filter-chip fc-score4" id="fcScore4" onclick="toggleFilter('score4')"
       aria-pressed="false" aria-label="只看评分4分以上的高价值创意">🔥 高价值 4+</button>
     <button class="filter-chip fc-score3" id="fcScore3" onclick="toggleFilter('score3')"
       aria-pressed="false" aria-label="只看评分3分以上的潜力创意">⭐ 潜力 3+</button>
+    <button class="filter-chip fc-dev-short" id="fcDevShort" onclick="toggleFilter('dev_short')"
+      aria-pressed="false" aria-label="只看1-3月可完成的项目">⏱ 1-3月</button>
+    <button class="filter-chip fc-dev-mid" id="fcDevMid" onclick="toggleFilter('dev_mid')"
+      aria-pressed="false" aria-label="只看3-6月可完成的项目">⏱ 3-6月</button>
+    <button class="filter-chip fc-dev-long" id="fcDevLong" onclick="toggleFilter('dev_long')"
+      aria-pressed="false" aria-label="只看6-12月可完成的项目">⏱ 6-12月</button>
     <button class="filter-chip fc-pt-effect" id="fcPtEffect" onclick="toggleFilter('pt_effect')"
       aria-pressed="false" aria-label="只看效率类痛点">⚡ 效率痛点</button>
     <button class="filter-chip fc-pt-cost" id="fcPtCost" onclick="toggleFilter('pt_cost')"
@@ -273,9 +292,11 @@ let allData = [], activeTab = 'feed', searchQ = '', currentPage = 1;
 const PAGE_SIZE = 30;
 let searchTimer = null, bookmarks = new Set(), readItems = new Set(), hideRead = false;
 // 快速筛选状态（模块级，renderView 可访问）
-let filterChina = false, filterSolo = false, filterMrr = false;
+let filterChina = false, filterMrr = false;
+let filterSolo = ''; // 'yes'|'maybe'|'hard'|''
 let filterScore4 = false, filterScore3 = false;
-let filterPainType = ''; // '效率'|'成本'|'体验'|''
+let filterPainType = '';    // '效率'|'成本'|'体验'|''
+let filterDevTimeline = ''; // '1-3月'|'3-6月'|'6-12月'|''
 let activeFilters = []; // 每次 filterAndRender 更新，renderView 读取
 
 // ── localStorage ──────────────────────────────────────
@@ -287,17 +308,29 @@ function loadLocal() {
     const f = localStorage.getItem('idea-radar-filters');
     if (f) {
       const obj = JSON.parse(f);
-      filterChina = !!obj.china; filterSolo = !!obj.solo; filterMrr = !!obj.mrr;
-      if (filterChina)  { document.getElementById('fcChina').classList.add('active');  document.getElementById('fcChina').setAttribute('aria-pressed','true');  }
-      if (filterSolo)   { document.getElementById('fcSolo').classList.add('active');   document.getElementById('fcSolo').setAttribute('aria-pressed','true');   }
-      if (filterMrr)    { document.getElementById('fcMrr').classList.add('active');    document.getElementById('fcMrr').setAttribute('aria-pressed','true');    }
+      filterChina = !!obj.china; filterMrr = !!obj.mrr;
+      // soloFit: 兼容旧 boolean 格式
+      filterSolo = obj.soloFit || (obj.solo ? 'yes' : '');
+      if (filterChina) { document.getElementById('fcChina').classList.add('active'); document.getElementById('fcChina').setAttribute('aria-pressed','true'); }
+      if (filterMrr)   { document.getElementById('fcMrr').classList.add('active');   document.getElementById('fcMrr').setAttribute('aria-pressed','true');   }
+      if (filterSolo) {
+        const soloIdMap = {yes:'fcSolo', maybe:'fcSoloMaybe', hard:'fcSoloHard'};
+        const el = document.getElementById(soloIdMap[filterSolo]);
+        if (el) { el.classList.add('active'); el.setAttribute('aria-pressed','true'); }
+      }
       filterScore4 = !!obj.score4; filterScore3 = !!obj.score3;
       if (filterScore4) { document.getElementById('fcScore4').classList.add('active'); document.getElementById('fcScore4').setAttribute('aria-pressed','true'); }
       if (filterScore3) { document.getElementById('fcScore3').classList.add('active'); document.getElementById('fcScore3').setAttribute('aria-pressed','true'); }
       filterPainType = obj.painType || '';
       if (filterPainType) {
-        const idMap = {效率:'fcPtEffect', 成本:'fcPtCost', 体验:'fcPtExp'};
-        const el = document.getElementById(idMap[filterPainType]);
+        const ptIdMap = {效率:'fcPtEffect', 成本:'fcPtCost', 体验:'fcPtExp'};
+        const el = document.getElementById(ptIdMap[filterPainType]);
+        if (el) { el.classList.add('active'); el.setAttribute('aria-pressed','true'); }
+      }
+      filterDevTimeline = obj.devTimeline || '';
+      if (filterDevTimeline) {
+        const dtIdMap = {'1-3月':'fcDevShort', '3-6月':'fcDevMid', '6-12月':'fcDevLong'};
+        const el = document.getElementById(dtIdMap[filterDevTimeline]);
         if (el) { el.classList.add('active'); el.setAttribute('aria-pressed','true'); }
       }
     }
@@ -305,7 +338,7 @@ function loadLocal() {
 }
 function saveBk()      { try { localStorage.setItem('idea-radar-bookmarks', JSON.stringify([...bookmarks])); } catch(_){} }
 function saveRead()    { try { localStorage.setItem('idea-radar-read', JSON.stringify([...readItems].slice(-600))); } catch(_){} }
-function saveFilters() { try { localStorage.setItem('idea-radar-filters', JSON.stringify({china:filterChina,solo:filterSolo,mrr:filterMrr,score4:filterScore4,score3:filterScore3,painType:filterPainType})); } catch(_){} }
+function saveFilters() { try { localStorage.setItem('idea-radar-filters', JSON.stringify({china:filterChina,soloFit:filterSolo,mrr:filterMrr,score4:filterScore4,score3:filterScore3,painType:filterPainType,devTimeline:filterDevTimeline})); } catch(_){} }
 
 // ── 收藏 ──────────────────────────────────────────────
 function toggleBookmark(id, e) {
@@ -364,11 +397,24 @@ function toggleFilter(type) {
     const btn = document.getElementById('fcChina');
     btn.classList.toggle('active', filterChina);
     btn.setAttribute('aria-pressed', filterChina);
-  } else if (type === 'solo') {
-    filterSolo = !filterSolo;
-    const btn = document.getElementById('fcSolo');
-    btn.classList.toggle('active', filterSolo);
-    btn.setAttribute('aria-pressed', filterSolo);
+  } else if (type === 'solo_yes' || type === 'solo_maybe' || type === 'solo_hard') {
+    const soloValMap = {solo_yes:'yes', solo_maybe:'maybe', solo_hard:'hard'};
+    const soloIdMap  = {solo_yes:'fcSolo', solo_maybe:'fcSoloMaybe', solo_hard:'fcSoloHard'};
+    const newSolo = soloValMap[type];
+    filterSolo = filterSolo === newSolo ? '' : newSolo;
+    Object.keys(soloValMap).forEach(k => {
+      const el = document.getElementById(soloIdMap[k]);
+      if (el) { el.classList.toggle('active', filterSolo === soloValMap[k]); el.setAttribute('aria-pressed', String(filterSolo === soloValMap[k])); }
+    });
+  } else if (type === 'dev_short' || type === 'dev_mid' || type === 'dev_long') {
+    const dtValMap = {dev_short:'1-3月', dev_mid:'3-6月', dev_long:'6-12月'};
+    const dtIdMap  = {dev_short:'fcDevShort', dev_mid:'fcDevMid', dev_long:'fcDevLong'};
+    const newDt = dtValMap[type];
+    filterDevTimeline = filterDevTimeline === newDt ? '' : newDt;
+    Object.keys(dtValMap).forEach(k => {
+      const el = document.getElementById(dtIdMap[k]);
+      if (el) { el.classList.toggle('active', filterDevTimeline === dtValMap[k]); el.setAttribute('aria-pressed', String(filterDevTimeline === dtValMap[k])); }
+    });
   } else if (type === 'mrr') {
     filterMrr = !filterMrr;
     const btn = document.getElementById('fcMrr');
@@ -496,10 +542,11 @@ function filterAndRender() {
   if (activeTab === 'feed') items = items.filter(i=>(i.score||0)>=3);
   if (hideRead)    items = items.filter(i=>!readItems.has(i.id));
   // 快速筛选
-  if (filterChina)    items = items.filter(i=>i.chinaFit==='high');
-  if (filterSolo)     items = items.filter(i=>i.soloFit==='yes');
-  if (filterMrr)      items = items.filter(i=>!!i.mrr);
-  if (filterPainType) items = items.filter(i=>i.painType===filterPainType);
+  if (filterChina)       items = items.filter(i=>i.chinaFit==='high');
+  if (filterSolo)        items = items.filter(i=>i.soloFit===filterSolo);
+  if (filterDevTimeline) items = items.filter(i=>i.devTimeline===filterDevTimeline);
+  if (filterMrr)         items = items.filter(i=>!!i.mrr);
+  if (filterPainType)    items = items.filter(i=>i.painType===filterPainType);
   if (filterScore4) items = items.filter(i=>(i.score||0)>=4);
   else if (filterScore3) items = items.filter(i=>(i.score||0)>=3);
   if (searchQ) {
@@ -517,7 +564,9 @@ function filterAndRender() {
     return dd!==0?dd:(b.score||0)-(a.score||0);
   });
   // 更新模块级变量，renderView 可安全读取
-  activeFilters = [filterChina&&'中国可做', filterSolo&&'一人能做', filterMrr&&'有真实收入', filterPainType&&(filterPainType+'痛点'), filterScore4&&'高价值4+', filterScore3&&'潜力3+'].filter(Boolean);
+  const soloLabel = {yes:'一人可行', maybe:'可能可行', hard:'需团队'}[filterSolo] || '';
+  const dtLabel   = filterDevTimeline ? (filterDevTimeline+'开发') : '';
+  activeFilters = [filterChina&&'中国可做', soloLabel, dtLabel, filterMrr&&'有真实收入', filterPainType&&(filterPainType+'痛点'), filterScore4&&'高价值4+', filterScore3&&'潜力3+'].filter(Boolean);
   const total=items.length, totalPages=Math.max(1,Math.ceil(total/PAGE_SIZE));
   if (currentPage>totalPages) currentPage=totalPages;
   const paged = items.slice((currentPage-1)*PAGE_SIZE, currentPage*PAGE_SIZE);
@@ -665,13 +714,16 @@ function detailRow(label, content) {
 function renderDetail(item) {
   const url = escHtml(safeUrl(item.url));
   const src = escHtml(item.sourceLabel || '原文');
-  if (!item.mvp && !item.coldStart) {
+  if (!item.mvp && !item.coldStart && !item.targetUsers && !item.competitors) {
     return `<div class="detail-placeholder">行动计划将在下次数据更新后生成</div>
       <a href="${url}" target="_blank" rel="noopener" class="detail-link">查看 ${src} 原文 →</a>`;
   }
   const resHtml = item.resourceNeeds && item.resourceNeeds.length
     ? `<div class="detail-row"><div class="detail-label">🛠 资源需求</div><div class="detail-content">${item.resourceNeeds.map(r=>`<span class="res-pill">${escHtml(r)}</span>`).join('')}</div></div>` : '';
-  return detailRow('🚀 最小 MVP', item.mvp)
+  return detailRow('👥 目标用户', item.targetUsers)
+    + detailRow('⚔️ 竞争格局', item.competitors)
+    + detailRow('🇨🇳 中国市场缺口', item.chinaGap)
+    + detailRow('🚀 最小 MVP', item.mvp)
     + detailRow('🎯 冷启动路径', item.coldStart)
     + resHtml
     + `<a href="${url}" target="_blank" rel="noopener" class="detail-link">查看 ${src} 原文 →</a>`;

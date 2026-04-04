@@ -530,7 +530,7 @@ async function fetchHackerNews() {
 
   // 分析所有缺少 AI 深度分析的条目（每次最多 60 条，避免超时）
   if (hasApiKey) {
-    const needAnalysis = merged.filter(i => !i.targetUsers).slice(0, 60);
+    const needAnalysis = merged.filter(i => !i.targetUsers).slice(0, 200);
     console.log(`需 Claude 分析: ${needAnalysis.length} 条`);
     let done = 0;
     for (const item of needAnalysis) {

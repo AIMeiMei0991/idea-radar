@@ -233,28 +233,63 @@ function analyzeProduct(title, desc, mrr) {
   }
 
   // ── 3. 一人公司可行性 ────────────────────────────────────────────────────
-  const SOLO_YES  = ['tool','widget','chrome','plugin','extension','api','webhook',
-                     'notification','alert','tracker','monitor','generator','converter',
-                     'calculator','summarizer','transcriber','scheduler','scraper'];
+  const SOLO_YES  = [
+    // 工具/插件/API
+    'tool','widget','chrome','plugin','extension','api','webhook',
+    // 通知/监控/追踪
+    'notification','alert','tracker','monitor','watcher','watch',
+    // 生成/转换/计算
+    'generator','converter','calculator','summarizer','transcriber','scheduler','scraper',
+    // 分析/仪表盘
+    'analytics','dashboard','reporting','metric','insight',
+    // 编辑/写作/笔记
+    'edit','editor','writer','writing','note','notes','template','composer',
+    // AI/自动化辅助
+    'assistant','copilot','bot','agent','automat',
+    // 实用工具
+    'recorder','player','viewer','reader','scanner','finder','manager','organizer',
+    // 表单/反馈
+    'form','survey','feedback','quiz','poll',
+    // 代码/开发
+    'snippet','linter','formatter','validator','parser','checker','detector',
+    // 效率/专注
+    'focus','blocker','reminder','todo','timer','pomodoro',
+    // 文档/简历/合同
+    'resume','cv','invoice','contract',
+    // SEO/营销工具
+    'seo','keyword','email campaign','link','shortener',
+    // 无代码/低代码
+    'nocode','no-code','low-code','nocodable',
+    // 幻灯片/视觉
+    'slide','presentation','infographic',
+    // 聊天/语音工具
+    'chat widget','voicemail','voice drop','voice message',
+    // SaaS 信号词
+    'saas', 'automation', 'ai',
+    // 内容/教育
+    'content','newsletter','education',
+  ];
   const SOLO_HARD = ['marketplace','social network','community platform','hiring platform',
-                     'freelance marketplace','two-sided','peer-to-peer','p2p network'];
+                     'freelance marketplace','two-sided','peer-to-peer','p2p network',
+                     'enterprise platform','data labeling','medical platform'];
 
   let soloFit, soloReason;
   if (SOLO_HARD.some(k => text.includes(k))) {
     soloFit = 'hard';
     soloReason = '双边/社区产品，冷启动需要团队资源';
   } else if (SOLO_YES.some(k => text.includes(k))) {
-    soloFit = 'yes';
-    soloReason = '工具型产品，技术+运营一人可驱动';
-  } else if (text.includes('saas') || text.includes('automation') || text.includes('ai')) {
-    soloFit = 'yes';
-    soloReason = 'SaaS/AI 工具，无代码或小成本可验证';
-  } else if (text.includes('content') || text.includes('newsletter') || text.includes('education')) {
-    soloFit = 'yes';
-    soloReason = '内容型业务，个人品牌驱动，一人起步';
+    // 进一步区分：复杂工具平台仍为 maybe
+    const COMPLEX_SIGNALS = ['enterprise','organization','multi-team','large-scale','data center'];
+    if (COMPLEX_SIGNALS.some(k => text.includes(k))) {
+      soloFit = 'maybe';
+      soloReason = '工具方向清晰，但企业级/多团队场景开发量较大';
+    } else {
+      soloFit = 'yes';
+      soloReason = '工具型产品，技术+运营一人可驱动';
+    }
   } else {
     soloFit = 'maybe';
-    soloReason = '需结合具体功能范围评估开发量';
+    soloReason = '功能范围需评估，核心 MVP 可单人完成';
   }
 
   // ── MVP 和冷启动策略 ──────────────────────────────────────────────────────
@@ -308,12 +343,20 @@ function generateSolution(problem, title) {
 // ─── 技术栈建议 ──────────────────────────────────────────────────────────
 function suggestTechStack(category, soloFit) {
   const base = ['Next.js', 'Vercel'];
-  if (category.includes('AI')) return { techStack: [...base, 'OpenAI API', 'Supabase', 'Tailwind CSS'], devTimeline: soloFit === 'yes' ? '1-3月' : '3-6月' };
+  // 1-3月: 单功能 API 工具、分析、营销、效率类
+  if (category.includes('AI工具')) return { techStack: [...base, 'OpenAI API', 'Supabase', 'Tailwind CSS'], devTimeline: soloFit === 'hard' ? '3-6月' : '1-3月' };
   if (category.includes('数据') || category.includes('分析')) return { techStack: [...base, 'Supabase', 'Chart.js', 'Tailwind CSS'], devTimeline: '1-3月' };
   if (category.includes('营销') || category.includes('邮件')) return { techStack: [...base, 'Resend', 'Supabase', 'Tailwind CSS'], devTimeline: '1-3月' };
+  if (category.includes('效率工具') || category.includes('知识管理') || category.includes('创业者工具')) return { techStack: [...base, 'Supabase', 'Tailwind CSS'], devTimeline: '1-3月' };
+  if (category.includes('开発者') || category.includes('开发者')) return { techStack: [...base, 'Supabase', 'Tailwind CSS'], devTimeline: '1-3月' };
+  // 3-6月: 需要更多集成的中等复杂度产品
   if (category.includes('电商') || category.includes('支付')) return { techStack: [...base, 'Stripe', 'Supabase', 'Tailwind CSS'], devTimeline: '3-6月' };
-  if (category.includes('视频') || category.includes('内容')) return { techStack: [...base, 'Cloudflare R2', 'FFmpeg', 'Supabase'], devTimeline: '3-6月' };
-  if (category.includes('效率工具')) return { techStack: [...base, '微信小程序', 'Supabase'], devTimeline: '1-3月' };
+  if (category.includes('视频') || category.includes('内容创作')) return { techStack: [...base, 'Cloudflare R2', 'FFmpeg', 'Supabase'], devTimeline: '3-6月' };
+  if (category.includes('HR') || category.includes('财务') || category.includes('供应链')) return { techStack: [...base, 'Supabase', 'Tailwind CSS'], devTimeline: '3-6月' };
+  if (category.includes('健康') || category.includes('教育')) return { techStack: [...base, 'Supabase', 'Tailwind CSS'], devTimeline: '3-6月' };
+  // 6-12月: 复杂平台
+  if (soloFit === 'hard') return { techStack: [...base, 'Supabase', 'Stripe', 'Tailwind CSS'], devTimeline: '6-12月' };
+  // 默认: 根据 soloFit 决定
   return {
     techStack: [...base, 'Supabase', 'Tailwind CSS'],
     devTimeline: soloFit === 'yes' ? '1-3月' : soloFit === 'maybe' ? '3-6月' : '6-12月',

@@ -4,6 +4,10 @@ const path = require('path');
 
 const DATA_FILE = path.join(__dirname, '../public/data/ideas.json');
 
+// 导入中文数据源模块
+const { fetchZhihuData } = require('./zhihu-scraper');
+const { fetchXhsData } = require('./xhs-scraper');
+
 // ─── 标题修正 ──────────────────────────────────────────────────────────────
 function fixTitle(t) {
   return t
@@ -251,7 +255,67 @@ function analyzeProduct(title, desc, mrr) {
     soloReason = '需结合具体功能范围评估开发量';
   }
 
-  return { problem, chinaFit, chinaReason, soloFit, soloReason };
+  // ── MVP 和冷启动策略 ──────────────────────────────────────────────────────
+  let mvp, coldStart;
+  if (soloFit === 'hard') {
+    mvp = '先聚焦单边用户，验证单边价值后再引入另一侧';
+    coldStart = '锁定一个垂直行业/社区，免费获取第一批核心用户';
+  } else if (soloFit === 'yes') {
+    mvp = '最小功能集 4 周上线，免费额度获取早期用户反馈后付费化';
+    coldStart = '上线当天发独立开发者群/产品猎人，前 100 名免费换口碑';
+  } else {
+    mvp = '拆解出可独立验证的核心子功能，先跑通 1 个完整付费流程';
+    coldStart = '写 1-2 篇垂直内容（SEO 博客/抖音），吸引精准用户自然流入';
+  }
+
+  // 特定场景覆盖
+  if (problem.includes('微信')) { coldStart = '垂直行业微信群/社群冷启动，转发给精准用户，口碑裂变'; }
+  if (problem.includes('自由职业') || problem.includes('设计师')) { coldStart = '在 Behance/站酷/设计师群发布，针对设计师群体定向推广'; }
+  if (problem.includes('电商') || problem.includes('卖家')) { coldStart = '电商运营类微信群/直播群直接推广，ROI 好的工具自发口碑传播'; }
+
+  return { problem, chinaFit, chinaReason, soloFit, soloReason, mvp, coldStart };
+}
+
+// ─── 创新解法生成 ──────────────────────────────────────────────────────────
+function generateSolution(problem, title) {
+  const t = (problem + ' ' + title).toLowerCase();
+  if (t.includes('转文字') || t.includes('transcri')) return 'Whisper 模型识别准确率 95%+，支持专业术语自定义词库，一小时录音 5 分钟出稿';
+  if (t.includes('字幕') || t.includes('caption')) return '语音识别+大模型上下文翻译，一键生成精准 SRT 字幕，支持多语言批量导出';
+  if (t.includes('冷邮件') || t.includes('cold email') || t.includes('outreach')) return 'AI 分析潜客资料生成个性化邮件序列，自动追踪打开率和回复，一人完成 SDR 工作量';
+  if (t.includes('排期') || t.includes('schedule') || t.includes('发布')) return '内容一次创作，AI 自动适配各平台格式+最佳时间发布，数据分析哪个平台 ROI 最高';
+  if (t.includes('视频') && t.includes('ai')) return '输入产品图片和卖点文案，AI 自动合成带口播的竖版短视频，批量生产投流素材';
+  if (t.includes('seo') && t.includes('ai')) return '关键词→大纲→全文→内链，一篇 SEO 长文 15 分钟产出，可批量操作降低获客成本';
+  if (t.includes('newsletter') || t.includes('邮件订阅')) return '邮件订阅+付费墙一体化，创作者直接拥有用户数据，绕开平台限流风险';
+  if (t.includes('开票') || t.includes('账单') || t.includes('invoice')) return '自动识别交易记录生成账单，一键发送+付款提醒，在线收款+记账全流程打通';
+  if (t.includes('归因') || t.includes('attribution')) return '多触点归因模型，追踪从首次点击到购买的完整路径，给出各渠道真实 ROI 排名';
+  if (t.includes('crm') || t.includes('客户跟进')) return '微信聊天记录导入→自动整理客户档案→跟进提醒+业绩看板，专为中国销售场景设计';
+  if (t.includes('简历') || t.includes('resume')) return '分析目标岗位 JD→提取关键词→重写简历，让简历通过 ATS 筛选的概率提升 60%+';
+  if (t.includes('合同') || t.includes('legal')) return 'AI 高亮合同风险条款→逐条解释→给出修改建议，5 分钟完成人工需 2 小时的审阅';
+  if (t.includes('监控') || t.includes('monitor') || t.includes('宕机')) return '全球节点每分钟探测，宕机 30 秒内微信/钉钉推送，附带性能瀑布图定位慢节点';
+  if (t.includes('设计') || t.includes('logo')) return '输入品牌描述+风格偏好，AI 生成完整品牌视觉包，10 分钟替代外包设计师';
+  if (t.includes('问卷') || t.includes('反馈') || t.includes('survey')) return 'AI 设计问卷逻辑→收集回答→聚类分析→输出可执行洞察报告，全流程 2 小时完成';
+  if (t.includes('播客') || t.includes('podcast')) return '上传原始录音→AI 降噪+剪掉口误→生成文字稿+章节→一键分发到各平台';
+  if (t.includes('excel') || t.includes('数据管理')) return '轻量在线数据库，表单录入+自动汇总+权限控制，手机端实时查看，告别 Excel 协作冲突';
+  if (t.includes('库存')) return '手机扫码入出库，库存云端实时同步，低库存自动预警+生成补货单';
+  if (t.includes('会议')) return '会议自动录音转文字→提取行动项→分配责任人→发送跟进提醒，会后 5 分钟出完整纪要';
+  if (t.includes('考勤')) return 'GPS 地理围栏+人脸识别打卡，自动汇总出勤报表，异常自动标记等待审批';
+  if (t.includes('排课')) return '输入约束条件（教师时间/教室容量/学生偏好），自动生成无冲突课表并推送通知';
+  return '将核心流程 80% 的手工操作自动化，结合 AI 技术重新设计用户体验，用户只需处理例外情况';
+}
+
+// ─── 技术栈建议 ──────────────────────────────────────────────────────────
+function suggestTechStack(category, soloFit) {
+  const base = ['Next.js', 'Vercel'];
+  if (category.includes('AI')) return { techStack: [...base, 'OpenAI API', 'Supabase', 'Tailwind CSS'], devTimeline: soloFit === 'yes' ? '1-3月' : '3-6月' };
+  if (category.includes('数据') || category.includes('分析')) return { techStack: [...base, 'Supabase', 'Chart.js', 'Tailwind CSS'], devTimeline: '1-3月' };
+  if (category.includes('营销') || category.includes('邮件')) return { techStack: [...base, 'Resend', 'Supabase', 'Tailwind CSS'], devTimeline: '1-3月' };
+  if (category.includes('电商') || category.includes('支付')) return { techStack: [...base, 'Stripe', 'Supabase', 'Tailwind CSS'], devTimeline: '3-6月' };
+  if (category.includes('视频') || category.includes('内容')) return { techStack: [...base, 'Cloudflare R2', 'FFmpeg', 'Supabase'], devTimeline: '3-6月' };
+  if (category.includes('效率工具')) return { techStack: [...base, '微信小程序', 'Supabase'], devTimeline: '1-3月' };
+  return {
+    techStack: [...base, 'Supabase', 'Tailwind CSS'],
+    devTimeline: soloFit === 'yes' ? '1-3月' : soloFit === 'maybe' ? '3-6月' : '6-12月',
+  };
 }
 
 // ─── AI 深度拆解（通义千问 Qwen，OpenAI 兼容格式）────────────────────────
@@ -259,7 +323,7 @@ async function analyzeWithClaude(title, desc, mrr) {
   const apiKey = process.env.QWEN_API_KEY;
   if (!apiKey) return null;
 
-  const prompt = `分析这个海外SaaS/工具产品，判断其在中国市场的复制机会。全部用中文简洁回答。
+  const prompt = `分析这个海外SaaS/工具产品，站在"一人创业者"视角判断中国市场机会。全部用中文简洁回答。
 
 产品名：${title}
 描述：${desc || '无详细描述'}
@@ -267,16 +331,16 @@ ${mrr ? `月收入：${mrr}` : ''}
 
 只返回 JSON，不要其他内容：
 {
-  "problem": "一句话说清解决了谁的什么问题（20字内，具体不泛指）",
-  "targetUsers": "目标用户群（2-3类，逗号分隔）",
-  "competitors": "国内外主要竞品及其弱点（30字内）",
-  "chinaGap": "国内市场具体空缺在哪（25字内）",
-  "mvp": "最小可验证产品方案（25字内）",
-  "coldStart": "第一批用户从哪来（25字内）",
+  "problem": "谁在痛、为什么痛（25字内，具体不泛指）",
+  "solution": "用什么技术创新解决，核心差异点（30字内）",
   "chinaFit": "high、mid 或 low 之一",
-  "chinaReason": "中国可行性一句话（15字内）",
+  "chinaReason": "中国市场具体洞察，非模板话（20字内）",
   "soloFit": "yes、maybe 或 hard 之一",
-  "soloReason": "一人可行性一句话（15字内）"
+  "soloReason": "一人开发的具体可行性（20字内）",
+  "techStack": ["Next.js", "Supabase", "Vercel"],
+  "devTimeline": "1-3月 或 3-6月 或 6-12月",
+  "mvp": "最小可验证产品方案（25字内）",
+  "coldStart": "第一批用户从哪来（20字内）"
 }`;
 
   try {
@@ -329,13 +393,16 @@ async function fetchProductHunt() {
       const { score, reason } = scoreItem(title, desc);
       const analysis = analyzeProduct(title, desc, null);
 
+      const category = detectCategory(title + ' ' + desc);
       results.push({
         id: `ph-${Buffer.from(url).toString('base64').slice(0,16)}`,
         title: fixTitle(title), score, scoreReason: reason,
         ...analysis,
+        solution: generateSolution(analysis.problem, title),
+        ...suggestTechStack(category, analysis.soloFit),
         desc: desc.slice(0, 300),
         url, source: 'producthunt', sourceLabel: 'Product Hunt',
-        category: detectCategory(title + ' ' + desc),
+        category,
         fetchedAt: new Date().toISOString(), dateKey,
       });
     }
@@ -374,14 +441,17 @@ async function fetchTrustMRR() {
       const { score, reason } = scoreItem(title, '', mrr, 3);
       const analysis = analyzeProduct(title, mrr ? `verified mrr ${mrr}` : '', mrr);
 
+      const tmrrCategory = detectCategory(title);
       results.push({
         id: `tmrr-${Buffer.from(p).toString('base64').slice(0,16)}`,
         title, score, scoreReason: reason,
         ...analysis,
+        solution: generateSolution(analysis.problem, title),
+        ...suggestTechStack(tmrrCategory, analysis.soloFit),
         desc: mrr ? `verified mrr ${mrr}` : '',
         url: `https://trustmrr.com${p}`,
         source: 'trustmrr', sourceLabel: 'TrustMRR',
-        mrr, category: detectCategory(title),
+        mrr, category: tmrrCategory,
         fetchedAt: new Date().toISOString(), dateKey: today,
       });
     }
@@ -442,15 +512,18 @@ async function fetchReddit() {
           ? `https://www.reddit.com${post.permalink}`
           : (post.url.startsWith('http') ? post.url : `https://www.reddit.com${post.permalink}`);
 
+        const redditCategory = detectCategory(title + ' ' + desc);
         results.push({
           id: `reddit-${post.id}`,
           title, score, scoreReason: reason,
           ...analysis,
+          solution: generateSolution(analysis.problem, title),
+          ...suggestTechStack(redditCategory, analysis.soloFit),
           desc: desc.slice(0, 300),
           mrr: mrrStr,
           url, source: 'reddit', sourceLabel: `r/${sub}`,
           redditScore: post.score,
-          category: detectCategory(title + ' ' + desc),
+          category: redditCategory,
           fetchedAt: new Date().toISOString(), dateKey,
         });
       }
@@ -491,14 +564,17 @@ async function fetchHackerNews() {
       const dateKey = item.time
         ? new Date(item.time * 1000).toISOString().slice(0, 10) : today;
 
+      const hnCategory = detectCategory(title + ' ' + desc);
       results.push({
         id: `hn-${item.id}`,
         title, score, scoreReason: reason,
         ...analysis,
+        solution: generateSolution(analysis.problem, title),
+        ...suggestTechStack(hnCategory, analysis.soloFit),
         desc: desc.slice(0, 300),
         url: item.url, source: 'hackernews', sourceLabel: 'Hacker News',
         hnScore: item.score,
-        category: detectCategory(title + ' ' + desc),
+        category: hnCategory,
         fetchedAt: new Date().toISOString(), dateKey,
       });
     }
@@ -510,11 +586,42 @@ async function fetchHackerNews() {
 // ─── Main ──────────────────────────────────────────────────────────────────
 (async () => {
   console.log('开始抓取:', new Date().toISOString());
+  
+  // 抓取海外数据源
   const [ph, tmrr, reddit, hn] = await Promise.all([
     fetchProductHunt(), fetchTrustMRR(), fetchReddit(), fetchHackerNews()
   ]);
-  const newItems = [...ph, ...tmrr, ...reddit, ...hn];
-  console.log(`新抓取: ${newItems.length} 条`);
+  
+  // 抓取中文数据源
+  console.log('开始抓取中文数据源...');
+  const [zhihu, xhs] = await Promise.all([
+    fetchZhihuData().catch(e => { console.error('知乎抓取失败:', e.message); return []; }),
+    fetchXhsData().catch(e => { console.error('小红书抓取失败:', e.message); return []; })
+  ]);
+  
+  // 补全知乎/小红书数据中缺失的新字段
+  const GENERIC_MVP = ['核心功能最小化验证', '', undefined, null];
+  const GENERIC_COLD = ['从垂直社群开始推广', '', undefined, null];
+  const zhihuXhsItems = [...zhihu, ...xhs].map(item => {
+    if (!item.solution) {
+      item.solution = generateSolution(item.problem || item.title, item.title);
+    }
+    if (!item.techStack || !item.devTimeline) {
+      const ts = suggestTechStack(item.category || '效率工具', item.soloFit || 'yes');
+      if (!item.techStack) item.techStack = ts.techStack;
+      if (!item.devTimeline) item.devTimeline = ts.devTimeline;
+    }
+    // 使用 analyzeProduct 生成具体的 mvp/coldStart（替换占位符）
+    if (GENERIC_MVP.includes(item.mvp) || GENERIC_COLD.includes(item.coldStart)) {
+      const analysis = analyzeProduct(item.title, item.problem || '', item.mrr);
+      if (GENERIC_MVP.includes(item.mvp)) item.mvp = analysis.mvp;
+      if (GENERIC_COLD.includes(item.coldStart)) item.coldStart = analysis.coldStart;
+    }
+    return item;
+  });
+
+  const newItems = [...ph, ...tmrr, ...reddit, ...hn, ...zhihuXhsItems];
+  console.log(`新抓取: ${newItems.length} 条 (海外: ${ph.length + tmrr.length + reddit.length + hn.length}, 中文: ${zhihu.length + xhs.length})`);
 
   let existing = [];
   try { existing = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8')); } catch (_) {}
@@ -525,9 +632,9 @@ async function fetchHackerNews() {
   const newIds = new Set(newItems.map(i => i.id));
   const merged = [...newItems, ...existing.filter(i => !newIds.has(i.id))].slice(0, 1000);
 
-  // 分析所有缺少 AI 深度分析的条目（每次最多 60 条，避免超时）
+  // 分析所有缺少 AI 深度分析的条目（检查 solution 字段判断是否需要更新）
   if (hasApiKey) {
-    const needAnalysis = merged.filter(i => !i.targetUsers).slice(0, 200);
+    const needAnalysis = merged.filter(i => !i.solution).slice(0, 200);
     console.log(`需 Claude 分析: ${needAnalysis.length} 条`);
     let done = 0;
     for (const item of needAnalysis) {

@@ -116,8 +116,8 @@ async function fetchBilibiliData() {
       ...analysis,
       desc: video.desc,
       url: video.source === 'bilibili'
-        ? `https://www.bilibili.com/video/BV${video.id.padStart(10, '0')}`
-        : `https://www.douyin.com/video/${video.id.padStart(10, '0')}`,
+        ? `https://search.bilibili.com/all?keyword=${encodeURIComponent(video.title.slice(0, 20))}`
+        : `https://www.douyin.com/search/${encodeURIComponent(video.title.slice(0, 20))}`,
       source: video.source,
       sourceLabel: video.source === 'bilibili' ? 'B站(样本)' : '抖音(样本)',
       category,

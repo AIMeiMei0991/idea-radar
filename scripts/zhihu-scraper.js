@@ -83,7 +83,7 @@ async function fetchZhihuHot() {
     const results = [];
     for (const topic of hotTopics) {
       const title = topic.title || '';
-      const url = `https://www.zhihu.com/question/${topic.id}`;
+      const url = `https://www.zhihu.com/search?type=content&q=${encodeURIComponent(topic.title.slice(0, 20))}`;
       const answerCount = topic.answer_count || 0;
       const followerCount = topic.follower_count || 0;
       
@@ -191,7 +191,7 @@ async function searchPainPointQuestions() {
   
   for (const question of simulatedQuestions) {
     const title = question.title || '';
-    const url = `https://www.zhihu.com/question/${question.id}`;
+    const url = `https://www.zhihu.com/search?type=content&q=${encodeURIComponent(title.slice(0, 20))}`;
     const answerCount = question.answer_count || 0;
     
     if (isPainPointQuestion(title)) {

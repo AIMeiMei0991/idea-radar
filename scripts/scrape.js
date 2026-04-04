@@ -430,26 +430,34 @@ async function analyzeWithClaude(title, desc, mrr) {
   const apiKey = process.env.QWEN_API_KEY;
   if (!apiKey) return null;
 
-  const prompt = `分析这个海外SaaS/工具产品，站在"一人创业者"视角判断中国市场机会。全部用中文简洁回答。
+  const prompt = `你是一人创业顾问，专门评估海外产品在中国的复制机会。分析下面这个产品，给出务实的判断。
 
 产品名：${title}
 描述：${desc || '无详细描述'}
-${mrr ? `月收入：${mrr}` : ''}
+${mrr ? `月收入：${mrr}（说明已有真实付费用户）` : ''}
+
+要求：
+- 所有字段用中文，简洁但具体，避免套话
+- problem：描述具体用户在哪个操作步骤卡住了，不要写"缺乏高效工具"这类废话
+- chinaReason：提到一个具体的中国竞品或市场数据，说明为什么有机会
+- soloReason：说明技术栈和集成复杂度，判断一人能否在3个月内跑通核心功能
+- mvp：第一个可以收到钱的最小功能是什么
+- coldStart：第一个渠道的具体名字（比如"即刻独立开发者话题"，不要写"垂直社群"）
 
 只返回 JSON，不要其他内容：
 {
-  "problem": "谁在痛、为什么痛（25字内，具体不泛指）",
-  "solution": "用什么技术创新解决，核心差异点（30字内）",
+  "problem": "具体用户在具体场景卡住的描述（30字内）",
+  "solution": "核心技术方案和差异化点（30字内）",
   "chinaFit": "high、mid 或 low 之一",
-  "chinaReason": "中国市场具体洞察，非模板话（20字内）",
+  "chinaReason": "提到具体竞品或数据的市场洞察（25字内）",
   "soloFit": "yes、maybe 或 hard 之一",
-  "soloReason": "一人开发的具体可行性（20字内）",
+  "soloReason": "技术可行性的具体判断（25字内）",
   "techStack": ["Next.js", "Supabase", "Vercel"],
   "devTimeline": "1-3月 或 3-6月 或 6-12月",
   "resourceNeeds": ["技术", "设计", "运营", "资金", "法律"],
   "painType": "效率 或 体验 或 成本 或 情感 之一",
-  "mvp": "最小可验证产品方案（25字内）",
-  "coldStart": "第一批用户从哪来（20字内）"
+  "mvp": "第一个可以收到钱的最小功能（25字内）",
+  "coldStart": "第一个具体渠道名称（20字内）"
 }`;
 
   try {
@@ -753,19 +761,20 @@ async function fetchHackerNews() {
   const newIds = new Set(newItems.map(i => i.id));
   const merged = [...newItems, ...existing.filter(i => !newIds.has(i.id))].slice(0, 1000);
 
-  // 分析所有缺少 AI 深度分析的条目（检查 solution 字段判断是否需要更新）
+  // Qwen 深度分析：score>=4 且 aiAnalyzed 未打标的条目
   if (hasApiKey) {
-    const needAnalysis = merged.filter(i => !i.solution).slice(0, 200);
-    console.log(`需 Claude 分析: ${needAnalysis.length} 条`);
+    // 只处理：score>=4 且尚未经过 Qwen 分析的条目
+    const needAnalysis = merged.filter(i => !i.aiAnalyzed && i.score >= 4).slice(0, 50);
+    console.log(`需 Qwen 分析: ${needAnalysis.length} 条 (score≥4 且未分析)`);
     let done = 0;
     for (const item of needAnalysis) {
       const ai = await analyzeWithClaude(item.title, item.desc || '', item.mrr);
-      if (ai) Object.assign(item, ai);
+      if (ai) { Object.assign(item, ai); item.aiAnalyzed = true; }
       process.stdout.write('.');
       done++;
       await new Promise(r => setTimeout(r, 400));
     }
-    console.log(`\nClaude 分析完成 (${done} 条)`);
+    console.log(`\nQwen 分析完成 (${done} 条)`);
   } else {
     console.log('无 API Key，跳过 Claude 分析');
   }

@@ -189,6 +189,24 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 /* 评分筛选 */
 .fc-score4.active{background:rgba(255,107,53,0.15);color:#ff8a5b;border-color:rgba(255,107,53,0.4)}
 .fc-score3.active{background:rgba(251,191,36,0.12);color:#fbbf24;border-color:rgba(251,191,36,0.35)}
+
+/* Logo 副标题 */
+.logo-sub{font-size:10px;color:#555;margin-top:1px;letter-spacing:0.2px}
+
+/* 痛点类型 badge（卡片内） */
+.pain-type-badge{font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px}
+.pt-effect{background:rgba(99,102,241,0.15);color:#a5b4fc}
+.pt-cost  {background:rgba(34,197,94,0.14);color:#4ade80}
+.pt-exp   {background:rgba(251,191,36,0.12);color:#fbbf24}
+.pt-emo   {background:rgba(236,72,153,0.14);color:#f9a8d4}
+
+/* 痛点类型筛选 chip */
+.fc-pt-effect.active{background:rgba(99,102,241,0.15);color:#a5b4fc;border-color:rgba(99,102,241,0.35)}
+.fc-pt-cost.active  {background:rgba(34,197,94,0.14);color:#4ade80;border-color:rgba(34,197,94,0.35)}
+.fc-pt-exp.active   {background:rgba(251,191,36,0.12);color:#fbbf24;border-color:rgba(251,191,36,0.35)}
+
+/* 资源需求 pill（详情内） */
+.res-pill{font-size:11px;background:rgba(255,255,255,0.06);color:#9999bb;padding:2px 8px;border-radius:5px;display:inline-block;margin:2px 3px 2px 0}
 </style>
 </head>
 <body>
@@ -197,6 +215,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
   <div class="topbar-inner">
     <div>
       <div class="logo"><span class="logo-icon">📡</span>创意雷达</div>
+      <div class="logo-sub">传统需求 × 创新解法 = 一人公司机会</div>
       <div class="update-time" id="updateTime">每天 08:00 自动更新</div>
     </div>
     <div style="display:flex;gap:6px;align-items:center">
@@ -219,6 +238,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="reddit" onclick="setTab(this,'reddit')">Reddit</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="indie" onclick="setTab(this,'indie')">🛠 创客</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="hn"   onclick="setTab(this,'hn')">HN</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="cn"   onclick="setTab(this,'cn')">🇨🇳 中文</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="bookmarks" onclick="setTab(this,'bookmarks')">
       ★ 收藏<span class="badge" id="bkBadge" style="display:none">0</span>
     </button>
@@ -235,6 +255,12 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
       aria-pressed="false" aria-label="只看评分4分以上的高价值创意">🔥 高价值 4+</button>
     <button class="filter-chip fc-score3" id="fcScore3" onclick="toggleFilter('score3')"
       aria-pressed="false" aria-label="只看评分3分以上的潜力创意">⭐ 潜力 3+</button>
+    <button class="filter-chip fc-pt-effect" id="fcPtEffect" onclick="toggleFilter('pt_effect')"
+      aria-pressed="false" aria-label="只看效率类痛点">⚡ 效率痛点</button>
+    <button class="filter-chip fc-pt-cost" id="fcPtCost" onclick="toggleFilter('pt_cost')"
+      aria-pressed="false" aria-label="只看成本类痛点">💸 降本痛点</button>
+    <button class="filter-chip fc-pt-exp" id="fcPtExp" onclick="toggleFilter('pt_exp')"
+      aria-pressed="false" aria-label="只看体验类痛点">✨ 体验痛点</button>
   </div>
 </div>
 
@@ -249,6 +275,7 @@ let searchTimer = null, bookmarks = new Set(), readItems = new Set(), hideRead =
 // 快速筛选状态（模块级，renderView 可访问）
 let filterChina = false, filterSolo = false, filterMrr = false;
 let filterScore4 = false, filterScore3 = false;
+let filterPainType = ''; // '效率'|'成本'|'体验'|''
 let activeFilters = []; // 每次 filterAndRender 更新，renderView 读取
 
 // ── localStorage ──────────────────────────────────────
@@ -267,12 +294,18 @@ function loadLocal() {
       filterScore4 = !!obj.score4; filterScore3 = !!obj.score3;
       if (filterScore4) { document.getElementById('fcScore4').classList.add('active'); document.getElementById('fcScore4').setAttribute('aria-pressed','true'); }
       if (filterScore3) { document.getElementById('fcScore3').classList.add('active'); document.getElementById('fcScore3').setAttribute('aria-pressed','true'); }
+      filterPainType = obj.painType || '';
+      if (filterPainType) {
+        const idMap = {效率:'fcPtEffect', 成本:'fcPtCost', 体验:'fcPtExp'};
+        const el = document.getElementById(idMap[filterPainType]);
+        if (el) { el.classList.add('active'); el.setAttribute('aria-pressed','true'); }
+      }
     }
   } catch(_){}
 }
 function saveBk()      { try { localStorage.setItem('idea-radar-bookmarks', JSON.stringify([...bookmarks])); } catch(_){} }
 function saveRead()    { try { localStorage.setItem('idea-radar-read', JSON.stringify([...readItems].slice(-600))); } catch(_){} }
-function saveFilters() { try { localStorage.setItem('idea-radar-filters', JSON.stringify({china:filterChina,solo:filterSolo,mrr:filterMrr,score4:filterScore4,score3:filterScore3})); } catch(_){} }
+function saveFilters() { try { localStorage.setItem('idea-radar-filters', JSON.stringify({china:filterChina,solo:filterSolo,mrr:filterMrr,score4:filterScore4,score3:filterScore3,painType:filterPainType})); } catch(_){} }
 
 // ── 收藏 ──────────────────────────────────────────────
 function toggleBookmark(id, e) {
@@ -355,6 +388,15 @@ function toggleFilter(type) {
     document.getElementById('fcScore3').setAttribute('aria-pressed', filterScore3);
     document.getElementById('fcScore4').classList.toggle('active', filterScore4);
     document.getElementById('fcScore4').setAttribute('aria-pressed', filterScore4);
+  } else if (type === 'pt_effect' || type === 'pt_cost' || type === 'pt_exp') {
+    const ptMap = {pt_effect:'效率', pt_cost:'成本', pt_exp:'体验'};
+    const idMap = {pt_effect:'fcPtEffect', pt_cost:'fcPtCost', pt_exp:'fcPtExp'};
+    const newPt = ptMap[type];
+    filterPainType = filterPainType === newPt ? '' : newPt;
+    Object.keys(ptMap).forEach(k => {
+      const el = document.getElementById(idMap[k]);
+      if (el) { el.classList.toggle('active', filterPainType === ptMap[k]); el.setAttribute('aria-pressed', String(filterPainType === ptMap[k])); }
+    });
   }
   currentPage = 1; saveFilters(); filterAndRender();
 }
@@ -450,12 +492,14 @@ function filterAndRender() {
   if (srcMap[activeTab]) items = items.filter(i=>i.source===srcMap[activeTab]);
   else if (activeTab === 'reddit') items = items.filter(i=>i.source==='reddit' && !INDIE_SUBS.includes(i.sourceLabel));
   else if (activeTab === 'indie')  items = items.filter(i=>INDIE_SUBS.includes(i.sourceLabel));
+  else if (activeTab === 'cn')     items = items.filter(i=>i.source==='zhihu'||i.source==='xhs');
   if (activeTab === 'feed') items = items.filter(i=>(i.score||0)>=3);
   if (hideRead)    items = items.filter(i=>!readItems.has(i.id));
   // 快速筛选
-  if (filterChina)  items = items.filter(i=>i.chinaFit==='high');
-  if (filterSolo)   items = items.filter(i=>i.soloFit==='yes');
-  if (filterMrr)    items = items.filter(i=>!!i.mrr);
+  if (filterChina)    items = items.filter(i=>i.chinaFit==='high');
+  if (filterSolo)     items = items.filter(i=>i.soloFit==='yes');
+  if (filterMrr)      items = items.filter(i=>!!i.mrr);
+  if (filterPainType) items = items.filter(i=>i.painType===filterPainType);
   if (filterScore4) items = items.filter(i=>(i.score||0)>=4);
   else if (filterScore3) items = items.filter(i=>(i.score||0)>=3);
   if (searchQ) {
@@ -473,7 +517,7 @@ function filterAndRender() {
     return dd!==0?dd:(b.score||0)-(a.score||0);
   });
   // 更新模块级变量，renderView 可安全读取
-  activeFilters = [filterChina&&'中国可做', filterSolo&&'一人能做', filterMrr&&'有真实收入', filterScore4&&'高价值4+', filterScore3&&'潜力3+'].filter(Boolean);
+  activeFilters = [filterChina&&'中国可做', filterSolo&&'一人能做', filterMrr&&'有真实收入', filterPainType&&(filterPainType+'痛点'), filterScore4&&'高价值4+', filterScore3&&'潜力3+'].filter(Boolean);
   const total=items.length, totalPages=Math.max(1,Math.ceil(total/PAGE_SIZE));
   if (currentPage>totalPages) currentPage=totalPages;
   const paged = items.slice((currentPage-1)*PAGE_SIZE, currentPage*PAGE_SIZE);
@@ -516,7 +560,7 @@ function renderView(grouped,total,totalPages) {
     <button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage>=totalPages?'disabled':''}>下一页</button>
   </div>`;
   html+='<div class="bottom-space"></div>';
-  html+='<div class="footer">Product Hunt · TrustMRR · Reddit · r/SideProject · r/microsaas · r/indiehackers · Hacker News<br>每天 08:00 CST · GitHub Actions 自动抓取</div>';
+  html+='<div class="footer">Product Hunt · TrustMRR · Reddit · r/SideProject · r/microsaas · r/indiehackers · Hacker News<br>知乎热榜 · 小红书痛点<br>每天 08:00 CST · GitHub Actions 自动抓取</div>';
   app.innerHTML=html;
 }
 
@@ -540,6 +584,11 @@ function renderCard(item) {
   const eid = escHtml(item.id);
   const titleEsc = escHtml(title);
 
+  // 痛点类型 badge
+  const ptClassMap = {效率:'pt-effect', 成本:'pt-cost', 体验:'pt-exp', 情感:'pt-emo'};
+  const ptBadge = item.painType && ptClassMap[item.painType]
+    ? `<span class="pain-type-badge ${ptClassMap[item.painType]}">${escHtml(item.painType)}</span>` : '';
+
   // 技术栈 + 开发周期（评估区内）
   let evalTechHtml = '';
   if ((item.techStack && item.techStack.length) || item.devTimeline) {
@@ -562,6 +611,7 @@ function renderCard(item) {
           <span class="src-name">${escHtml(item.sourceLabel||'')}</span>
           ${extScore?`<span class="ext-score" aria-label="社区热度 ${extScore}">▲${extScore}</span>`:''}
           ${item.category?`<span class="cat-tag">${escHtml(item.category)}</span>`:''}
+          ${ptBadge}
         </div>
         <div class="score-bar" aria-label="潜力评分 ${sc} 分（满分5分）">${scoreDots(sc)}</div>
       </div>
@@ -619,8 +669,11 @@ function renderDetail(item) {
     return `<div class="detail-placeholder">行动计划将在下次数据更新后生成</div>
       <a href="${url}" target="_blank" rel="noopener" class="detail-link">查看 ${src} 原文 →</a>`;
   }
+  const resHtml = item.resourceNeeds && item.resourceNeeds.length
+    ? `<div class="detail-row"><div class="detail-label">🛠 资源需求</div><div class="detail-content">${item.resourceNeeds.map(r=>`<span class="res-pill">${escHtml(r)}</span>`).join('')}</div></div>` : '';
   return detailRow('🚀 最小 MVP', item.mvp)
     + detailRow('🎯 冷启动路径', item.coldStart)
+    + resHtml
     + `<a href="${url}" target="_blank" rel="noopener" class="detail-link">查看 ${src} 原文 →</a>`;
 }
 

@@ -318,6 +318,24 @@ function suggestTechStack(category, soloFit) {
   };
 }
 
+// ─── 资源需求评估 ─────────────────────────────────────────────────────────
+function generateResourceNeeds(category, soloFit) {
+  const needs = ['技术'];
+  if (category.includes('设计') || category.includes('视频') || category.includes('内容') || category.includes('营销')) needs.push('设计');
+  if (category.includes('营销') || category.includes('电商') || category.includes('社交')) needs.push('运营');
+  if (soloFit === 'hard' || category.includes('AI')) needs.push('资金');
+  return needs;
+}
+
+// ─── 痛点类型识别 ─────────────────────────────────────────────────────────
+function generatePainType(problem) {
+  const t = (problem || '').toLowerCase();
+  if (t.includes('成本') || t.includes('费用') || t.includes('省去') || t.includes('外包') || t.includes('律师') || t.includes('降低') || t.includes('零库存')) return '成本';
+  if (t.includes('心理') || t.includes('情绪') || t.includes('睡眠') || t.includes('冥想') || t.includes('焦虑') || t.includes('压力')) return '情感';
+  if (t.includes('效率') || t.includes('自动') || t.includes('批量') || t.includes('一键') || t.includes('省时') || t.includes('快速') || t.includes('重复') || t.includes('释放') || t.includes('代替') || t.includes('7×24')) return '效率';
+  return '体验';
+}
+
 // ─── AI 深度拆解（通义千问 Qwen，OpenAI 兼容格式）────────────────────────
 async function analyzeWithClaude(title, desc, mrr) {
   const apiKey = process.env.QWEN_API_KEY;
@@ -339,6 +357,8 @@ ${mrr ? `月收入：${mrr}` : ''}
   "soloReason": "一人开发的具体可行性（20字内）",
   "techStack": ["Next.js", "Supabase", "Vercel"],
   "devTimeline": "1-3月 或 3-6月 或 6-12月",
+  "resourceNeeds": ["技术", "设计", "运营", "资金", "法律"],
+  "painType": "效率 或 体验 或 成本 或 情感 之一",
   "mvp": "最小可验证产品方案（25字内）",
   "coldStart": "第一批用户从哪来（20字内）"
 }`;
@@ -400,6 +420,8 @@ async function fetchProductHunt() {
         ...analysis,
         solution: generateSolution(analysis.problem, title),
         ...suggestTechStack(category, analysis.soloFit),
+        resourceNeeds: generateResourceNeeds(category, analysis.soloFit),
+        painType: generatePainType(analysis.problem),
         desc: desc.slice(0, 300),
         url, source: 'producthunt', sourceLabel: 'Product Hunt',
         category,
@@ -448,6 +470,8 @@ async function fetchTrustMRR() {
         ...analysis,
         solution: generateSolution(analysis.problem, title),
         ...suggestTechStack(tmrrCategory, analysis.soloFit),
+        resourceNeeds: generateResourceNeeds(tmrrCategory, analysis.soloFit),
+        painType: generatePainType(analysis.problem),
         desc: mrr ? `verified mrr ${mrr}` : '',
         url: `https://trustmrr.com${p}`,
         source: 'trustmrr', sourceLabel: 'TrustMRR',
@@ -519,6 +543,8 @@ async function fetchReddit() {
           ...analysis,
           solution: generateSolution(analysis.problem, title),
           ...suggestTechStack(redditCategory, analysis.soloFit),
+          resourceNeeds: generateResourceNeeds(redditCategory, analysis.soloFit),
+          painType: generatePainType(analysis.problem),
           desc: desc.slice(0, 300),
           mrr: mrrStr,
           url, source: 'reddit', sourceLabel: `r/${sub}`,
@@ -571,6 +597,8 @@ async function fetchHackerNews() {
         ...analysis,
         solution: generateSolution(analysis.problem, title),
         ...suggestTechStack(hnCategory, analysis.soloFit),
+        resourceNeeds: generateResourceNeeds(hnCategory, analysis.soloFit),
+        painType: generatePainType(analysis.problem),
         desc: desc.slice(0, 300),
         url: item.url, source: 'hackernews', sourceLabel: 'Hacker News',
         hnScore: item.score,
@@ -611,6 +639,8 @@ async function fetchHackerNews() {
       if (!item.techStack) item.techStack = ts.techStack;
       if (!item.devTimeline) item.devTimeline = ts.devTimeline;
     }
+    if (!item.resourceNeeds) item.resourceNeeds = generateResourceNeeds(item.category || '效率工具', item.soloFit || 'yes');
+    if (!item.painType) item.painType = generatePainType(item.problem || '');
     // 使用 analyzeProduct 生成具体的 mvp/coldStart（替换占位符）
     if (GENERIC_MVP.includes(item.mvp) || GENERIC_COLD.includes(item.coldStart)) {
       const analysis = analyzeProduct(item.title, item.problem || '', item.mrr);
@@ -648,6 +678,19 @@ async function fetchHackerNews() {
   } else {
     console.log('无 API Key，跳过 Claude 分析');
   }
+
+  // 补全所有历史条目缺失的新字段（AI 分析后兜底）
+  for (const item of merged) {
+    if (!item.solution) item.solution = generateSolution(item.problem || item.title, item.title);
+    if (!item.techStack || !item.devTimeline) {
+      const ts = suggestTechStack(item.category || '数字工具', item.soloFit || 'maybe');
+      if (!item.techStack) item.techStack = ts.techStack;
+      if (!item.devTimeline) item.devTimeline = ts.devTimeline;
+    }
+    if (!item.resourceNeeds) item.resourceNeeds = generateResourceNeeds(item.category || '数字工具', item.soloFit || 'maybe');
+    if (!item.painType) item.painType = generatePainType(item.problem || '');
+  }
+
   fs.writeFileSync(DATA_FILE, JSON.stringify(merged, null, 2));
   console.log(`保存完成: 共 ${merged.length} 条`);
 })();

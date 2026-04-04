@@ -71,6 +71,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .dot-hn{background:#ff6600}
 .dot-reddit{background:#ff4500}
 .dot-indie{background:#8b5cf6}   /* 创客社区用紫色区分 */
+.dot-36kr{background:#00aaff}
 .dot-other{background:#818cf8}
 .src-name{font-size:11px;color:#666}
 .ext-score{font-size:10px;color:#555;margin-left:1px}
@@ -490,7 +491,7 @@ function scoreDots(s,max=5) {
 const INDIE_SUBS = ['r/SideProject','r/microsaas','r/indiehackers'];
 function dotClass(src, label='') {
   if (INDIE_SUBS.includes(label)) return 'dot-indie';  // 创客社区紫色点
-  return {producthunt:'dot-ph',trustmrr:'dot-tmrr',hackernews:'dot-hn',reddit:'dot-reddit'}[src]||'dot-other';
+  return {producthunt:'dot-ph',trustmrr:'dot-tmrr',hackernews:'dot-hn',reddit:'dot-reddit','36kr':'dot-36kr'}[src]||'dot-other';
 }
 function escHtml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -538,7 +539,7 @@ function filterAndRender() {
   if (srcMap[activeTab]) items = items.filter(i=>i.source===srcMap[activeTab]);
   else if (activeTab === 'reddit') items = items.filter(i=>i.source==='reddit' && !INDIE_SUBS.includes(i.sourceLabel));
   else if (activeTab === 'indie')  items = items.filter(i=>INDIE_SUBS.includes(i.sourceLabel));
-  else if (activeTab === 'cn')     items = items.filter(i=>i.source==='zhihu'||i.source==='xhs');
+  else if (activeTab === 'cn')     items = items.filter(i=>i.source==='zhihu'||i.source==='xhs'||i.source==='36kr');
   if (activeTab === 'feed') items = items.filter(i=>(i.score||0)>=3);
   if (hideRead)    items = items.filter(i=>!readItems.has(i.id));
   // 快速筛选
@@ -556,7 +557,12 @@ function filterAndRender() {
       (i.problem||'').toLowerCase().includes(q) ||
       (i.solution||'').toLowerCase().includes(q) ||
       (i.chinaReason||'').toLowerCase().includes(q) ||
-      (i.category||'').toLowerCase().includes(q)
+      (i.category||'').toLowerCase().includes(q) ||
+      (i.targetUsers||'').toLowerCase().includes(q) ||
+      (i.competitors||'').toLowerCase().includes(q) ||
+      (i.chinaGap||'').toLowerCase().includes(q) ||
+      (i.mvp||'').toLowerCase().includes(q) ||
+      (i.coldStart||'').toLowerCase().includes(q)
     );
   }
   items.sort((a,b)=>{
@@ -609,7 +615,7 @@ function renderView(grouped,total,totalPages) {
     <button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage>=totalPages?'disabled':''}>下一页</button>
   </div>`;
   html+='<div class="bottom-space"></div>';
-  html+='<div class="footer">Product Hunt · TrustMRR · Reddit · r/SideProject · r/microsaas · r/indiehackers · Hacker News<br>知乎热榜 · 小红书痛点<br>每天 08:00 CST · GitHub Actions 自动抓取</div>';
+  html+='<div class="footer">Product Hunt · TrustMRR · Reddit · r/SideProject · r/microsaas · r/indiehackers · Hacker News<br>知乎热榜 · 小红书痛点 · 36氪创投<br>每天 08:00 CST · GitHub Actions 自动抓取</div>';
   app.innerHTML=html;
 }
 

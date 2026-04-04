@@ -7,6 +7,7 @@ const DATA_FILE = path.join(__dirname, '../public/data/ideas.json');
 // 导入中文数据源模块
 const { fetchZhihuData } = require('./zhihu-scraper');
 const { fetchXhsData } = require('./xhs-scraper');
+const { fetch36krData } = require('./36kr-scraper');
 
 // ─── 标题修正 ──────────────────────────────────────────────────────────────
 function fixTitle(t) {
@@ -327,6 +328,50 @@ function generateResourceNeeds(category, soloFit) {
   return needs;
 }
 
+// ─── 目标用户生成 ─────────────────────────────────────────────────────────
+function generateTargetUsers(category, soloFit, problem) {
+  const cat = (category || '').toLowerCase();
+  const prob = (problem || '').toLowerCase();
+  if (cat.includes('ai') || prob.includes('ai')) return '独立开发者、内容创作者、初创团队的产品/运营人员';
+  if (cat.includes('营销') || cat.includes('邮件') || prob.includes('营销')) return '独立站卖家、DTC 品牌主理人、freelancer 营销人';
+  if (cat.includes('电商') || prob.includes('电商') || prob.includes('库存')) return '中小电商卖家、品牌独立站运营、实体零售店主';
+  if (cat.includes('视频') || cat.includes('内容') || prob.includes('视频')) return '短视频创作者、新媒体运营、MCN 机构内容负责人';
+  if (cat.includes('教育') || prob.includes('教育') || prob.includes('培训')) return '在线教育机构运营、企业培训负责人、K12 教师';
+  if (cat.includes('医疗') || prob.includes('医疗') || prob.includes('诊所')) return '基层诊所管理员、医生助理、医疗信息化建设团队';
+  if (cat.includes('财务') || prob.includes('财务') || prob.includes('报销') || prob.includes('开票')) return '中小企业财务人员、自由职业者、个体工商户';
+  if (cat.includes('数据') || cat.includes('分析')) return '数据分析师、产品经理、需要做决策报告的中小企业主';
+  if (cat.includes('效率') || soloFit === 'yes') return '一人公司创始人、自由职业者、小微企业主';
+  return '小微企业主、独立开发者、一人创业者';
+}
+
+// ─── 竞争格局生成 ─────────────────────────────────────────────────────────
+function generateCompetitors(category, problem) {
+  const cat = (category || '').toLowerCase();
+  const prob = (problem || '').toLowerCase();
+  if (cat.includes('ai') || prob.includes('ai')) return '海外：ChatGPT/Claude 插件生态；国内：字节/百度系 AI 工具分散，垂直场景体验差';
+  if (cat.includes('营销') || prob.includes('crm') || prob.includes('客户')) return '海外：HubSpot/Mailchimp（太重）；国内：销售易/纷享销客（中大企业向），缺轻量工具';
+  if (cat.includes('电商') || prob.includes('库存') || prob.includes('电商')) return '千牛/旺铺（封闭在淘宝生态）；ERP 系统部署成本高；缺面向中小卖家的轻量解决方案';
+  if (cat.includes('视频') || cat.includes('内容')) return '剪映（通用但不专业化）、Canva（英文为主）；细分赛道几乎空白';
+  if (cat.includes('教育') || prob.includes('教育')) return '腾讯课堂/钉钉教育（通用平台）；垂直细分学科/场景的专业工具严重不足';
+  if (cat.includes('财务') || prob.includes('财务') || prob.includes('报销')) return '用友/金蝶（对中小企业太重）；Excel 手工流程；自动化程度极低';
+  if (prob.includes('excel') || prob.includes('数据管理')) return '依赖 Excel（协作差易出错）；飞书多维表格/Airtable（学习成本高）；缺简单易上手产品';
+  return '现有工具要么功能过重（企业级），要么太通用（不够垂直），一人创业者缺乏专为其设计的精准工具';
+}
+
+// ─── 中国市场缺口生成 ─────────────────────────────────────────────────────
+function generateChinaGap(category, chinaFit, problem) {
+  const cat = (category || '').toLowerCase();
+  const prob = (problem || '').toLowerCase();
+  if (chinaFit === 'low') return '国内市场竞争激烈且已有成熟竞品，需深度差异化或找细分垂直赛道切入';
+  if (cat.includes('ai') || prob.includes('ai')) return '国内企业 AI 落地需求远超工具供给，海外产品数据合规存疑，本土化 AI 工具有明显窗口期';
+  if (cat.includes('教育')) return '教育信息化政策持续投入，K12/职业教育数字工具渗透率仍低，需求确定';
+  if (cat.includes('医疗')) return '国内基层医疗信息化率不足 40%，政策强推"互联网+医疗"，市场刚性需求大';
+  if (cat.includes('电商') || prob.includes('库存')) return '中国有 3000 万中小电商卖家，多平台运营工具严重分散，整合机会巨大';
+  if (cat.includes('营销')) return '私域流量运营已成刚需，微信生态的 CRM/自动化工具严重不足，付费意愿高';
+  if (chinaFit === 'high') return '中国中小企业数字化率不足 30%，政策和市场双重驱动，同类产品本土化程度低';
+  return '中国市场有一定空间，关键在本土化：微信支付/小程序接入、符合中国用户习惯的交互设计是核心壁垒';
+}
+
 // ─── 痛点类型识别 ─────────────────────────────────────────────────────────
 function generatePainType(problem) {
   const t = (problem || '').toLowerCase();
@@ -622,15 +667,16 @@ async function fetchHackerNews() {
   
   // 抓取中文数据源
   console.log('开始抓取中文数据源...');
-  const [zhihu, xhs] = await Promise.all([
+  const [zhihu, xhs, kr36] = await Promise.all([
     fetchZhihuData().catch(e => { console.error('知乎抓取失败:', e.message); return []; }),
-    fetchXhsData().catch(e => { console.error('小红书抓取失败:', e.message); return []; })
+    fetchXhsData().catch(e => { console.error('小红书抓取失败:', e.message); return []; }),
+    fetch36krData().catch(e => { console.error('36氪抓取失败:', e.message); return []; })
   ]);
   
   // 补全知乎/小红书数据中缺失的新字段
   const GENERIC_MVP = ['核心功能最小化验证', '', undefined, null];
   const GENERIC_COLD = ['从垂直社群开始推广', '', undefined, null];
-  const zhihuXhsItems = [...zhihu, ...xhs].map(item => {
+  const zhihuXhsItems = [...zhihu, ...xhs, ...kr36].map(item => {
     if (!item.solution) {
       item.solution = generateSolution(item.problem || item.title, item.title);
     }
@@ -651,7 +697,7 @@ async function fetchHackerNews() {
   });
 
   const newItems = [...ph, ...tmrr, ...reddit, ...hn, ...zhihuXhsItems];
-  console.log(`新抓取: ${newItems.length} 条 (海外: ${ph.length + tmrr.length + reddit.length + hn.length}, 中文: ${zhihu.length + xhs.length})`);
+  console.log(`新抓取: ${newItems.length} 条 (海外: ${ph.length + tmrr.length + reddit.length + hn.length}, 中文: ${zhihu.length + xhs.length + kr36.length})`);
 
   let existing = [];
   try { existing = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8')); } catch (_) {}
@@ -681,14 +727,20 @@ async function fetchHackerNews() {
 
   // 补全所有历史条目缺失的新字段（AI 分析后兜底）
   for (const item of merged) {
-    if (!item.solution) item.solution = generateSolution(item.problem || item.title, item.title);
+    const cat = item.category || '数字工具';
+    const solo = item.soloFit || 'maybe';
+    const prob = item.problem || '';
+    if (!item.solution) item.solution = generateSolution(prob, item.title);
     if (!item.techStack || !item.devTimeline) {
-      const ts = suggestTechStack(item.category || '数字工具', item.soloFit || 'maybe');
+      const ts = suggestTechStack(cat, solo);
       if (!item.techStack) item.techStack = ts.techStack;
       if (!item.devTimeline) item.devTimeline = ts.devTimeline;
     }
-    if (!item.resourceNeeds) item.resourceNeeds = generateResourceNeeds(item.category || '数字工具', item.soloFit || 'maybe');
-    if (!item.painType) item.painType = generatePainType(item.problem || '');
+    if (!item.resourceNeeds) item.resourceNeeds = generateResourceNeeds(cat, solo);
+    if (!item.painType) item.painType = generatePainType(prob);
+    if (!item.targetUsers) item.targetUsers = generateTargetUsers(cat, solo, prob);
+    if (!item.competitors) item.competitors = generateCompetitors(cat, prob);
+    if (!item.chinaGap) item.chinaGap = generateChinaGap(cat, item.chinaFit || 'mid', prob);
   }
 
   fs.writeFileSync(DATA_FILE, JSON.stringify(merged, null, 2));

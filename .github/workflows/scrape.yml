@@ -4,8 +4,6 @@ on:
   schedule:
     - cron: '0 0 * * *'   # 每天 00:00 UTC = 北京时间 08:00
   workflow_dispatch:        # 允许手动触发
-  push:
-    branches: [main]        # 推送时也触发一次（初始化数据）
 
 jobs:
   scrape:
@@ -15,18 +13,38 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 5
+
+      - name: 检查是否有近期人工推送（30分钟内跳过）
+        id: check_recent_push
+        run: |
+          LAST_COMMIT_TIME=$(git log -1 --format="%ct")
+          NOW=$(date +%s)
+          DIFF=$((NOW - LAST_COMMIT_TIME))
+          LAST_AUTHOR=$(git log -1 --format="%an")
+          echo "距上次提交: ${DIFF}秒，作者: ${LAST_AUTHOR}"
+          if [ "$LAST_AUTHOR" != "IdeaRadar Bot" ] && [ "$DIFF" -lt 1800 ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "30分钟内有人工推送，跳过本次自动抓取"
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Setup Node.js
+        if: steps.check_recent_push.outputs.skip != 'true'
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
       - name: 运行抓取脚本
+        if: steps.check_recent_push.outputs.skip != 'true'
         env:
           QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
         run: node scripts/scrape.js
 
       - name: 提交数据更新
+        if: steps.check_recent_push.outputs.skip != 'true'
         run: |
           git config user.name "IdeaRadar Bot"
           git config user.email "bot@idea-radar.com"

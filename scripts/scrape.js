@@ -8,6 +8,7 @@ const DATA_FILE = path.join(__dirname, '../public/data/ideas.json');
 const { fetchZhihuData } = require('./zhihu-scraper');
 const { fetchXhsData } = require('./xhs-scraper');
 const { fetch36krData } = require('./36kr-scraper');
+const { fetchSspaiData } = require('./sspai-scraper');
 
 // ─── 标题修正 ──────────────────────────────────────────────────────────────
 function fixTitle(t) {
@@ -667,16 +668,17 @@ async function fetchHackerNews() {
   
   // 抓取中文数据源
   console.log('开始抓取中文数据源...');
-  const [zhihu, xhs, kr36] = await Promise.all([
+  const [zhihu, xhs, kr36, sspai] = await Promise.all([
     fetchZhihuData().catch(e => { console.error('知乎抓取失败:', e.message); return []; }),
     fetchXhsData().catch(e => { console.error('小红书抓取失败:', e.message); return []; }),
-    fetch36krData().catch(e => { console.error('36氪抓取失败:', e.message); return []; })
+    fetch36krData().catch(e => { console.error('36氪抓取失败:', e.message); return []; }),
+    fetchSspaiData().catch(e => { console.error('少数派抓取失败:', e.message); return []; })
   ]);
-  
-  // 补全知乎/小红书数据中缺失的新字段
+
+  // 补全中文数据中缺失的新字段
   const GENERIC_MVP = ['核心功能最小化验证', '', undefined, null];
   const GENERIC_COLD = ['从垂直社群开始推广', '', undefined, null];
-  const zhihuXhsItems = [...zhihu, ...xhs, ...kr36].map(item => {
+  const zhihuXhsItems = [...zhihu, ...xhs, ...kr36, ...sspai].map(item => {
     if (!item.solution) {
       item.solution = generateSolution(item.problem || item.title, item.title);
     }
@@ -697,7 +699,7 @@ async function fetchHackerNews() {
   });
 
   const newItems = [...ph, ...tmrr, ...reddit, ...hn, ...zhihuXhsItems];
-  console.log(`新抓取: ${newItems.length} 条 (海外: ${ph.length + tmrr.length + reddit.length + hn.length}, 中文: ${zhihu.length + xhs.length + kr36.length})`);
+  console.log(`新抓取: ${newItems.length} 条 (海外: ${ph.length + tmrr.length + reddit.length + hn.length}, 中文: ${zhihu.length + xhs.length + kr36.length + sspai.length})`);
 
   let existing = [];
   try { existing = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8')); } catch (_) {}

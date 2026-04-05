@@ -20,6 +20,12 @@ jobs:
       - name: 检查是否需要跳过
         id: check_recent_push
         run: |
+          # 手动触发永远不跳过
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "skip=false" >> $GITHUB_OUTPUT
+            echo "手动触发，直接执行"
+            exit 0
+          fi
           LAST_COMMIT_TIME=$(git log -1 --format="%ct")
           NOW=$(date +%s)
           DIFF=$((NOW - LAST_COMMIT_TIME))
@@ -27,7 +33,7 @@ jobs:
           echo "距上次提交: ${DIFF}秒，作者: ${LAST_AUTHOR}"
           if [ "$LAST_AUTHOR" != "IdeaRadar Bot" ] && [ "$DIFF" -lt 1800 ]; then
             echo "skip=true" >> $GITHUB_OUTPUT
-            echo "30分钟内有人工推送，跳过"
+            echo "30分钟内有人工推送，跳过定时任务"
           elif [ "$LAST_AUTHOR" = "IdeaRadar Bot" ] && [ "$DIFF" -lt 10800 ]; then
             echo "skip=true" >> $GITHUB_OUTPUT
             echo "3小时内已自动抓取过，跳过备用定时任务"

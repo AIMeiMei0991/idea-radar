@@ -254,6 +254,87 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .card-compact-signals{display:none}
 .card-compact .card-compact-signals{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
 .compact-tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:5px;line-height:1.5}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — TABLET 768px+
+   Two-column card grid; filter chips wrap; content centered
+═══════════════════════════════════════════════════════ */
+@media (min-width: 768px) {
+  /* Center topbar inner content, full-width background */
+  .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 14px 32px 10px; }
+  .search-wrap  { max-width: 1280px; margin: 0 auto; padding: 0 28px 10px; }
+  .tabs-wrap    { max-width: 1280px; margin: 0 auto; padding: 0 28px 8px; }
+  .filter-wrap  { max-width: 1280px; margin: 0 auto; padding: 6px 28px 14px; overflow-x: visible; flex-wrap: wrap; gap: 6px 5px; }
+
+  /* Show all filter chips on tablet+; remove "more" toggle */
+  .filter-chip.xf { display: flex !important; }
+  .filter-more-btn { display: none !important; }
+
+  /* Center app content */
+  #app { max-width: 1280px; margin: 0 auto; }
+
+  .section-header { padding: 18px 28px 12px; }
+  .stats          { padding: 8px 28px 4px; }
+  .pagination     { padding: 24px 28px 16px; }
+  .footer         { padding: 20px 28px 24px; }
+
+  /* 2-column card grid */
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 28px; align-items: start; }
+
+  /* Featured horizontal scroll */
+  .featured-section { padding: 12px 0 6px; }
+  .featured-label   { padding: 0 28px 10px; }
+  .featured-scroll  { padding: 0 24px 16px; }
+  .featured-card    { width: 46vw; max-width: 400px; }
+
+  /* Taller expand panel on larger viewport */
+  .card-detail.open { max-height: 1200px; }
+
+  /* Toast above bottom (no bottom nav on desktop) */
+  .toast { bottom: 28px; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — DESKTOP 1100px+
+   Three-column card grid; generous spacing; sspai rhythm
+═══════════════════════════════════════════════════════ */
+@media (min-width: 1100px) {
+  .topbar-inner { padding: 16px 40px 12px; }
+  .search-wrap  { padding: 0 36px 10px; }
+  .tabs-wrap    { padding: 0 36px 10px; }
+  .filter-wrap  { padding: 6px 36px 16px; }
+
+  .section-header { padding: 22px 36px 14px; }
+  .stats          { padding: 10px 36px 6px; }
+  .pagination     { padding: 28px 40px 20px; }
+  .footer         { padding: 24px 40px 32px; }
+
+  /* 3-column card grid */
+  .cards { grid-template-columns: 1fr 1fr 1fr; gap: 14px; padding: 0 36px; }
+
+  /* Featured: 3+ cards visible */
+  .featured-scroll { padding: 0 32px 18px; gap: 12px; }
+  .featured-label  { padding: 0 32px 10px; }
+  .featured-card   { width: 30vw; max-width: 380px; }
+  .featured-title  { font-size: 17px; }
+  .featured-story  { font-size: 13px; -webkit-line-clamp: 4; }
+
+  /* Typography lift */
+  .card-title  { font-size: 16px; }
+  .logo        { font-size: 18px; }
+  .logo-sub    { font-size: 11px; }
+  .sig-desc    { font-size: 13px; }
+  .section-text { font-size: 14px; }
+  .detail-content { font-size: 14px; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   WIDE SCREEN 1440px+ — hard cap to prevent infinite stretch
+═══════════════════════════════════════════════════════ */
+@media (min-width: 1440px) {
+  .topbar-inner, .search-wrap, .tabs-wrap, .filter-wrap { max-width: 1280px; }
+  #app { max-width: 1280px; }
+}
 </style>
 </head>
 <body>

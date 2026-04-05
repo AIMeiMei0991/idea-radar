@@ -200,11 +200,11 @@ function analyzeProduct(title, desc, mrr) {
     problem = 'AI 生成 Logo/品牌视觉，初创公司省去设计外包费用';
   else if (text.includes('template') || text.includes('design'))
     problem = '设计模板工具，非设计师也能快速产出专业级图文';
-  // —— 最终兜底：带产品名，拒绝空泛 ——
+  // —— 最终兜底：留空，前端回退到 desc（原文摘要比占位符有用）——
   else if (mrr)
-    problem = `「${t}」— 已有真实付费用户，具体场景见原链接`;
+    problem = `已有真实付费用户（${mrr}）`;
   else
-    problem = `「${t}」— 工具类产品，具体解决的问题见原链接`;
+    problem = '';
 
   // ── 2. 中国市场可复制性 ──────────────────────────────────────────────────
   const HIGH_CHINA = ['video','creator','content','social','marketing','ecommerce',
@@ -833,6 +833,12 @@ async function fetchHackerNews() {
     }
     if (!item.resourceNeeds) item.resourceNeeds = generateResourceNeeds(cat, solo);
     if (!item.painType) item.painType = generatePainType(prob);
+
+    // 清除占位符 problem 文本（回退到 desc，比占位符更有价值）
+    const VAGUE_PROBLEM = ['见原链接', '具体解决的问题', '工具类产品，'];
+    if (item.problem && VAGUE_PROBLEM.some(k => item.problem.includes(k))) {
+      item.problem = item.desc || '';
+    }
 
     // 对于未经 Qwen 分析的条目，清空历史模板垃圾数据，让前端显示"分析待生成"
     if (!item.aiAnalyzed) {

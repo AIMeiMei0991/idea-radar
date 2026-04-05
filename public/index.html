@@ -661,14 +661,24 @@ function renderView(grouped,total,totalPages) {
   app.innerHTML=html;
 }
 
+// ── problem 展示文本（过滤占位符，回退到 desc）──────────────────────────
+const VAGUE_PROBLEM_PATTERNS = ['见原链接', '具体解决的问题', '工具类产品，', '具体问题'];
+function getDisplayProblem(item) {
+  const p = item.problem || '';
+  if (p.length >= 8 && !VAGUE_PROBLEM_PATTERNS.some(k => p.includes(k))) return p;
+  // 回退到 desc（通常是原文摘要，比占位符有用）
+  const d = (item.desc || '').trim();
+  return d.length >= 10 ? d : '';
+}
+
 // ── 今日精选 Banner ──────────────────────────────────
 function generateStory(item) {
-  const who = (item.targetUsers||'').split('、')[0].split('，')[0] || '创业者';
-  const prob = item.problem || '';
+  const who = item.aiAnalyzed ? ((item.targetUsers||'').split('、')[0].split('，')[0] || '创业者') : '创业者';
+  const prob = getDisplayProblem(item);
   if (prob.length > 0) {
     return `如果你是${who}，你一定遇到过：${prob.slice(0, 50)}${prob.length > 50 ? '…' : ''}`;
   }
-  return `${who}面临的真实痛点，海外已有人用这个方案验证可行。`;
+  return `海外已有人用这个方案验证可行，中国市场仍是空白。`;
 }
 
 function renderFeatured(items) {
@@ -772,9 +782,10 @@ function renderCard(item) {
       ${item.chinaFit==='high'?`<span class="compact-tag china-high">🇨🇳 高匹配</span>`:''}
       ${item.mrr?`<span class="compact-tag" style="background:rgba(34,197,94,0.14);color:#4ade80">💰 ${escHtml(item.mrr)}</span>`:''}
     </div>`;
-  const problemLine = item.problem ? `
+  const displayProblem = getDisplayProblem(item);
+  const problemLine = displayProblem ? `
     <div class="card-problem-line">
-      <div class="problem-line-text">${escHtml(item.problem)}</div>
+      <div class="problem-line-text">${escHtml(displayProblem)}</div>
     </div>` : '';
 
   return `
@@ -802,9 +813,9 @@ function renderCard(item) {
         ${item.mrr?`<div class="mrr-badge" aria-label="已验证月收入" style="margin-bottom:8px">💰 ${escHtml(item.mrr)}</div>`:''}
         ${problemLine}
         ${compactSignals}
-        ${item.problem?`<div class="card-section section-pain">
+        ${displayProblem?`<div class="card-section section-pain">
           <span class="section-label">❌ 传统痛点</span>
-          <div class="section-text">${escHtml(item.problem)}</div>
+          <div class="section-text">${escHtml(displayProblem)}</div>
         </div>`:''}
         ${item.solution?`<div class="card-section section-solution">
           <span class="section-label">✨ 创新解法</span>

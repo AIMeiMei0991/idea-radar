@@ -487,12 +487,12 @@ async function callQwenAPI(prompt) {
   const apiKey = process.env.QWEN_API_KEY;
   const res = await fetch('https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions', {
     method: 'POST',
+    signal: AbortSignal.timeout(20000),  // 20s 超时，避免无限挂起
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
     body: JSON.stringify({
-      model: 'qwen-plus',   // 升级到 qwen-plus，比 turbo 输出质量更好
+      model: 'qwen-plus',
       max_tokens: 600,
       messages: [{ role: 'user', content: prompt }],
-      enable_thinking: false,
     }),
   });
   if (!res.ok) { console.error('[Qwen] API error:', res.status, await res.text()); return null; }

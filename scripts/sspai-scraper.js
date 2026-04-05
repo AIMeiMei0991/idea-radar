@@ -135,14 +135,9 @@ function analyzeSspaiItem(title, desc) {
     soloFit = 'yes'; soloReason = '服务开发者的工具本身就是开发者在用，PMF 验证快';
   }
 
-  return {
-    problem, chinaFit, chinaReason, soloFit, soloReason,
-    targetUsers: '效率爱好者、独立开发者、知识工作者、自由职业者',
-    competitors: '海外效率工具（Notion/Obsidian）本土化不足；国内竞品广告重体验差',
-    chinaGap: '贴合中国用户习惯（微信生态、国内 AI 模型）的效率工具严重缺位',
-    mvp: '单一场景工具，4 周内上线 App 或小程序，付费用户达 50 即验证可行',
-    coldStart: '发布在少数派/即刻/独立开发者社群，前 100 用户靠口碑传播',
-  };
+  // 注意：不在此生成 targetUsers/competitors/chinaGap/mvp/coldStart
+  // 这些字段由 Qwen 深度分析填充，规则生成的套话质量太低
+  return { problem, chinaFit, chinaReason, soloFit, soloReason };
 }
 
 function detectSspaiCategory(title, desc) {

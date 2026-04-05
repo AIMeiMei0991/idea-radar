@@ -51,14 +51,9 @@ function analyzeBiliItem(title, desc) {
     soloFit = 'maybe'; soloReason = '需接入平台直播 API，对资质有要求，核心逻辑一人可完成';
   }
 
-  return {
-    problem, chinaFit, chinaReason, soloFit, soloReason,
-    targetUsers: 'UP主、短视频创作者、MCN运营、用视频获客的品牌主理人',
-    competitors: '剪映（通用不专业）、新榜/飞瓜（贵且面向MCN）；中小创作者工具市场空白',
-    chinaGap: '国内有3000万+活跃创作者，平台工具服务头部，中腰部创作者严重缺乏专业工具',
-    mvp: '单一痛点工具（选题/字幕/数据），4周上线，前50名免费换口碑',
-    coldStart: '在B站"创作者交流"分区投稿亲测视频，即刻@独立开发者话题',
-  };
+  // 注意：不在此生成 targetUsers/competitors/chinaGap/mvp/coldStart
+  // 这些字段由 Qwen 深度分析填充，规则生成的套话质量太低
+  return { problem, chinaFit, chinaReason, soloFit, soloReason };
 }
 
 function detectBiliCategory(title, desc) {

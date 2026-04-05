@@ -267,25 +267,9 @@ function analyzeXhsContent(title, desc) {
     soloReason = '个性化饮食规划工具';
   }
   
-  // AI深度分析占位符
-  const targetUsers = '相关场景用户群体';
-  const competitors = '现有解决方案不够贴心';
-  const chinaGap = '缺乏针对性的解决方案';
-  const mvp = '核心痛点最小化解决';
-  const coldStart = '从垂直社群开始验证';
-  
-  return {
-    problem,
-    chinaFit,
-    chinaReason,
-    soloFit,
-    soloReason,
-    targetUsers,
-    competitors,
-    chinaGap,
-    mvp,
-    coldStart
-  };
+  // 注意：不在此生成 targetUsers/competitors/chinaGap/mvp/coldStart
+  // 这些字段由 Qwen 深度分析填充，规则生成的套话质量太低
+  return { problem, chinaFit, chinaReason, soloFit, soloReason };
 }
 
 // 小红书内容分类

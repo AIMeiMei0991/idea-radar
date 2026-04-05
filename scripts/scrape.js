@@ -311,7 +311,8 @@ function analyzeProduct(title, desc, mrr) {
   if (problem.includes('自由职业') || problem.includes('设计师')) { coldStart = '在 Behance/站酷/设计师群发布，针对设计师群体定向推广'; }
   if (problem.includes('电商') || problem.includes('卖家')) { coldStart = '电商运营类微信群/直播群直接推广，ROI 好的工具自发口碑传播'; }
 
-  return { problem, chinaFit, chinaReason, soloFit, soloReason, mvp, coldStart };
+  // 注意：不在此生成 mvp/coldStart — 这些由 Qwen 填充，规则生成的太模板化
+  return { problem, chinaFit, chinaReason, soloFit, soloReason };
 }
 
 // ─── 创新解法生成 ──────────────────────────────────────────────────────────
@@ -427,62 +428,108 @@ function generatePainType(problem) {
 }
 
 // ─── AI 深度拆解（通义千问 Qwen，OpenAI 兼容格式）────────────────────────
+// 禁止出现在 Qwen 输出中的模板套话（出现则重试）
+const BANNED_PHRASES = [
+  '微信支付/小程序接入',
+  '即刻独立开发者话题',
+  '垂直社群',
+  '现有工具要么功能过重',
+  '缺乏简单易用的专业工具',
+  '符合中国用户习惯的交互设计是核心壁垒',
+  '本土化轻量工具严重缺位',
+  '发布在少数派/即刻/独立开发者社群，前 100 用户靠口碑传播',
+  '写 1-2 篇垂直内容（SEO 博客/抖音），吸引精准用户自然流入',
+  '上线当天发独立开发者群/产品猎人，前 100 名免费换口碑',
+];
+
+function isValidQwenOutput(json) {
+  if (!json || !json.problem || !json.mvp || !json.coldStart) return false;
+  const text = JSON.stringify(json);
+  // 检查是否包含禁止套话
+  if (BANNED_PHRASES.some(p => text.includes(p))) return false;
+  // coldStart 不能是纯通用词
+  const coldStart = (json.coldStart || '').replace(/\s/g,'');
+  if (coldStart.length < 4) return false;
+  // mvp 不能是纯通用词
+  const mvp = (json.mvp || '').replace(/\s/g,'');
+  if (mvp.length < 8) return false;
+  return true;
+}
+
+function buildQwenPrompt(title, desc, mrr) {
+  return `你是一人创业分析师，分析以下产品在中国的复制机会。必须针对这个具体产品，禁止套话。
+
+产品名：${title}
+描述：${desc || '见产品名'}${mrr ? `\n月收入验证：${mrr}` : ''}
+
+字段要求（每条必须包含产品相关的具体词汇）：
+- problem：这个产品的用户在哪个操作卡住了，必须提到具体场景动作（≤30字）
+- solution：核心技术方案，提到具体技术或工程方式（≤30字）
+- chinaFit：high / mid / low
+- chinaReason：提到一个具体中国竞品名（如钉钉/飞书/有赞/微伙伴）或具体市场数字（≤25字）
+- soloFit：yes / maybe / hard
+- soloReason：技术栈和集成难度的具体判断（≤25字）
+- techStack：数组，如 ["Next.js","Supabase","Vercel"]
+- devTimeline：1-3月 / 3-6月 / 6-12月
+- resourceNeeds：数组，从 ["技术","设计","运营","资金","法律"] 中选
+- painType：效率 / 体验 / 成本 / 情感
+- targetUsers：描述2-3类具体用户角色（≤30字）
+- competitors：列出2-3个竞品名称，说明各自弱点（≤40字）
+- chinaGap：指出一个竞品缺失的具体功能或场景（≤30字）
+- mvp：第一个能收到钱的最小功能，必须具体到界面或流程（≤30字）
+- coldStart：第一个获客渠道的具体名称，例如"少数派Matrix专栏"或"V2EX程序员节点"或"36氪DEMO DAY"（≤20字，禁止写"垂直社群"）
+
+只返回 JSON，不要 markdown 代码块：
+{"problem":"...","solution":"...","chinaFit":"...","chinaReason":"...","soloFit":"...","soloReason":"...","techStack":[...],"devTimeline":"...","resourceNeeds":[...],"painType":"...","targetUsers":"...","competitors":"...","chinaGap":"...","mvp":"...","coldStart":"..."}`;
+}
+
+async function callQwenAPI(prompt) {
+  const apiKey = process.env.QWEN_API_KEY;
+  const res = await fetch('https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+    body: JSON.stringify({
+      model: 'qwen-plus',   // 升级到 qwen-plus，比 turbo 输出质量更好
+      max_tokens: 600,
+      messages: [{ role: 'user', content: prompt }],
+      enable_thinking: false,
+    }),
+  });
+  if (!res.ok) { console.error('[Qwen] API error:', res.status, await res.text()); return null; }
+  const data = await res.json();
+  const text = data.choices?.[0]?.message?.content || '';
+  // 兼容带 ```json ... ``` 的输出
+  const match = text.replace(/```(?:json)?/gi, '').match(/\{[\s\S]*\}/);
+  if (!match) return null;
+  return JSON.parse(match[0]);
+}
+
 async function analyzeWithClaude(title, desc, mrr) {
   const apiKey = process.env.QWEN_API_KEY;
   if (!apiKey) return null;
 
-  const prompt = `你是一人创业顾问，专门评估海外产品在中国的复制机会。分析下面这个产品，给出务实的判断。
-
-产品名：${title}
-描述：${desc || '无详细描述'}
-${mrr ? `月收入：${mrr}（说明已有真实付费用户）` : ''}
-
-要求：
-- 所有字段用中文，简洁但具体，避免套话
-- problem：描述具体用户在哪个操作步骤卡住了，不要写"缺乏高效工具"这类废话
-- chinaReason：提到一个具体的中国竞品或市场数据，说明为什么有机会
-- soloReason：说明技术栈和集成复杂度，判断一人能否在3个月内跑通核心功能
-- mvp：第一个可以收到钱的最小功能是什么
-- coldStart：第一个渠道的具体名字（比如"即刻独立开发者话题"，不要写"垂直社群"）
-
-只返回 JSON，不要其他内容：
-{
-  "problem": "具体用户在具体场景卡住的描述（30字内）",
-  "solution": "核心技术方案和差异化点（30字内）",
-  "chinaFit": "high、mid 或 low 之一",
-  "chinaReason": "提到具体竞品或数据的市场洞察（25字内）",
-  "soloFit": "yes、maybe 或 hard 之一",
-  "soloReason": "技术可行性的具体判断（25字内）",
-  "techStack": ["Next.js", "Supabase", "Vercel"],
-  "devTimeline": "1-3月 或 3-6月 或 6-12月",
-  "resourceNeeds": ["技术", "设计", "运营", "资金", "法律"],
-  "painType": "效率 或 体验 或 成本 或 情感 之一",
-  "mvp": "第一个可以收到钱的最小功能（25字内）",
-  "coldStart": "第一个具体渠道名称（20字内）"
-}`;
-
   try {
-    const res = await fetch('https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model: 'qwen-turbo',
-        max_tokens: 500,
-        messages: [{ role: 'user', content: prompt }],
-        enable_thinking: false,
-      }),
-    });
-    if (!res.ok) { console.error('[Qwen] API error:', res.status, await res.text()); return null; }
-    const data = await res.json();
-    const text = data.choices?.[0]?.message?.content || '';
-    const match = text.match(/\{[\s\S]*\}/);
-    if (!match) return null;
-    const json = JSON.parse(match[0]);
-    return json.problem ? json : null;
-  } catch (e) { console.error('[Qwen] error:', e.message); return null; }
+    const prompt = buildQwenPrompt(title, desc, mrr);
+    let json = await callQwenAPI(prompt);
+
+    // 第一次无效 → 重试一次（加更强的约束提示）
+    if (json && !isValidQwenOutput(json)) {
+      console.warn(`\n[Qwen] 输出含套话，重试: ${title.slice(0,20)}`);
+      await new Promise(r => setTimeout(r, 800));
+      const retryPrompt = prompt + '\n\n【重要提醒】上次输出含通用套话，请确保每个字段都与"' + title + '"直接相关，特别是 coldStart 必须是具体平台名。';
+      json = await callQwenAPI(retryPrompt);
+    }
+
+    if (!json || !json.problem) return null;
+    // 如果二次输出仍含套话，保留（总比没有好），但记录日志
+    if (!isValidQwenOutput(json)) {
+      console.warn(`[Qwen] 二次输出仍含套话: ${title.slice(0,20)}`);
+    }
+    return json;
+  } catch (e) {
+    console.error('[Qwen] error:', e.message);
+    return null;
+  }
 }
 
 // ─── Product Hunt RSS (Atom) ──────────────────────────────────────────────
@@ -728,9 +775,7 @@ async function fetchHackerNews() {
     fetchBilibiliData().catch(e => { console.error('B站/抖音抓取失败:', e.message); return []; }),
   ]);
 
-  // 补全中文数据中缺失的新字段
-  const GENERIC_MVP = ['核心功能最小化验证', '', undefined, null];
-  const GENERIC_COLD = ['从垂直社群开始推广', '', undefined, null];
+  // 补全中文数据中缺失的基础字段（solution/techStack/devTimeline/resourceNeeds/painType）
   const zhihuXhsItems = [...zhihu, ...xhs, ...kr36, ...sspai, ...bili].map(item => {
     if (!item.solution) {
       item.solution = generateSolution(item.problem || item.title, item.title);
@@ -742,12 +787,6 @@ async function fetchHackerNews() {
     }
     if (!item.resourceNeeds) item.resourceNeeds = generateResourceNeeds(item.category || '效率工具', item.soloFit || 'yes');
     if (!item.painType) item.painType = generatePainType(item.problem || '');
-    // 使用 analyzeProduct 生成具体的 mvp/coldStart（替换占位符）
-    if (GENERIC_MVP.includes(item.mvp) || GENERIC_COLD.includes(item.coldStart)) {
-      const analysis = analyzeProduct(item.title, item.problem || '', item.mrr);
-      if (GENERIC_MVP.includes(item.mvp)) item.mvp = analysis.mvp;
-      if (GENERIC_COLD.includes(item.coldStart)) item.coldStart = analysis.coldStart;
-    }
     return item;
   });
 
@@ -763,25 +802,25 @@ async function fetchHackerNews() {
   const newIds = new Set(newItems.map(i => i.id));
   const merged = [...newItems, ...existing.filter(i => !newIds.has(i.id))].slice(0, 1000);
 
-  // Qwen 深度分析：score>=4 且 aiAnalyzed 未打标的条目
+  // Qwen 深度分析：score>=3 且尚未分析的条目（每日最多150条）
   if (hasApiKey) {
-    // 只处理：score>=4 且尚未经过 Qwen 分析的条目
-    const needAnalysis = merged.filter(i => !i.aiAnalyzed && i.score >= 4).slice(0, 50);
-    console.log(`需 Qwen 分析: ${needAnalysis.length} 条 (score≥4 且未分析)`);
-    let done = 0;
+    const needAnalysis = merged.filter(i => !i.aiAnalyzed && (i.score || 0) >= 3).slice(0, 150);
+    console.log(`需 Qwen 分析: ${needAnalysis.length} 条 (score≥3 且未分析)`);
+    let done = 0, failed = 0;
     for (const item of needAnalysis) {
       const ai = await analyzeWithClaude(item.title, item.desc || '', item.mrr);
-      if (ai) { Object.assign(item, ai); item.aiAnalyzed = true; }
-      process.stdout.write('.');
-      done++;
-      await new Promise(r => setTimeout(r, 400));
+      if (ai) { Object.assign(item, ai); item.aiAnalyzed = true; done++; }
+      else { failed++; }
+      process.stdout.write(ai ? '.' : 'x');
+      await new Promise(r => setTimeout(r, 500));
     }
-    console.log(`\nQwen 分析完成 (${done} 条)`);
+    console.log(`\nQwen 分析完成: ${done} 成功, ${failed} 失败`);
   } else {
-    console.log('无 API Key，跳过 Claude 分析');
+    console.log('无 API Key，跳过 Qwen 分析');
   }
 
-  // 补全所有历史条目缺失的新字段（AI 分析后兜底）
+  // 补全基础字段（solution/techStack/devTimeline/resourceNeeds/painType 由规则生成，可信度较高）
+  // 注意：targetUsers/competitors/chinaGap/mvp/coldStart 不再由规则生成，留给 Qwen
   for (const item of merged) {
     const cat = item.category || '数字工具';
     const solo = item.soloFit || 'maybe';
@@ -794,9 +833,15 @@ async function fetchHackerNews() {
     }
     if (!item.resourceNeeds) item.resourceNeeds = generateResourceNeeds(cat, solo);
     if (!item.painType) item.painType = generatePainType(prob);
-    if (!item.targetUsers) item.targetUsers = generateTargetUsers(cat, solo, prob);
-    if (!item.competitors) item.competitors = generateCompetitors(cat, prob);
-    if (!item.chinaGap) item.chinaGap = generateChinaGap(cat, item.chinaFit || 'mid', prob);
+
+    // 对于未经 Qwen 分析的条目，清空历史模板垃圾数据，让前端显示"分析待生成"
+    if (!item.aiAnalyzed) {
+      item.targetUsers = '';
+      item.competitors = '';
+      item.chinaGap    = '';
+      item.mvp         = '';
+      item.coldStart   = '';
+    }
   }
 
   fs.writeFileSync(DATA_FILE, JSON.stringify(merged, null, 2));

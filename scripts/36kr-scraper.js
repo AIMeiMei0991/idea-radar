@@ -118,14 +118,9 @@ function analyze36krItem(title, desc) {
     soloFit = 'maybe'; soloReason = '需对接税务接口，技术门槛中等';
   }
 
-  return {
-    problem, chinaFit, chinaReason, soloFit, soloReason,
-    targetUsers: '中小企业主、传统行业创业者、数字化转型负责人',
-    competitors: '企业级 ERP（太重）；Excel+微信（效率低）；国内现有 SaaS 功能不够垂直',
-    chinaGap: '国内中小企业数字化率不足 30%，本土化轻量工具严重缺位',
-    mvp: '聚焦最高频 1 个场景，微信小程序 + 云端存储，4 周内上线验证',
-    coldStart: '在行业协会/企业微信群冷启动，前 50 家免费换口碑和反馈',
-  };
+  // 注意：不在此生成 targetUsers/competitors/chinaGap/mvp/coldStart
+  // 这些字段由 Qwen 深度分析填充，规则生成的套话质量太低
+  return { problem, chinaFit, chinaReason, soloFit, soloReason };
 }
 
 function detect36krCategory(title) {

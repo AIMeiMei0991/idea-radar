@@ -813,11 +813,11 @@ function renderCard(item) {
         <div class="section-eval" aria-label="一人公司可行性评估">
           <div class="eval-row">
             <span class="eval-tag ${chinaClass}">${chinaLabel}</span>
-            <span class="eval-desc">${escHtml(chinaReason)}</span>
+            ${item.aiAnalyzed ? `<span class="eval-desc">${escHtml(chinaReason)}</span>` : ''}
           </div>
           <div class="eval-row">
             <span class="eval-tag ${soloClass}">${soloLabel}</span>
-            <span class="eval-desc">${escHtml(soloReason)}</span>
+            ${item.aiAnalyzed ? `<span class="eval-desc">${escHtml(soloReason)}</span>` : ''}
           </div>
           ${evalTechHtml}
         </div>
@@ -846,8 +846,12 @@ function detailRow(label, content) {
 function renderDetail(item) {
   const url = escHtml(safeUrl(item.url));
   const src = escHtml(item.sourceLabel || '原文');
-  if (!item.mvp && !item.coldStart && !item.targetUsers && !item.competitors) {
-    return `<div class="detail-placeholder">行动计划将在下次数据更新后生成</div>
+  if (!item.aiAnalyzed) {
+    return `<div class="detail-placeholder">
+        <div style="font-size:20px;margin-bottom:6px">🔍</div>
+        <div style="font-weight:600;margin-bottom:4px">深度分析待生成</div>
+        <div style="font-size:12px;color:#9ca3af">每日自动更新，score≥3 的条目优先分析</div>
+      </div>
       <a href="${url}" target="_blank" rel="noopener" class="detail-link">查看 ${src} 原文 →</a>`;
   }
   const resHtml = item.resourceNeeds && item.resourceNeeds.length

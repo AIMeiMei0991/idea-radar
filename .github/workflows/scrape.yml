@@ -31,12 +31,11 @@ jobs:
           DIFF=$((NOW - LAST_COMMIT_TIME))
           LAST_AUTHOR=$(git log -1 --format="%an")
           echo "距上次提交: ${DIFF}秒，作者: ${LAST_AUTHOR}"
-          if [ "$LAST_AUTHOR" != "IdeaRadar Bot" ] && [ "$DIFF" -lt 1800 ]; then
+          # 只跳过"Bot 3小时内已跑过"的情况（防备用cron重复执行）
+          # 不再因人工推送而跳过——cron可能有延迟，人工代码推送不应阻挡数据抓取
+          if [ "$LAST_AUTHOR" = "IdeaRadar Bot" ] && [ "$DIFF" -lt 10800 ]; then
             echo "skip=true" >> $GITHUB_OUTPUT
-            echo "30分钟内有人工推送，跳过定时任务"
-          elif [ "$LAST_AUTHOR" = "IdeaRadar Bot" ] && [ "$DIFF" -lt 10800 ]; then
-            echo "skip=true" >> $GITHUB_OUTPUT
-            echo "3小时内已自动抓取过，跳过备用定时任务"
+            echo "3小时内已自动抓取过，跳过"
           else
             echo "skip=false" >> $GITHUB_OUTPUT
           fi

@@ -66,16 +66,10 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .card-top{display:flex;align-items:center;justify-content:space-between;padding:14px 14px 10px}
 .source-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.dot-ph{background:#ff6154}
-.dot-tmrr{background:#22c55e}
-.dot-hn{background:#ff6600}
-.dot-reddit{background:#ff4500}
-.dot-indie{background:#8b5cf6}   /* 创客社区用紫色区分 */
-.dot-36kr{background:#00aaff}
-.dot-sspai{background:#d0455e}
-.dot-bilibili{background:#fb7299}
-.dot-douyin{background:#161823}
-.dot-other{background:#818cf8}
+.dot-ph,.dot-tmrr,.dot-hn,.dot-reddit{background:#ff6b35}   /* 海外 */
+.dot-36kr,.dot-sspai,.dot-bilibili,.dot-douyin{background:#22c55e}  /* 中文 */
+.dot-indie{background:#818cf8}   /* 创客社区 */
+.dot-other{background:#666}
 .src-name{font-size:11px;color:#666}
 .ext-score{font-size:10px;color:#555;margin-left:1px}
 /* #666 on #141420 对比度约 4.6:1，满足 WCAG AA */
@@ -221,6 +215,19 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 /* 资源需求 pill（详情内） */
 .res-pill{font-size:11px;background:rgba(255,255,255,0.06);color:#9999bb;padding:2px 8px;border-radius:5px;display:inline-block;margin:2px 3px 2px 0}
 
+/* ── chip 折叠 ── */
+.filter-chip.xf{display:none}
+.filter-wrap.expanded .filter-chip.xf{display:flex}
+.filter-more-btn{flex-shrink:0;font-size:11px;font-weight:600;padding:5px 11px;min-height:30px;border-radius:20px;cursor:pointer;border:1px solid rgba(255,255,255,0.09);background:none;color:#555;white-space:nowrap;transition:all 0.15s}
+.filter-more-btn:hover{color:#888;border-color:rgba(255,255,255,0.18)}
+.filter-more-btn.expanded{color:#6366f1;border-color:rgba(99,102,241,0.3);background:rgba(99,102,241,0.08)}
+
+/* ── 心形收藏按钮（卡片顶角） ── */
+.card-heart{position:absolute;top:10px;right:10px;background:none;border:none;font-size:16px;cursor:pointer;color:#3a3a50;padding:4px;line-height:1;z-index:5;transition:color 0.15s,transform 0.15s}
+.card-heart:hover{color:#f87171;transform:scale(1.15)}
+.card-heart.hearted{color:#f43f5e}
+.card-top{position:relative}
+
 /* ── 今日精选 Banner ── */
 .featured-section{padding:12px 0 4px}
 .featured-label{font-size:11px;font-weight:700;color:#ff6b35;letter-spacing:1px;padding:0 16px 8px;text-transform:uppercase}
@@ -280,7 +287,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="hn"   onclick="setTab(this,'hn')">HN</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="cn"   onclick="setTab(this,'cn')">🇨🇳 中文</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="bookmarks" onclick="setTab(this,'bookmarks')">
-      ★ 收藏<span class="badge" id="bkBadge" style="display:none">0</span>
+      ♥ 收藏<span class="badge" id="bkBadge" style="display:none">0</span>
     </button>
   </div>
   <!-- 快速筛选条：帮用户一步锁定最感兴趣的方向，无需肉眼扫全部 -->
@@ -289,28 +296,29 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
       aria-pressed="false" aria-label="只看中国市场高匹配的创意">🇨🇳 中国可做</button>
     <button class="filter-chip fc-solo" id="fcSolo" onclick="toggleFilter('solo_yes')"
       aria-pressed="false" aria-label="只看一人可行的创意">👤 一人可行</button>
-    <button class="filter-chip fc-solo-maybe" id="fcSoloMaybe" onclick="toggleFilter('solo_maybe')"
-      aria-pressed="false" aria-label="只看可能可行的创意">👤 可能可行</button>
-    <button class="filter-chip fc-solo-hard" id="fcSoloHard" onclick="toggleFilter('solo_hard')"
-      aria-pressed="false" aria-label="只看需要团队的创意">👤 需团队</button>
     <button class="filter-chip fc-mrr" id="fcMrr" onclick="toggleFilter('mrr')"
       aria-pressed="false" aria-label="只看有真实验证收入的产品">💰 有真实收入</button>
     <button class="filter-chip fc-score4" id="fcScore4" onclick="toggleFilter('score4')"
       aria-pressed="false" aria-label="只看评分4分以上的高价值创意">🔥 高价值 4+</button>
-    <button class="filter-chip fc-score3" id="fcScore3" onclick="toggleFilter('score3')"
-      aria-pressed="false" aria-label="只看评分3分以上的潜力创意">⭐ 潜力 3+</button>
     <button class="filter-chip fc-dev-short" id="fcDevShort" onclick="toggleFilter('dev_short')"
       aria-pressed="false" aria-label="只看1-3月可完成的项目">⏱ 1-3月</button>
-    <button class="filter-chip fc-dev-mid" id="fcDevMid" onclick="toggleFilter('dev_mid')"
+    <button class="filter-chip xf fc-solo-maybe" id="fcSoloMaybe" onclick="toggleFilter('solo_maybe')"
+      aria-pressed="false" aria-label="只看可能可行的创意">👤 可能可行</button>
+    <button class="filter-chip xf fc-solo-hard" id="fcSoloHard" onclick="toggleFilter('solo_hard')"
+      aria-pressed="false" aria-label="只看需要团队的创意">👤 需团队</button>
+    <button class="filter-chip xf fc-score3" id="fcScore3" onclick="toggleFilter('score3')"
+      aria-pressed="false" aria-label="只看评分3分以上的潜力创意">⭐ 潜力 3+</button>
+    <button class="filter-chip xf fc-dev-mid" id="fcDevMid" onclick="toggleFilter('dev_mid')"
       aria-pressed="false" aria-label="只看3-6月可完成的项目">⏱ 3-6月</button>
-    <button class="filter-chip fc-dev-long" id="fcDevLong" onclick="toggleFilter('dev_long')"
+    <button class="filter-chip xf fc-dev-long" id="fcDevLong" onclick="toggleFilter('dev_long')"
       aria-pressed="false" aria-label="只看6-12月可完成的项目">⏱ 6-12月</button>
-    <button class="filter-chip fc-pt-effect" id="fcPtEffect" onclick="toggleFilter('pt_effect')"
+    <button class="filter-chip xf fc-pt-effect" id="fcPtEffect" onclick="toggleFilter('pt_effect')"
       aria-pressed="false" aria-label="只看效率类痛点">⚡ 效率痛点</button>
-    <button class="filter-chip fc-pt-cost" id="fcPtCost" onclick="toggleFilter('pt_cost')"
+    <button class="filter-chip xf fc-pt-cost" id="fcPtCost" onclick="toggleFilter('pt_cost')"
       aria-pressed="false" aria-label="只看成本类痛点">💸 降本痛点</button>
-    <button class="filter-chip fc-pt-exp" id="fcPtExp" onclick="toggleFilter('pt_exp')"
+    <button class="filter-chip xf fc-pt-exp" id="fcPtExp" onclick="toggleFilter('pt_exp')"
       aria-pressed="false" aria-label="只看体验类痛点">✨ 体验痛点</button>
+    <button class="filter-more-btn" id="filterMoreBtn" onclick="toggleFilterExpand()" aria-label="展开更多筛选">更多 ↓</button>
   </div>
 </div>
 
@@ -377,12 +385,12 @@ function toggleBookmark(id, e) {
   const add = !bookmarks.has(id);
   add ? bookmarks.add(id) : bookmarks.delete(id);
   saveBk(); updateBadge();
-  showToast(add ? '已收藏 ★' : '已取消收藏', add ? 'ok' : '');
+  showToast(add ? '已收藏 ♥' : '已取消收藏', add ? 'ok' : '');
   const btn = document.querySelector(`[data-bk="${CSS.escape(id)}"]`);
   if (btn) {
     const now = bookmarks.has(id);
-    btn.textContent = now ? '★ 已收藏' : '☆ 收藏';
-    btn.classList.toggle('starred', now);
+    btn.textContent = now ? '♥' : '♡';
+    btn.classList.toggle('hearted', now);
     btn.setAttribute('aria-label', now ? '取消收藏' : '收藏这条创意');
   }
   if (activeTab === 'bookmarks') filterAndRender();
@@ -782,7 +790,12 @@ function renderCard(item) {
           ${item.category?`<span class="cat-tag">${escHtml(item.category)}</span>`:''}
           ${ptBadge}
         </div>
-        <div class="score-bar" aria-label="潜力评分 ${sc} 分（满分5分）">${scoreDots(sc)}</div>
+        <div style="display:flex;align-items:center;gap:2px">
+          <div class="score-bar" aria-label="潜力评分 ${sc} 分（满分5分）">${scoreDots(sc)}</div>
+          <button class="card-heart${isBk?' hearted':''}" data-bk="${eid}"
+            aria-label="${isBk?'取消收藏':'收藏这条创意'}"
+            onclick="toggleBookmark('${eid}',event)">${isBk?'♥':'♡'}</button>
+        </div>
       </div>
       <div class="card-body">
         <div class="card-title" style="margin-bottom:6px">${titleEsc}</div>
@@ -815,10 +828,7 @@ function renderCard(item) {
       <div class="detail-inner">${renderDetail(item)}</div>
     </div>
     <div class="card-actions">
-      <button class="action-btn action-bk${isBk?' starred':''}" data-bk="${eid}"
-        aria-label="${isBk?'取消收藏':'收藏这条创意'}"
-        onclick="toggleBookmark('${eid}',event)">${isBk?'★ 已收藏':'☆ 收藏'}</button>
-      <button class="action-btn sep"
+      <button class="action-btn"
         aria-label="分享这条创意"
         onclick="shareIdea('${eid}',event)">↗ 分享</button>
       <button class="action-btn sep"
@@ -856,13 +866,14 @@ function shareIdea(id, e) {
   const item = allData.find(i=>i.id===id);
   if (!item) return;
   const t = fixTitle(item.title||'');
-  const text = `${t}\n\n❌ 痛点：${item.problem||''}\n\n✨ 解法：${item.solution||''}\n\n— 来自创意雷达`;
+  const base = location.origin + location.pathname;
+  const shareUrl = `${base}#${id}`;
   if (navigator.share) {
-    navigator.share({title: t, text, url: window.location.href}).catch(()=>{});
+    navigator.share({title: t, text: `${t} — 来自创意雷达`, url: shareUrl}).catch(()=>{});
   } else {
-    navigator.clipboard.writeText(text)
-      .then(()=>showToast('已复制到剪贴板 ✓', 'ok'))
-      .catch(()=>showToast('复制失败，请手动选择'));
+    navigator.clipboard.writeText(shareUrl)
+      .then(()=>showToast('链接已复制 ✓', 'ok'))
+      .catch(()=>showToast('复制失败'));
   }
 }
 
@@ -890,8 +901,8 @@ function toggleExpand(id) {
 function renderBookmarks() {
   const app=document.getElementById('app');
   if (!bookmarks.size) {
-    app.innerHTML=`<div class="bk-empty"><div style="font-size:40px;margin-bottom:8px">☆</div>
-      <p>还没有收藏</p><p class="bk-empty-sub">在任意卡片底部点「☆ 收藏」<br>回来随时查看感兴趣的创意</p></div>`;
+    app.innerHTML=`<div class="bk-empty"><div style="font-size:40px;margin-bottom:8px">♡</div>
+      <p>还没有收藏</p><p class="bk-empty-sub">点卡片右上角的 ♡ 收藏感兴趣的创意<br>回来随时查看</p></div>`;
     return;
   }
   const items=allData.filter(i=>bookmarks.has(i.id)).sort((a,b)=>(b.score||0)-(a.score||0));
@@ -953,8 +964,39 @@ document.getElementById('searchInput').addEventListener('input',function(){
   searchTimer=setTimeout(()=>{searchQ=v;currentPage=1;filterAndRender();},300);
 });
 
+// ── chip 折叠 ────────────────────────────────────────
+function toggleFilterExpand() {
+  const wrap = document.getElementById('filterWrap');
+  const btn  = document.getElementById('filterMoreBtn');
+  const expanded = wrap.classList.toggle('expanded');
+  btn.textContent = expanded ? '收起 ↑' : '更多 ↓';
+  btn.classList.toggle('expanded', expanded);
+}
+
+function ensureFilterExpanded() {
+  // 若有隐藏 chip 处于 active 状态，自动展开
+  const wrap = document.getElementById('filterWrap');
+  if (wrap.classList.contains('expanded')) return;
+  const hasActiveHidden = !!wrap.querySelector('.filter-chip.xf.active');
+  if (hasActiveHidden) toggleFilterExpand();
+}
+
+// ── 锚点跳转（分享链接） ────────────────────────────────
+function handleHashNav() {
+  const hash = location.hash.slice(1);
+  if (!hash) return;
+  // 确保在 feed 标签下（包含所有数据）
+  if (activeTab !== 'feed' && activeTab !== 'all') {
+    setTab(document.querySelector('[data-tab="feed"]'), 'feed');
+  }
+  setTimeout(() => scrollToCard(hash), 400);
+}
+
 // ── 启动 ─────────────────────────────────────────────
-loadLocal(); updateBadge(); loadData();
+loadLocal();
+ensureFilterExpanded();
+updateBadge();
+loadData().then(() => handleHashNav());
 </script>
 </body>
 </html>

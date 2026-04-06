@@ -1516,8 +1516,9 @@ window.addEventListener('popstate', () => {
 
 // ESC key closes overlay
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && document.getElementById('detailOverlay').classList.contains('open')) {
-    closeDetailOverlay();
+  if (e.key === 'Escape') {
+    if (document.getElementById('detailOverlay').classList.contains('open')) { closeDetailOverlay(); }
+    else if (document.getElementById('searchWrap').classList.contains('search-open')) { toggleSearch(); }
   }
 });
 </script>

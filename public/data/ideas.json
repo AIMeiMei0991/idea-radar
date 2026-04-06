@@ -35,7 +35,8 @@
     "chinaGap": "无实时镜头内食物分割+动态分量校准功能",
     "mvp": "微信小程序「拍照→自动框选主食/蛋白/蔬菜→显示克重+碳水/蛋白/脂肪克数」界面",
     "coldStart": "丁香医生公众号推文",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Ember"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -70,7 +71,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "CatBar"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -105,7 +107,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "Shotwell"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -141,7 +144,8 @@
     "chinaGap": "竞品均不支持将浏览器内UI微调自动转为Git可提交的组件代码变更",
     "mvp": "Chrome插件右键菜单「Sync to Code」按钮，点击后生成diff patch并复制到剪贴板",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Handle Extension"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -178,7 +182,8 @@
     "chinaGap": "无法自动识别企业微信+本地OA混合审批链",
     "mvp": "上传3个飞书会话JSON后生成可点击的流程节点图",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Panorama"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -215,7 +220,8 @@
     "chinaGap": "缺乏对新疆/西藏政务文档的OCR+LLM端到端离线处理流程",
     "mvp": "微信小程序内上传PDF，3秒返回带批注的维汉双语摘要页",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Tiny Aya"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -254,7 +260,8 @@
     "chinaGap": "无产品支持‘用1条爆款笔记反向匹配相似粉丝画像的素人’",
     "mvp": "小红书笔记URL粘贴框→生成3个可联系素人卡片（含微信ID+历史互动率）",
     "coldStart": "新榜创作者大会展位",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Influcio"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -291,7 +298,8 @@
     "chinaGap": "缺少将知乎/小红书/公众号三端同主题讨论自动归并为单张信息图的功能",
     "mvp": "上传任意网页URL后，生成含原文快照+3条高赞评论+关键词云的PDF卡片",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Surf Social Websites"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -328,7 +336,8 @@
     "chinaGap": "缺乏实时显示访客所在企业的工商注册名及行业标签",
     "mvp": "官网底部浮动栏显示“当前在线：XX科技（A轮，AI SaaS）｜停留127秒｜访问价格页”",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Sleek Analytics"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -363,7 +372,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "APImage"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -400,7 +410,8 @@
     "chinaGap": "无竞品在取景器内实时显示三分法/黄金螺旋动态引导线",
     "mvp": "iOS端相机界面右上角浮动按钮，点击后启动实时九宫格+人脸追踪线",
     "coldStart": "小红书#手机摄影技巧 话题笔记",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Klick AI Camera Assistant"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -435,7 +446,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "Faahh"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -470,7 +482,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "Vista"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -505,7 +518,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "Mercury Edit 2"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -542,7 +556,8 @@
     "chinaGap": "无支持Claude模型的Chrome侧边栏实时对话插件",
     "mvp": "Chrome右键菜单新增‘用Claude润色当前文本’按钮，点击后弹出含输入框的浮动面板",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Open Claude in Chrome"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -577,7 +592,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "OpenRouter Model Fusion"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -614,7 +630,8 @@
     "chinaGap": "缺乏支持本地Ollama+CLI热重载的轻量级AI agent调试工具",
     "mvp": "命令行输入`opengyver run --config agent.yaml`后实时输出LLM调用链与token消耗日志",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "OpenGyver"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -649,7 +666,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "Donut Browser"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -686,7 +704,8 @@
     "chinaGap": "无YouTube视频URL直连生成双语字幕功能",
     "mvp": "Chrome插件点击即为当前YouTube视频生成中英双语SRT并下载",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Fluently"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -723,7 +742,8 @@
     "chinaGap": "无竞品提供‘输入文案→AI分镜→拖拽重组镜头→自动匹配口型’闭环",
     "mvp": "上传Word文档后生成带可拖拽时间轴的三轨视频预览页（含字幕/画面/配音）",
     "coldStart": "小红书「AI工具研究所」博主联名测评",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Google Vids 2.0"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -758,7 +778,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "侧边提醒"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -793,7 +814,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "VoiceOS"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -828,7 +850,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "SlapWindows"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -865,7 +888,8 @@
     "chinaGap": "缺失对微信小程序WXML+JSX混合文件的自动化单元测试生成",
     "mvp": "GitHub App安装后，在PR页面右侧栏点击‘生成测试’按钮弹出可运行的Jest脚本预览框",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Qwen3.6-Plus"
   },
   {
     "id": "ph-aHR0cHM6Ly93d3cu",
@@ -900,7 +924,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "鸭子，鸭子，鸭子！由IDEO出品"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvaHlw",
@@ -937,7 +962,8 @@
     "chinaGap": "无竞品支持微信运动步数触发冥想提醒场景",
     "mvp": "微信小程序内嵌3分钟HRV校准流程+1段可跳过ASMR呼吸音频",
     "coldStart": "丁香医生公众号推文",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Hypna AI 思维转变"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvaW50",
@@ -974,7 +1000,8 @@
     "chinaGap": "缺失针对算法/前端/后端岗位的技能维度自动排期校验",
     "mvp": "面试日历页嵌入「一键生成三轮技术面试时间轴」按钮",
     "coldStart": "掘金开发者社区招聘技术专栏",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Intervly"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvYW5n",
@@ -1009,7 +1036,8 @@
     "chinaGap": "缺乏面向Angular企业级项目的可复用UI区块市场",
     "mvp": "Angular CLI插件命令 ng add @angular-material-blocks，生成含Table+Form+Dialog的完整路由模块",
     "coldStart": "Angular中文社区QQ群",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Angular Material 块"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvc3Rv",
@@ -1046,7 +1074,8 @@
     "chinaGap": "缺失拼多多全量SKU价格波动热力图功能",
     "mvp": "淘宝商品页右键菜单新增‘查竞品SKU’按钮，点击弹出含价格/销量/上架天数的表格",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Storelister 产品调研工具"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvb3du",
@@ -1082,7 +1111,8 @@
     "chinaGap": "微信内无法点击跳转查看电梯实时运行状态码",
     "mvp": "微信小程序首页显示「您报修的3栋2单元电梯-当前运行中」带刷新按钮",
     "coldStart": "物企联微信群",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Ownertrace"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvc2Fh",
@@ -1119,7 +1149,8 @@
     "chinaGap": "缺乏按技术栈（如Next.js/Vercel部署）筛选SaaS的维度",
     "mvp": "搜索页输入框+返回3个带官网链接/技术栈标签的SaaS卡片",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Saasniche"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvcGFu",
@@ -1157,7 +1188,8 @@
     "chinaGap": "缺少从任意企业微信/钉钉API端点一键生成交互式面板的功能",
     "mvp": "在Web界面输入API URL和Bearer Token后，点击‘生成面板’按钮，输出含3个可刷新卡片的响应数据仪表盘",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Panelgen"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvc2hv",
@@ -1194,7 +1226,8 @@
     "chinaGap": "无产品支持Instagram帖子→小红书/视频号双平台带品牌水印的摘要分发",
     "mvp": "Instagram登录页+单个帖子URL粘贴框+生成带水印的15秒摘要视频下载按钮",
     "coldStart": "出海独立站微信公众号",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Shortgram"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAveC1s",
@@ -1232,7 +1265,8 @@
     "chinaGap": "无支持‘预约X小时后自动触发揽收’的C端轻量级界面",
     "mvp": "微信小程序中‘设置延迟发货’按钮+倒计时确认弹窗+短信通知模板",
     "coldStart": "小红书#电商创业话题笔记",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "X 晚些"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvZ3Vl",
@@ -1270,7 +1304,8 @@
     "chinaGap": "无微信扫码即录身份证的轻量访客登记流程",
     "mvp": "微信小程序扫码身份证→自动填充姓名/身份证号/手机号→前台点击确认即存入酒店PMS",
     "coldStart": "酒店头条公众号",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Guestreel"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvc2Nl",
@@ -1308,7 +1343,8 @@
     "chinaGap": "微信公众号内嵌H5页面的滚动位置记忆",
     "mvp": "Chrome插件安装后，在知乎单篇文章页右下角弹出‘回到上次阅读处’浮动按钮",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Sceneroll"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvYWkt",
@@ -1346,7 +1382,8 @@
     "chinaGap": "缺乏针对知网查重系统识别特征的对抗性改写模式",
     "mvp": "网页单页：粘贴框+‘转真人语气’按钮+实时输出框（带字数统计）",
     "coldStart": "小红书#考研干货话题笔记",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "AI 文本人性化工具"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvY2hh",
@@ -1384,7 +1421,8 @@
     "chinaGap": "微信小程序内无法上传本地PDF并实时问答",
     "mvp": "微信小程序‘文件对话’按钮，点击后调起本地PDF选择→自动解析→首屏显示‘请问我能帮你解答哪部分？’输入框",
     "coldStart": "微信开放社区官方开发者论坛",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Chatwith"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvYnJh",
@@ -1422,7 +1460,8 @@
     "chinaGap": "抖音内无法直接截取任意0.5秒起始点的原声片段并带作者ID水印",
     "mvp": "抖音网页版右键菜单新增‘Extract Brainrot Audio’按钮，点击后弹出时间轴滑块+导出MP4",
     "coldStart": "抖音创作者服务中心官方群",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Brainrot Mov"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvbm9j",
@@ -1460,7 +1499,8 @@
     "chinaGap": "钉钉宜搭工作流表单中缺少可绑定异步校验的输入组件",
     "mvp": "在钉钉宜搭应用市场上线「手机号实时运营商校验输入框」组件，含独立配置面板",
     "coldStart": "掘金低代码专题投稿",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Nocodable 组件"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvZ2xv",
@@ -1498,7 +1538,8 @@
     "chinaGap": "无基于百度搜索行为日志的实时长尾词语义聚类功能",
     "mvp": "上传百度统计CSV后，点击‘生成长尾词’按钮，返回带搜索量/竞争度的Excel下载链接",
     "coldStart": "知乎SEO话题高赞回答评论区",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Globalseo"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvc3Vt",
@@ -1536,7 +1577,8 @@
     "chinaGap": "不支持按角色（如‘客户说’/‘我承诺’）自动分段提取行动项",
     "mvp": "微信小程序内上传10分钟音频→生成带时间戳的3点式摘要卡片",
     "coldStart": "小红书「职场效率工具」话题",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Summary AI Note Taker Sumato"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvYm9v",
@@ -1574,7 +1616,8 @@
     "chinaGap": "无跨平台实时报价对比功能（如同时显示货拉拉/快狗/满帮价格）",
     "mvp": "微信小程序首页输入起止地址后，3秒内弹出3家平台最低价+预计到达时间卡片",
     "coldStart": "小红书#租房搬家话题笔记",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Book The Move"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvc3Rh",
@@ -1612,7 +1655,8 @@
     "chinaGap": "缺失实时断点调试和变量监控界面",
     "mvp": "iOS快捷指令调试面板内嵌式变量监视器",
     "coldStart": "少数派Matrix专栏",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Stan"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvdW5u",
@@ -1650,7 +1694,8 @@
     "chinaGap": "无实时工商核名通过率预测功能",
     "mvp": "微信小程序首页输入框+‘生成3个合规名’按钮+底部显示‘已通过XX市监局核名初筛’提示",
     "coldStart": "小红书#创业起名话题",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Unnamed Company"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvdHJp",
@@ -1688,7 +1733,8 @@
     "chinaGap": "无竞品支持拍照识别手写处方自动转结构化续方单",
     "mvp": "微信小程序内上传手写处方照片→自动生成带药品/剂量/频次的续方申请单→提交至合作药房后台",
     "coldStart": "丁香园医生端App官方合作栏目",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Trimrx"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvcmV6",
@@ -1726,7 +1772,8 @@
     "chinaGap": "无竞品支持从BOSS直聘JD自动提取关键词反向优化简历",
     "mvp": "上传PDF简历后，生成可下载的HTML版ATS评分报告页",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Rezi"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAva2li",
@@ -1764,7 +1811,8 @@
     "chinaGap": "竞品均缺失‘拖拽节点→实时显示curl响应体’的调试视图",
     "mvp": "/workflow/editor 页面中，点击‘Run Node’按钮后弹出含status code和response body的浮动面板",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Kibu"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvdm9p",
@@ -1802,7 +1850,8 @@
     "chinaGap": "微信聊天窗口内语音消息点击即编辑转写文本",
     "mvp": "微信小程序中长按语音气泡弹出「转写并编辑」按钮，点击后底部浮层显示可编辑文本框",
     "coldStart": "微信公开课开发者沙龙",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Voicedrop"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvYnJh",
@@ -1840,7 +1889,8 @@
     "chinaGap": "无竞品支持‘上传品牌手册→3分钟生成全渠道营销素材包’闭环",
     "mvp": "微信小程序内上传PDF品牌指南，返回含主色/字体/口号的PNG海报3张",
     "coldStart": "新榜品牌服务商大会",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Brand On Demand Inc"
   },
   {
     "id": "reddit-1sck5sr",
@@ -1880,7 +1930,8 @@
     "chinaGap": "阿里云GraphDB未提供向量相似搜索与图路径联合查询API",
     "mvp": "PostgreSQL插件安装后，在psql中执行\\memquery '推荐同领域论文'返回带引用关系的向量结果",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "意外地，重新创造了一个价值650万美元的创意，并将其开源……"
   },
   {
     "id": "reddit-1sctrvy",
@@ -1920,7 +1971,8 @@
     "chinaGap": "无自动生成竞对PDF功能，销售需手工截图拼接PPT",
     "mvp": "在Web界面输入竞品官网URL，点击‘生成PDF’按钮后下载含价格/功能/界面截图的A4单页PDF",
     "coldStart": "知乎盐选专栏《餐饮SaaS销售黑话手册》",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "为一家餐饮SaaS创造了140万英镑的销售线索。因要求加薪而被解雇。"
   },
   {
     "id": "reddit-1scw4eq",
@@ -1960,7 +2012,8 @@
     "chinaGap": "缺乏对微信支付/支付宝退款与MRR负向冲销的实时联动标记",
     "mvp": "Dashboard页顶部红色横幅显示'本周期MRR净损：-¥247,890'并附点击溯源按钮",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "这篇帖子花了我35万美元"
   },
   {
     "id": "reddit-1scak5b",
@@ -2000,7 +2053,8 @@
     "chinaGap": "无支持微信支付截图自动识别的记账App",
     "mvp": "微信账单截图上传页+OCR解析结果确认弹窗",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我推出了第一个SaaS，两周内零用户——这就是我接下来要尝试的"
   },
   {
     "id": "reddit-1scfeil",
@@ -2040,7 +2094,8 @@
     "chinaGap": "无竞品支持飞书多维表格→可发布Web App一键生成",
     "mvp": "飞书多维表格选中数据表→点击‘生成API’按钮→返回带curl示例的部署成功页",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "花四个月打磨一个SaaS创意，而48小时的黑客松可能在第一天就把它淘汰了"
   },
   {
     "id": "reddit-1sc94nw",
@@ -2080,7 +2135,8 @@
     "chinaGap": "No tool auto-generates GAAP-compliant cash flow statements from WeChat Pay + Alipay + bank CSVs",
     "mvp": "Web interface upload button that parses WeBank CSV and outputs categorized expense table with PDF download",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我们昨天上线，醒来就看到了这个"
   },
   {
     "id": "reddit-1scb5eh",
@@ -2120,7 +2176,8 @@
     "chinaGap": "无针对百度搜索的404页面自动重定向建议功能",
     "mvp": "用户提交URL后，返回百度收录状态+3条可执行修复指令（如修改meta robots）",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "为什么大多数SaaS页面无法进入搜索结果"
   },
   {
     "id": "reddit-1scnhm5",
@@ -2160,7 +2217,8 @@
     "chinaGap": "无实时连接国家医保平台的处方自动生成界面",
     "mvp": "微信小程序内拍照上传问诊笔记→自动生成带医保编码的处方草稿页",
     "coldStart": "丁香园医生论坛置顶帖",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "一个人打造了价值18亿美元的公司。Medvi的故事"
   },
   {
     "id": "reddit-1scfzhj",
@@ -2200,7 +2258,8 @@
     "chinaGap": "缺少针对微信生态的「私信+小程序落地页」一体化触达流程",
     "mvp": "CLI命令行工具，输入邮箱/公司名，输出带emoji和客户名字的微信私信文案",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "对所有怀疑自己的人，我在第三周作为没有销售经验的单打独斗者，MRR达到了470万"
   },
   {
     "id": "reddit-1sctqtt",
@@ -2240,7 +2299,8 @@
     "chinaGap": "无微信小程序版，无法扫码即用打卡",
     "mvp": "安卓端首页含+按钮→输入habit名→立即生成可滑动打卡日历卡片",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我独自用Flutter开发了一个习惯追踪应用。6.5万次下载，200美元——这就是诚实的分析"
   },
   {
     "id": "reddit-1sc8qyv",
@@ -2280,7 +2340,8 @@
     "chinaGap": "缺乏抖音原生账号背书的侧项目曝光通道",
     "mvp": "用户在抖音@nxgntools评论后，系统自动回复「已收录，48h内人工审核」弹窗",
     "coldStart": "V2EX创意版",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "评论你最值得分享的副业项目，我会选一个在我的TikTok页面上展示"
   },
   {
     "id": "reddit-1scotby",
@@ -2317,7 +2378,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "我制作了一个电影准确的伍迪语音盒——使用真实的汤姆·汉克斯语音片段  | Divine Child Voice Box 是首次出现的玩具总动员产品，采用了汤姆·"
   },
   {
     "id": "reddit-1scpixh",
@@ -2357,7 +2419,8 @@
     "chinaGap": "缺失对QQ邮箱临时子邮箱（如xxx+tag@qq.com）的子地址有效性识别",
     "mvp": "控制台首页提供CSV上传→点击‘验证’按钮→下载含status列的Excel结果文件",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我构建了一个每小时可进行1400万次验证的电子邮件验证API —— 提供500个免费积分供尝试"
   },
   {
     "id": "reddit-1scn183",
@@ -2397,7 +2460,8 @@
     "chinaGap": "缺少按‘近30天中文README更新频次’动态排序功能",
     "mvp": "首页搜索框+‘中文文档质量≥80分’筛选按钮+结果列表显示文档得分浮层",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "awesome-opensource-ai"
   },
   {
     "id": "reddit-1sc60wn",
@@ -2434,7 +2498,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "关于副业项目的诚实问题"
   },
   {
     "id": "reddit-1scn1ac",
@@ -2474,7 +2539,8 @@
     "chinaGap": "缺少支持微信扫码触发AR线索的离线地图能力",
     "mvp": "微信小程序版「扫码启动→语音提示→拍照上传→自动校验→弹出下个线索」完整闭环",
     "coldStart": "小红书#亲子游戏策划 话题下发布10条真实hunt录屏",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "📱 创建了一个儿童寻宝应用，获得了240次下载和€0收入。这算一个真实的产品吗？"
   },
   {
     "id": "reddit-1scioo3",
@@ -2511,7 +2577,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "一款将你正在学习的任何技能转化为可收集卡片的应用程序——随着你的进步，这些卡片会进化"
   },
   {
     "id": "reddit-1scv0t4",
@@ -2551,7 +2618,8 @@
     "chinaGap": "竞品均未将‘中断’转化为可视觉疗愈的金线缝合动作",
     "mvp": "首页 streak 日历中点击断裂日期弹出金线动画并保存修复记录",
     "coldStart": "小红书#习惯养成 话题下发布金线修复GIF教程",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "一个受金缮工艺启发的习惯追踪器，\"失误\"会用金粉修复而不是打断你的连续性"
   },
   {
     "id": "reddit-1sc7z97",
@@ -2591,7 +2659,8 @@
     "chinaGap": "缺少对飞书多维表格+GitLab私有仓库的联合时间线生成",
     "mvp": "上传GitHub repo链接后自动生成带AI影响标注的甘特图页面",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "18个月的开发历程，AI改变了什么，没有改变什么"
   },
   {
     "id": "reddit-1sczddy",
@@ -2631,7 +2700,8 @@
     "chinaGap": "无微信内一键转发PDF功能",
     "mvp": "上传.md文件后点击「微信直发」按钮生成带水印PDF并弹出微信分享浮层",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "创建了一个免费的Markdown转PDF工具"
   },
   {
     "id": "reddit-1scz6j0",
@@ -2668,7 +2738,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "又做了一个小的免费游戏（我喜欢做这些，所以稍后会发更多）"
   },
   {
     "id": "reddit-1scbtdp",
@@ -2708,7 +2779,8 @@
     "chinaGap": "所有国产AI客户端均未提供‘点击侧边问题标题即时滚动定位到原始提问’功能",
     "mvp": "Chrome插件安装后，在通义千问网页版右侧固定显示带序号的提问列表，点击任一条目自动滚动至对应Q位置",
     "coldStart": "小红书#AI工具推荐话题",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "正在构建一个简单的工具，可以显示所有问题在侧边栏，并允许你立即跳转"
   },
   {
     "id": "reddit-1sc9nsj",
@@ -2745,7 +2817,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "最难的事情之一——告诉我你的项目"
   },
   {
     "id": "reddit-1scdgbp",
@@ -2782,7 +2855,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "在我对每个选项都感到沮丧之后，我创建了一个发票应用，它们要么丑陋，要么价格过高，要么被广告淹没"
   },
   {
     "id": "reddit-1scb15d",
@@ -2822,7 +2896,8 @@
     "chinaGap": "无支持小红书热帖评论区自动抓取+私信话术生成的工具",
     "mvp": "上传Reddit帖子URL→返回前20条含‘looking for’‘need help’的评论→导出CSV邮箱列表",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "你在做什么？在这里发布你的SaaS"
   },
   {
     "id": "reddit-1scya7w",
@@ -2862,7 +2937,8 @@
     "chinaGap": "缺乏面向海外用户的Stripe原生支付链路支持",
     "mvp": "首页‘Get Started’按钮跳转至Stripe Checkout弹窗完成$9订阅",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "终于发生了，今天有了我的第一个付费用户！"
   },
   {
     "id": "reddit-1scf8mf",
@@ -2902,7 +2978,8 @@
     "chinaGap": "无竞品提供‘融资话术/用户数造假/技术栈吹嘘’三类话术的细粒度识别标签",
     "mvp": "Chrome插件：在小红书单篇笔记页右上角显示‘可信度：62%（检测到3处典型夸大）’悬浮按钮",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "每个人都在对你撒谎"
   },
   {
     "id": "reddit-1sc5s1g",
@@ -2942,7 +3019,8 @@
     "chinaGap": "缺失对微信小程序SaaS后台的自动功能截图识别比价",
     "mvp": "生成包含5个国产SaaS的「价格/核心功能/部署方式」三栏对比PDF下载按钮",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "你现在正在开发哪些SaaS应用？"
   },
   {
     "id": "reddit-1scjs2c",
@@ -2982,7 +3060,8 @@
     "chinaGap": "无针对中国SaaS企业微信私域+知识星球组合渠道的胜率预测",
     "mvp": "Web表单输入公司行业/融资轮次/团队规模，返回TOP1渠道及3个同类成功案例链接",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "如果你只能用一种方式推广你的SaaS，你会选择什么？"
   },
   {
     "id": "reddit-1scv722",
@@ -3022,7 +3101,8 @@
     "chinaGap": "缺少按单集维度导出带转发路径的CSV（含微信/微博来源标记）",
     "mvp": "在Clickcast.cn/admin/data页面点击‘导出近7天单集明细’按钮，生成含source_channel列的CSV并邮件发送",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我收到了第二次付款，几乎比上次翻了一倍 🎉"
   },
   {
     "id": "reddit-1sc927w",
@@ -3064,7 +3144,8 @@
     "chinaGap": "无针对小红书/抖音引流用户的自动话术生成（如评论区留资后30分钟内推送定制化钩子文案）",
     "mvp": "在用户完成SEO落地页注册后，自动发送带其搜索关键词截图的微信服务号图文消息",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "66个自然注册用户在30天内，但我的邮件0%回复率。我哪里做错了？"
   },
   {
     "id": "reddit-1schyk3",
@@ -3104,7 +3185,8 @@
     "chinaGap": "无针对‘已上线但未盈利’阶段SaaS创业者的精准人脉撮合功能",
     "mvp": "微信小程序内输入“我想找做过Shopify插件且在东南亚获客的创始人”，返回3个带LinkedIn/邮箱的实名用户卡片",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "reddit正变得越来越荒谬"
   },
   {
     "id": "reddit-1sc7zl0",
@@ -3141,7 +3223,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "昨天12小时内获得了2个注册用户。这花了我 across 5个产品用了6年时间。"
   },
   {
     "id": "hn-47640728",
@@ -3177,7 +3260,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "展示HN：一款你可以构建GPU的游戏"
   },
   {
     "id": "hn-47642569",
@@ -3213,7 +3297,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "微软有多少个产品名为“Copilot”？"
   },
   {
     "id": "hn-47645025",
@@ -3249,7 +3334,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "展示HN：Contrapunk – 通过吉他输入实时生成对位和声，用Rust编写"
   },
   {
     "id": "hn-47639303",
@@ -3286,7 +3372,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "展示HN：我制作了开源的、无电源的PCB黑客比赛徽章"
   },
   {
     "id": "hn-47639779",
@@ -3322,7 +3409,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "展示HN：sllm – 与其他开发者共享GPU节点，无限令牌"
   },
   {
     "id": "hn-47639291",
@@ -3358,7 +3446,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "Indie Internet Index – 提交你最喜欢的网站"
   },
   {
     "id": "hn-47642601",
@@ -3397,7 +3486,8 @@
     "chinaGap": "缺少针对人教版高中数学‘复数几何意义’章节的嵌入式教学组件",
     "mvp": "网页右上角‘导出GIF’按钮，点击生成10秒带水印的螺旋旋转动图",
     "coldStart": "B站数学区UP主“李永乐老师”评论区置顶链接",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "展示HN：M. C. Escher螺旋，受3Blue1Brown启发的WebGL实现"
   },
   {
     "id": "hn-47639567",
@@ -3433,7 +3523,8 @@
     "competitors": "",
     "chinaGap": "",
     "mvp": "",
-    "coldStart": ""
+    "coldStart": "",
+    "titleZh": "展示HN：TurboQuant-WASM – 浏览器中的谷歌向量量化"
   },
   {
     "id": "hn-47645235",
@@ -3472,7 +3563,8 @@
     "chinaGap": "无支持‘迷幻态脑波特征（如40Hz gamma同步增强）’实时可视化与闭环训练的功能",
     "mvp": "EEG头环连接后，在App内显示实时gamma波功率热力图并触发震动提示",
     "coldStart": "丁香医生健康科普专栏",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "脑扫描揭示如何在不使用药物的情况下进入致幻般的恍惚状态"
   },
   {
     "id": "hn-47645468",
@@ -3511,7 +3603,8 @@
     "chinaGap": "无面向中文开发者定制的Lisp+AI防幻觉交互界面",
     "mvp": "CodeMirror编辑器内实时显示括号嵌套深度+红色波浪线标出非Lisp结构",
     "coldStart": "V2EX程序员节点",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "用Lisp编程是AI抗性的，我很伤心"
   },
   {
     "id": "v2ex-1203613",
@@ -5531,7 +5624,8 @@
     "targetUsers": "早期创业者、孵化器BD经理、天使投资人助理",
     "competitors": "小鹅通（无语义去重）、知识星球（无保密分级）、语雀（无项目级匿名匹配）",
     "chinaGap": "无支持‘技术方向+融资阶段’双维度保密匹配的界面",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "机密初创公司19"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvY29t",
@@ -5569,7 +5663,8 @@
     "targetUsers": "独立站运营、跨境DTC品牌主、信息流投放优化师",
     "competitors": "神策（不支持跨平台实时归因）、GrowingIO（微信归因链路断裂）、热云（无UTM动态路径还原）",
     "chinaGap": "微信朋友圈广告点击→小程序落地页→下单的全链路UTM穿透追踪",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Cometly"
   },
   {
     "id": "hn-47641788",
@@ -5608,7 +5703,8 @@
     "targetUsers": "云架构师、跨境电商运维、中东战地记者",
     "competitors": "AWS Status Page（仅官方通告，无第三方验证）、DownDetector（无地理归因与军事诱因分析）、UptimeRobot（无地缘事件关联）",
     "chinaGap": "无产品将AWS区域宕机与伊朗弹道导弹轨迹坐标实时叠加可视化",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "伊朗导弹袭击摧毁了巴林和迪拜的AWS数据中心"
   },
   {
     "id": "zhihu-hot-123456789",
@@ -6553,7 +6649,8 @@
     "targetUsers": "加拿大持工签转永居申请人、LMIA雇主担保申请人、PGWP毕业生签证续签者",
     "competitors": "Canadavisa.com（表单不自动预填）、Moving2Canada（无OCR识别）、Immigroup（仅PDF指南）",
     "chinaGap": "无竞品提供中文界面+OCR自动提取护照信息填入IRCC系统",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Freel Canada"
   },
   {
     "id": "hn-47625952",
@@ -6592,7 +6689,8 @@
     "targetUsers": "技术写作者、出海创业者、高校研究者",
     "competitors": "小众博客聚合器（更新延迟72h）、微信公众号合集（无RSS支持）、知乎专栏（非独立域名）",
     "chinaGap": "不支持自定义RSS源提交和实时预览抓取效果",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "展示HN：我为个人博客搭建了一个首页"
   },
   {
     "id": "36kr-75242243",
@@ -6666,7 +6764,8 @@
     "targetUsers": "SaaS销售顾问、私域运营专员、小程序店主",
     "competitors": "有赞（无跨域身份透传）、微伙伴（仅支持公众号菜单跳转）、飞书多维表格（微信内无法保持会话）",
     "chinaGap": "微信聊天窗口内点击链接后，无法保留用户身份并直连至CRM客户详情页",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Linkero"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvbGl2",
@@ -6702,7 +6801,8 @@
     "targetUsers": "30-45岁职场戒酒者、康复中心患者、心理咨询师",
     "competitors": "有赞（无行为干预）、微伙伴（仅群打卡）、薄荷健康（无酒精专项）",
     "chinaGap": "无竞品提供‘饮酒冲动发生前15秒’的震动预警功能",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Livesober"
   },
   {
     "id": "hn-47633131",
@@ -6739,7 +6839,8 @@
     "targetUsers": "嵌入式开发者、CTF参赛者、高校Linux课程学生",
     "competitors": "Termux（需手动编译dockerd）、UserLAnd（仅支持QEMU虚拟化）、AnLinux（强制要求root）",
     "chinaGap": "无免root运行systemd-init的Android容器环境",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "运行 Linux 容器在 Android 上，无需 root 权限"
   },
   {
     "id": "hn-47618223",
@@ -6777,7 +6878,8 @@
     "targetUsers": "SaaS客户成功经理、API平台文档工程师、内部知识管理员",
     "competitors": "飞书知识库（无语义路径导航）、语雀（不支持动态文档挂载）、有赞帮助中心（纯静态HTML）",
     "chinaGap": "缺乏按业务上下文动态挂载/卸载文档子树的能力",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我们用虚拟文件系统替换了 RAG 用于我们的 AI 文档助手"
   },
   {
     "id": "hn-47621792",
@@ -6814,7 +6916,8 @@
     "targetUsers": "前端工程师、安全运维、开源项目维护者",
     "competitors": "腾讯蓝鲸（无实时依赖扫描）、奇安信网神（仅企业级部署）、Snyk中国版（不支持中文npm镜像）",
     "chinaGap": "不支持cnpm和taobao镜像源的实时包哈希校验",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "事后分析：axios NPM 供应链入侵事件"
   },
   {
     "id": "hn-47624645",
@@ -6850,7 +6953,8 @@
     "targetUsers": "Mac开发者、AI研究者、终端重度用户",
     "competitors": "飞书AI（无终端直连）、通义灵码（需联网）、WPS AI（无本地模型支持）",
     "chinaGap": "无离线CLI模式支持本地大模型推理",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "展示 HN：Apfel – 已经在你 Mac 上的免费 AI"
   },
   {
     "id": "hn-47635033",
@@ -6889,7 +6993,8 @@
     "targetUsers": "经常飞北上广深的商务客、小红书旅行博主、信用卡积分党",
     "competitors": "飞常准（无积分比价）、航旅纵横（不支持酒店）、携程会员中心（无AI决策）",
     "chinaGap": "无实时跨航司+酒店+银行积分余量联动查询",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "展示 HN：Travel Hacking Toolkit – 使用 AI 进行积分搜索和行程规划"
   },
   {
     "id": "hn-47632503",
@@ -6927,7 +7032,8 @@
     "targetUsers": "SRE工程师、跨境电商运维、中东业务CTO",
     "competitors": "阿里云健康中心（无实时推送）、腾讯云服务状态（仅静态HTML）、UCloud监控台（不覆盖Bahrain）",
     "chinaGap": "无针对巴林/迪拜AZ的独立故障归因标签",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "伊朗袭击导致亚马逊在巴林和迪拜的可用区“严重瘫痪”"
   },
   {
     "id": "hn-47579818",
@@ -6963,7 +7069,8 @@
     "dateKey": "2026-03-30",
     "targetUsers": "",
     "competitors": "",
-    "chinaGap": ""
+    "chinaGap": "",
+    "titleZh": "我们从与 OpenCode 的 100 个 API 集成中获得了什么经验"
   },
   {
     "id": "reddit-1sbzbkw",
@@ -7003,7 +7110,8 @@
     "targetUsers": "独立开发者、AI产品经理、前端外包工程师",
     "competitors": "Cursor（无中文语境修复）、Tabnine（不支持vibe指令还原）、Bito（仅代码补全不处理崩溃）",
     "chinaGap": "缺乏针对微信小程序vibe coding的真机报错定位功能",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "一边流着泪一边分享——我修复了过去两个月大约 500 个 vibecoded 应用，这真的很糟糕"
   },
   {
     "id": "reddit-1sbrj2l",
@@ -7042,7 +7150,8 @@
     "targetUsers": "独立开发者、小红书知识博主、淘宝C店店主",
     "competitors": "天眼查（无替代推荐）、新榜（只推付费工具）、小红书搜索（结果杂乱无结构）",
     "chinaGap": "竞品未提供‘当前付费服务→免费平替’的一键比对弹窗",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "哪些习惯或性格特征实际上帮助了你在商业上的发展，而与聪明或努力工作无关"
   },
   {
     "id": "reddit-1sbjkcl",
@@ -7080,7 +7189,8 @@
     "targetUsers": "SaaS产品经理、垂直行业培训师、独立开发者",
     "competitors": "飞书多维表格（无行业共建入口）、钉钉宜搭（不支持外部开发者入驻）、微伙伴（仅分销无协同开发）",
     "chinaGap": "竞品均未提供「按行业标签自动匹配共建者」的微信原生流程",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "SAAS 解决真实问题"
   },
   {
     "id": "reddit-1sbgrvz",
@@ -7119,7 +7229,8 @@
     "targetUsers": "SaaS 创始人、早期 tech co-founder、天使轮CEO",
     "competitors": "飞书妙记（无决策建议）、钉钉闪记（无跨渠道归因）、有赞知识库（无对话说服力建模）",
     "chinaGap": "无针对创业团队内部决策阻塞点的实时说服力干预功能",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "一位业务教练对我技术联合创始人说了我几个月来一直在说的事情。他只用了两分钟。我不会推广"
   },
   {
     "id": "reddit-1sbr7sm",
@@ -7158,7 +7269,8 @@
     "targetUsers": "民办学校教务员、小型工厂班组长、乡村教学点校长",
     "competitors": "科大讯飞智慧校园（无本地定时逻辑）、海康威视iDS-AL系列（仅支持固定铃声模板）、钉钉考勤机（无铃声调度）",
     "chinaGap": "竞品均不支持按周/节日/临时调课的多层嵌套铃声规则引擎",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我在车库里建了一个 WiFi 门铃系统，因为当地学校买不起商业解决方案。现在美国各地的工厂都在使用它"
   },
   {
     "id": "reddit-1sbmmce",
@@ -7196,7 +7308,8 @@
     "targetUsers": "HR专员、外包公司招聘负责人、创业公司行政",
     "competitors": "钉钉宜搭（无PDF批量导出）、飞书多维表格（不支持自定义PDF样式）、有赞微页面（无HR表单场景）",
     "chinaGap": "钉钉宜搭表单提交后无法一键生成带公章水印的PDF入职包",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "星期五晚上开始构建——5 天后，约 73,000 用户"
   },
   {
     "id": "reddit-1sbjw9r",
@@ -7233,7 +7346,8 @@
     "dateKey": "2026-04-03",
     "targetUsers": "",
     "competitors": "",
-    "chinaGap": ""
+    "chinaGap": "",
+    "titleZh": "读到一篇关于“技术创始人”护城河消亡的帖子，让我产生了存在主义危机"
   },
   {
     "id": "reddit-1sc3or0",
@@ -7270,7 +7384,8 @@
     "dateKey": "2026-04-04",
     "targetUsers": "",
     "competitors": "",
-    "chinaGap": ""
+    "chinaGap": "",
+    "titleZh": "你现在正在构建什么？（第二季度初的检查）"
   },
   {
     "id": "reddit-1sbuyzn",
@@ -7308,7 +7423,8 @@
     "targetUsers": "家庭观影者、影评博主、影院排片助理",
     "competitors": "豆瓣（仅支持扫码不支持实时TV识别）、猫眼（需手动输入片名）、淘票票（无IMDb数据源）",
     "chinaGap": "无竞品支持‘电视正在播放画面→秒出豆瓣/IMDb双评分’场景",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "开发了一个应用，通过将摄像头对准电视显示 IMDb 评分"
   },
   {
     "id": "reddit-1sbxqh3",
@@ -7348,7 +7464,8 @@
     "targetUsers": "独立开发者、SaaS初创CTO、出海App产品经理",
     "competitors": "Sensor Tower（数据延迟72h）、AppMagic（不提供页面级水印证据）、七麦数据（仅iOS，无安卓交叉验证）",
     "chinaGap": "无支持华为应用市场实时下载量截图验证功能",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我对所有这些带有虚假使用情况和评价的落地页感到厌烦"
   },
   {
     "id": "reddit-1sbm704",
@@ -7385,7 +7502,8 @@
     "dateKey": "2026-04-03",
     "targetUsers": "",
     "competitors": "",
-    "chinaGap": ""
+    "chinaGap": "",
+    "titleZh": "说出你最喜欢的非你自己的侧边项目"
   },
   {
     "id": "reddit-1sbyoyd",
@@ -7422,7 +7540,8 @@
     "dateKey": "2026-04-04",
     "targetUsers": "",
     "competitors": "",
-    "chinaGap": ""
+    "chinaGap": "",
+    "titleZh": "本周的简要更新"
   },
   {
     "id": "reddit-1sbtnnt",
@@ -7459,7 +7578,8 @@
     "dateKey": "2026-04-03",
     "targetUsers": "",
     "competitors": "",
-    "chinaGap": ""
+    "chinaGap": "",
+    "titleZh": "你如何在不被处处屏蔽的情况下让你的项目展现在正确的人面前？"
   },
   {
     "id": "reddit-1sbn6u1",
@@ -7499,7 +7619,8 @@
     "targetUsers": "幼儿园老师、3-8岁儿童家长、手账爱好者",
     "competitors": "美图秀秀（线条模式失真严重）、PicsArt（导出带水印）、Linea Sketch（无自动照片转线稿功能）",
     "chinaGap": "竞品均不支持‘一键生成可打印A4尺寸无边距线稿PDF’",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "制作了一个将照片转换为涂色页的小应用"
   },
   {
     "id": "reddit-1sbwfq3",
@@ -7539,7 +7660,8 @@
     "targetUsers": "独立AI开发者、开源库作者、大厂AI内部创业者",
     "competitors": "Product Hunt（无中文社区+审核慢）、V2EX（纯文字无视觉化）、稀土掘金（无自动截图集成）",
     "chinaGap": "竞品均不支持‘选中代码块→自动生成带执行结果截图的分享卡片’",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "分享你正在构建的东西"
   },
   {
     "id": "reddit-1sblfy6",
@@ -7578,7 +7700,8 @@
     "aiAnalyzed": true,
     "targetUsers": "小微企业主、独立开发者、一人创业者",
     "competitors": "现有工具要么功能过重（企业级），要么太通用（不够垂直），一人创业者缺乏专为其设计的精准工具",
-    "chinaGap": "中国市场有一定空间，关键在本土化：微信支付/小程序接入、符合中国用户习惯的交互设计是核心壁垒"
+    "chinaGap": "中国市场有一定空间，关键在本土化：微信支付/小程序接入、符合中国用户习惯的交互设计是核心壁垒",
+    "titleZh": "我正在开发一个可以导出为Lottie的动画编辑器——不需要After Effects"
   },
   {
     "id": "reddit-1sbh32q",
@@ -7615,7 +7738,8 @@
     "dateKey": "2026-04-03",
     "targetUsers": "",
     "competitors": "",
-    "chinaGap": ""
+    "chinaGap": "",
+    "titleZh": "我构建了一个操作系统，系统就是变压器，可作为磁盘下载"
   },
   {
     "id": "reddit-1sbn1eb",
@@ -7655,7 +7779,8 @@
     "targetUsers": "编程初学者、职教老师、STEM课程设计师",
     "competitors": "CodePen（无逻辑拖拽）、Scratch（少儿向太幼稚）、阿里宜搭（面向企业非学习者）",
     "chinaGap": "没有支持‘UI点击→弹出逻辑积木块’的实时双向映射功能",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "开发者是优先考虑UI还是逻辑？（从初学者的角度）"
   },
   {
     "id": "reddit-1sbzl48",
@@ -7692,7 +7817,8 @@
     "dateKey": "2026-04-04",
     "targetUsers": "",
     "competitors": "",
-    "chinaGap": ""
+    "chinaGap": "",
+    "titleZh": "热寂 - 一个根据身份和氛围匹配用户的社交应用，而不是兴趣"
   },
   {
     "id": "reddit-1sc7mkb",
@@ -7729,7 +7855,8 @@
     "dateKey": "2026-04-04",
     "targetUsers": "",
     "competitors": "",
-    "chinaGap": ""
+    "chinaGap": "",
+    "titleZh": "类似Pinterest，但你可以真正找到物品"
   },
   {
     "id": "reddit-1sc41zo",
@@ -7767,7 +7894,8 @@
     "dateKey": "2026-04-04",
     "targetUsers": "",
     "competitors": "",
-    "chinaGap": ""
+    "chinaGap": "",
+    "titleZh": "我开发了一款名为SinceWhen的iOS应用。它的收入刚刚超过360美元——这里说明了什么有效"
   },
   {
     "id": "reddit-1sc2orz",
@@ -7807,7 +7935,8 @@
     "targetUsers": "产品经理写PRD、风控专员审策略、高校教师备课",
     "competitors": "Kimi（单模型）、文心一言（无角色辩论）、通义千问（不支持多模型协同）",
     "chinaGap": "无支持国产模型间实时辩论并标注分歧点的功能",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我构建了一个多LLM辩论系统。获得了8个GitHub星标。一周后微软在Copilot中发布了相同的想法"
   },
   {
     "id": "reddit-1sbppzk",
@@ -7847,7 +7976,8 @@
     "targetUsers": "自媒体编辑、跨境电商运营、小红书内容创作者",
     "competitors": "PromptPerfect（不支持中文语境）、PromptBase（纯模板库无动态优化）、WPS AI插件（无提示迭代记录）",
     "chinaGap": "缺乏针对小红书/抖音文案场景的行业化提示词迭代追踪",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "在对提示AI感到烦闷后，我做了一个小副项目"
   },
   {
     "id": "reddit-1sbjp3j",
@@ -7887,7 +8017,8 @@
     "targetUsers": "独立开发者、SaaS初创CTO、海外工具汉化者",
     "competitors": "Product Hunt（中文冷启动差）、小众软件库（无周榜机制）、V2EX创意区（无自动聚合）",
     "chinaGap": "缺少微信服务号自动推送周榜+项目二维码直达页",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "在下方留下你的SaaS，我会在YouTube上推广它"
   },
   {
     "id": "reddit-1sblv37",
@@ -7924,7 +8055,8 @@
     "dateKey": "2026-04-03",
     "targetUsers": "",
     "competitors": "",
-    "chinaGap": ""
+    "chinaGap": "",
+    "titleZh": "我们的第一个B2B合同"
   },
   {
     "id": "reddit-1sbrxab",
@@ -7964,7 +8096,8 @@
     "targetUsers": "SaaS产品经理、独立开发者、跨境电商运营负责人",
     "competitors": "小鹅通（无冷邮件验证模块）、麦客CRM（无自动化回复分析）、金数据（不支持邮件链路闭环）",
     "chinaGap": "竞品均不提供‘发信-收回复-自动打标-生成验证报告’端到端工作流",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我如何在两周内通过冷邮件验证了我的微SaaS想法，而没有写一行代码"
   },
   {
     "id": "reddit-1sbslnt",
@@ -8004,7 +8137,8 @@
     "targetUsers": "独立开发者、开源库维护者、副业程序员",
     "competitors": "V2EX分享节点（无结构化展示）、掘金沸点（无自动元数据提取）、Product Hunt中文版（未落地）",
     "chinaGap": "缺少对GitHub仓库README自动生成带截图的推广卡片功能",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "是周末了。你在交付什么？"
   },
   {
     "id": "reddit-1sblibe",
@@ -8044,7 +8178,8 @@
     "targetUsers": "独立开发者、跨境SaaS创始人、海外MVP验证者",
     "competitors": "Product Hunt（无中国团队支持）、Indie Hackers（无结构化搜索）、SaaSHub（数据更新慢）",
     "chinaGap": "缺少针对中文开发者提交的海外项目自动翻译和标签归类功能",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "你正在构建什么？让我们自我推广"
   },
   {
     "id": "reddit-1sbgs0l",
@@ -8084,7 +8219,8 @@
     "targetUsers": "SaaS产品经理、独立开发者、早期增长负责人",
     "competitors": "ProductHunt（无实时反馈）、小红书（非结构化）、飞书多维表格（需手动整理）",
     "chinaGap": "无支持微信对话自动提取‘功能吐槽’并分类归因的工具",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "在这里发布你的SaaS！用这个帖子来介绍你的工具"
   },
   {
     "id": "reddit-1sbthuo",
@@ -8121,7 +8257,8 @@
     "dateKey": "2026-04-03",
     "targetUsers": "",
     "competitors": "",
-    "chinaGap": ""
+    "chinaGap": "",
+    "titleZh": "你正在构建什么？"
   },
   {
     "id": "reddit-1sbsijg",
@@ -8158,7 +8295,8 @@
     "dateKey": "2026-04-03",
     "targetUsers": "",
     "competitors": "",
-    "chinaGap": ""
+    "chinaGap": "",
+    "titleZh": "小型国际团队的最佳费用管理设置？"
   },
   {
     "id": "reddit-1sbhe7q",
@@ -8198,7 +8336,8 @@
     "targetUsers": "独立开发者、垂直领域研究员、新媒体编辑",
     "competitors": "Feedly（不支持中文源权重）、Inoreader（无竞争性验证）、观止（仅聚合无排序）",
     "chinaGap": "缺乏针对微信公众号/小红书单篇笔记的跨平台可信度交叉验证功能",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "通过竞争进行验证"
   },
   {
     "id": "reddit-1sc2bil",
@@ -8238,7 +8377,8 @@
     "targetUsers": "独立开发者、电商运营、小红书品牌主理人",
     "competitors": "纷享销客（强CRM弱自助）、有赞（仅交易场景）、飞书多维表格（无意图理解）",
     "chinaGap": "无支持‘我需要自动同步淘宝订单到飞书表格’这类自然语言到动作映射的入口",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "为什么我们让购买软件变得如此复杂？"
   },
   {
     "id": "reddit-1sbfxo3",
@@ -8275,7 +8415,8 @@
     "dateKey": "2026-04-03",
     "targetUsers": "",
     "competitors": "",
-    "chinaGap": ""
+    "chinaGap": "",
+    "titleZh": "我不断将东西投入到虚无中"
   },
   {
     "id": "reddit-1sbsq25",
@@ -8312,7 +8453,8 @@
     "dateKey": "2026-04-03",
     "targetUsers": "",
     "competitors": "",
-    "chinaGap": ""
+    "chinaGap": "",
+    "titleZh": "Voldra.io - 一款游戏资源的搜索引擎"
   },
   {
     "id": "hn-47632750",
@@ -8348,7 +8490,8 @@
     "dateKey": "2026-04-03",
     "targetUsers": "",
     "competitors": "",
-    "chinaGap": ""
+    "chinaGap": "",
+    "titleZh": "展示HN：TinyOS – 用C语言编写的Cortex-M极简实时操作系统"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvdmVy",
@@ -8386,7 +8529,8 @@
     "targetUsers": "前端工程师、开源维护者、DevOps工程师",
     "competitors": "Dependabot（不支持Gitee）、Renovate（配置复杂）、VersionEye（已关停）",
     "chinaGap": "无Gitee仓库的语义化版本自动比对与PR建议功能",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Versionwatcher"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvc25v",
@@ -8422,7 +8566,8 @@
       "运营"
     ],
     "painType": "体验",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Snore AI"
   },
   {
     "id": "hn-47633676",
@@ -8458,7 +8603,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "体验"
+    "painType": "体验",
+    "titleZh": "为庆祝使用包发布（Pro、Max、Team），Claude增加额外使用信用额度"
   },
   {
     "id": "hn-47632504",
@@ -8496,7 +8642,8 @@
       "教育类用户测试反馈"
     ],
     "painType": "体验",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "“认知屈服”导致AI用户放弃逻辑思维，研究发现"
   },
   {
     "id": "reddit-1sb4k9b",
@@ -8536,7 +8683,8 @@
       "V2EX爬虫白名单"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我花了三个月打造了一个营收为0的SaaS，然后发现了所有经过验证的想法藏在哪里。"
   },
   {
     "id": "reddit-1sbep61",
@@ -8573,7 +8721,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "体验"
+    "painType": "体验",
+    "titleZh": "我停止以“初创公司创始人”的思维思考，开始一次构建一个小型有用的工具"
   },
   {
     "id": "reddit-1sbdpwi",
@@ -8613,7 +8762,8 @@
       "1个种子用户群（如微信）"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "独立开发者，你们如何在没有营销预算的情况下获取用户？让我们互相帮助。（我不会做推广）"
   },
   {
     "id": "reddit-1sbe68u",
@@ -8650,7 +8800,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "体验"
+    "painType": "体验",
+    "titleZh": "你在开发什么？让我们互相给予反馈！"
   },
   {
     "id": "reddit-1sbbo3r",
@@ -8687,7 +8838,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "体验"
+    "painType": "体验",
+    "titleZh": "创建了一个网站，用于搜索私人Reddit账户和删除的帖子（通过用户名）"
   },
   {
     "id": "reddit-1sbcsil",
@@ -8727,7 +8879,8 @@
       "App Store截图生成模板"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "每天40次安装到130次。每天34美元到130美元。我为我的应用做了5次ASO更改。"
   },
   {
     "id": "reddit-1sb6mm1",
@@ -8765,7 +8918,8 @@
       "运营"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我在写任何代码之前，用tally和zapier在两周内验证了我的SaaS想法"
   },
   {
     "id": "reddit-1sbcce4",
@@ -8802,7 +8956,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "体验"
+    "painType": "体验",
+    "titleZh": "现在我建造任何东西之前，我会发布这个想法并统计私信。我阻止了两个本会浪费几个月的项目"
   },
   {
     "id": "reddit-1sba1qg",
@@ -8842,7 +8997,8 @@
       "海外服务器IP"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "特朗普帖子分析器"
   },
   {
     "id": "reddit-1sb69u9",
@@ -8879,7 +9035,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "体验"
+    "painType": "体验",
+    "titleZh": "我建立了一个零知识日记，因为我不信任科技巨头保管我的私人想法。正在寻找Beta测试者！"
   },
   {
     "id": "reddit-1sbe0fc",
@@ -8919,7 +9076,8 @@
       "UI组件库（如Arco Design）"
     ],
     "painType": "成本",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我对两个小时的“快速同步”感到厌倦，所以我建立了一个会议成本跟踪器。今天，我进行了屏幕共享，1,400次总次数让会议提前结束。"
   },
   {
     "id": "reddit-1sbjw1c",
@@ -8959,7 +9117,8 @@
       "1个产品向LLM提示词工程师"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "对于那些已经启动了很多项目的人员"
   },
   {
     "id": "reddit-1sb7aiv",
@@ -8996,7 +9155,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "体验"
+    "painType": "体验",
+    "titleZh": "别无他法"
   },
   {
     "id": "reddit-1sb6nyc",
@@ -9035,7 +9195,8 @@
       "法律"
     ],
     "painType": "成本",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "This founder made $0 for 8 months then crossed $15k MRR in 90 days after changin"
   },
   {
     "id": "reddit-1sbbdp9",
@@ -9073,7 +9234,8 @@
       "运营"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "What are you building? Drop your saas here"
   },
   {
     "id": "reddit-1sb8hlw",
@@ -9113,7 +9275,8 @@
       "微信公众号认证主体"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Share your startups"
   },
   {
     "id": "reddit-1sb40a0",
@@ -9153,7 +9316,8 @@
       "Stripe支付接入支持"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "What are you building? Let’s self promote on foundrlist"
   },
   {
     "id": "reddit-1sbal0y",
@@ -9193,7 +9357,8 @@
       "3个种子用户真实SaaS链接测试"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "What are you building? Drop your SaaS 🚀"
   },
   {
     "id": "reddit-1sb6o1f",
@@ -9233,7 +9398,8 @@
       "中文反馈模板语料库"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "What are you building? Let's give each other feedback!"
   },
   {
     "id": "reddit-1sbctkf",
@@ -9273,7 +9439,8 @@
       "Stripe中国收款通道（或Paddle）"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "I tried building a full AI SaaS in a day - auth, payments, everything"
   },
   {
     "id": "reddit-1sbavqr",
@@ -9313,7 +9480,8 @@
       "VS Code Marketplace审核代理"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "One week ago, I had 0 users and asked you to roast my app. Today, I have 127 use"
   },
   {
     "id": "tmrr-L3N0YXJ0dXAvZG0t",
@@ -9351,7 +9519,8 @@
       "中文对话微调数据集"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Dm Champ"
   },
   {
     "id": "reddit-1satv9o",
@@ -9389,7 +9558,8 @@
       "运营"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "I've been fixing vibe-coded SaaS products for 6 months. Same 4 things are broken"
   },
   {
     "id": "reddit-1sb02fr",
@@ -9428,7 +9598,8 @@
       "运营"
     ],
     "painType": "体验",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Introducing Zperiod — A beautifully interactive chemistry app."
   },
   {
     "id": "reddit-1sb1er8",
@@ -9468,7 +9639,8 @@
       "GitHub API白名单"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "It's Difficult to make side projects due to massive amounts of \"AI Slop Projects"
   },
   {
     "id": "reddit-1sarcmm",
@@ -9505,7 +9677,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "效率"
+    "painType": "效率",
+    "titleZh": "that \"65 boring apps for 4.2K/mo\" post was right. i analyzed 963K apps to find t"
   },
   {
     "id": "reddit-1say9be",
@@ -9545,7 +9718,8 @@
       "省级仲裁委裁决文书爬虫权限"
     ],
     "painType": "体验",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "I worked with a labor lawyer to build a free tool that tells you which policies "
   },
   {
     "id": "reddit-1sazapz",
@@ -9585,7 +9759,8 @@
       "阿里云OSS图床"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "I didn’t like any of the multitool apps on the market, so I made my own, and I a"
   },
   {
     "id": "reddit-1sb3ggq",
@@ -9625,7 +9800,8 @@
       "Chrome扩展权限配置"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "I built a release video for my SaaS by vibe coding motion graphics and screen re"
   },
   {
     "id": "reddit-1sazamv",
@@ -9662,7 +9838,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "体验"
+    "painType": "体验",
+    "titleZh": "tip for anyone vibe coding on a token budget"
   },
   {
     "id": "reddit-1sb0ibg",
@@ -9699,7 +9876,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "体验"
+    "painType": "体验",
+    "titleZh": "I made a free app to learn geography through quizzes and games if anyone wants i"
   },
   {
     "id": "reddit-1saroc2",
@@ -9736,7 +9914,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "体验"
+    "painType": "体验",
+    "titleZh": "I built a free World Cup 2026 companion app as a solo dev — all 48 teams, 104 ma"
   },
   {
     "id": "reddit-1sar2jd",
@@ -9776,7 +9955,8 @@
       "种子用户测试群"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "How are you actually doing user research from Reddit/threads?"
   },
   {
     "id": "reddit-1saxdf1",
@@ -9816,7 +9996,8 @@
       "邮箱SMTP服务"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "放弃你的SaaS - 我会给你带来潜在客户（无需注册）"
   },
   {
     "id": "reddit-1sar19f",
@@ -9853,7 +10034,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "体验"
+    "painType": "体验",
+    "titleZh": "我的应用在上线后5天内达到了28名用户!!"
   },
   {
     "id": "reddit-1sb1qa7",
@@ -9891,7 +10073,8 @@
       "技术",
       "资金"
     ],
-    "painType": "体验"
+    "painType": "体验",
+    "titleZh": "获得了224名用户。"
   },
   {
     "id": "reddit-1saqh9y",
@@ -9929,7 +10112,8 @@
       "运营"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "上线3周后：$45 MRR，每天工作14小时，真的在想我是否扩张得太快了"
   },
   {
     "id": "reddit-1sarqxd",
@@ -9969,7 +10153,8 @@
       "基础用户登录系统"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我为美国以外的SaaS创始人打造了一个促销平台"
   },
   {
     "id": "reddit-1sb8id3",
@@ -10006,7 +10191,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "效率"
+    "painType": "效率",
+    "titleZh": "周五分享热潮 🕺 让我们分享你的项目！"
   },
   {
     "id": "hn-47618189",
@@ -10045,7 +10231,8 @@
       "App Store审核应对方案"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "Tailscale的新macOS主页"
   },
   {
     "id": "hn-47562455",
@@ -10084,7 +10271,8 @@
       "中科院遥感所合作接口"
     ],
     "painType": "efficiency",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "IO的陡坡山的真实形状"
   },
   {
     "id": "hn-47617415",
@@ -10123,7 +10311,8 @@
       "合规内容安全审核合作方"
     ],
     "painType": "情感",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "好的想法不需要大量谎言来获得公众认可（2008）"
   },
   {
     "id": "hn-47617376",
@@ -10162,7 +10351,8 @@
       "GitHub Pages免费托管"
     ],
     "painType": "体验",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "OpenAI收购TBPN"
   },
   {
     "id": "hn-47621438",
@@ -10198,7 +10388,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "体验"
+    "painType": "体验",
+    "titleZh": "展示HN：制作了一个小的阿耳忒弥斯II追踪器"
   },
   {
     "id": "hn-47603657",
@@ -10234,7 +10425,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "体验"
+    "painType": "体验",
+    "titleZh": "阿耳忒弥斯II发射日更新"
   },
   {
     "id": "hn-47560959",
@@ -10273,7 +10465,8 @@
       "GitHub Action CI配置"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "展示HN：Home Maker：在Makefile中声明你的开发工具"
   },
   {
     "id": "reddit-1sarkpr",
@@ -10310,7 +10503,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "体验"
+    "painType": "体验",
+    "titleZh": "我想做一个产品但完全没有想法。告诉我你的问题，或者让我帮你完成你现有的项目。"
   },
   {
     "id": "reddit-1satok7",
@@ -10350,7 +10544,8 @@
       "微信公众号认证"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我尝试通过Producthunt发布副项目，但没有获得任何用户。Reddit对我来说效果很好，说实话"
   },
   {
     "id": "reddit-1saru5d",
@@ -10390,7 +10585,8 @@
       "LH试纸品牌API（可选）"
     ],
     "painType": "体验",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "发布了PCOSignal - 一个针对多囊卵巢综合症女性的细分健康追踪器"
   },
   {
     "id": "reddit-1samjh4",
@@ -10427,7 +10623,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "体验"
+    "painType": "体验",
+    "titleZh": "找到了一种简单的方法来停止滚动浏览：做俯卧撑，赚回你的屏幕时间"
   },
   {
     "id": "hn-47624741",
@@ -10462,7 +10659,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "体验"
+    "painType": "体验",
+    "titleZh": "展示HN：Google、Apple、Dropbox和120个美国应用的欧洲替代品"
   },
   {
     "id": "hn-47615434",
@@ -10500,7 +10698,8 @@
       "中文开源许可证知识库"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "据称Delve分叉了一个开源工具并作为自己的出售"
   },
   {
     "id": "hn-47611921",
@@ -10538,7 +10737,8 @@
       "信通院合规白皮书"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "报告数量显著增加"
   },
   {
     "id": "reddit-1sai8o6",
@@ -10575,7 +10775,8 @@
       "运营"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我的SaaS月收入9k。如果重来一次，我会这样在2026年找到最好的SaaS创意"
   },
   {
     "id": "reddit-1saj8t4",
@@ -10614,7 +10815,8 @@
       "阿里云短信模板审核"
     ],
     "painType": "情感",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "有人加入了我的等待名单并给我发邮件问“这个什么时候上线？”，我几乎哭了..."
   },
   {
     "id": "reddit-1saj3kk",
@@ -10653,7 +10855,8 @@
       "微信公众号冷启动素材"
     ],
     "painType": "情感",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "你什么时候开始向别人展示你的副项目？"
   },
   {
     "id": "reddit-1sajlj3",
@@ -10692,7 +10895,8 @@
       "中文UI组件库"
     ],
     "painType": "体验",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我用我想存在的工具建了一个免费网站（无需登录，没有广告）"
   },
   {
     "id": "reddit-1sah35f",
@@ -10731,7 +10935,8 @@
       "1个微信公众号冷启动流量"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我花了一年时间打造了一个没人想要的产品：这就是我犯的错误"
   },
   {
     "id": "reddit-1sai4cy",
@@ -10767,7 +10972,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "效率"
+    "painType": "效率",
+    "titleZh": "我用Flutter开发了我的第一个iOS应用——一个倒计时计时器，带有小部件和分享功能"
   },
   {
     "id": "reddit-1sajfun",
@@ -10806,7 +11012,8 @@
       "微信小程序备案材料"
     ],
     "painType": "情感",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "5个项目，花费2,056欧元，1个付费客户。我没事。"
   },
   {
     "id": "reddit-1sala0x",
@@ -10843,7 +11050,8 @@
       "运营"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我是如何构建SEO博客文章的（我实际使用的清单）"
   },
   {
     "id": "reddit-1satttk",
@@ -10882,7 +11090,8 @@
       "iOS企业签名证书"
     ],
     "painType": "体验",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我推出了我的应用，最初几天很好……现在却死了？"
   },
   {
     "id": "reddit-1salqm8",
@@ -10921,7 +11130,8 @@
       "中文UI文案审核"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我做了免费的图片优化器/背景移除器/矢量转换器 - 无需注册"
   },
   {
     "id": "reddit-1sagsm4",
@@ -10957,7 +11167,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "体验"
+    "painType": "体验",
+    "titleZh": "没人信任新产品，所以你怎么解决这个问题"
   },
   {
     "id": "reddit-1sb7dvp",
@@ -10996,7 +11207,8 @@
       "腾讯云COS存储"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我做了一个AI代理，它使用维基百科+财务数据而不是随意猜测"
   },
   {
     "id": "reddit-1safy8w",
@@ -11035,7 +11247,8 @@
       "GDPR/PIPL合规咨询"
     ],
     "painType": "情感",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "我的SAAS上线35天了。零活跃用户。我已经失败了吗 “我不打算推广”"
   },
   {
     "id": "reddit-1salf1x",
@@ -11074,7 +11287,8 @@
       "Google Cloud Platform API配额"
     ],
     "painType": "情感",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "7个月的努力，我有了第一个订阅！"
   },
   {
     "id": "reddit-1sai5g6",
@@ -11110,7 +11324,8 @@
     "resourceNeeds": [
       "技术"
     ],
-    "painType": "效率"
+    "painType": "效率",
+    "titleZh": "小团队：你们的实际表单流程是什么？"
   },
   {
     "id": "reddit-1sadn5e",
@@ -11153,7 +11368,8 @@
       "阿里云GPU实例"
     ],
     "painType": "情感",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "一位客户让我签署一份关于他们如何使用我的产品的NDA。我应该担心吗？"
   },
   {
     "id": "reddit-1sadk88",
@@ -11195,7 +11411,8 @@
       "设计"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "哪个AI助手最适合独立创业者？"
   },
   {
     "id": "reddit-1sadikp",
@@ -11236,6 +11453,7 @@
       "运营"
     ],
     "painType": "效率",
-    "aiAnalyzed": true
+    "aiAnalyzed": true,
+    "titleZh": "跟踪当ChatGPT、Perplexity、Gemini提到你的品牌时。AI引用追踪功能内置在我的SEO工具中。"
   }
 ]

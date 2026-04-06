@@ -912,7 +912,11 @@ function scrollToCard(id) {
 }
 
 function renderCard(item) {
-  const title = fixTitle(item.title||'');
+  // 优先展示中文标题，原英文标题作为副标题
+  const rawTitle = fixTitle(item.title||'');
+  const titleZh = item.titleZh ? item.titleZh.trim() : '';
+  const title = titleZh || rawTitle;  // 展示标题：有中文译名则用译名
+  const showEngSub = titleZh && titleZh !== rawTitle; // 是否显示英文原标题
   const sc = item.score||2;
   const isBk = bookmarks.has(item.id);
   const isRead = readItems.has(item.id);
@@ -979,7 +983,8 @@ function renderCard(item) {
         <div class="score-bar" aria-label="潜力评分 ${sc} 分（满分5分）">${scoreDots(sc)}</div>
       </div>
       <div class="card-body">
-        <div class="card-title" style="margin-bottom:6px">${titleEsc}</div>
+        <div class="card-title" style="margin-bottom:${showEngSub?'2px':'6px'}">${titleEsc}</div>
+        ${showEngSub?`<div class="eng-title">${escHtml(rawTitle)}</div>`:''}
         ${item.mrr?`<div class="mrr-badge" aria-label="已验证月收入" style="margin-bottom:8px">💰 ${escHtml(item.mrr)}</div>`:''}
         ${problemLine}
         ${compactSignals}

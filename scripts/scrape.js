@@ -480,7 +480,7 @@ function buildQwenPrompt(title, desc, mrr) {
 - coldStart：第一个获客渠道的具体名称，例如"少数派Matrix专栏"或"V2EX程序员节点"或"36氪DEMO DAY"（≤20字，禁止写"垂直社群"）
 
 只返回 JSON，不要 markdown 代码块：
-{"problem":"...","solution":"...","chinaFit":"...","chinaReason":"...","soloFit":"...","soloReason":"...","techStack":[...],"devTimeline":"...","resourceNeeds":[...],"painType":"...","targetUsers":"...","competitors":"...","chinaGap":"...","mvp":"...","coldStart":"..."}`;
+{"titleZh":"产品/文章标题的中文翻译（如已是中文则原样）","problem":"...","solution":"...","chinaFit":"...","chinaReason":"...","soloFit":"...","soloReason":"...","techStack":[...],"devTimeline":"...","resourceNeeds":[...],"painType":"...","targetUsers":"...","competitors":"...","chinaGap":"...","mvp":"...","coldStart":"..."}`;
 }
 
 async function callQwenAPI(prompt) {

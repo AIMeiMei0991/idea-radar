@@ -21,15 +21,14 @@ const net     = require('net');
 const PORT = parseInt(process.env.PORT || '3001', 10);
 const SCRIPT = path.join(__dirname, 'manual-cdp.js');
 
-// ── CDP 连通性检测 ────────────────────────────────────────────────────────────
+// ── web-access CDP Proxy 连通性检测（localhost:3456）────────────────────────
 
-function checkCdpPort(port) {
+function checkCdpProxy() {
   return new Promise(resolve => {
-    const sock = net.createConnection({ port, host: '127.0.0.1' });
-    sock.setTimeout(1500);
-    sock.on('connect', () => { sock.destroy(); resolve(true); });
-    sock.on('error', () => resolve(false));
-    sock.on('timeout', () => { sock.destroy(); resolve(false); });
+    http.get('http://localhost:3456/targets', res => {
+      resolve(res.statusCode === 200);
+    }).on('error', () => resolve(false))
+      .setTimeout(1500, function() { this.destroy(); resolve(false); });
   });
 }
 
@@ -194,13 +193,8 @@ const HTML = `<!DOCTYPE html>
       <input id="pages" type="number" min="1" max="10" value="3">
     </div>
 
-    <div class="field">
-      <label>Chrome CDP 端口</label>
-      <input id="port" type="number" value="9222">
-    </div>
-
     <div>
-      <div class="section-title">Chrome 状态</div>
+      <div class="section-title">Proxy 状态</div>
       <div class="cdp-status" id="cdpStatus">
         <div class="cdp-dot checking" id="cdpDot"></div>
         <div id="cdpText">检测中…</div>
@@ -243,21 +237,20 @@ function selectSource(el) {
 // ── CDP 状态轮询 ──────────────────────────────────────────────────────────────
 
 async function checkCdp() {
-  const port = document.getElementById('port').value || 9222;
-  const dot  = document.getElementById('cdpDot');
-  const txt  = document.getElementById('cdpText');
-  const cmd  = document.getElementById('cdpCmd');
-  const btn  = document.getElementById('runBtn');
+  const dot = document.getElementById('cdpDot');
+  const txt = document.getElementById('cdpText');
+  const cmd = document.getElementById('cdpCmd');
+  const btn = document.getElementById('runBtn');
 
   dot.className = 'cdp-dot checking';
   txt.textContent = '检测中…';
 
   try {
-    const res = await fetch('/check-cdp?port=' + port, { signal: AbortSignal.timeout(2000) });
+    const res = await fetch('/check-cdp', { signal: AbortSignal.timeout(2000) });
     const data = await res.json();
     if (data.ok) {
       dot.className = 'cdp-dot ok';
-      txt.textContent = 'Chrome 已连接（端口 ' + port + '）';
+      txt.textContent = 'CDP Proxy 已就绪（localhost:3456）';
       cmd.textContent = '';
       btn.disabled = false;
     } else {
@@ -265,13 +258,12 @@ async function checkCdp() {
     }
   } catch {
     dot.className = 'cdp-dot err';
-    txt.textContent = 'Chrome 未启动，请先运行：';
-    cmd.innerHTML = '/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome \\\\<br>&nbsp;&nbsp;--remote-debugging-port=' + port + ' \\\\<br>&nbsp;&nbsp;--user-data-dir=/tmp/cdp-chrome';
+    txt.textContent = 'Proxy 未启动，请在终端执行：';
+    cmd.innerHTML = 'node ~/.claude/plugins/marketplaces/web-access/scripts/check-deps.mjs';
     btn.disabled = true;
   }
 }
 
-document.getElementById('port').addEventListener('change', checkCdp);
 checkCdp();
 cdpTimer = setInterval(checkCdp, 5000);
 
@@ -307,7 +299,6 @@ function startScrape() {
 
   const query  = encodeURIComponent(document.getElementById('query').value.trim() || '痛点');
   const pages  = document.getElementById('pages').value || 3;
-  const port   = document.getElementById('port').value || 9222;
   const source = selectedSource;
 
   document.getElementById('logBody').innerHTML = '';
@@ -319,7 +310,7 @@ function startScrape() {
   btn.classList.add('running');
   btn.disabled = true;
 
-  const evtUrl = '/scrape?source=' + source + '&query=' + query + '&pages=' + pages + '&port=' + port;
+  const evtUrl = '/scrape?source=' + source + '&query=' + query + '&pages=' + pages;
   es = new EventSource(evtUrl);
 
   es.addEventListener('log', e => appendLog(e.data));
@@ -355,21 +346,19 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  // GET /check-cdp?port=9222
+  // GET /check-cdp
   if (pathname === '/check-cdp') {
-    const port = parseInt(q.port || '9222', 10);
-    const ok = await checkCdpPort(port);
+    const ok = await checkCdpProxy();
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ ok }));
     return;
   }
 
-  // GET /scrape?source=xhs&query=...&pages=3&port=9222  → SSE
+  // GET /scrape?source=xhs&query=...&pages=3  → SSE
   if (pathname === '/scrape') {
     const source = q.source || 'xhs';
     const query  = decodeURIComponent(q.query || '痛点');
     const pages  = q.pages  || '3';
-    const port   = q.port   || '9222';
 
     res.writeHead(200, {
       'Content-Type':  'text/event-stream; charset=utf-8',
@@ -389,7 +378,6 @@ const server = http.createServer(async (req, res) => {
       '--source', source,
       '--query',  query,
       '--pages',  pages,
-      '--port',   port,
     ], { cwd: path.dirname(__dirname) });
 
     let buf = '';

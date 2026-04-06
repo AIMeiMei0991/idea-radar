@@ -144,10 +144,12 @@ async function extractXhsPosts(targetId) {
     var url = 'https://www.xiaohongshu.com' + href;
     posts.push({ title: title, body: '', url: url });
   }
-  return posts;
+  return JSON.stringify(posts);
 })()
 `);
-  return Array.isArray(result) ? result : [];
+  // proxy 返回 { value: "JSON字符串" }
+  const raw = result?.value ?? result;
+  try { return JSON.parse(raw); } catch { return []; }
 }
 
 // ── DOM 提取：知乎 ────────────────────────────────────────────────────────────
@@ -174,10 +176,11 @@ async function extractZhihuPosts(targetId) {
     var url = href.startsWith('http') ? href : 'https://www.zhihu.com' + href;
     posts.push({ title: title, body: excerpt, url: url });
   }
-  return posts;
+  return JSON.stringify(posts);
 })()
 `);
-  return Array.isArray(result) ? result : [];
+  const raw = result?.value ?? result;
+  try { return JSON.parse(raw); } catch { return []; }
 }
 
 // ── 检查 Proxy 是否可用 ───────────────────────────────────────────────────────
@@ -242,11 +245,11 @@ async function main() {
   console.log(`   URL: ${searchUrl}\n`);
 
   const tabInfo = await proxyGet(`/new?url=${encodeURIComponent(searchUrl)}`);
-  if (!tabInfo || !tabInfo.id) {
+  const targetId = tabInfo?.targetId || tabInfo?.id;
+  if (!targetId) {
     console.error('❌ 无法创建新 Tab，请确认 Chrome 已连接 CDP');
     process.exit(1);
   }
-  const targetId = tabInfo.id;
   console.log(`   Tab ID: ${targetId}`);
 
   // 抓取

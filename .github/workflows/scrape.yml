@@ -50,7 +50,7 @@ jobs:
         if: steps.check_recent_push.outputs.skip != 'true'
         env:
           QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
-        run: node scripts/scrape.js
+        run: npm install && node scripts/auto-scrape.js
 
       - name: 提交数据更新
         if: steps.check_recent_push.outputs.skip != 'true'

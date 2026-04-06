@@ -85,11 +85,9 @@ function analyzeV2exItem(title, content) {
     soloReason = '垂直 SaaS 功能集中，MVP 可一人完成';
   }
 
-  // 从标题提取问题（如果标题是疑问句）
-  if (title.includes('如何') || title.includes('怎么') || title.includes('有没有')) {
-    problem = title.replace(/[？?]$/, '').slice(0, 60);
-  } else if (title.length > 10) {
-    problem = title.slice(0, 60);
+  // 只对疑问句标题提取 problem，陈述句标题留空让 Qwen 填充
+  if (title.includes('如何') || title.includes('怎么') || title.includes('有没有') || title.includes('？') || title.includes('?')) {
+    problem = title.replace(/[？?]$/, '').trim().slice(0, 60);
   }
 
   return { chinaFit, chinaReason, soloFit, soloReason, problem };

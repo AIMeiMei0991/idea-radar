@@ -289,6 +289,9 @@ async function analyzeWithQwen(post) {
   "chinaGap": "国内市场空白点（50字以内）",
   "mvp": "最小可行产品：核心功能3条以内（60字以内）",
   "coldStart": "冷启动获取前100用户的具体方法（50字以内）",
+  "marketSize": "目标用户规模估算，必须带数字（如：中国职场人约3.2亿，细分市场约2000万）",
+  "monetization": "变现路径：免费功能/付费分层描述 + 预估12个月MRR（参考同类产品定价）",
+  "risks": "2-3条主要风险，每条一句话，覆盖技术/合规/竞争维度",
   "category": "AI工具或效率工具或金融工具或教育或健康或本地服务或开发者工具或其他"
 }`;
 
@@ -296,7 +299,7 @@ async function analyzeWithQwen(post) {
     const res = await qwen.chat.completions.create({
       model: 'qwen-plus',
       messages: [{ role: 'user', content: prompt }],
-      max_tokens: 800,
+      max_tokens: 1100,
     });
     const content = res.choices[0].message.content;
     const match = content.match(/\{[\s\S]*\}/);

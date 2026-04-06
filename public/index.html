@@ -386,12 +386,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
   <div class="tabs-wrap" role="tablist" aria-label="内容分类">
     <button class="tab-btn active" role="tab" aria-selected="true"  data-tab="feed" onclick="setTab(this,'feed')">📰 精选</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="all"  onclick="setTab(this,'all')">全部</button>
-    <button class="tab-btn" role="tab" aria-selected="false" data-tab="ph"   onclick="setTab(this,'ph')">PH 新品</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="tmrr" onclick="setTab(this,'tmrr')">验证收入</button>
-    <button class="tab-btn" role="tab" aria-selected="false" data-tab="reddit" onclick="setTab(this,'reddit')">Reddit</button>
-    <button class="tab-btn" role="tab" aria-selected="false" data-tab="indie" onclick="setTab(this,'indie')">🛠 创客</button>
-    <button class="tab-btn" role="tab" aria-selected="false" data-tab="hn"   onclick="setTab(this,'hn')">HN</button>
-    <button class="tab-btn" role="tab" aria-selected="false" data-tab="cn"   onclick="setTab(this,'cn')">🇨🇳 中文</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="bookmarks" onclick="setTab(this,'bookmarks')">
       ♥ 收藏<span class="badge" id="bkBadge" style="display:none">0</span>
     </button>
@@ -402,18 +397,16 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
       aria-pressed="false" aria-label="只看中国市场高匹配的创意">🇨🇳 中国可做</button>
     <button class="filter-chip fc-solo" id="fcSolo" onclick="toggleFilter('solo_yes')"
       aria-pressed="false" aria-label="只看一人可行的创意">👤 一人可行</button>
-    <button class="filter-chip fc-mrr" id="fcMrr" onclick="toggleFilter('mrr')"
-      aria-pressed="false" aria-label="只看有真实验证收入的产品">💰 有真实收入</button>
     <button class="filter-chip fc-score4" id="fcScore4" onclick="toggleFilter('score4')"
-      aria-pressed="false" aria-label="只看评分4分以上的高价值创意">🔥 高价值 4+</button>
+      aria-pressed="false" aria-label="只看评分4分以上的高价值创意">⭐ 高价值</button>
     <button class="filter-chip fc-dev-short" id="fcDevShort" onclick="toggleFilter('dev_short')"
-      aria-pressed="false" aria-label="只看1-3月可完成的项目">⏱ 1-3月</button>
+      aria-pressed="false" aria-label="只看1-3月可完成的项目">⏱ 快速开发</button>
+    <button class="filter-chip xf fc-mrr" id="fcMrr" onclick="toggleFilter('mrr')"
+      aria-pressed="false" aria-label="只看有真实验证收入的产品">💰 有真实收入</button>
     <button class="filter-chip xf fc-solo-maybe" id="fcSoloMaybe" onclick="toggleFilter('solo_maybe')"
       aria-pressed="false" aria-label="只看可能可行的创意">👤 可能可行</button>
     <button class="filter-chip xf fc-solo-hard" id="fcSoloHard" onclick="toggleFilter('solo_hard')"
       aria-pressed="false" aria-label="只看需要团队的创意">👤 需团队</button>
-    <button class="filter-chip xf fc-score3" id="fcScore3" onclick="toggleFilter('score3')"
-      aria-pressed="false" aria-label="只看评分3分以上的潜力创意">⭐ 潜力 3+</button>
     <button class="filter-chip xf fc-dev-mid" id="fcDevMid" onclick="toggleFilter('dev_mid')"
       aria-pressed="false" aria-label="只看3-6月可完成的项目">⏱ 3-6月</button>
     <button class="filter-chip xf fc-dev-long" id="fcDevLong" onclick="toggleFilter('dev_long')"
@@ -439,7 +432,7 @@ let searchTimer = null, bookmarks = new Set(), readItems = new Set(), hideRead =
 // 快速筛选状态（模块级，renderView 可访问）
 let filterChina = false, filterMrr = false;
 let filterSolo = ''; // 'yes'|'maybe'|'hard'|''
-let filterScore4 = false, filterScore3 = false;
+let filterScore4 = false;
 let filterPainType = '';    // '效率'|'成本'|'体验'|''
 let filterDevTimeline = ''; // '1-3月'|'3-6月'|'6-12月'|''
 let filterDate = '';        // 'YYYY-MM-DD' | ''
@@ -464,9 +457,8 @@ function loadLocal() {
         const el = document.getElementById(soloIdMap[filterSolo]);
         if (el) { el.classList.add('active'); el.setAttribute('aria-pressed','true'); }
       }
-      filterScore4 = !!obj.score4; filterScore3 = !!obj.score3;
+      filterScore4 = !!obj.score4;
       if (filterScore4) { document.getElementById('fcScore4').classList.add('active'); document.getElementById('fcScore4').setAttribute('aria-pressed','true'); }
-      if (filterScore3) { document.getElementById('fcScore3').classList.add('active'); document.getElementById('fcScore3').setAttribute('aria-pressed','true'); }
       filterPainType = obj.painType || '';
       if (filterPainType) {
         const ptIdMap = {效率:'fcPtEffect', 成本:'fcPtCost', 体验:'fcPtExp'};
@@ -484,7 +476,7 @@ function loadLocal() {
 }
 function saveBk()      { try { localStorage.setItem('idea-radar-bookmarks', JSON.stringify([...bookmarks])); } catch(_){} }
 function saveRead()    { try { localStorage.setItem('idea-radar-read', JSON.stringify([...readItems].slice(-600))); } catch(_){} }
-function saveFilters() { try { localStorage.setItem('idea-radar-filters', JSON.stringify({china:filterChina,soloFit:filterSolo,mrr:filterMrr,score4:filterScore4,score3:filterScore3,painType:filterPainType,devTimeline:filterDevTimeline})); } catch(_){} }
+function saveFilters() { try { localStorage.setItem('idea-radar-filters', JSON.stringify({china:filterChina,soloFit:filterSolo,mrr:filterMrr,score4:filterScore4,painType:filterPainType,devTimeline:filterDevTimeline})); } catch(_){} }
 
 // ── 收藏 ──────────────────────────────────────────────
 function toggleBookmark(id, e) {
@@ -568,16 +560,6 @@ function toggleFilter(type) {
     btn.setAttribute('aria-pressed', filterMrr);
   } else if (type === 'score4') {
     filterScore4 = !filterScore4;
-    if (filterScore4) filterScore3 = false;
-    document.getElementById('fcScore4').classList.toggle('active', filterScore4);
-    document.getElementById('fcScore4').setAttribute('aria-pressed', filterScore4);
-    document.getElementById('fcScore3').classList.toggle('active', filterScore3);
-    document.getElementById('fcScore3').setAttribute('aria-pressed', filterScore3);
-  } else if (type === 'score3') {
-    filterScore3 = !filterScore3;
-    if (filterScore3) filterScore4 = false;
-    document.getElementById('fcScore3').classList.toggle('active', filterScore3);
-    document.getElementById('fcScore3').setAttribute('aria-pressed', filterScore3);
     document.getElementById('fcScore4').classList.toggle('active', filterScore4);
     document.getElementById('fcScore4').setAttribute('aria-pressed', filterScore4);
   } else if (type === 'pt_effect' || type === 'pt_cost' || type === 'pt_exp') {
@@ -776,7 +758,6 @@ function filterAndRender() {
   if (filterMrr)         items = items.filter(i=>!!i.mrr);
   if (filterPainType)    items = items.filter(i=>i.painType===filterPainType);
   if (filterScore4) items = items.filter(i=>(i.score||0)>=4);
-  else if (filterScore3) items = items.filter(i=>(i.score||0)>=3);
   // 日期导航栏：基于当前 tab+筛选后的结果渲染可选日期
   renderDateBar(items);
   if (filterDate) items = items.filter(i => i.dateKey === filterDate);
@@ -802,7 +783,7 @@ function filterAndRender() {
   // 更新模块级变量，renderView 可安全读取
   const soloLabel = {yes:'一人可行', maybe:'可能可行', hard:'需团队'}[filterSolo] || '';
   const dtLabel   = filterDevTimeline ? (filterDevTimeline+'开发') : '';
-  activeFilters = [filterChina&&'中国可做', soloLabel, dtLabel, filterMrr&&'有真实收入', filterPainType&&(filterPainType+'痛点'), filterScore4&&'高价值4+', filterScore3&&'潜力3+'].filter(Boolean);
+  activeFilters = [filterChina&&'中国可做', soloLabel, dtLabel, filterMrr&&'有真实收入', filterPainType&&(filterPainType+'痛点'), filterScore4&&'高价值'].filter(Boolean);
   const total=items.length, totalPages=Math.max(1,Math.ceil(total/PAGE_SIZE));
   if (currentPage>totalPages) currentPage=totalPages;
   const paged = items.slice((currentPage-1)*PAGE_SIZE, currentPage*PAGE_SIZE);

@@ -215,15 +215,20 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 /* 资源需求 pill（详情内） */
 .res-pill{font-size:11px;background:rgba(255,255,255,0.06);color:#9999bb;padding:2px 8px;border-radius:5px;display:inline-block;margin:2px 3px 2px 0}
 
-/* ── 日期导航栏 ── */
-.date-bar{display:flex;gap:6px;padding:0 12px 10px;overflow-x:auto;scrollbar-width:none;align-items:center}
-.date-bar::-webkit-scrollbar{display:none}
-.date-bar:empty{display:none}
-.date-pill{flex-shrink:0;font-size:12px;font-weight:600;padding:5px 12px;min-height:30px;border-radius:20px;cursor:pointer;border:1px solid rgba(255,255,255,0.09);background:none;color:#555;white-space:nowrap;transition:all 0.15s;display:flex;align-items:center;gap:5px}
-.date-pill:hover{color:#aaa;border-color:rgba(255,255,255,0.2)}
-.date-pill.active{background:rgba(255,107,53,0.14);color:#ff6b35;border-color:rgba(255,107,53,0.35)}
-.date-pill-count{font-size:10px;color:#444;font-weight:500}
-.date-pill.active .date-pill-count{color:rgba(255,107,53,0.7)}
+/* ── 日期选择器（右上角） ── */
+.date-picker-btn{font-size:11px;color:#555;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);padding:6px 10px;border-radius:8px;cursor:pointer;white-space:nowrap;transition:color 0.15s,background 0.15s;min-height:32px;display:flex;align-items:center;gap:4px}
+.date-picker-btn:hover{color:#888;background:rgba(255,255,255,0.08)}
+.date-picker-btn.active{color:#ff6b35;border-color:rgba(255,107,53,0.3);background:rgba(255,107,53,0.08)}
+.date-picker-btn .dp-arrow{font-size:9px;opacity:0.6;transition:transform 0.15s}
+.date-picker-btn.open .dp-arrow{transform:rotate(180deg)}
+.date-dropdown{position:absolute;top:calc(100% + 4px);right:0;background:#141420;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:6px;min-width:150px;z-index:300;box-shadow:0 8px 32px rgba(0,0,0,0.5);opacity:0;transform:translateY(-6px) scale(0.97);pointer-events:none;transition:opacity 0.15s,transform 0.15s}
+.date-dropdown.show{opacity:1;transform:none;pointer-events:all}
+.date-dropdown-item{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:13px;color:#888;transition:background 0.1s,color 0.1s;gap:10px}
+.date-dropdown-item:hover{background:rgba(255,255,255,0.06);color:#ccc}
+.date-dropdown-item.active{background:rgba(255,107,53,0.12);color:#ff6b35}
+.date-dropdown-item .ddi-count{font-size:11px;color:#444;font-weight:500}
+.date-dropdown-item.active .ddi-count{color:rgba(255,107,53,0.6)}
+.dp-wrap{position:relative}
 
 /* ── chip 折叠 ── */
 .filter-chip.xf{display:none}
@@ -359,6 +364,12 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
     <div style="display:flex;gap:6px;align-items:center">
       <button class="read-toggle" id="clearReadBtn" onclick="clearAllRead()" style="color:#666" aria-label="清空全部已读记录">清空已读</button>
       <button class="read-toggle" id="readToggle" onclick="toggleHideRead()" aria-label="切换隐藏/显示已读卡片">隐藏已读</button>
+      <div class="dp-wrap" id="dpWrap">
+        <button class="date-picker-btn" id="datePickerBtn" onclick="toggleDatePicker(event)" aria-label="按日期筛选" aria-haspopup="listbox">
+          📅 <span id="datePickerLabel">日期</span><span class="dp-arrow">▾</span>
+        </button>
+        <div class="date-dropdown" id="dateDropdown" role="listbox" aria-label="选择日期"></div>
+      </div>
     </div>
   </div>
   <div class="search-wrap" id="searchWrap">
@@ -413,7 +424,6 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
   </div>
 </div>
 
-<div class="date-bar" id="dateBar" role="toolbar" aria-label="按日期筛选"></div>
 <div id="app"></div>
 <div class="toast" id="toast"></div>
 
@@ -662,45 +672,69 @@ async function loadData() {
   }
 }
 
-// ── 日期导航 ──────────────────────────────────────────
+// ── 日期选择器（右上角） ────────────────────────────────
 function fmtDatePill(dateStr) {
   const today = new Date().toISOString().slice(0, 10);
   const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
   if (dateStr === today) return '今天';
   if (dateStr === yesterday) return '昨天';
   const m = dateStr.match(/^\d{4}-(\d{2})-(\d{2})$/);
-  return m ? `${parseInt(m[1])}/${parseInt(m[2])}` : dateStr;
+  return m ? `${parseInt(m[1])}月${parseInt(m[2])}日` : dateStr;
 }
 
 function renderDateBar(items) {
-  const bar = document.getElementById('dateBar');
-  if (!bar) return;
-  // 统计各日期条目数（最多显示最近 10 天）
+  const dropdown = document.getElementById('dateDropdown');
+  const btn = document.getElementById('datePickerBtn');
+  const label = document.getElementById('datePickerLabel');
+  if (!dropdown) return;
+  // 统计各日期条目数（最多显示最近 14 天）
   const counts = {};
   items.forEach(i => { if (i.dateKey) counts[i.dateKey] = (counts[i.dateKey] || 0) + 1; });
-  const dates = Object.keys(counts).sort((a, b) => b.localeCompare(a)).slice(0, 10);
-  if (dates.length <= 1) { bar.innerHTML = ''; return; } // 只有一天不必显示
-  const allActive = !filterDate;
-  let html = `<button class="date-pill${allActive ? ' active' : ''}" onclick="setDateFilter('')" aria-pressed="${allActive}">
-    全部 <span class="date-pill-count">${items.length}</span></button>`;
+  const dates = Object.keys(counts).sort((a, b) => b.localeCompare(a)).slice(0, 14);
+  // 更新按钮标签
+  if (label) label.textContent = filterDate ? fmtDatePill(filterDate) : '日期';
+  if (btn) btn.classList.toggle('active', !!filterDate);
+  // 构建下拉内容
+  let html = `<div class="date-dropdown-item${!filterDate?' active':''}" onclick="setDateFilter('')" role="option" aria-selected="${!filterDate}">
+    <span>全部日期</span><span class="ddi-count">${items.length}</span></div>`;
   for (const d of dates) {
     const active = filterDate === d;
-    html += `<button class="date-pill${active ? ' active' : ''}" onclick="setDateFilter('${d}')" aria-pressed="${active}">
-      ${fmtDatePill(d)} <span class="date-pill-count">${counts[d]}</span></button>`;
+    html += `<div class="date-dropdown-item${active?' active':''}" onclick="setDateFilter('${d}')" role="option" aria-selected="${active}">
+      <span>${fmtDatePill(d)}</span><span class="ddi-count">${counts[d]}</span></div>`;
   }
-  bar.innerHTML = html;
-  // 滚动到激活的胶囊
-  if (filterDate) {
-    const el = bar.querySelector('.date-pill.active');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-  }
+  dropdown.innerHTML = html;
+}
+
+function toggleDatePicker(e) {
+  e.stopPropagation();
+  const dd = document.getElementById('dateDropdown');
+  const btn = document.getElementById('datePickerBtn');
+  const isOpen = dd.classList.contains('show');
+  dd.classList.toggle('show', !isOpen);
+  btn.classList.toggle('open', !isOpen);
 }
 
 function setDateFilter(date) {
   filterDate = date;
   currentPage = 1;
+  // 关闭下拉
+  const dd = document.getElementById('dateDropdown');
+  const btn = document.getElementById('datePickerBtn');
+  if (dd) dd.classList.remove('show');
+  if (btn) btn.classList.remove('open');
   filterAndRender();
 }
+
+// 点击外部关闭下拉
+document.addEventListener('click', function(e) {
+  const wrap = document.getElementById('dpWrap');
+  if (wrap && !wrap.contains(e.target)) {
+    const dd = document.getElementById('dateDropdown');
+    const btn = document.getElementById('datePickerBtn');
+    if (dd) dd.classList.remove('show');
+    if (btn) btn.classList.remove('open');
+  }
+});
 
 // ── 筛选 & 渲染 ──────────────────────────────────────
 function filterAndRender() {

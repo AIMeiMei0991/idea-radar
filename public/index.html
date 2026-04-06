@@ -215,6 +215,16 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 /* 资源需求 pill（详情内） */
 .res-pill{font-size:11px;background:rgba(255,255,255,0.06);color:#9999bb;padding:2px 8px;border-radius:5px;display:inline-block;margin:2px 3px 2px 0}
 
+/* ── 日期导航栏 ── */
+.date-bar{display:flex;gap:6px;padding:0 12px 10px;overflow-x:auto;scrollbar-width:none;align-items:center}
+.date-bar::-webkit-scrollbar{display:none}
+.date-bar:empty{display:none}
+.date-pill{flex-shrink:0;font-size:12px;font-weight:600;padding:5px 12px;min-height:30px;border-radius:20px;cursor:pointer;border:1px solid rgba(255,255,255,0.09);background:none;color:#555;white-space:nowrap;transition:all 0.15s;display:flex;align-items:center;gap:5px}
+.date-pill:hover{color:#aaa;border-color:rgba(255,255,255,0.2)}
+.date-pill.active{background:rgba(255,107,53,0.14);color:#ff6b35;border-color:rgba(255,107,53,0.35)}
+.date-pill-count{font-size:10px;color:#444;font-weight:500}
+.date-pill.active .date-pill-count{color:rgba(255,107,53,0.7)}
+
 /* ── chip 折叠 ── */
 .filter-chip.xf{display:none}
 .filter-wrap.expanded .filter-chip.xf{display:flex}
@@ -403,6 +413,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
   </div>
 </div>
 
+<div class="date-bar" id="dateBar" role="toolbar" aria-label="按日期筛选"></div>
 <div id="app"></div>
 <div class="toast" id="toast"></div>
 
@@ -417,6 +428,7 @@ let filterSolo = ''; // 'yes'|'maybe'|'hard'|''
 let filterScore4 = false, filterScore3 = false;
 let filterPainType = '';    // '效率'|'成本'|'体验'|''
 let filterDevTimeline = ''; // '1-3月'|'3-6月'|'6-12月'|''
+let filterDate = '';        // 'YYYY-MM-DD' | ''
 let activeFilters = []; // 每次 filterAndRender 更新，renderView 读取
 
 // ── localStorage ──────────────────────────────────────
@@ -650,6 +662,46 @@ async function loadData() {
   }
 }
 
+// ── 日期导航 ──────────────────────────────────────────
+function fmtDatePill(dateStr) {
+  const today = new Date().toISOString().slice(0, 10);
+  const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+  if (dateStr === today) return '今天';
+  if (dateStr === yesterday) return '昨天';
+  const m = dateStr.match(/^\d{4}-(\d{2})-(\d{2})$/);
+  return m ? `${parseInt(m[1])}/${parseInt(m[2])}` : dateStr;
+}
+
+function renderDateBar(items) {
+  const bar = document.getElementById('dateBar');
+  if (!bar) return;
+  // 统计各日期条目数（最多显示最近 10 天）
+  const counts = {};
+  items.forEach(i => { if (i.dateKey) counts[i.dateKey] = (counts[i.dateKey] || 0) + 1; });
+  const dates = Object.keys(counts).sort((a, b) => b.localeCompare(a)).slice(0, 10);
+  if (dates.length <= 1) { bar.innerHTML = ''; return; } // 只有一天不必显示
+  const allActive = !filterDate;
+  let html = `<button class="date-pill${allActive ? ' active' : ''}" onclick="setDateFilter('')" aria-pressed="${allActive}">
+    全部 <span class="date-pill-count">${items.length}</span></button>`;
+  for (const d of dates) {
+    const active = filterDate === d;
+    html += `<button class="date-pill${active ? ' active' : ''}" onclick="setDateFilter('${d}')" aria-pressed="${active}">
+      ${fmtDatePill(d)} <span class="date-pill-count">${counts[d]}</span></button>`;
+  }
+  bar.innerHTML = html;
+  // 滚动到激活的胶囊
+  if (filterDate) {
+    const el = bar.querySelector('.date-pill.active');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+}
+
+function setDateFilter(date) {
+  filterDate = date;
+  currentPage = 1;
+  filterAndRender();
+}
+
 // ── 筛选 & 渲染 ──────────────────────────────────────
 function filterAndRender() {
   if (activeTab === 'bookmarks') { renderBookmarks(); return; }
@@ -669,6 +721,9 @@ function filterAndRender() {
   if (filterPainType)    items = items.filter(i=>i.painType===filterPainType);
   if (filterScore4) items = items.filter(i=>(i.score||0)>=4);
   else if (filterScore3) items = items.filter(i=>(i.score||0)>=3);
+  // 日期导航栏：基于当前 tab+筛选后的结果渲染可选日期
+  renderDateBar(items);
+  if (filterDate) items = items.filter(i => i.dateKey === filterDate);
   if (searchQ) {
     const q = searchQ.toLowerCase();
     items = items.filter(i=>
@@ -1024,7 +1079,7 @@ function renderBookmarks() {
 
 // ── 标签页 ────────────────────────────────────────────
 function setTab(el,tab) {
-  activeTab=tab; currentPage=1;
+  activeTab=tab; currentPage=1; filterDate='';
   document.querySelectorAll('.tab-btn').forEach(b=>{
     b.classList.remove('active');
     b.setAttribute('aria-selected','false');

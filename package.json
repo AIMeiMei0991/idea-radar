@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "console": "node scripts/server.js"
+  },
   "dependencies": {
     "openai": "^6.33.0",
     "puppeteer-core": "^22.0.0"

@@ -461,6 +461,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
         <div class="date-dropdown" id="moreMenuDropdown" style="min-width:120px">
           <div class="date-dropdown-item" onclick="clearAllRead();closeMoreMenu()">清空已读</div>
           <div class="date-dropdown-item" id="hideReadMenuItem" onclick="toggleHideRead();closeMoreMenu()">隐藏已读</div>
+          <div class="date-dropdown-item" onclick="openLocalConsole();closeMoreMenu()">📡 本地抓取控制台</div>
         </div>
       </div>
     </div>
@@ -810,6 +811,12 @@ function toggleMoreMenu(e) {
 function closeMoreMenu() {
   document.getElementById('moreMenuDropdown').classList.remove('show');
   document.getElementById('moreMenuBtn').classList.remove('open');
+}
+function openLocalConsole() {
+  const w = window.open('http://localhost:3001', '_blank');
+  if (!w) {
+    alert('请先在终端运行：\nnpm run console\n\n然后再点此按钮');
+  }
 }
 
 function setDateFilter(date) {

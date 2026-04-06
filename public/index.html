@@ -21,13 +21,18 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .read-toggle:hover{color:#888;background:rgba(255,255,255,0.08)}
 .read-toggle.active{color:#ff8a5b;border-color:rgba(255,107,53,0.3);background:rgba(255,107,53,0.08)}
 
-/* 搜索 */
-.search-wrap{padding:0 12px 6px;position:relative}
+/* 搜索 — 默认折叠，点击图标展开 */
+.search-wrap{padding:0;max-height:0;overflow:hidden;position:relative;transition:max-height 0.2s ease,padding 0.2s ease}
+.search-wrap.search-open{max-height:56px;padding:0 12px 6px}
 .search-input{width:100%;background:#141420;border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px 14px;font-size:15px;color:#e2e2e2;outline:none;-webkit-appearance:none}
 .search-input::placeholder{color:#3a3a4a}
 .search-input:focus{border-color:rgba(255,107,53,0.4);background:#18181f}
 .search-clear{position:absolute;right:24px;top:50%;transform:translateY(-50%);background:none;border:none;color:#555;font-size:16px;cursor:pointer;padding:4px;display:none}
 .search-clear.visible{display:block}
+/* 搜索图标按钮 */
+.search-icon-btn{background:none;border:none;color:#555;font-size:16px;cursor:pointer;padding:6px 8px;min-height:32px;display:flex;align-items:center;transition:color 0.15s}
+.search-icon-btn:hover{color:#888}
+.search-icon-btn.active{color:#ff8a5b}
 
 /* 标签页 */
 .tabs-wrap{display:flex;padding:0 10px 4px;overflow-x:auto;scrollbar-width:none}
@@ -520,7 +525,10 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
       <div class="logo"><span class="logo-icon">🎯</span>创意雷达</div>
       <div class="update-time" id="updateTime">每天 08:00 自动更新</div>
     </div>
-    <div style="display:flex;gap:6px;align-items:center">
+    <div style="display:flex;gap:2px;align-items:center">
+      <button class="search-icon-btn" id="searchIconBtn" onclick="toggleSearch()" aria-label="搜索" aria-expanded="false">
+        <svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="5.5"/><line x1="13" y1="13" x2="18" y2="18"/></svg>
+      </button>
       <div class="dp-wrap" id="dpWrap">
         <button class="date-picker-btn" id="datePickerBtn" onclick="toggleDatePicker(event)" aria-label="按日期筛选" aria-haspopup="listbox">
           <span id="datePickerLabel">日期</span><span class="dp-arrow">▾</span>
@@ -749,6 +757,19 @@ function toggleFilter(type) {
     });
   }
   currentPage = 1; saveFilters(); filterAndRender(); updateFilterCountBadge();
+}
+
+// ── 搜索框 toggle ─────────────────────────────────────
+function toggleSearch() {
+  const wrap = document.getElementById('searchWrap');
+  const btn  = document.getElementById('searchIconBtn');
+  const input = document.getElementById('searchInput');
+  if (!wrap) return;
+  const open = wrap.classList.toggle('search-open');
+  btn.setAttribute('aria-expanded', String(open));
+  btn.classList.toggle('active', open);
+  if (open) { setTimeout(() => input.focus(), 180); }
+  else { input.value = ''; searchQ = ''; currentPage = 1; document.getElementById('searchClear').classList.remove('visible'); filterAndRender(); }
 }
 
 // ── 筛选面板 toggle（手机端） ──────────────────────────

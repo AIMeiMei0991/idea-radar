@@ -3441,42 +3441,6 @@
     "aiAnalyzed": true
   },
   {
-    "id": "hn-47640728",
-    "title": "Show HN: A game where you build a GPU",
-    "score": 1,
-    "scoreReason": "中国受限",
-    "problem": "",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "功能范围需评估，核心 MVP 可单人完成",
-    "solution": "将核心流程 80% 的手工操作自动化，结合 AI 技术重新设计用户体验，用户只需处理例外情况",
-    "techStack": [
-      "Next.js",
-      "Vercel",
-      "Supabase",
-      "Tailwind CSS"
-    ],
-    "devTimeline": "3-6月",
-    "resourceNeeds": [
-      "技术"
-    ],
-    "painType": "体验",
-    "desc": "Thought the resources for GPU arch were lacking, so here we are",
-    "url": "https://jaso1024.com/mvidia/",
-    "source": "hackernews",
-    "sourceLabel": "Hacker News",
-    "hnScore": 906,
-    "category": "数字工具",
-    "fetchedAt": "2026-04-06T06:19:07.674Z",
-    "dateKey": "2026-04-04",
-    "targetUsers": "",
-    "competitors": "",
-    "chinaGap": "",
-    "mvp": "",
-    "coldStart": ""
-  },
-  {
     "id": "v2ex-1203658",
     "title": "专门为程序员设计的聊天软件： KongChat，即将发布。现抽奖，免费送 5 个 ChatGPT Plus 使用权（1 个月）",
     "score": 4,
@@ -6308,44 +6272,6 @@
     "coldStart": "V2EX程序员节点",
     "aiAnalyzed": true,
     "titleZh": "创建了一个免费的Markdown转PDF工具"
-  },
-  {
-    "id": "reddit-1scz6j0",
-    "title": "Made another small free game (I like making these, so will post some more in a bit)",
-    "score": 1,
-    "scoreReason": "中国受限",
-    "problem": "",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "功能范围需评估，核心 MVP 可单人完成",
-    "solution": "将核心流程 80% 的手工操作自动化，结合 AI 技术重新设计用户体验，用户只需处理例外情况",
-    "techStack": [
-      "Next.js",
-      "Vercel",
-      "Supabase",
-      "Tailwind CSS"
-    ],
-    "devTimeline": "3-6月",
-    "resourceNeeds": [
-      "技术"
-    ],
-    "painType": "体验",
-    "desc": "[https://tiltyball.com/](https://tiltyball.com/)",
-    "mrr": null,
-    "url": "https://www.reddit.com/r/SideProject/comments/1scz6j0/made_another_small_free_game_i_like_making_these/",
-    "source": "reddit",
-    "sourceLabel": "r/SideProject",
-    "redditScore": 6,
-    "category": "数字工具",
-    "fetchedAt": "2026-04-05T10:27:52.749Z",
-    "dateKey": "2026-04-05",
-    "targetUsers": "",
-    "competitors": "",
-    "chinaGap": "",
-    "mvp": "",
-    "coldStart": "",
-    "titleZh": "又做了一个小的免费游戏（我喜欢做这些，所以稍后会发更多）"
   },
   {
     "id": "reddit-1scbtdp",
@@ -9775,44 +9701,6 @@
     "titleZh": "我不断将东西投入到虚无中"
   },
   {
-    "id": "reddit-1sbsq25",
-    "title": "Voldra.io - A search engine for game assets",
-    "score": 1,
-    "scoreReason": "中国受限",
-    "problem": "hi. i got really tired of scouring the web for assets and dealing with 99999 different tabs and trying to find specific game assets. also didnt like the quality of a lot of the search mechanisms (coug",
-    "chinaFit": "mid",
-    "chinaReason": "通用工具，需评估国内实际市场规模",
-    "soloFit": "maybe",
-    "soloReason": "功能范围需评估，核心 MVP 可单人完成",
-    "mvp": "",
-    "coldStart": "",
-    "solution": "将核心流程 80% 的手工操作自动化，结合 AI 技术重新设计用户体验，用户只需处理例外情况",
-    "techStack": [
-      "Next.js",
-      "Vercel",
-      "Supabase",
-      "Tailwind CSS"
-    ],
-    "devTimeline": "3-6月",
-    "resourceNeeds": [
-      "技术"
-    ],
-    "painType": "体验",
-    "desc": "hi. i got really tired of scouring the web for assets and dealing with 99999 different tabs and trying to find specific game assets. also didnt like the quality of a lot of the search mechanisms (coug",
-    "mrr": null,
-    "url": "https://www.reddit.com/r/SideProject/comments/1sbsq25/voldraio_a_search_engine_for_game_assets/",
-    "source": "reddit",
-    "sourceLabel": "r/SideProject",
-    "redditScore": 5,
-    "category": "数字工具",
-    "fetchedAt": "2026-04-04T14:57:10.666Z",
-    "dateKey": "2026-04-03",
-    "targetUsers": "",
-    "competitors": "",
-    "chinaGap": "",
-    "titleZh": "Voldra.io - 一款游戏资源的搜索引擎"
-  },
-  {
     "id": "reddit-1sb4k9b",
     "title": "I spent 3 months building a SaaS that made $0. Then I found where all the validated ideas were hiding.",
     "score": 3,
@@ -10968,44 +10856,6 @@
     ],
     "painType": "体验",
     "titleZh": "tip for anyone vibe coding on a token budget"
-  },
-  {
-    "id": "reddit-1sb0ibg",
-    "title": "I made a free app to learn geography through quizzes and games if anyone wants it",
-    "score": 1,
-    "scoreReason": "中国受限",
-    "problem": "地理学习应用广告泛滥且付费繁琐，用户体验差",
-    "chinaFit": "mid",
-    "chinaReason": "地理学习需求大但工具同质,商业化难度高",
-    "soloFit": "yes",
-    "soloReason": "功能相对简单,技术门槛低,一人可完成初版",
-    "desc": "Originally made it for my girlfriend because the quiz apps are littered with ads and in app purchases. It was actually pretty fun to make so I added stupid stuff like levelling, unlocks and XP multipl",
-    "mrr": null,
-    "url": "https://v.redd.it/ulihq0t4tvsg1",
-    "source": "reddit",
-    "sourceLabel": "r/SideProject",
-    "redditScore": 14,
-    "category": "HR工具",
-    "fetchedAt": "2026-04-03T17:01:58.609Z",
-    "dateKey": "2026-04-03",
-    "targetUsers": "",
-    "competitors": "",
-    "chinaGap": "",
-    "mvp": "",
-    "coldStart": "",
-    "solution": "将核心流程 80% 的手工操作自动化，结合 AI 技术重新设计用户体验，用户只需处理例外情况",
-    "techStack": [
-      "Next.js",
-      "Vercel",
-      "Supabase",
-      "Tailwind CSS"
-    ],
-    "devTimeline": "1-3月",
-    "resourceNeeds": [
-      "技术"
-    ],
-    "painType": "体验",
-    "titleZh": "I made a free app to learn geography through quizzes and games if anyone wants i"
   },
   {
     "id": "reddit-1saroc2",
@@ -12237,7 +12087,7 @@
   {
     "id": "reddit-1775445929022-1",
     "title": "正向自评闹钟App",
-    "score": 7,
+    "score": 4,
     "scoreReason": "4条评论中3条明确表达兴趣或升级需求，体现真实痛点共鸣，但热度较低（8赞）表明尚未引爆。",
     "problem": "用户晨间睁眼后拒绝按掉闹钟，反复 snooze 导致启动失败",
     "targetUsers": "考研党、远程办公新人、轻度抑郁康复者",
@@ -12275,7 +12125,7 @@
   {
     "id": "reddit-1775445939593-2",
     "title": "无痕部落：48小时匿名话题社区",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论[2][4]明确表达对朋友互动、轻量仪式感（如streaks）的需求，[3]指出匿名与安全的核心矛盾，真实痛点集中且有共鸣。",
     "problem": "用户发帖后想删帖但发现已超48小时无法撤回",
     "targetUsers": "00后Z世代学生、北上广深互联网从业者、心理咨询轻度需求者",
@@ -12314,7 +12164,7 @@
   {
     "id": "reddit-1775445949990-3",
     "title": "智能睡前防沉迷系统",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论4/5明确提到已用网络锁和Brick App解决，但多人追问具体体验与自动化逻辑，显示真实需求未被现有方案优雅满足。",
     "problem": "用户睡前刷短视频/微信时无法主动停止滑动动作",
     "targetUsers": "高三学生、新婚熬夜族、戒抖症康复者",
@@ -12352,7 +12202,7 @@
   {
     "id": "reddit-1775445960278-4",
     "title": "百年遗嘱：跨代音视频信",
-    "score": 8,
+    "score": 5,
     "scoreReason": "40条评论中多人表达强烈共鸣，且提出具体存储方案（磁带、Markdown、USB），证明需求真实且有技术思考深度。",
     "problem": "用户录制完遗嘱视频后无法设置10年后自动发送给子女",
     "targetUsers": "独居老人、新中产父母、跨境家庭子女",
@@ -12392,7 +12242,7 @@
   {
     "id": "reddit-1775445970651-5",
     "title": "ADHD友好型思想捕获提醒App",
-    "score": 7,
+    "score": 4,
     "scoreReason": "5条评论中4条明确表达共鸣或已行动（2人开发中、1人已上线、1人深度探讨需求本质），但存在对现有工具（Todoist等）替代性的质疑。",
     "problem": "用户在灵感闪现时无法3秒内记下想法，常因打开笔记App→新建页面→输入标题三步中断思维流",
     "targetUsers": "自由撰稿人、考研/考公备考者、轻度ADHD大学生",
@@ -12431,7 +12281,7 @@
   {
     "id": "reddit-1775445980023-6",
     "title": "情绪漂移预警守护圈",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论者主动表示要咨询心理学朋友验证可行性，显示真实需求共鸣与初步信任。",
     "problem": "用户在Slack/Reddit发帖前无法实时识别自身情绪偏移（如愤怒→攻击性措辞）",
     "targetUsers": "远程办公程序员、小红书内容审核员、高校心理中心辅导员",
@@ -12469,7 +12319,7 @@
   {
     "id": "reddit-1775445990517-7",
     "title": "盲人专用磁吸充电硬箱",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论1提供可落地的DIY线索（Miele真空缆+3D打印），评论2主动引荐协作平台，显示真实需求与社区支持意愿。",
     "problem": "盲人单手操作时无法对准Type-C接口完成充电",
     "targetUsers": "视障大学生、视障网约车司机、低视力老年用户",
@@ -12508,7 +12358,7 @@
   {
     "id": "reddit-1775446001297-8",
     "title": "AI时代Reddit实时获客工具",
-    "score": 8,
+    "score": 5,
     "scoreReason": "5条评论中4条明确验证需求真实存在，且多人主动提及竞品使用体验和效果对比，共鸣强烈。",
     "problem": "用户在Reddit搜索关键词后，手动翻页+复制帖子链接+筛选高互动帖卡顿",
     "targetUsers": "独立站卖家、跨境SaaS BD、出海App增长负责人",
@@ -12547,7 +12397,7 @@
   {
     "id": "reddit-1775446011809-9",
     "title": "口袋语音中控器",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论者明确表示已用Home Assistant+Telegram语音方案，但渴望替代手机的专用硬件，证实真实痛点与替代意愿。",
     "problem": "用户在车载/厨房等双手不便场景下，无法快速唤醒并连续下达多步语音指令",
     "targetUsers": "网约车司机、老年居家用户、烘焙工作室主理人",
@@ -12585,7 +12435,7 @@
   {
     "id": "reddit-1775446021423-10",
     "title": "桌面植物浇水机器人",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论1提供权威研究链接佐证可行性，评论2确认已有团队在做，需求真实且未被主流产品覆盖。",
     "problem": "用户忘记每日手动浇桌面绿植，导致多肉/薄荷枯死",
     "targetUsers": "北上广深租房青年、办公桌养绿植的白领、多肉种植新手",
@@ -12623,7 +12473,7 @@
   {
     "id": "reddit-1775446030766-11",
     "title": "新手三铁训练可视化日历",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论明确指出‘初学者感到不知所措’，且认可‘干净、可视化计划能提升坚持度和动力’，验证了核心痛点与价值主张。",
     "problem": "新手在制定首月游泳/自行车/跑步交叉训练计划时，卡在手动排期避免项目冲突和恢复日",
     "targetUsers": "铁三新人、体能教练助理、康复师兼职带训者",
@@ -12662,7 +12512,7 @@
   {
     "id": "reddit-1775446040605-12",
     "title": "农民市集直连电商平台",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论1、2、4均聚焦真实痛点（信任验证、FDA合规、生鲜物流），证实需求存在且认知一致。",
     "problem": "农户上传农产品照片后，无法实时同步至本地社区团长微信接龙群",
     "targetUsers": "县域合作社社长、社区团购团长、返乡新农人",
@@ -12700,7 +12550,7 @@
   {
     "id": "reddit-1775446051629-13",
     "title": "灯光引导式钢琴学习硬件",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论[1][2][5]显示真实用户对视觉化学习有强共鸣，且指出具体改进点（手区分、指法提示、校准），验证需求存在但原型有明显体验短板。",
     "problem": "初学者在琴键上找不到对应音符位置，弹奏时频繁低头看谱又抬头看键",
     "targetUsers": "6-12岁儿童、成人零基础自学用户、琴行集体课教师",
@@ -12778,7 +12628,7 @@
   {
     "id": "reddit-1775446072231-15",
     "title": "儿童玩具共享租赁平台",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论中多人认可逻辑（[5][4][3]），但集中质疑卫生、损坏、信任等实操难点，反映真实需求与落地障碍并存。",
     "problem": "家长在APP内选玩具后，卡在消毒报告上传确认页",
     "targetUsers": "一线宝妈（30-35岁）、早教中心采购员、二胎家庭祖辈监护人",
@@ -12818,7 +12668,7 @@
   {
     "id": "reddit-1775446082601-16",
     "title": "跨学科共创理论平台",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论1主动提出共建，评论2给出具体产品形态建议（Obsidian+Slack+GitHub融合），表明真实兴趣与需求共鸣",
     "problem": "用户在Reddit发帖后无法将碎片化讨论自动聚类为可引用的理论框架",
     "targetUsers": "高校社科研究者、政策智库分析师、跨学科博士生",
@@ -12857,7 +12707,7 @@
   {
     "id": "reddit-1775446092713-17",
     "title": "离线飞行定位神器",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论中2人明确询问Android版和网站，1人赞'Great concept'，显示真实需求共鸣，但热度偏低且评论少，未达爆发级",
     "problem": "用户在飞机上打开航旅App查实时位置时地图白屏卡住",
     "targetUsers": "商务旅客、航空爱好者、机组人员",
@@ -12897,7 +12747,7 @@
   {
     "id": "reddit-1775446102133-18",
     "title": "超市收据自动追踪食物浪费",
-    "score": 8,
+    "score": 5,
     "scoreReason": "评论[3][4]明确表示‘非常有共鸣’，并强调‘每周自动报告’是核心价值点，验证了需求真实性强。",
     "problem": "用户扫码收据后，无法自动识别生鲜品类与保质期并标记临期/过期项",
     "targetUsers": "家庭主妇、社区团购团长、高校后勤采购员",
@@ -12937,7 +12787,7 @@
   {
     "id": "reddit-1775446112864-19",
     "title": "真实世界探索游戏化App",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论1明确质疑下载意愿和问题本质，但2号用户（全职游牧者）主动表达兴趣，显示特定人群存在真实需求共鸣。",
     "problem": "用户在AR扫描现实地标时，手机持续抖动导致识别失败",
     "targetUsers": "Z世代城市漫游者、亲子家庭周末探索者、文旅景区导览管理员",
@@ -12977,7 +12827,7 @@
   {
     "id": "reddit-1775446124069-20",
     "title": "模块化垂直天气App",
-    "score": 8,
+    "score": 5,
     "scoreReason": "评论[4]明确提到付费使用Carrot Weather正是因其模块化设计，证实需求真实存在且愿付费；[2][5]进一步验证API成本与广告干扰是核心痛点。",
     "problem": "用户在查看不同海拔层实时风速时需反复切换App并手动比对数据",
     "targetUsers": "山地摄影师、滑翔伞教练、风电场巡检员",
@@ -13016,7 +12866,7 @@
   {
     "id": "reddit-1775446134150-21",
     "title": "创业点子快筛验证工具",
-    "score": 8,
+    "score": 5,
     "scoreReason": "42条评论中4条高赞回复均聚焦“快速验证”痛点，且方法论（客户发现、落地页、自我使用判断）高度一致，需求真实强烈。",
     "problem": "用户在Reddit浏览新点子时，无法一键抓取并结构化验证关键指标",
     "targetUsers": "独立开发者、小红书知识博主、跨境电商个体户",
@@ -13056,7 +12906,7 @@
   {
     "id": "reddit-1775446143234-22",
     "title": "UPI短信自动记账工具",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论明确指出SMS解析消除手动录入摩擦，且点出印度UPI市场优势，共鸣真实",
     "problem": "用户需手动复制UPI支付短信中的金额和商户名到记账App",
     "targetUsers": "自由职业者、小微个体户、跨境代购卖家",
@@ -13135,7 +12985,7 @@
   {
     "id": "reddit-1775446163274-24",
     "title": "App Store差评掘金工具",
-    "score": 8,
+    "score": 5,
     "scoreReason": "评论[2]提出‘浏览1-2星App Store评论找已付费的坏方案’获高度共鸣，直击痛点且可操作性强。",
     "problem": "iOS开发者在App Store后台手动翻页下载CSV查差评，单次操作超5分钟",
     "targetUsers": "iOS独立开发者、ASO优化师、应用商店运营专员",
@@ -13174,7 +13024,7 @@
   {
     "id": "reddit-1775446173206-25",
     "title": "开发者心理支持与验证工具",
-    "score": 8,
+    "score": 5,
     "scoreReason": "5条评论中3条深度共情并点出核心痛点（验证缺失、焦虑循环、重设计逃避 launch），真实需求强烈。",
     "problem": "写完代码后不敢提交PR，反复刷新GitHub页面看CI状态",
     "targetUsers": "独立开发者、外包接单者、开源新人贡献者",
@@ -13212,7 +13062,7 @@
   {
     "id": "reddit-1775446184056-26",
     "title": "妈式提醒：对话型成人事务管家",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论中2人确认存在类似产品但强调“不成熟”“有长路要走”，且多人质疑现有工具无效，显示真实未被满足的交互体验缺口。",
     "problem": "用户在设置重复缴费提醒时卡在手动输入水电煤账期日期",
     "targetUsers": "25-35岁租房青年、新婚家庭主理人、慢性病需定期购药者",
@@ -13251,7 +13101,7 @@
   {
     "id": "reddit-1775446194909-27",
     "title": "游戏化任务App：专治拖延上瘾",
-    "score": 9,
+    "score": 5,
     "scoreReason": "评论1/4/5一致强调‘自己持续使用’是最高验证信号，且明确指出‘dumb but sticky’‘不是目标用户就笑，但同类人会狂喜’。",
     "problem": "用户打开待办清单后3秒内切出App刷短视频",
     "targetUsers": "考研党/自由插画师/远程程序员",
@@ -13291,7 +13141,7 @@
   {
     "id": "reddit-1775446204924-28",
     "title": "长期进化的AI伴侣应用",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论2明确表达长期用户对‘真实成长感’的渴求，且多人主动推荐替代品，验证需求真实存在。",
     "problem": "用户在连续7天以上对话后，无法感知AI记忆/性格的渐进变化",
     "targetUsers": "独居青年、异地恋者、ASD谱系社交练习者",
@@ -13331,7 +13181,7 @@
   {
     "id": "reddit-1775446214698-29",
     "title": "小众场景深度优化工具",
-    "score": 8,
+    "score": 5,
     "scoreReason": "评论[3][5]高度共鸣，强调 niche 需求和‘做得更好’的可行性，反映真实创业认知转变需求",
     "problem": "Reddit用户在编辑长帖时反复调试Markdown预览与实时渲染同步",
     "targetUsers": "独立开发者、知乎深度答主、B站专栏撰稿人",
@@ -13370,7 +13220,7 @@
   {
     "id": "reddit-1775446225531-30",
     "title": "iPhone本地媒体聚合播放器",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论[2]明确指出‘Sampurn解决三应用问题’是干净的价值主张，且强调需触达‘正在抱怨多应用管理痛苦’的真实场景，验证需求真实存在。",
     "problem": "用户在iPhone文件App中手动拖拽视频到不同播放器卡住",
     "targetUsers": "独立纪录片剪辑师、考研备考学生、小红书Vlog素材整理者",
@@ -13409,7 +13259,7 @@
   {
     "id": "reddit-1775446235080-31",
     "title": "开发者冷启动验证工具",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论[2]高度共鸣并补全了核心痛点——需验证‘用户是否真有该问题’，而非求赞，体现真实需求。",
     "problem": "开发者在GitHub提交PR后卡在等待CI/CD反馈环节",
     "targetUsers": "独立开发者、开源库维护者、小团队前端工程师",
@@ -13447,7 +13297,7 @@
   {
     "id": "reddit-1775446245095-32",
     "title": "职场身份切换社交助手",
-    "score": 6,
+    "score": 4,
     "scoreReason": "评论[4]明确描述了商务出行中需快速切换身份（对上司/同事/家人）的实时沟通场景，具象且未被现有工具覆盖，但仅1条评论提及，共鸣有限。",
     "problem": "用户在LinkedIn发帖时无法一键切换咨询顾问/创业者/前大厂员工身份",
     "targetUsers": "猎头顾问、自由职业者、跳槽过渡期HRBP",
@@ -13485,7 +13335,7 @@
   {
     "id": "reddit-1775446254755-33",
     "title": "开发者公开执行进度工具",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论[4][5]明确支持定期进度共享价值，[1][2]指出每日压力和颗粒度问题，需求真实但需节奏优化。",
     "problem": "远程协作时，开发者无法实时查看PR合并/部署/测试通过等关键节点状态",
     "targetUsers": "独立开发者、开源项目维护者、小型SaaS技术负责人",
@@ -13524,7 +13374,7 @@
   {
     "id": "reddit-1775446264546-34",
     "title": "智能保修单拍照管理App",
-    "score": 6,
+    "score": 4,
     "scoreReason": "评论[1][4]明确承认问题真实但窄，OCR自动提取是共识性增值点，但多人质疑必要性与使用意愿。",
     "problem": "用户拍保修单后无法自动识别品牌/型号/有效期并归档",
     "targetUsers": "家电维修师傅、二手平台验机员、家庭主妇管理电器保修",
@@ -13563,7 +13413,7 @@
   {
     "id": "reddit-1775446274589-35",
     "title": "人生重大决策规划助手",
-    "score": 6,
+    "score": 4,
     "scoreReason": "评论用反讽暴露真实痛点——用户被婚礼等决策信息过载压垮，但对泛化方案存疑，需聚焦具体场景验证需求。",
     "problem": "用户在填写购房/换工作/结婚等决策表单时卡在权重分配环节",
     "targetUsers": "28岁新一线职场人、35岁二胎妈妈、42岁创业公司CTO",
@@ -13602,7 +13452,7 @@
   {
     "id": "hackernews-item?id=32315035-36",
     "title": "网页元素级协作标注工具",
-    "score": 7,
+    "score": 4,
     "scoreReason": "59条评论中3条直接推荐竞品，2条深入讨论DOM稳定性等真实痛点，需求明确且有共鸣。",
     "problem": "前端开发在PR评审时无法直接圈选DOM节点批注",
     "targetUsers": "前端工程师、UI设计师、产品经理",
@@ -13640,7 +13490,7 @@
   {
     "id": "hackernews-item?id=30895905-37",
     "title": "二进制协议可视化工具",
-    "score": 8,
+    "score": 5,
     "scoreReason": "5条评论均主动提供替代方案或延伸讨论，表明需求真实、普遍且未被现有工具充分满足。",
     "problem": "开发者调试TCP自定义协议时，在Wireshark里手动拼接字节流卡住",
     "targetUsers": "物联网固件工程师、游戏服务器协议开发者、金融低延时通信调试员",
@@ -13678,7 +13528,7 @@
   {
     "id": "hackernews-item?id=32289915-38",
     "title": "专注代码阅读的轻量编辑器",
-    "score": 6,
+    "score": 4,
     "scoreReason": "约半数评论者明确使用终端只读模式（less/vi/nvim -R）或强调‘不混用开发与阅读环境’，体现真实细分需求，但部分人认为现有IDE已足够。",
     "problem": "在GitHub PR审查时无法快速跳转函数定义和折叠无关代码块",
     "targetUsers": "前端PR审核者、开源协作者、初级后端实习生",
@@ -13715,7 +13565,7 @@
   {
     "id": "hackernews-item?id=34140098-39",
     "title": "MIDI和弦进程搜索工具",
-    "score": 7,
+    "score": 4,
     "scoreReason": "5条评论均提供具体技术路径（midicsv、Chordino、music21等），证实需求真实且开发者群体有明确实现偏好。",
     "problem": "音乐人用DAW编曲时手动试和弦进行卡住",
     "targetUsers": "独立音乐人、游戏配乐师、短视频BGM创作者",
@@ -13753,7 +13603,7 @@
   {
     "id": "hackernews-item?id=26093536-40",
     "title": "加密货币能耗指数平台",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论1直接提供CBECI链接但未满足实时对比与多维指标（如TPWh、碳足迹）需求，显示现有方案不完整。",
     "problem": "用户查看BTC/ETH实时算力耗电量时卡在无中国本地化电力结构数据源",
     "targetUsers": "ESG分析师、矿场运营主管、Web3项目碳中和负责人",
@@ -13792,7 +13642,7 @@
   {
     "id": "hackernews-item?id=3746596-41",
     "title": "网页转PDF专业工具",
-    "score": 6,
+    "score": 4,
     "scoreReason": "评论中多人主动推荐替代方案，且指出现有工具存在格式问题和复杂页面失败，说明需求真实但非高频强痛点。",
     "problem": "用户点击浏览器打印→另存为PDF时格式错乱、分页失败",
     "targetUsers": "远程办公者、内容编辑、学术研究者",
@@ -13829,7 +13679,7 @@
   {
     "id": "hackernews-item?id=1531196-42",
     "title": "HN一键双栏阅读工具",
-    "score": 7,
+    "score": 4,
     "scoreReason": "3条评论均提供具体技术方案（插件/脚本），表明需求真实且有早期实践者，但未形成主流解决方案。",
     "problem": "HN用户需手动切换页面/复制链接才能对比两条帖子评论",
     "targetUsers": "HN常驻读者、技术博客对比研究者、英文信息速筛从业者",
@@ -13866,7 +13716,7 @@
   {
     "id": "hackernews-item?id=15090421-43",
     "title": "多容器引擎统一监控SaaS",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论直接推荐Sysdig Cloud，说明存在明确替代需求且用户愿主动分享方案，但仅1条评论，热度支撑有限。",
     "problem": "运维在K8s+Docker+Podman混合环境中手动切屏查指标",
     "targetUsers": "K8s集群管理员、混合云运维工程师、信创项目交付负责人",
@@ -13906,7 +13756,7 @@
   {
     "id": "hackernews-item?id=40096424-44",
     "title": "AI个人知识代理邮箱助手",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论[2][3]直接响应需求并透露可实现性，[1]反向印证痛点真实存在且未被现有方案满意解决",
     "problem": "用户在Outlook/Gmail中手动归档/摘要/转发邮件时卡住",
     "targetUsers": "独立顾问、自由译者、小律所合伙人",
@@ -13945,7 +13795,7 @@
   {
     "id": "hackernews-item?id=33663134-45",
     "title": "跨平台社交账号迁移工具",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论中直接给出两个可用链接，表明需求真实且已有初步验证，但用户仍主动发帖求助，说明现有方案体验不足。",
     "problem": "用户手动导出微信公众号粉丝再导入小红书企业号时卡在ID映射校验",
     "targetUsers": "新媒体运营、私域代运营公司、MCN机构账号管理员",
@@ -13984,7 +13834,7 @@
   {
     "id": "hackernews-item?id=43684286-46",
     "title": "P2P直播协议基础设施",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论1、4、5证实真实尝试与失败，痛点明确（上传不对称、NAT/防火墙、激励缺失），非纯幻想。",
     "problem": "Web端实时直播推流时，用户点击“开始直播”后卡在3秒以上首帧延迟",
     "targetUsers": "中小型SaaS产品经理、独立开发者、教育类APP技术负责人",
@@ -14024,7 +13874,7 @@
   {
     "id": "hackernews-item?id=32526108-47",
     "title": "Mac/Linux高性能远程桌面",
-    "score": 8,
+    "score": 5,
     "scoreReason": "多条评论（2、4、5）主动推荐替代方案（Parsec、RustDesk），印证需求真实且未被满足。",
     "problem": "Mac用户远程控制Linux服务器时SSH+VNC卡顿，拖拽文件失败",
     "targetUsers": "Mac开发者、Linux运维工程师、高校HPC实验室管理员",
@@ -14063,7 +13913,7 @@
   {
     "id": "hackernews-item?id=30405011-48",
     "title": "小屏安卓旗舰手机",
-    "score": 8,
+    "score": 5,
     "scoreReason": "评论[3][4][5]明确指出ASUS Zenfone 8（144mm）是“最接近”的主流选择，Ulefone/Unihertz等小厂存在但非旗舰，印证需求真实且未被大厂满足。",
     "problem": "单手握持时拇指无法触达屏幕顶部通知栏下拉",
     "targetUsers": "女性通勤族、掌上游戏主播、老年科技爱好者",
@@ -14102,7 +13952,7 @@
   {
     "id": "hackernews-item?id=29275470-49",
     "title": "轻量可定制开源教学平台",
-    "score": 8,
+    "score": 5,
     "scoreReason": "159条评论中多人亲述自用痛点（如Moodle老旧难改、SaaS封闭），且主动推荐替代方案，需求真实强烈。",
     "problem": "教师在钉钉群发课件后无法追踪学生完成率",
     "targetUsers": "K12培训机构讲师、高校慕课助教、企业内训师",
@@ -14140,7 +13990,7 @@
   {
     "id": "hackernews-item?id=19239317-50",
     "title": "iPhone摄像头物理指示灯",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论[3][4][5]共同确认iOS无硬件指示、安卓也缺失，且用户明确提出Mac式LED方案，需求真实且未被满足。",
     "problem": "用户开启视频会议时无法确认摄像头是否被后台App偷启",
     "targetUsers": "远程办公白领、网课教师、隐私敏感记者",
@@ -14179,7 +14029,7 @@
   {
     "id": "hackernews-item?id=30117383-51",
     "title": "高精度PC语音控制工具",
-    "score": 8,
+    "score": 5,
     "scoreReason": "评论[3][4][5]反复印证语音控制在真实办公场景中严重不可靠，且用户明确指出‘没人做更好’，需求强烈且未被满足。",
     "problem": "程序员写代码时频繁切键盘/鼠标切换输入法",
     "targetUsers": "前端工程师、Python数据分析师、Linux运维人员",
@@ -14218,7 +14068,7 @@
   {
     "id": "hackernews-item?id=41871499-52",
     "title": "边缘计算物理安全审计平台",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论[1][5]明确表达对云厂商物理安全信息不透明的不满，且指出‘可更好营销’，显示真实需求与市场空白并存",
     "problem": "运维人员在机房巡检时无法实时比对摄像头画面与设备资产台账",
     "targetUsers": "IDC机房运维、政企信创项目交付工程师、等保测评机构审计员",
@@ -14258,7 +14108,7 @@
   {
     "id": "hackernews-item?id=37918308-53",
     "title": "RTX超写实3D弹珠台",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论[4]证实团队已在用Unity+DXR开发，[1][2]显示用户主动寻找替代品但现有产品陈旧或体验受限。",
     "problem": "用户在导入自定义弹珠台模型时卡在GLTF材质绑定步骤",
     "targetUsers": "独立游戏开发者、VR展厅设计师、Steam创意工坊UP主",
@@ -14298,7 +14148,7 @@
   {
     "id": "hackernews-item?id=33531711-54",
     "title": "应急通知音量智能调节工具",
-    "score": 8,
+    "score": 5,
     "scoreReason": "143条评论中5条均聚焦音量不可调、静音无通知、媒体音量不生效等真实痛点，多人明确表达‘愿用’意愿。",
     "problem": "用户在会议中手机收到应急通知时手动调大音量卡住",
     "targetUsers": "社区网格员、医院急诊调度员、工厂安全巡检员",
@@ -14336,7 +14186,7 @@
   {
     "id": "hackernews-item?id=28861970-55",
     "title": "JS全栈开箱即用框架",
-    "score": 8,
+    "score": 5,
     "scoreReason": "评论[3][4][5]明确提名Ember、Meteor、Redwood、Blitz，证实开发者真实渴望但现有方案被视作‘niche’，需求强烈且未被满足。",
     "problem": "前端工程师在搭建新项目时，卡在数据库连接+身份认证+部署配置三步联动",
     "targetUsers": "独立开发者、初创公司CTO、外包团队技术负责人",
@@ -14374,7 +14224,7 @@
   {
     "id": "hackernews-item?id=30966582-56",
     "title": "Linux开箱即用硬件认证系统",
-    "score": 8,
+    "score": 5,
     "scoreReason": "152条评论中多人反复强调硬件兼容性是核心瓶颈，且明确指出System76/定制硬件体验好，证明需求真实强烈。",
     "problem": "Linux用户插USB网卡后无法自动识别驱动",
     "targetUsers": "嵌入式工程师、信创政务运维员、高校Linux实验课教师",
@@ -14413,7 +14263,7 @@
   {
     "id": "hackernews-item?id=14941789-57",
     "title": "网页滚动劫持拦截工具",
-    "score": 7,
+    "score": 4,
     "scoreReason": "多条评论明确表达强烈反感和实际使用需求（如[3]‘nuke from orbit’、[5]‘mentally agitating’），且已有简易扩展验证可行性（[1]）。",
     "problem": "用户滚动网页时被强制跳转/悬停广告卡住",
     "targetUsers": "新媒体编辑、H5开发者、手机银行产品经理",
@@ -14452,7 +14302,7 @@
   {
     "id": "hackernews-item?id=17142909-58",
     "title": "内存安全C子集开发工具",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论[2][4][5]直接呼应‘简化C实现内存安全’的可行性与痛点，多人提及库封装、语言修订等务实路径，需求真实且有技术共识。",
     "problem": "C程序员在嵌入式设备调试时因内存越界反复崩溃",
     "targetUsers": "汽车ECU固件工程师、物联网模组SDK维护者、航天嵌入式系统验证员",
@@ -14491,7 +14341,7 @@
   {
     "id": "hackernews-item?id=31504008-59",
     "title": "企业级自托管视频会议平台",
-    "score": 8,
+    "score": 5,
     "scoreReason": "评论[2][4][5]直接回应技术痛点（千人规模、噪声抑制、流控、低延迟），验证需求真实且未被满足。",
     "problem": "企业IT管理员在部署Zoom替代品时，卡在自建WebRTC信令服务器与NAT穿透配置",
     "targetUsers": "国企IT运维、高校信息中心工程师、律所合规负责人",
@@ -14530,7 +14380,7 @@
   {
     "id": "hackernews-item?id=17200930-60",
     "title": "程序员深度讨论社区",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论[4]明确指出现有平台缺乏‘社会互动’和‘自由宽泛思考’，共鸣强烈；[1][2]追问本质需求，验证问题真实存在。",
     "problem": "在HackerNews发帖后无法深度跟进技术讨论线程",
     "targetUsers": "一线大厂后端工程师、开源项目维护者、CTF战队核心成员",
@@ -14608,7 +14458,7 @@
   {
     "id": "hackernews-item?id=44441530-62",
     "title": "轻量视频工作流SaaS",
-    "score": 6,
+    "score": 4,
     "scoreReason": "评论[4][5]明确指出‘auto posting to social’是真实痛点，且用户混淆‘ intended vs actual user’，反映需求存在但触达错位。",
     "problem": "剪辑师在导出前反复手动拼接多段素材并校验时间码",
     "targetUsers": "B站Vlog剪辑师、小红书短视频运营、独立游戏开发者录屏剪辑员",
@@ -14647,7 +14497,7 @@
   {
     "id": "hackernews-item?id=1691682-63",
     "title": "跨平台App Store兼容播放器",
-    "score": 7,
+    "score": 4,
     "scoreReason": "多条评论明确指出App Store生态是核心壁垒，且用户怀念iPod Touch的轻便+应用体验，共鸣强烈。",
     "problem": "iOS用户想播安卓APK里的视频文件时点击无响应",
     "targetUsers": "iOS越狱用户、安卓开发者调试员、鸿蒙双系统极客",
@@ -14686,7 +14536,7 @@
   {
     "id": "hackernews-item?id=36596324-64",
     "title": "Android式轻量服务部署平台",
-    "score": 6,
+    "score": 4,
     "scoreReason": "评论[2][4][5]显示对Android直接上服务器强烈抵触，但[1][3]认可其沙盒化、自包含、权限模型等设计优势，存在改良借鉴的真实需求。",
     "problem": "开发者在CLI里反复敲kubectl部署微服务",
     "targetUsers": "初创后端工程师、运维外包人员、高校AI实验室管理员",
@@ -14725,7 +14575,7 @@
   {
     "id": "hackernews-item?id=14335286-65",
     "title": "AI实战学习平台",
-    "score": 6,
+    "score": 4,
     "scoreReason": "评论1-4均承认存在需求但指出当前方案（Kaggle、Dataquest、Udacity、Codecademy）在交互深度、项目节奏或理论实践平衡上不足，共识度中等。",
     "problem": "用户在AI工具实操时卡在调试API调用参数组合",
     "targetUsers": "应届AI工程师、跨境电商运营、高校AI课程助教",
@@ -14764,7 +14614,7 @@
   {
     "id": "hackernews-item?id=20345997-66",
     "title": "软件架构灵感社区",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论区多人主动列举资源但强调“没有像UI灵感网站那样聚合、直观、可浏览的架构灵感源”，显示真实需求缺口。",
     "problem": "在设计微服务拆分时卡在边界划分决策",
     "targetUsers": "Java后端架构师、云原生SRE、创业公司CTO",
@@ -14803,7 +14653,7 @@
   {
     "id": "hackernews-item?id=31076881-67",
     "title": "多账号隔离浏览器插件",
-    "score": 8,
+    "score": 5,
     "scoreReason": "评论[4][3][5]高频提及容器/多账户隔离需求，且已用Firefox容器等方案主动自救，说明痛点真实、用户愿付出行为主动行为。",
     "problem": "登录多个社交账号时反复手动登出/切换",
     "targetUsers": "电商运营、自媒体矩阵操盘手、跨境电商独立站卖家",
@@ -14842,7 +14692,7 @@
   {
     "id": "hackernews-item?id=28111017-68",
     "title": "动态邮址DNS服务",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论2/4明确验证了真实需求和现有商业服务存在，但指出延迟、成本高、非DNS式解耦（非自动、不可编程），痛点共识强。",
     "problem": "用户注册多个网站时反复填写不同邮箱防泄露",
     "targetUsers": "隐私敏感开发者、跨境电商运营、小红书内容创作者",
@@ -14881,7 +14731,7 @@
   {
     "id": "hackernews-item?id=9144412-69",
     "title": "手机直投立法平台",
-    "score": 6,
+    "score": 4,
     "scoreReason": "评论[3][4]显示对立法参与权有强烈诉求，但[1][2][5]揭示信任与可行性争议，需求真实但阻力显著。",
     "problem": "用户在手机端填写立法建议后无法直连人大官网提交",
     "targetUsers": "基层人大代表助理、高校法学专业学生、社区网格员",
@@ -14920,7 +14770,7 @@
   {
     "id": "hackernews-item?id=30114011-70",
     "title": "初创创意预售平台",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论[1][3]明确表达对‘早期兴趣验证+轻量投入’的需求，且质疑现有工具（落地页/众筹/股权平台）不匹配‘纸巾草图阶段’场景。",
     "problem": "用户提交创意后无法预估众筹成功率，卡在‘发布前不敢点提交’动作",
     "targetUsers": "独立开发者、高校设计系学生、小众手作主理人",
@@ -14959,7 +14809,7 @@
   {
     "id": "hackernews-item?id=15531745-71",
     "title": "Rails轻量CMS即插即用工具",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论[2]和[3]明确指出Rails开发者厌倦重复造轮子但现有CMS不轻量、不灵活，且WordPress垄断导致迁移需求真实存在。",
     "problem": "开发者在Rails项目中手动集成CMS时反复写admin路由和CRUD视图",
     "targetUsers": "SaaS初创CTO、独立开发者、Rails培训讲师",
@@ -14998,7 +14848,7 @@
   {
     "id": "hackernews-item?id=25485188-72",
     "title": "HN风格专业AMA社区",
-    "score": 6,
+    "score": 4,
     "scoreReason": "评论显示HN用户认可AMA价值（如提及移民律师案例），但反对泛化、促销化AMA，需求真实但边界明确。",
     "problem": "用户在HN发AMA后无法追踪提问者身份和追问链",
     "targetUsers": "技术创业者、开源项目维护者、独立开发者",
@@ -15037,7 +14887,7 @@
   {
     "id": "hackernews-item?id=3814347-73",
     "title": "Python轻量博客引擎",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论[2][4][5]高度共鸣，直指安装门槛、生态缺失和执行断层，痛点真实且未被解决。",
     "problem": "写完Markdown文章后，需手动部署到服务器",
     "targetUsers": "独立开发者、高校计算机教师、技术自媒体新人",
@@ -15076,7 +14926,7 @@
   {
     "id": "hackernews-item?id=34960260-74",
     "title": "CLI接口标准化工具",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论[2][5]强烈共鸣CLI命令不一致带来的认知负担，DevOps场景痛点明确且高频。",
     "problem": "开发者在CLI命令参数不一致时反复查文档",
     "targetUsers": "SRE工程师、CLI工具开发者、云平台SDK维护者",
@@ -15115,7 +14965,7 @@
   {
     "id": "hackernews-item?id=32845142-75",
     "title": "PostgreSQL模块一键安装工具",
-    "score": 6,
+    "score": 4,
     "scoreReason": "评论[2]指出pgxn.org存在但未被广泛认知，说明需求真实但现有方案曝光低、体验不足。",
     "problem": "DBA在Linux服务器上手动编译安装pg_stat_statements等扩展模块卡在依赖版本冲突",
     "targetUsers": "DBA、云数据库运维工程师、信创项目PG迁移工程师",
@@ -15154,7 +15004,7 @@
   {
     "id": "hackernews-item?id=20371095-76",
     "title": "办公椅两周试用订阅服务",
-    "score": 8,
+    "score": 5,
     "scoreReason": "原文标题+评论[1]明确提到“wish there was a service that I could test out an office chair for two weeks”，且多条评论主动分享真实使用体验，需求强烈且具共识。",
     "problem": "用户线上买办公椅后拆箱坐3分钟发现腰酸，退货流程卡在物流取件",
     "targetUsers": "远程程序员、自由设计师、居家客服人员",
@@ -15193,7 +15043,7 @@
   {
     "id": "hackernews-item?id=38232930-77",
     "title": "反微服务架构实战指南",
-    "score": 8,
+    "score": 5,
     "scoreReason": "评论区5条回复全部聚焦真实选型困境，3条明确推荐经典非微服务书籍，体现强烈共识性需求。",
     "problem": "工程师在拆分单体应用时卡在服务边界划分",
     "targetUsers": "Java后端架构师、初创CTO、银行核心系统重构组长",
@@ -15232,7 +15082,7 @@
   {
     "id": "hackernews-item?id=2934103-78",
     "title": "成功创业者生活规划社区",
-    "score": 8,
+    "score": 5,
     "scoreReason": "5条评论中3条明确表达强烈共鸣或参与意愿，且指出隐私、小众、兴趣导向等关键约束，需求真实性强。",
     "problem": "用户在填写周计划表时反复删改目标项卡住",
     "targetUsers": "独立开发者、知识付费讲师、跨境电商个体户",
@@ -15271,7 +15121,7 @@
   {
     "id": "hackernews-item?id=33598829-79",
     "title": "智能账单管家：自动缴费+异常预警",
-    "score": 8,
+    "score": 5,
     "scoreReason": "评论1、2、正文均明确指向账单管理痛点，且提到官网崩溃、autopay难设等真实障碍，共鸣强。",
     "problem": "用户手动核对水电煤账单时漏看逾期提醒",
     "targetUsers": "合租青年、小企业出纳、独居老人",
@@ -15310,7 +15160,7 @@
   {
     "id": "hackernews-item?id=1185224-80",
     "title": "高端城市快线通勤服务",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论[2][3][5]明确支持‘便利性升级’和‘非公交替代品’需求，且多人自述愿为舒适/可靠付费，但[1][4]质疑必要性，显示市场需教育。",
     "problem": "用户在地铁换乘时拖行李箱爬楼梯卡住",
     "targetUsers": "商务差旅者、携带婴儿车家长、老年通勤族",
@@ -15349,7 +15199,7 @@
   {
     "id": "hackernews-item?id=21257276-81",
     "title": "自动照片归档与智能整理工具",
-    "score": 8,
+    "score": 5,
     "scoreReason": "5条高赞评论均聚焦自动化同步、防误删、隐私、智能筛选/打标等痛点，多人提及‘新爸爸’场景，需求真实密集。",
     "problem": "用户手动拖拽照片到文件夹时卡在按时间/人物/地点分类",
     "targetUsers": "自由摄影师、小红书博主、双职工父母",
@@ -15388,7 +15238,7 @@
   {
     "id": "hackernews-item?id=14924520-82",
     "title": "儿童屏幕时间智能干预工具",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论[1][2][3]均聚焦‘如何有效替代/限制’而非否定问题，显示真实育儿困境与现有方案无力感。",
     "problem": "家长在手机设置里找不到儿童屏幕时间自动拦截开关",
     "targetUsers": "一线城市小学妈妈、国际学校班主任、儿童心理诊所咨询师",
@@ -15427,7 +15277,7 @@
   {
     "id": "hackernews-item?id=33411164-83",
     "title": "非软件工程师的Hacker News",
-    "score": 8,
+    "score": 5,
     "scoreReason": "评论区2人明确表示‘我也一样’并主动寻求推荐，且提及被现有社区（Reddit/Discord）伤害的真实退出原因，需求真实强烈。",
     "problem": "非工程师在Hacker News上无法快速理解技术帖的术语和上下文",
     "targetUsers": "产品经理、创业者、科技记者",
@@ -15466,7 +15316,7 @@
   {
     "id": "hackernews-item?id=29006108-84",
     "title": "域名直达搜索工具",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论1明确表示‘I love the idea’并考虑集成，评论2提供替代方案但需手动前缀/插件，说明需求真实但现有方案不够自然。",
     "problem": "用户在浏览器地址栏输域名时反复按回车跳转",
     "targetUsers": "前端开发者、SEO优化师、域名投资人",
@@ -15505,7 +15355,7 @@
   {
     "id": "hackernews-item?id=7583983-85",
     "title": "HN评论管理浏览器插件",
-    "score": 8,
+    "score": 5,
     "scoreReason": "3条评论明确提及自用插件、实验性扩展及具体链接，证实需求真实且已有自发解决方案。",
     "problem": "HN用户手动翻页查评论太慢",
     "targetUsers": "HN常驻读者、技术博客作者、开源项目维护者",
@@ -15544,7 +15394,7 @@
   {
     "id": "hackernews-item?id=3099392-86",
     "title": "音乐开发者专用音效API",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论1明确共鸣‘花太多时间找免费样本并跨浏览器集成’，证实真实开发痛点。",
     "problem": "游戏开发者在Unity中拖拽音效文件时卡顿",
     "targetUsers": "Unity独立开发者、小程序音效设计师、教育类编程课讲师",
@@ -15583,7 +15433,7 @@
   {
     "id": "hackernews-item?id=3703118-87",
     "title": "旧金山黑客训练营",
-    "score": 7,
+    "score": 4,
     "scoreReason": "两条评论均明确表达强烈兴趣，其中一条主动提问生存问题，说明需求真实且有决策障碍。",
     "problem": "学员在GitHub提交PR时卡在CI失败调试",
     "targetUsers": "应届程序员、转行新人、开源项目维护者",
@@ -15622,7 +15472,7 @@
   {
     "id": "hackernews-item?id=34604960-88",
     "title": "智能书签管理器",
-    "score": 7,
+    "score": 4,
     "scoreReason": "6条评论中4条明确表达对当前书签搜索/管理的不满，且多人自发提到Pocket、Pinboard等替代方案，显示真实迁移意愿。",
     "problem": "用户在Chrome中频繁手动整理书签夹，拖拽分类耗时",
     "targetUsers": "程序员、高校研究生、新媒体编辑",
@@ -15661,7 +15511,7 @@
   {
     "id": "hackernews-item?id=4982388-89",
     "title": "HN增强浏览器插件",
-    "score": 8,
+    "score": 5,
     "scoreReason": "6条建议中4条（智能翻页、折叠评论、投票优化、通知）获多条评论明确共鸣或已存在简易替代方案，证明需求真实且未被官方满足。",
     "problem": "HN用户在Chrome中手动复制链接到HN发帖卡顿",
     "targetUsers": "独立开发者、技术博主、RSS聚合器重度用户",
@@ -15700,7 +15550,7 @@
   {
     "id": "hackernews-item?id=29691814-90",
     "title": "Windows极速效率工具集",
-    "score": 7,
+    "score": 4,
     "scoreReason": "标题下5赞但0评论，说明共鸣存在但未激发讨论，属中高潜力隐性需求。",
     "problem": "Win10/11用户手动右键→属性→安全→编辑→添加权限→勾选完全控制，耗时90秒",
     "targetUsers": "IT支持工程师、Python数据分析师、本地部署AI模型调试者",
@@ -15739,7 +15589,7 @@
   {
     "id": "hackernews-item?id=44214410-91",
     "title": "非技术向HN式新闻社区",
-    "score": 8,
+    "score": 5,
     "scoreReason": "评论区多条高共鸣反馈确认需求真实存在，明确表达‘不存在’+‘愿参与/付费’意愿",
     "problem": "用户在HN发帖后无法实时看到中文评论互动",
     "targetUsers": "前端工程师、独立开发者、AI工具创业者",
@@ -15778,7 +15628,7 @@
   {
     "id": "hackernews-item?id=31258662-92",
     "title": "Web Components跨浏览器兼容方案",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论[1]强烈反映Safari兼容性是核心痛点，多人提及真实应用（Photoshop、YouTube等）但被兼容问题阻碍落地",
     "problem": "前端工程师在Chrome写Web Components后，Safari/IE11渲染失败",
     "targetUsers": "中台前端工程师、低代码平台开发者、政企信创项目前端负责人",
@@ -15817,7 +15667,7 @@
   {
     "id": "hackernews-item?id=41152824-93",
     "title": "开源小型农场机器人",
-    "score": 8,
+    "score": 5,
     "scoreReason": "评论区密集提供多个相关开源项目链接，且用户身份（农民+工程师）真实可信，需求明确、共鸣强。",
     "problem": "用户在小型农场手动除草时弯腰超10分钟腰痛",
     "targetUsers": "都市近郊家庭农场主、高校农学院实验田管理员、社区CSA合作社技术员",
@@ -15856,7 +15706,7 @@
   {
     "id": "hackernews-item?id=13315779-94",
     "title": "AI技术史深度解析工具",
-    "score": 6,
+    "score": 4,
     "scoreReason": "评论中两人主动分享替代资源（博客系列、教科书章节），表明需求真实但已有部分满足，属中等强度机会。",
     "problem": "用户查AI技术演进时，在GitHub/论文中手动爬梳时间线卡住",
     "targetUsers": "AI研究员、大模型工程师、技术布道师",
@@ -15895,7 +15745,7 @@
   {
     "id": "hackernews-item?id=25214738-95",
     "title": "第三方数据追踪可视化工具",
-    "score": 7,
+    "score": 4,
     "scoreReason": "5条评论均提供具体方案或工具，但多人强调现有方案繁琐（手动、需技术门槛、无法解密HTTPS第三方中转）、缺乏一体化易用产品。",
     "problem": "开发者在调试埋点时反复刷新页面查network标签",
     "targetUsers": "前端工程师、数据产品经理、增长运营人员",
@@ -15934,7 +15784,7 @@
   {
     "id": "hackernews-item?id=10917083-96",
     "title": "美国降水数据API服务",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论区密集提供多个NOAA等官方链接，表明需求真实且开发者在主动寻找可用方案，但均非开箱即用的REST API。",
     "problem": "气象局API调用需审批，开发者无法实时获取分钟级降水数据",
     "targetUsers": "智慧农业灌溉系统工程师、城市内涝预警平台产品经理、无人机物流调度算法工程师",
@@ -15973,7 +15823,7 @@
   {
     "id": "hackernews-item?id=2143526-97",
     "title": "Android开发新手速成课",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论中2人主动分享自用路径和具体资料，证实真实学习路径混乱、优质入门内容稀缺。",
     "problem": "新手在Android Studio里创建第一个Activity时卡在Gradle同步失败",
     "targetUsers": "应届计算机毕业生、转行IT的在职者、高职院校实训教师",
@@ -16012,7 +15862,7 @@
   {
     "id": "hackernews-item?id=896000-98",
     "title": "多范式编程设计教练",
-    "score": 7,
+    "score": 4,
     "scoreReason": "两条高赞评论均指出OO局限性，强调需结合FP/关系模型等范式，共识强且直击资深开发者真实困惑。",
     "problem": "用户在写Python函数时卡在类型提示与Rust风格模式匹配的语法转换",
     "targetUsers": "后端工程师转Rust、青教赛参赛教师、信奥教练",
@@ -16051,7 +15901,7 @@
   {
     "id": "v2ex-1203702-99",
     "title": "AI编程的跨平台命令行助手",
-    "score": 7,
+    "score": 4,
     "scoreReason": "46赞+46评显示高度共鸣，多条评论提及Windows命令失败、Linux Shell更可靠、Cursor/Powershell适配差等问题。",
     "problem": "在Linux/macOS/Windows终端里反复敲重复命令",
     "targetUsers": "运维工程师、前端开发者、高校CS学生",
@@ -16090,7 +15940,7 @@
   {
     "id": "v2ex-1203674-100",
     "title": "AI费用报销合规管理工具",
-    "score": 7,
+    "score": 4,
     "scoreReason": "37赞+37评显示大量职场开发者/创作者正面临AI订阅费报销难、额度不透明、封号风险等真实痛点。",
     "problem": "财务审核报销单时手动核对发票真伪和政策条款",
     "targetUsers": "中小企业出纳、初创公司行政、SaaS公司财务BP",
@@ -16129,7 +15979,7 @@
   {
     "id": "v2ex-1203633-101",
     "title": "跨境AI账号稳定代理服务",
-    "score": 7,
+    "score": 4,
     "scoreReason": "评论区多人追问IP/时区/支付组合方案，显示强烈实操需求与信息不对称痛点。",
     "problem": "用户手动切换IP登录海外AI账号时频繁被封号",
     "targetUsers": "AI模型调用开发者、跨境内容创作者、海外SaaS工具测试员",

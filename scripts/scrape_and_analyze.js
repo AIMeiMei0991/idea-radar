@@ -277,7 +277,7 @@ async function analyzeWithQwen(post) {
 
 {
   "title": "用中文提炼创业机会标题（20字以内，具体有吸引力）",
-  "score": 1到10的整数,
+  "score": 1到5的整数（1=无商业价值，3=有潜力值得研究，5=强需求一人可做），
   "scoreReason": "一句话评分理由（结合评论共鸣程度）",
   "problem": "谁在痛？什么具体场景？为什么现有工具解决不了？（100字以内，基于原文，不编造）",
   "targetUsers": "目标用户画像（50字以内）",
@@ -316,7 +316,19 @@ function appendToIdeas(newItems) {
     existing = JSON.parse(fs.readFileSync(IDEAS_FILE, 'utf-8'));
   }
   const existingUrls = new Set(existing.map(i => i.url));
-  const toAdd = newItems.filter(i => i.url && !existingUrls.has(i.url));
+
+  const toAdd = newItems
+    .filter(i => {
+      if (!i.url || existingUrls.has(i.url)) return false;  // 去重
+      if (!i.problem || i.problem.trim().length < 10) return false;  // 无痛点描述
+      if (!i.title || i.title.trim().length < 5) return false;       // 无标题
+      if (i.isPainPoint === false) return false;                       // 非痛点
+      const s = Math.min(5, Math.max(1, Math.round(Number(i.score) || 1)));
+      if (s < 3) return false;                                         // 低质量过滤
+      i.score = s;  // 归一化写回
+      return true;
+    });
+
   fs.writeFileSync(IDEAS_FILE, JSON.stringify([...existing, ...toAdd], null, 2), 'utf-8');
   return toAdd.length;
 }

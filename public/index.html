@@ -13,38 +13,46 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 
 /* ── 顶栏 ── */
 .topbar{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06)}
-.topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 8px}
-.logo{font-size:17px;font-weight:700;color:#fff;letter-spacing:-0.3px}
-.logo-icon{color:#ff6b35;margin-right:5px}
-.update-time{font-size:11px;color:#666;margin-top:2px}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 14px 6px}
+.logo{font-size:15px;font-weight:700;color:#fff;letter-spacing:-0.3px}
+.logo-icon{color:#ff6b35;margin-right:4px}
+.update-time{font-size:10px;color:#555;margin-top:1px}
 .read-toggle{font-size:11px;color:#444;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);padding:6px 12px;border-radius:8px;cursor:pointer;white-space:nowrap;transition:color 0.15s,background 0.15s;min-height:32px}
 .read-toggle:hover{color:#888;background:rgba(255,255,255,0.08)}
-.read-toggle.active{color:#6366f1;border-color:rgba(99,102,241,0.3);background:rgba(99,102,241,0.08)}
+.read-toggle.active{color:#ff8a5b;border-color:rgba(255,107,53,0.3);background:rgba(255,107,53,0.08)}
 
 /* 搜索 */
-.search-wrap{padding:0 12px 8px;position:relative}
-.search-input{width:100%;background:#141420;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:10px 14px;font-size:16px;color:#e2e2e2;outline:none;-webkit-appearance:none}
+.search-wrap{padding:0 12px 6px;position:relative}
+.search-input{width:100%;background:#141420;border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px 14px;font-size:15px;color:#e2e2e2;outline:none;-webkit-appearance:none}
 .search-input::placeholder{color:#3a3a4a}
 .search-input:focus{border-color:rgba(255,107,53,0.4);background:#18181f}
 .search-clear{position:absolute;right:24px;top:50%;transform:translateY(-50%);background:none;border:none;color:#555;font-size:16px;cursor:pointer;padding:4px;display:none}
 .search-clear.visible{display:block}
 
 /* 标签页 */
-.tabs-wrap{display:flex;padding:0 12px 6px;overflow-x:auto;scrollbar-width:none}
+.tabs-wrap{display:flex;padding:0 10px 4px;overflow-x:auto;scrollbar-width:none}
 .tabs-wrap::-webkit-scrollbar{display:none}
-.tab-btn{flex-shrink:0;font-size:13px;font-weight:500;padding:7px 13px;border-radius:10px;background:none;border:none;color:#555;cursor:pointer;transition:all 0.15s;white-space:nowrap;position:relative}
-.tab-btn:hover{color:#888;background:rgba(255,255,255,0.04)}
-.tab-btn.active{background:#1c1c28;color:#e2e2e2;font-weight:600}
+.tab-btn{flex-shrink:0;font-size:12px;font-weight:500;padding:5px 10px;border-radius:0;background:none;border:none;border-bottom:2px solid transparent;color:#555;cursor:pointer;transition:all 0.15s;white-space:nowrap;position:relative;margin-bottom:-1px}
+.tab-btn:hover{color:#888;background:none}
+.tab-btn.active{background:none;color:#e2e2e2;font-weight:600;border-bottom-color:#ff6b35}
 .tab-btn .badge{position:absolute;top:3px;right:3px;background:#6366f1;color:#fff;font-size:9px;font-weight:700;padding:1px 4px;border-radius:6px;min-width:14px;text-align:center;line-height:1.4}
 
 /* 快速筛选条 */
-.filter-wrap{display:flex;gap:6px;padding:0 12px 10px;overflow-x:auto;scrollbar-width:none}
+.filter-wrap{display:flex;gap:5px;padding:0 12px 8px;overflow-x:auto;scrollbar-width:none;max-height:0;overflow:hidden;transition:max-height 0.25s ease,padding 0.25s ease}
+.filter-wrap.filter-open{max-height:80px;overflow-x:auto;overflow-y:hidden}
 .filter-wrap::-webkit-scrollbar{display:none}
-.filter-chip{flex-shrink:0;font-size:11px;font-weight:600;padding:5px 11px;min-height:30px;border-radius:20px;cursor:pointer;border:1px solid rgba(255,255,255,0.09);background:none;color:#555;white-space:nowrap;transition:all 0.15s}
+.filter-chip{flex-shrink:0;font-size:11px;font-weight:600;padding:4px 10px;min-height:28px;border-radius:20px;cursor:pointer;border:1px solid rgba(255,255,255,0.09);background:none;color:#555;white-space:nowrap;transition:all 0.15s}
 .filter-chip:hover{color:#888;border-color:rgba(255,255,255,0.18)}
-.fc-china.active{background:rgba(34,197,94,0.14);color:#4ade80;border-color:rgba(34,197,94,0.35)}
-.fc-solo.active {background:rgba(99,102,241,0.15);color:#a5b4fc;border-color:rgba(99,102,241,0.35)}
-.fc-mrr.active  {background:rgba(34,197,94,0.14);color:#4ade80;border-color:rgba(34,197,94,0.35)}
+
+/* 筛选触发按钮（手机端） */
+.filter-toggle-btn{display:flex;align-items:center;gap:3px;font-size:12px;font-weight:500;color:#555;background:none;border:none;padding:4px 2px 4px 14px;cursor:pointer;white-space:nowrap;transition:color 0.15s}
+.filter-toggle-btn:hover{color:#888}
+.filter-toggle-btn.has-active{color:#ff8a5b}
+.filter-count-badge{font-size:10px;font-weight:700;background:rgba(255,107,53,0.18);color:#ff8a5b;padding:1px 5px;border-radius:8px;display:none}
+.filter-toggle-btn.has-active .filter-count-badge{display:inline}
+.fc-china.active{background:rgba(255,107,53,0.12);color:#ff8a5b;border-color:rgba(255,107,53,0.35)}
+.fc-solo.active {background:rgba(255,107,53,0.12);color:#ff8a5b;border-color:rgba(255,107,53,0.35)}
+.fc-mrr.active  {background:rgba(255,107,53,0.12);color:#ff8a5b;border-color:rgba(255,107,53,0.35)}
 
 /* ── 日期分组 ── */
 .section-header{display:flex;align-items:center;gap:8px;padding:14px 16px 10px}
@@ -56,10 +64,10 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .cards{padding:0 12px;display:flex;flex-direction:column;gap:10px}
 
 .card-wrap{border-radius:16px;border:1px solid;overflow:hidden;transition:opacity 0.3s,max-height 0.35s}
-.card-wrap.s5{background:linear-gradient(135deg,rgba(255,107,53,0.12),rgba(255,107,53,0.04));border-color:rgba(255,107,53,0.3)}
-.card-wrap.s4{background:rgba(255,107,53,0.07);border-color:rgba(255,107,53,0.18)}
-.card-wrap.s3{background:rgba(251,191,36,0.04);border-color:rgba(251,191,36,0.15)}
-.card-wrap.s2,.card-wrap.s1{background:rgba(255,255,255,0.015);border-color:rgba(255,255,255,0.06)}
+.card-wrap.s5{background:rgba(255,255,255,0.025);border-color:rgba(255,107,53,0.25)}
+.card-wrap.s4{background:rgba(255,255,255,0.02);border-color:rgba(255,255,255,0.1)}
+.card-wrap.s3{background:rgba(255,255,255,0.015);border-color:rgba(255,255,255,0.07)}
+.card-wrap.s2,.card-wrap.s1{background:rgba(255,255,255,0.01);border-color:rgba(255,255,255,0.05)}
 .card-wrap.is-read{opacity:0.5}
 
 /* 卡片链接 */
@@ -80,11 +88,11 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .fetch-date{font-size:10px;color:#4a4a5a;flex-shrink:0}
 
 .score-bar{display:flex;gap:1px;align-items:center;flex-shrink:0;font-size:11px;line-height:1}
-.star-on-5,.star-on-4{color:#ff6b35}.star-on-3{color:#fbbf24}
-.star-on-2,.star-on-1{color:#6366f1}.star-off{color:#2a2a3a}
+.star-on-5,.star-on-4{color:#ff6b35}.star-on-3{color:#ff8a5b}
+.star-on-2,.star-on-1{color:#555}.star-off{color:#252530}
 
-.card-title{font-size:15px;font-weight:700;color:#f0f0f4;line-height:1.4;margin-bottom:6px}
-.eng-title{font-size:12px;color:#555;line-height:1.4;margin-bottom:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-title{font-size:16px;font-weight:800;color:#fff;line-height:1.38;margin-bottom:6px;letter-spacing:-0.2px}
+.eng-title{font-size:11px;color:#444;line-height:1.4;margin-bottom:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 .mrr-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(34,197,94,0.14);color:#4ade80;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px}
 
@@ -95,14 +103,14 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 /* #777 在 #141420 背景上对比度约 4.6:1，满足 WCAG AA */
 .sig-desc{font-size:12px;color:#777;line-height:1.45}
 
-/* 中国适配颜色 */
-.china-high{background:rgba(34,197,94,0.14);color:#4ade80}
-.china-mid {background:rgba(251,191,36,0.12);color:#fbbf24}
-.china-low {background:rgba(239,68,68,0.12);color:#f87171}
-/* 一人可行颜色 */
-.solo-yes  {background:rgba(99,102,241,0.15);color:#a5b4fc}
-.solo-maybe{background:rgba(251,191,36,0.10);color:#fbbf24}
-.solo-hard {background:rgba(239,68,68,0.10);color:#f87171}
+/* 中国适配颜色 — 统一灰色，无彩色区分 */
+.china-high{background:rgba(255,255,255,0.06);color:#888;border:1px solid rgba(255,255,255,0.1)}
+.china-mid {background:rgba(255,255,255,0.06);color:#888;border:1px solid rgba(255,255,255,0.1)}
+.china-low {background:rgba(255,255,255,0.06);color:#888;border:1px solid rgba(255,255,255,0.1)}
+/* 一人可行颜色 — 统一灰色 */
+.solo-yes  {background:rgba(255,255,255,0.06);color:#888;border:1px solid rgba(255,255,255,0.1)}
+.solo-maybe{background:rgba(255,255,255,0.06);color:#888;border:1px solid rgba(255,255,255,0.1)}
+.solo-hard {background:rgba(255,255,255,0.06);color:#888;border:1px solid rgba(255,255,255,0.1)}
 
 /* 卡片操作栏 — 最小高度48px 保证移动端可点击 */
 .card-actions{display:flex;border-top:1px solid rgba(255,255,255,0.05)}
@@ -123,7 +131,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .loading,.empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:55vh;gap:12px;color:#444;font-size:14px;text-align:center;padding:24px}
 .empty-icon{font-size:40px;margin-bottom:4px}
 .empty-sub{font-size:12px;color:#666;margin-top:2px;line-height:1.7}
-.empty-action{font-size:12px;color:#6366f1;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);padding:8px 18px;border-radius:20px;cursor:pointer;margin-top:8px}
+.empty-action{font-size:12px;color:#ff8a5b;background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.2);padding:8px 18px;border-radius:20px;cursor:pointer;margin-top:8px}
 .bk-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:50vh;gap:10px;color:#444;font-size:14px;text-align:center;padding:24px}
 .bk-empty-sub{font-size:12px;color:#666;margin-top:2px;line-height:1.7}
 .spinner{width:28px;height:28px;border:2px solid #1e1e28;border-top-color:#ff6b35;border-radius:50%;animation:spin 0.7s linear infinite}
@@ -145,7 +153,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .card:active{opacity:0.8}
 .expand-hint{font-size:11px;color:#3a3a50;text-align:right;margin-top:6px;transition:color 0.2s}
 .card:hover .expand-hint{color:#555}
-.card[aria-expanded="true"] .expand-hint{color:#6366f1}
+.card[aria-expanded="true"] .expand-hint{color:#ff8a5b}
 .expand-hint-arrow{display:inline-block;transition:transform 0.25s}
 .card[aria-expanded="true"] .expand-hint-arrow{transform:rotate(180deg)}
 
@@ -156,8 +164,8 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .detail-label{font-size:10px;font-weight:700;color:#888;letter-spacing:0.5px;margin-bottom:3px;text-transform:uppercase}
 .detail-content{font-size:13px;color:#c4c4d0;line-height:1.55}
 .detail-placeholder{font-size:12px;color:#555;padding:4px 0 8px}
-.detail-link{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:12px;color:#818cf8;text-decoration:none;padding:7px 16px;border:1px solid rgba(99,102,241,0.25);border-radius:10px;background:rgba(99,102,241,0.07);transition:background 0.15s}
-.detail-link:hover{background:rgba(99,102,241,0.15)}
+.detail-link{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:12px;color:#ff8a5b;text-decoration:none;padding:7px 16px;border:1px solid rgba(255,107,53,0.25);border-radius:10px;background:rgba(255,107,53,0.07);transition:background 0.15s}
+.detail-link:hover{background:rgba(255,107,53,0.14)}
 
 .footer{text-align:center;font-size:11px;color:#2a2a38;padding:20px 16px calc(16px + env(safe-area-inset-bottom,0px))}
 .bottom-space{height:calc(20px + env(safe-area-inset-bottom,0px))}
@@ -168,18 +176,18 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .section-label{font-size:10px;font-weight:700;letter-spacing:0.5px;margin-bottom:4px;display:block;text-transform:uppercase}
 .section-text{font-size:13px;line-height:1.52}
 
-/* 痛点区（红） */
-.section-pain{background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.22)}
-.section-pain .section-label{color:#f87171}
-.section-pain .section-text{color:#fca5a5}
+/* 痛点区 — 统一灰色 */
+.section-pain{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08)}
+.section-pain .section-label{color:#666}
+.section-pain .section-text{color:#aaa}
 
-/* 解法区（绿） */
-.section-solution{background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.22)}
-.section-solution .section-label{color:#4ade80}
-.section-solution .section-text{color:#86efac}
+/* 解法区 — 统一灰色 */
+.section-solution{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08)}
+.section-solution .section-label{color:#666}
+.section-solution .section-text{color:#aaa}
 
-/* 评估区（蓝） */
-.section-eval{background:rgba(99,102,241,0.07);border:1px solid rgba(99,102,241,0.2);border-radius:8px;padding:10px 11px;margin-bottom:7px}
+/* 评估区 — 统一灰色 */
+.section-eval{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:10px 11px;margin-bottom:7px}
 .eval-row{display:flex;align-items:baseline;gap:8px;margin-bottom:5px}
 .eval-row:last-child{margin-bottom:0}
 .eval-tag{flex-shrink:0;font-size:10px;font-weight:700;padding:2px 8px;border-radius:5px;line-height:1.5}
@@ -195,26 +203,26 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 /* Logo 副标题 */
 .logo-sub{font-size:10px;color:#555;margin-top:1px;letter-spacing:0.2px}
 
-/* 痛点类型 badge（卡片内） */
+/* 痛点类型 badge（卡片内）— 统一灰色 */
 .pain-type-badge{font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px}
-.pt-effect{background:rgba(99,102,241,0.15);color:#a5b4fc}
-.pt-cost  {background:rgba(34,197,94,0.14);color:#4ade80}
-.pt-exp   {background:rgba(251,191,36,0.12);color:#fbbf24}
-.pt-emo   {background:rgba(236,72,153,0.14);color:#f9a8d4}
+.pt-effect{background:rgba(255,255,255,0.06);color:#777}
+.pt-cost  {background:rgba(255,255,255,0.06);color:#777}
+.pt-exp   {background:rgba(255,255,255,0.06);color:#777}
+.pt-emo   {background:rgba(255,255,255,0.06);color:#777}
 
-/* 痛点类型筛选 chip */
-.fc-pt-effect.active{background:rgba(99,102,241,0.15);color:#a5b4fc;border-color:rgba(99,102,241,0.35)}
-.fc-pt-cost.active  {background:rgba(34,197,94,0.14);color:#4ade80;border-color:rgba(34,197,94,0.35)}
-.fc-pt-exp.active   {background:rgba(251,191,36,0.12);color:#fbbf24;border-color:rgba(251,191,36,0.35)}
+/* 痛点类型筛选 chip — 统一橙色 accent */
+.fc-pt-effect.active{background:rgba(255,107,53,0.12);color:#ff8a5b;border-color:rgba(255,107,53,0.35)}
+.fc-pt-cost.active  {background:rgba(255,107,53,0.12);color:#ff8a5b;border-color:rgba(255,107,53,0.35)}
+.fc-pt-exp.active   {background:rgba(255,107,53,0.12);color:#ff8a5b;border-color:rgba(255,107,53,0.35)}
 
-/* soloFit 三档 chip */
-.fc-solo-maybe.active{background:rgba(251,191,36,0.12);color:#fbbf24;border-color:rgba(251,191,36,0.35)}
-.fc-solo-hard.active {background:rgba(239,68,68,0.12);color:#f87171;border-color:rgba(239,68,68,0.35)}
+/* soloFit 三档 chip — 统一橙色 accent */
+.fc-solo-maybe.active{background:rgba(255,107,53,0.12);color:#ff8a5b;border-color:rgba(255,107,53,0.35)}
+.fc-solo-hard.active {background:rgba(255,107,53,0.12);color:#ff8a5b;border-color:rgba(255,107,53,0.35)}
 
-/* devTimeline 筛选 chip */
-.fc-dev-short.active{background:rgba(34,197,94,0.14);color:#4ade80;border-color:rgba(34,197,94,0.35)}
-.fc-dev-mid.active  {background:rgba(251,191,36,0.12);color:#fbbf24;border-color:rgba(251,191,36,0.35)}
-.fc-dev-long.active {background:rgba(239,68,68,0.12);color:#f87171;border-color:rgba(239,68,68,0.35)}
+/* devTimeline 筛选 chip — 统一橙色 accent */
+.fc-dev-short.active{background:rgba(255,107,53,0.12);color:#ff8a5b;border-color:rgba(255,107,53,0.35)}
+.fc-dev-mid.active  {background:rgba(255,107,53,0.12);color:#ff8a5b;border-color:rgba(255,107,53,0.35)}
+.fc-dev-long.active {background:rgba(255,107,53,0.12);color:#ff8a5b;border-color:rgba(255,107,53,0.35)}
 
 /* 资源需求 pill（详情内） */
 .res-pill{font-size:11px;background:rgba(255,255,255,0.06);color:#9999bb;padding:2px 8px;border-radius:5px;display:inline-block;margin:2px 3px 2px 0}
@@ -234,12 +242,10 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .date-dropdown-item.active .ddi-count{color:rgba(255,107,53,0.6)}
 .dp-wrap{position:relative}
 
-/* ── chip 折叠 ── */
+/* ── chip 折叠（手机端 filter-open 时展示全部） ── */
 .filter-chip.xf{display:none}
-.filter-wrap.expanded .filter-chip.xf{display:flex}
-.filter-more-btn{flex-shrink:0;font-size:11px;font-weight:600;padding:5px 11px;min-height:30px;border-radius:20px;cursor:pointer;border:1px solid rgba(255,255,255,0.09);background:none;color:#555;white-space:nowrap;transition:all 0.15s}
-.filter-more-btn:hover{color:#888;border-color:rgba(255,255,255,0.18)}
-.filter-more-btn.expanded{color:#6366f1;border-color:rgba(99,102,241,0.3);background:rgba(99,102,241,0.08)}
+.filter-wrap.filter-open .filter-chip.xf{display:flex}
+.filter-more-btn{display:none}
 
 /* ── 心形收藏按钮（卡片顶角） ── */
 .card-heart{position:absolute;top:10px;right:10px;background:none;border:none;font-size:16px;cursor:pointer;color:#3a3a50;padding:4px;line-height:1;z-index:5;transition:color 0.15s,transform 0.15s}
@@ -342,9 +348,11 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
   .tabs-wrap    { max-width: 1280px; margin: 0 auto; padding: 0 28px 8px; }
   .filter-wrap  { max-width: 1280px; margin: 0 auto; padding: 6px 28px 14px; overflow-x: visible; flex-wrap: wrap; gap: 6px 5px; }
 
-  /* Show all filter chips on tablet+; remove "more" toggle */
+  /* Tablet+: filter 始终展开，筛选触发按钮隐藏 */
   .filter-chip.xf { display: flex !important; }
   .filter-more-btn { display: none !important; }
+  .filter-toggle-btn { display: none !important; }
+  .filter-wrap { max-height: none !important; overflow-x: visible !important; padding: 6px 28px 14px !important; flex-wrap: wrap; }
 
   /* Center app content */
   #app { max-width: 1280px; margin: 0 auto; }
@@ -461,37 +469,37 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .dov-label { font-size: 10px; font-weight: 700; color: #888; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; }
 .dov-text { font-size: 14px; line-height: 1.6; }
 
-/* 痛点区（红） */
-.dov-pain { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.18); }
-.dov-pain .dov-section-title { color: #f87171; }
-.dov-pain .dov-text { color: #fca5a5; }
-.dov-pain .dov-label { color: #f87171; opacity: 0.7; }
+/* 痛点区 — 统一灰色 */
+.dov-pain { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); }
+.dov-pain .dov-section-title { color: #aaa; }
+.dov-pain .dov-text { color: #bbb; }
+.dov-pain .dov-label { color: #777; }
 
-/* 解法区（绿） */
-.dov-solution { background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.18); }
-.dov-solution .dov-section-title { color: #4ade80; }
-.dov-solution .dov-text { color: #86efac; }
-.dov-solution .dov-label { color: #4ade80; opacity: 0.7; }
+/* 解法区 — 统一灰色 */
+.dov-solution { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); }
+.dov-solution .dov-section-title { color: #aaa; }
+.dov-solution .dov-text { color: #bbb; }
+.dov-solution .dov-label { color: #777; }
 
-/* 可行性区（蓝） */
-.dov-viability { background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.18); }
-.dov-viability .dov-section-title { color: #a5b4fc; }
-.dov-viability .dov-text { color: #c7d2fe; }
-.dov-viability .dov-label { color: #a5b4fc; opacity: 0.7; }
+/* 可行性区 — 统一灰色 */
+.dov-viability { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); }
+.dov-viability .dov-section-title { color: #aaa; }
+.dov-viability .dov-text { color: #bbb; }
+.dov-viability .dov-label { color: #777; }
 
-/* 中国市场区（黄绿） */
-.dov-china { background: rgba(34,197,94,0.05); border: 1px solid rgba(34,197,94,0.15); }
-.dov-china .dov-section-title { color: #4ade80; }
-.dov-china .dov-text { color: #a7f3d0; }
-.dov-china .dov-label { color: #4ade80; opacity: 0.7; }
+/* 中国市场区 — 统一灰色 */
+.dov-china { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); }
+.dov-china .dov-section-title { color: #aaa; }
+.dov-china .dov-text { color: #bbb; }
+.dov-china .dov-label { color: #777; }
 
 /* 中国适配进度条 */
 .dov-progress { height: 6px; border-radius: 3px; background: rgba(255,255,255,0.08); margin-top: 6px; overflow: hidden; }
 .dov-progress-fill { height: 100%; border-radius: 3px; background: #4ade80; transition: width 0.5s ease; }
 
 /* 来源区 */
-.dov-source-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 13px; color: #818cf8; text-decoration: none; padding: 8px 16px; border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; background: rgba(99,102,241,0.07); }
-.dov-source-link:hover { background: rgba(99,102,241,0.15); }
+.dov-source-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 13px; color: #ff8a5b; text-decoration: none; padding: 8px 16px; border: 1px solid rgba(255,107,53,0.25); border-radius: 10px; background: rgba(255,107,53,0.07); }
+.dov-source-link:hover { background: rgba(255,107,53,0.14); }
 
 /* 技术栈 pill */
 .dov-tech-pills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
@@ -536,15 +544,19 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
       autocomplete="off" autocorrect="off" spellcheck="false">
     <button class="search-clear" id="searchClear" onclick="clearSearch()" aria-label="清除搜索内容">✕</button>
   </div>
-  <div class="tabs-wrap" role="tablist" aria-label="内容分类">
-    <button class="tab-btn active" role="tab" aria-selected="true"  data-tab="feed" onclick="setTab(this,'feed')">📰 精选</button>
+  <div class="tabs-wrap" role="tablist" aria-label="内容分类" style="align-items:center;border-bottom:1px solid rgba(255,255,255,0.06)">
+    <button class="tab-btn active" role="tab" aria-selected="true"  data-tab="feed" onclick="setTab(this,'feed')">精选</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="all"  onclick="setTab(this,'all')">全部</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="tmrr" onclick="setTab(this,'tmrr')">验证收入</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="bookmarks" onclick="setTab(this,'bookmarks')">
-      ♥ 收藏<span class="badge" id="bkBadge" style="display:none">0</span>
+      收藏<span class="badge" id="bkBadge" style="display:none">0</span>
+    </button>
+    <div style="flex:1"></div>
+    <button class="filter-toggle-btn" id="filterToggleBtn" onclick="toggleFilterPanel()" aria-expanded="false" aria-controls="filterWrap">
+      筛选 <span class="filter-count-badge" id="filterCountBadge">0</span> ▾
     </button>
   </div>
-  <!-- 快速筛选条：帮用户一步锁定最感兴趣的方向，无需肉眼扫全部 -->
+  <!-- 快速筛选条：默认折叠，点击「筛选」展开 -->
   <div class="filter-wrap" id="filterWrap">
     <button class="filter-chip fc-china" id="fcChina" onclick="toggleFilter('china')"
       aria-pressed="false" aria-label="只看中国市场高匹配的创意">🇨🇳 中国可做</button>
@@ -736,7 +748,27 @@ function toggleFilter(type) {
       if (el) { el.classList.toggle('active', filterPainType === ptMap[k]); el.setAttribute('aria-pressed', String(filterPainType === ptMap[k])); }
     });
   }
-  currentPage = 1; saveFilters(); filterAndRender();
+  currentPage = 1; saveFilters(); filterAndRender(); updateFilterCountBadge();
+}
+
+// ── 筛选面板 toggle（手机端） ──────────────────────────
+function toggleFilterPanel() {
+  const wrap = document.getElementById('filterWrap');
+  const btn  = document.getElementById('filterToggleBtn');
+  if (!wrap || !btn) return;
+  const open = wrap.classList.toggle('filter-open');
+  btn.setAttribute('aria-expanded', String(open));
+  btn.innerHTML = '筛选 <span class="filter-count-badge" id="filterCountBadge"></span>' + (open ? ' ▴' : ' ▾');
+  updateFilterCountBadge();
+}
+
+function updateFilterCountBadge() {
+  const n = [filterChina, filterMrr, filterScore4, !!filterSolo, !!filterPainType, !!filterDevTimeline].filter(Boolean).length;
+  const badge = document.getElementById('filterCountBadge');
+  if (!badge) return;
+  badge.textContent = n || '';
+  const btn = document.getElementById('filterToggleBtn');
+  if (btn) btn.classList.toggle('has-active', n > 0);
 }
 
 function toggleHideRead() {

@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>创意雷达 · 金点子日报</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif;min-height:100vh}
@@ -74,6 +77,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .ext-score{font-size:10px;color:#555;margin-left:1px}
 /* #666 on #141420 对比度约 4.6:1，满足 WCAG AA */
 .cat-tag{font-size:11px;color:#666;background:rgba(255,255,255,0.06);padding:2px 7px;border-radius:5px}
+.fetch-date{font-size:10px;color:#4a4a5a;flex-shrink:0}
 
 .score-bar{display:flex;gap:1px;align-items:center;flex-shrink:0;font-size:11px;line-height:1}
 .star-on-5,.star-on-4{color:#ff6b35}.star-on-3{color:#fbbf24}
@@ -271,6 +275,63 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 .compact-tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:5px;line-height:1.5}
 
 /* ═══════════════════════════════════════════════════════
+   BOLDER — Editorial Intelligence
+   Typographic weight & scale from print, not digital effects.
+   Drama = hierarchy contrast + one distinctive font.
+═══════════════════════════════════════════════════════ */
+
+/* Display font — Space Grotesk for all heading-class elements */
+.logo, .card-title, .featured-title, .featured-num, .date-label, .featured-label {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Logo: commanding, not compact */
+.logo { font-size: 20px; font-weight: 700; letter-spacing: -0.6px; }
+.logo-sub { font-size: 11px; color: #777; letter-spacing: 0.1px; }
+
+/* Card titles: heavier, tighter */
+.card-title { font-size: 16px; font-weight: 700; letter-spacing: -0.3px; line-height: 1.33; }
+
+/* Stars: one step up in size — more readable */
+.score-bar { font-size: 13px; gap: 2px; }
+
+/* Section labels: editorial CAPS with presence */
+.section-label { letter-spacing: 2px; }
+
+/* Date section headers: visible + branded */
+.date-label { font-size: 13px; font-weight: 700; color: #bbb; letter-spacing: 0.3px; }
+.date-label::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 2px;
+  background: #ff6b35;
+  margin-right: 8px;
+  vertical-align: middle;
+  border-radius: 1px;
+}
+
+/* Featured section: warm radial glow — editorial header zone */
+.featured-section {
+  background: radial-gradient(ellipse 80% 100px at 50% 0px, rgba(255,107,53,0.07) 0%, transparent 100%);
+  padding: 16px 0 6px;
+}
+.featured-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; }
+
+/* Featured background numerals: huge & dramatic */
+.featured-num { font-size: 110px; font-weight: 700; color: rgba(255,107,53,0.07); top: -10px; right: 4px; line-height: 1; }
+
+/* Featured card titles: more impactful */
+.featured-title { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; }
+
+/* Top-scored cards: stronger presence */
+.card-wrap.s5 { border-color: rgba(255,107,53,0.48); background: linear-gradient(140deg, rgba(255,107,53,0.14) 0%, rgba(255,107,53,0.04) 65%); }
+.card-wrap.s4 { border-color: rgba(255,107,53,0.22); }
+
+/* Topbar: slightly more defined separation */
+.topbar { border-bottom-color: rgba(255,255,255,0.09); }
+
+/* ═══════════════════════════════════════════════════════
    RESPONSIVE — TABLET 768px+
    Two-column card grid; filter chips wrap; content centered
 ═══════════════════════════════════════════════════════ */
@@ -377,10 +438,12 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 }
 .dov-back { background: none; border: none; color: #888; font-size: 14px; cursor: pointer; padding: 8px 0; display:flex;align-items:center;gap:4px; }
 .dov-back:hover { color: #e2e2e2; }
-.dov-actions { display: flex; gap: 8px; }
+.dov-actions { display: flex; gap: 4px; align-items: center; }
 .dov-bk { background: none; border: none; font-size: 18px; cursor: pointer; color: #555; padding: 8px; }
 .dov-bk:hover { color: #f43f5e; }
 .dov-bk.hearted { color: #f43f5e; }
+.dov-act { background: none; border: none; font-size: 12px; font-weight: 600; cursor: pointer; color: #555; padding: 8px 10px; min-height: 36px; border-radius: 8px; transition: color 0.15s, background 0.15s; }
+.dov-act:hover { color: #e2e2e2; background: rgba(255,255,255,0.06); }
 
 .dov-body { padding: 20px 16px 40px; max-width: 720px; margin: 0 auto; }
 
@@ -516,6 +579,8 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
   <nav class="dov-nav">
     <button class="dov-back" onclick="closeDetailOverlay()" aria-label="返回列表">← 返回</button>
     <div class="dov-actions">
+      <button class="dov-act" onclick="dovShare()" aria-label="分享">↗ 分享</button>
+      <button class="dov-act" onclick="dovOpenSource()" aria-label="查看原文">→ 原文</button>
       <button class="dov-bk" id="dovBkBtn" onclick="dovToggleBookmark()" aria-label="收藏">♡</button>
     </div>
   </nav>
@@ -1059,6 +1124,7 @@ function renderCard(item) {
           <span class="src-name">${escHtml(item.sourceLabel || '')}</span>
           ${extScore ? `<span class="ext-score">▲${extScore}</span>` : ''}
           ${item.category ? `<span class="cat-tag">${escHtml(item.category)}</span>` : ''}
+          ${item.dateKey ? `<span class="fetch-date">${escHtml(item.dateKey.slice(5))}</span>` : ''}
         </div>
         <div class="score-bar" aria-label="潜力评分 ${sc} 分">${scoreDots(sc)}</div>
       </div>
@@ -1257,6 +1323,9 @@ function dovToggleBookmark() {
   bkBtn.classList.toggle('hearted', add);
   showToast(add ? '已收藏 ♥' : '已取消收藏', add ? 'ok' : '');
 }
+const _fakeEvent = { preventDefault: ()=>{}, stopPropagation: ()=>{} };
+function dovShare() { if (currentDetailId) shareIdea(currentDetailId, _fakeEvent); }
+function dovOpenSource() { if (currentDetailId) openSource(currentDetailId, _fakeEvent); }
 
 function toggleExpand(id) {
   const detail = document.getElementById('detail-' + id);

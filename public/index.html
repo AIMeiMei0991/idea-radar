@@ -367,7 +367,7 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
         </button>
         <div class="date-dropdown" id="dateDropdown" role="listbox" aria-label="选择日期"></div>
       </div>
-      <div style="position:relative">
+      <div id="moreWrap" style="position:relative">
         <button class="date-picker-btn" id="moreMenuBtn" onclick="toggleMoreMenu(event)" aria-label="更多操作" aria-haspopup="true">⋯</button>
         <div class="date-dropdown" id="moreMenuDropdown" style="min-width:120px">
           <div class="date-dropdown-item" onclick="clearAllRead();closeMoreMenu()">清空已读</div>
@@ -595,8 +595,6 @@ function toggleFilter(type) {
 
 function toggleHideRead() {
   hideRead = !hideRead;
-  const btn = document.getElementById('readToggle');
-  if (btn) { btn.textContent = hideRead ? '显示已读' : '隐藏已读'; btn.classList.toggle('active', hideRead); }
   currentPage = 1; filterAndRender();
   const menuItem = document.getElementById('hideReadMenuItem');
   if (menuItem) menuItem.textContent = hideRead ? '显示已读' : '隐藏已读';
@@ -754,7 +752,10 @@ document.addEventListener('click', function(e) {
     if (dd) dd.classList.remove('show');
     if (btn) btn.classList.remove('open');
   }
-  closeMoreMenu();
+  const moreWrap = document.getElementById('moreWrap');
+  if (moreWrap && !moreWrap.contains(e.target)) {
+    closeMoreMenu();
+  }
 });
 
 // ── 筛选 & 渲染 ──────────────────────────────────────

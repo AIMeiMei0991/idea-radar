@@ -350,6 +350,10 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
   .topbar-inner, .search-wrap, .tabs-wrap, .filter-wrap { max-width: 1280px; }
   #app { max-width: 1280px; }
 }
+
+/* ── 简化卡片 pill 信号行 ── */
+.card-pills { display:flex; gap:5px; flex-wrap:wrap; margin-top:8px; }
+.card-pill  { font-size:11px; font-weight:600; padding:3px 9px; border-radius:20px; line-height:1.4; }
 </style>
 </head>
 <body>
@@ -534,7 +538,7 @@ function toggleFilter(type) {
     filterChina = !filterChina;
     const btn = document.getElementById('fcChina');
     btn.classList.toggle('active', filterChina);
-    btn.setAttribute('aria-pressed', filterChina);
+    btn.setAttribute('aria-pressed', String(filterChina));
   } else if (type === 'solo_yes' || type === 'solo_maybe' || type === 'solo_hard') {
     const soloValMap = {solo_yes:'yes', solo_maybe:'maybe', solo_hard:'hard'};
     const soloIdMap  = {solo_yes:'fcSolo', solo_maybe:'fcSoloMaybe', solo_hard:'fcSoloHard'};
@@ -557,11 +561,11 @@ function toggleFilter(type) {
     filterMrr = !filterMrr;
     const btn = document.getElementById('fcMrr');
     btn.classList.toggle('active', filterMrr);
-    btn.setAttribute('aria-pressed', filterMrr);
+    btn.setAttribute('aria-pressed', String(filterMrr));
   } else if (type === 'score4') {
     filterScore4 = !filterScore4;
     document.getElementById('fcScore4').classList.toggle('active', filterScore4);
-    document.getElementById('fcScore4').setAttribute('aria-pressed', filterScore4);
+    document.getElementById('fcScore4').setAttribute('aria-pressed', String(filterScore4));
   } else if (type === 'pt_effect' || type === 'pt_cost' || type === 'pt_exp') {
     const ptMap = {pt_effect:'效率', pt_cost:'成本', pt_exp:'体验'};
     const idMap = {pt_effect:'fcPtEffect', pt_cost:'fcPtCost', pt_exp:'fcPtExp'};
@@ -915,117 +919,52 @@ function scrollToCard(id) {
 }
 
 function renderCard(item) {
-  // 优先展示中文标题，原英文标题作为副标题
-  const rawTitle = fixTitle(item.title||'');
+  const rawTitle = fixTitle(item.title || '');
   const titleZh = item.titleZh ? item.titleZh.trim() : '';
-  const title = titleZh || rawTitle;  // 展示标题：有中文译名则用译名
-  const showEngSub = titleZh && titleZh !== rawTitle; // 是否显示英文原标题
-  const sc = item.score||2;
+  const title = titleZh || rawTitle;
+  const sc = Math.min(5, Math.max(1, item.score || 2));
   const isBk = bookmarks.has(item.id);
   const isRead = readItems.has(item.id);
-  const extScore = item.hnScore||item.redditScore;
-
-  // 中国适配标签
-  const chinaLabel = {high:'🇨🇳 高匹配', mid:'🇨🇳 中匹配', low:'🇨🇳 受限'}[item.chinaFit||'mid'] || '🇨🇳 评估中';
-  const chinaClass = {high:'china-high', mid:'china-mid', low:'china-low'}[item.chinaFit||'mid'] || 'china-mid';
-  const chinaReason = item.chinaReason || '需结合具体赛道评估';
-
-  // 一人可行标签
-  const soloLabel = {yes:'👤 一人可行', maybe:'👤 需评估', hard:'👤 需团队'}[item.soloFit||'maybe'] || '👤 需评估';
-  const soloClass = {yes:'solo-yes', maybe:'solo-maybe', hard:'solo-hard'}[item.soloFit||'maybe'] || 'solo-maybe';
-  const soloReason = item.soloReason || '需结合具体开发复杂度判断';
-
+  const extScore = item.hnScore || item.redditScore;
   const eid = escHtml(item.id);
   const titleEsc = escHtml(title);
 
-  // 痛点类型 badge
-  const ptClassMap = {效率:'pt-effect', 成本:'pt-cost', 体验:'pt-exp', 情感:'pt-emo'};
-  const ptBadge = item.painType && ptClassMap[item.painType]
-    ? `<span class="pain-type-badge ${ptClassMap[item.painType]}">${escHtml(item.painType)}</span>` : '';
+  // 3 核心信号 pills
+  const soloLabel = { yes: '👤 一人可行', maybe: '👤 需评估', hard: '👤 需团队' }[item.soloFit || 'maybe'];
+  const soloClass = { yes: 'solo-yes', maybe: 'solo-maybe', hard: 'solo-hard' }[item.soloFit || 'maybe'];
+  const chinaLabel = { high: '🇨🇳 高适配', mid: '🇨🇳 中适配', low: '🇨🇳 受限' }[item.chinaFit || 'mid'];
+  const chinaClass = { high: 'china-high', mid: 'china-mid', low: 'china-low' }[item.chinaFit || 'mid'];
 
-  // 技术栈 + 开发周期（评估区内）
-  let evalTechHtml = '';
-  if ((item.techStack && item.techStack.length) || item.devTimeline) {
-    const pills = (item.techStack||[]).map(t=>`<span class="eval-pill">${escHtml(t)}</span>`).join('');
-    const timeline = item.devTimeline ? `<span class="eval-timeline">⏱ ${escHtml(item.devTimeline)}</span>` : '';
-    evalTechHtml = `<div class="eval-row"><div class="eval-pills">${timeline}${pills}</div></div>`;
-  }
-
-  // 展开提示：只有存在 mvp 或 coldStart 才显示
-  const hasActionPlan = !!(item.mvp || item.coldStart);
-
-  // 极简模式信号行
-  const compactSoloClass = {yes:'solo-yes', maybe:'solo-maybe', hard:'solo-hard'}[item.soloFit||'maybe']||'solo-maybe';
-  const compactSoloLabel = {yes:'👤 一人可行', maybe:'👤 需评估', hard:'👤 需团队'}[item.soloFit||'maybe']||'👤 需评估';
-  const compactSignals = `
-    <div class="card-compact-signals">
-      <span class="compact-tag ${compactSoloClass}">${compactSoloLabel}</span>
-      ${item.devTimeline?`<span class="compact-tag eval-timeline">⏱ ${escHtml(item.devTimeline)}</span>`:''}
-      ${item.chinaFit==='high'?`<span class="compact-tag china-high">🇨🇳 高匹配</span>`:''}
-      ${item.mrr?`<span class="compact-tag" style="background:rgba(34,197,94,0.14);color:#4ade80">💰 ${escHtml(item.mrr)}</span>`:''}
+  const pillHtml = `
+    <div class="card-pills">
+      <span class="card-pill ${soloClass}">${soloLabel}</span>
+      ${item.chinaFit === 'high' ? `<span class="card-pill ${chinaClass}">${chinaLabel}</span>` : ''}
+      ${item.devTimeline ? `<span class="card-pill eval-timeline">⏱ ${escHtml(item.devTimeline)}</span>` : ''}
+      ${item.mrr ? `<span class="card-pill" style="background:rgba(34,197,94,0.14);color:#4ade80">💰 ${escHtml(item.mrr)}</span>` : ''}
     </div>`;
+
   const displayProblem = getDisplayProblem(item);
-  const problemLine = displayProblem ? `
-    <div class="card-problem-line">
-      <div class="problem-line-text">${escHtml(displayProblem)}</div>
-    </div>` : '';
 
   return `
-  <div class="card-wrap ${scoreClass(sc)}${isRead?' is-read':''} card-compact" data-cid="${eid}">
-    <div class="card" role="button" tabindex="0" aria-expanded="false"
-         onclick="toggleExpand('${eid}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleExpand('${eid}')}"
-         aria-label="${titleEsc}，来源 ${escHtml(item.sourceLabel||'')}，点击展开行动计划">
+  <div class="card-wrap ${scoreClass(sc)}${isRead ? ' is-read' : ''}" data-cid="${eid}">
+    <div class="card" role="button" tabindex="0"
+         onclick="openDetailOverlay('${eid}')"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openDetailOverlay('${eid}')}"
+         aria-label="${titleEsc}，点击查看详细分析">
       <div class="card-top">
         <div class="source-row">
           <div class="dot ${dotClass(item.source, item.sourceLabel)}" aria-hidden="true"></div>
-          <span class="src-name">${escHtml(item.sourceLabel||'')}</span>
-          ${extScore?`<span class="ext-score" aria-label="社区热度 ${extScore}">▲${extScore}</span>`:''}
-          ${item.category?`<span class="cat-tag">${escHtml(item.category)}</span>`:''}
-          ${ptBadge}
+          <span class="src-name">${escHtml(item.sourceLabel || '')}</span>
+          ${extScore ? `<span class="ext-score">▲${extScore}</span>` : ''}
+          ${item.category ? `<span class="cat-tag">${escHtml(item.category)}</span>` : ''}
         </div>
-        <div class="score-bar" aria-label="潜力评分 ${sc} 分（满分5分）">${scoreDots(sc)}</div>
+        <div class="score-bar" aria-label="潜力评分 ${sc} 分">${scoreDots(sc)}</div>
       </div>
       <div class="card-body">
-        <div class="card-title" style="margin-bottom:${showEngSub?'2px':'6px'}">${titleEsc}</div>
-        ${showEngSub?`<div class="eng-title">${escHtml(rawTitle)}</div>`:''}
-        ${item.mrr?`<div class="mrr-badge" aria-label="已验证月收入" style="margin-bottom:8px">💰 ${escHtml(item.mrr)}</div>`:''}
-        ${problemLine}
-        ${compactSignals}
-        ${displayProblem?`<div class="card-section section-pain">
-          <span class="section-label">❌ 传统痛点</span>
-          <div class="section-text">${escHtml(displayProblem)}</div>
-        </div>`:''}
-        ${item.aiAnalyzed && item.solution?`<div class="card-section section-solution">
-          <span class="section-label">✨ 创新解法</span>
-          <div class="section-text">${escHtml(item.solution)}</div>
-        </div>`:''}
-        <div class="section-eval" aria-label="一人公司可行性评估">
-          <div class="eval-row">
-            <span class="eval-tag ${chinaClass}">${chinaLabel}</span>
-            ${item.aiAnalyzed ? `<span class="eval-desc">${escHtml(chinaReason)}</span>` : ''}
-          </div>
-          <div class="eval-row">
-            <span class="eval-tag ${soloClass}">${soloLabel}</span>
-            ${item.aiAnalyzed ? `<span class="eval-desc">${escHtml(soloReason)}</span>` : ''}
-          </div>
-          ${evalTechHtml}
-        </div>
-        ${hasActionPlan?`<div class="expand-hint">行动计划 <span class="expand-hint-arrow">↓</span></div>`:''}
+        <div class="card-title">${titleEsc}</div>
+        ${displayProblem ? `<div class="problem-line-text" style="font-size:13px;color:#777;line-height:1.5;margin-top:4px;margin-bottom:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${escHtml(displayProblem)}</div>` : ''}
+        ${pillHtml}
       </div>
-    </div>
-    <div class="card-detail" id="detail-${eid}">
-      <div class="detail-inner">${renderDetail(item)}</div>
-    </div>
-    <div class="card-actions">
-      <button class="action-btn action-bk${isBk?' starred':''}" data-bk="${eid}"
-        aria-label="${isBk?'取消收藏':'收藏这条创意'}"
-        onclick="toggleBookmark('${eid}',event)">${isBk?'♥ 已收藏':'♡ 收藏'}</button>
-      <button class="action-btn sep"
-        aria-label="分享这条创意"
-        onclick="shareIdea('${eid}',event)">↗ 分享</button>
-      <button class="action-btn sep"
-        aria-label="查看原文"
-        onclick="openSource('${eid}',event)">→ 原文</button>
     </div>
   </div>`;
 }
@@ -1166,6 +1105,7 @@ function toggleFilterExpand() {
   const btn  = document.getElementById('filterMoreBtn');
   const expanded = wrap.classList.toggle('expanded');
   btn.textContent = expanded ? '收起 ↑' : '更多 ↓';
+  btn.setAttribute('aria-label', expanded ? '收起更多筛选' : '展开更多筛选');
   btn.classList.toggle('expanded', expanded);
 }
 

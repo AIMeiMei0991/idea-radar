@@ -357,18 +357,22 @@ body{background:#0a0a0f;color:#e2e2e2;font-family:-apple-system,BlinkMacSystemFo
 <div class="topbar" id="topbar">
   <div class="topbar-inner">
     <div>
-      <div class="logo"><span class="logo-icon">📡</span>创意雷达</div>
-      <div class="logo-sub">传统需求 × 创新解法 = 一人公司机会</div>
+      <div class="logo"><span class="logo-icon">🎯</span>创意雷达</div>
       <div class="update-time" id="updateTime">每天 08:00 自动更新</div>
     </div>
     <div style="display:flex;gap:6px;align-items:center">
-      <button class="read-toggle" id="clearReadBtn" onclick="clearAllRead()" style="color:#666" aria-label="清空全部已读记录">清空已读</button>
-      <button class="read-toggle" id="readToggle" onclick="toggleHideRead()" aria-label="切换隐藏/显示已读卡片">隐藏已读</button>
       <div class="dp-wrap" id="dpWrap">
         <button class="date-picker-btn" id="datePickerBtn" onclick="toggleDatePicker(event)" aria-label="按日期筛选" aria-haspopup="listbox">
-          📅 <span id="datePickerLabel">日期</span><span class="dp-arrow">▾</span>
+          <span id="datePickerLabel">日期</span><span class="dp-arrow">▾</span>
         </button>
         <div class="date-dropdown" id="dateDropdown" role="listbox" aria-label="选择日期"></div>
+      </div>
+      <div style="position:relative">
+        <button class="date-picker-btn" id="moreMenuBtn" onclick="toggleMoreMenu(event)" aria-label="更多操作" aria-haspopup="true">⋯</button>
+        <div class="date-dropdown" id="moreMenuDropdown" style="min-width:120px">
+          <div class="date-dropdown-item" onclick="clearAllRead();closeMoreMenu()">清空已读</div>
+          <div class="date-dropdown-item" id="hideReadMenuItem" onclick="toggleHideRead();closeMoreMenu()">隐藏已读</div>
+        </div>
       </div>
     </div>
   </div>
@@ -592,9 +596,10 @@ function toggleFilter(type) {
 function toggleHideRead() {
   hideRead = !hideRead;
   const btn = document.getElementById('readToggle');
-  btn.textContent = hideRead ? '显示已读' : '隐藏已读';
-  btn.classList.toggle('active', hideRead);
+  if (btn) { btn.textContent = hideRead ? '显示已读' : '隐藏已读'; btn.classList.toggle('active', hideRead); }
   currentPage = 1; filterAndRender();
+  const menuItem = document.getElementById('hideReadMenuItem');
+  if (menuItem) menuItem.textContent = hideRead ? '显示已读' : '隐藏已读';
 }
 
 function updateBadge() {
@@ -713,6 +718,21 @@ function toggleDatePicker(e) {
   dd.classList.toggle('show', !isOpen);
   btn.classList.toggle('open', !isOpen);
 }
+function toggleMoreMenu(e) {
+  e.stopPropagation();
+  const dropdown = document.getElementById('moreMenuDropdown');
+  const btn = document.getElementById('moreMenuBtn');
+  const isOpen = dropdown.classList.contains('show');
+  // 关闭 date dropdown（互斥）
+  document.getElementById('dateDropdown').classList.remove('show');
+  document.getElementById('datePickerBtn').classList.remove('open');
+  dropdown.classList.toggle('show', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+}
+function closeMoreMenu() {
+  document.getElementById('moreMenuDropdown').classList.remove('show');
+  document.getElementById('moreMenuBtn').classList.remove('open');
+}
 
 function setDateFilter(date) {
   filterDate = date;
@@ -734,6 +754,7 @@ document.addEventListener('click', function(e) {
     if (dd) dd.classList.remove('show');
     if (btn) btn.classList.remove('open');
   }
+  closeMoreMenu();
 });
 
 // ── 筛选 & 渲染 ──────────────────────────────────────
